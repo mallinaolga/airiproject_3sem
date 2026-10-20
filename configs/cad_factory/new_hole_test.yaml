@@ -1,0 +1,504 @@
+cad_factory_config:
+  name: new_hole_test
+  factories:
+    0:
+      either:
+        factory:
+          probabilities: [0.03, 0.02, 0.24, 0.16, 0.55]
+          factories:
+          - 0:
+              loft:
+                factory: {}
+                probability: 1
+            1:
+              stop:
+                factory: {}
+                probability: 1
+          - 0:
+              sweep:
+                factory: {}
+                probability: 1
+            1:
+              stop:
+                factory: {}
+                probability: 1
+          - 0:
+              revolve:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                  full_revolve_probability: 0.5
+                  
+                plane: 0
+                probability: 1
+            1:
+              circular_pattern:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                  full_circular_pattern_probability: 0.8
+                  cut_probability: 0.5
+                probability: 0.75
+          - 0:
+              revolve:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                  full_revolve_probability: 0.5
+                  
+                plane: 0
+                probability: 1
+            1:
+              block:
+                factory:
+                  factories:
+                    - selected_face_plane:
+                        factory:
+                          top_p: 0.9
+                        probability: 1.0
+                    - hole:
+                        factory:
+                          hole_type_probabilities:
+                            cut_thru_all: 1.0
+                            through: 0.0
+                            blind: 0.0
+                            cbore: 0.0
+                            csk: 0.0
+                          sketch_factory:
+                            min_n_commands: 1
+                            max_n_commands: 1
+                            n_outer_probabilities: [1.0]
+                            rotation_probability: 0.3
+                            array_pattern_probability: 0.0
+                            from_sketchgraph: false
+                        probability: 1.0
+                probability: 0.75
+            2:
+              block:
+                factory:
+                  factories:
+                    - selected_face_plane:
+                        factory:
+                          top_p: 0.9
+                        probability: 1.0
+                    - hole:
+                        factory:
+                          hole_type_probabilities:
+                            cut_thru_all: 1.0
+                            through: 0.0
+                            blind: 0.0
+                            cbore: 0.0
+                            csk: 0.0
+                          sketch_factory:
+                            min_n_commands: 1
+                            max_n_commands: 1
+                            n_outer_probabilities: [1.0]
+                            rotation_probability: 0.3
+                            array_pattern_probability: 0.0
+                            from_sketchgraph: false
+                        probability: 1.0
+                probability: 0.5
+            
+          - 0:
+              extrude:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                plane: 0
+                selected_plane_probability: 0
+                probability: 1
+                
+            1:
+              extrude:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [0.8, 0.2]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                plane: 0
+                selected_plane_probability: 0.8
+                selected_plane_centered_probability: 0.2
+                probability: 0.5
+            2:      
+              extrude:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [0.8, 0.2]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                plane: 0
+                selected_plane_probability: 0.8
+                selected_plane_centered_probability: 0.2
+                probability: 0.3
+            3:    
+              extrude:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities:
+                    - 0.8
+                    - 0.2
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                plane: 0
+                selected_plane_probability: 0.8
+                selected_plane_centered_probability: 0.2
+                probability: 0.2
+            4:
+              extrude:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities:
+                    - 0.8
+                    - 0.2
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                plane: 0
+                selected_plane_probability: 0.8
+                selected_plane_centered_probability: 0.2
+                probability: 0.1
+            5:
+              selected_face_plane:
+                factory:
+                  top_p: 0.9
+                probability: 0.5
+            6:
+              selected_face_plane:
+                factory:
+                  top_p: 0.9
+                probability: 0.3
+            7:
+              selected_face_plane:
+                factory:
+                  top_p: 0.9
+                probability: 0.2
+            8:
+              selected_face_plane:
+                factory:
+                  top_p: 0.9
+                probability: 0.1
+
+            9:
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    blind: 0.34
+                    through: 0.0
+                    cut_thru_all: 0.0
+                    cbore: 0.33
+                    csk: 0.33
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 8
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                plane: 0
+                probability: 0.5
+            
+            10:
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    blind: 0.34
+                    through: 0.0
+                    cut_thru_all: 0.0
+                    cbore: 0.33
+                    csk: 0.33
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 8
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                plane: 0
+                probability: 0.3
+            
+            11:
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    blind: 0.34
+                    through: 0.0
+                    cut_thru_all: 0.0
+                    cbore: 0.33
+                    csk: 0.33
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 8
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                plane: 0
+                probability: 0.2
+            12:
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    blind: 0.34
+                    through: 0.0
+                    cut_thru_all: 0.0
+                    cbore: 0.33
+                    csk: 0.33
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 8
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                plane: 0
+                probability: 0.1
+                    
+            13:
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    blind: 0.34
+                    through: 0.0
+                    cut_thru_all: 0.0
+                    cbore: 0.33
+                    csk: 0.33
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 8
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                plane: 0
+                probability: 0.1
+
+            14:
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    blind: 0.34
+                    through: 0.0
+                    cut_thru_all: 0.0
+                    cbore: 0.33
+                    csk: 0.33
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 8
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                plane: 0
+                probability: 0.1
+              
+            15:
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    blind: 0.34
+                    through: 0.0
+                    cut_thru_all: 0.0
+                    cbore: 0.33
+                    csk: 0.33
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 8
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                plane: 0
+                probability: 0.1
+
+            16:    
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    cut_thru_all: 1.0
+                    through: 0.0
+                    blind: 0.0
+                    cbore: 0.0
+                    csk: 0.0
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                probability: 0.5
+
+            17:    
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    cut_thru_all: 1.0
+                    through: 0.0
+                    blind: 0.0
+                    cbore: 0.0
+                    csk: 0.0
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                probability: 0.3
+
+            18:    
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    cut_thru_all: 1.0
+                    through: 0.0
+                    blind: 0.0
+                    cbore: 0.0
+                    csk: 0.0
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                probability: 0.2
+
+            19:    
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    cut_thru_all: 1.0
+                    through: 0.0
+                    blind: 0.0
+                    cbore: 0.0
+                    csk: 0.0
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                probability: 0.1
+
+            20:    
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    cut_thru_all: 1.0
+                    through: 0.0
+                    blind: 0.0
+                    cbore: 0.0
+                    csk: 0.0
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                probability: 0.1
+
+            21:    
+              hole:
+                factory:
+                  hole_type_probabilities:
+                    cut_thru_all: 1.0
+                    through: 0.0
+                    blind: 0.0
+                    cbore: 0.0
+                    csk: 0.0
+                  sketch_factory:
+                    min_n_commands: 1
+                    max_n_commands: 1
+                    n_outer_probabilities: [1.0]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.0
+                    from_sketchgraph: false
+                probability: 0.1
+
+            22:
+              fillet_chamfer:
+                factory:
+                  fillet_chamfer_probs: [0.5, 0.5]
+                  equal_offsets_prob: 0.5
+                probability: 0.5
+
+            23:
+              fillet_chamfer:
+                factory:
+                  fillet_chamfer_probs: [0.5, 0.5]
+                  equal_offsets_prob: 0.5
+                probability: 0.5
+            
+            24:
+              fillet_chamfer:
+                factory:
+                  fillet_chamfer_probs: [0.5, 0.5]
+                  equal_offsets_prob: 0.5
+                probability: 0.5
+            
+            25:
+              fillet_chamfer:
+                factory:
+                  fillet_chamfer_probs: [0.5, 0.5]
+                  equal_offsets_prob: 0.5
+                probability: 0.5
+            
+            26:
+              fillet_chamfer:
+                factory:
+                  fillet_chamfer_probs: [0.5, 0.5]
+                  equal_offsets_prob: 0.5
+                probability: 0.5
+
+  world_size: 200
+  max_string_length: 800

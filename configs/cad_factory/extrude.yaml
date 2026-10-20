@@ -1,0 +1,140 @@
+cad_factory_config:
+  name: extrude
+  factories:
+    0:
+      either:
+        factory:
+          probabilities: [1, 0, 0]
+          factories:
+          - 0:
+              extrude:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 8
+                    max_n_commands: 12
+                    n_outer_probabilities: [ 1.0 ]
+                    rotation_probability: 0.2
+                    array_pattern_probability: 0.0
+                    from_sketchgraph_probability: 0.7
+                  tangent_plane_prob: 1
+                  out_of_face_prob: 0
+                  point_out_of_surface_probability: 0
+                plane: 0
+                probability: 1.0
+          - 0:
+              revolve:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 10
+                    max_n_commands: 15
+                    n_outer_probabilities: [ 0.65, 0.2, 0.1, 0.05 ]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0
+                    from_sketchgraph_probability: 0.7
+                  tangent_plane_prob: 0
+                  full_revolve_probability: 0.8
+                  min_revolve_angle: 30
+                plane: 0
+                probability: 1.0
+          - 0:
+              shell:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 8
+                    max_n_commands: 12
+                    n_outer_probabilities: [ 1.0 ]
+                    rotation_probability: 0.2
+                    array_pattern_probability: 0.0
+                    from_sketchgraph_probability: 0
+                  tangent_plane_prob: 0
+                  bottom_probability: 0.5
+                plane: 0
+                probability: 1.0
+    1:
+      extrude:
+        factory:
+          sketch_factory:
+            min_n_commands: 5
+            max_n_commands: 10
+            n_outer_probabilities: [ 1.0 ]
+            rotation_probability: 0.2
+            array_pattern_probability: 0.0
+            from_sketchgraph_probability: 0.7
+          tangent_plane_prob: 0.6
+          out_of_face_prob: 0.35
+          point_out_of_surface_probability: 1
+        plane: 0
+        probability: 1.0
+
+#    1:
+#      either:
+#        n_times: 1
+#        factory:
+#          probabilities: [ 0.5, 0, 0, 0, 0 ]
+#          factories:
+#            - 0:
+#                extrude:
+#                  factory:
+#                    sketch_factory:
+#                      min_n_commands: 5
+#                      max_n_commands: 10
+#                      n_outer_probabilities: [ 1.0 ]
+#                      rotation_probability: 0.2
+#                      array_pattern_probability: 0.0
+#                      from_sketchgraph_probability: 0.7
+#                    tangent_plane_prob: 0.6
+#                    out_of_face_prob: 0.35
+#                    point_out_of_surface_probability: 1
+#                  plane: 0
+#                  probability: 1.0
+#            - 0:
+#                shell:
+#                  factory:
+#                    sketch_factory:
+#                      min_n_commands: 8
+#                      max_n_commands: 12
+#                      n_outer_probabilities: [ 1.0 ]
+#                      rotation_probability: 0.2
+#                      array_pattern_probability: 0.0
+#                      from_sketchgraph_probability: 0
+#                    tangent_plane_prob: 1
+#                    bottom_probability: 0.5
+#                  plane: 0
+#                  probability: 1.0
+#            - 0:
+#                hole:
+#                  factory:
+#                    hole_type_probabilities:
+#                      blind: 0.2
+#                      through: 0.2
+#                      cut_thru_all: 0.1
+#                      multi_cbore: 0.1
+#                      cbore: 0.1
+#                      csk: 0.1
+#                    sketch_factory:
+#                      min_n_commands: 5
+#                      max_n_commands: 8
+#                      n_outer_probabilities: [ 1.0 ]
+#                      rotation_probability: 0.2
+#                      array_pattern_probability: 0.0
+#                      from_sketchgraph_probability: 0.7
+#                  plane: 0
+#                  probability: 1.0
+#            - 0:
+#                orto_cut:
+#                  factory:
+#                    inner_cut_probability: 0.3
+#                  probability: 1.0
+#            - 0:
+#                fillet_chamfer:
+#                  factory:
+#                    fillet_chamfer_probs: [ 0.5, 0.5 ]
+#                    equal_offsets_prob: 0.5
+#                  probability: 1
+
+
+  world_size: 200
+  max_string_length: 8000
+  n_retries: 20
+  n_extrude_retries: 20
+  single_solid_check: false

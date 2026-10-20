@@ -1,0 +1,57 @@
+cad_factory_config:
+  name: new_hole_sc_logic_revolve_circ_p_long_v1_sg_sketches
+  factories:
+    0:
+      either:
+        factory:
+          probabilities: [0.3, 0.35, 0.35]
+          factories:
+          - 0:
+              loft:
+                factory: {}
+                probability: 1
+            1:
+              stop:
+                factory: {}
+                probability: 1
+          - 0:
+              sweep_init:
+                factory: {}
+                probability: 1
+            1:
+              stop:
+                factory: {}
+                probability: 1
+          - 0:
+              extrude:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 3
+                    max_n_commands: 8
+                    n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: true
+                plane: 0
+                reuse_plane_probability: 0
+                selected_plane_probability: 0
+                probability: 1
+            1:
+              fillet_chamfer:
+                factory:
+                  fillet_chamfer_probs: [0, 1]
+                  equal_offsets_prob: 0.5
+                probability: 1
+            2:
+              fillet_chamfer:
+                factory:
+                  fillet_chamfer_probs: [1, 0]
+                  equal_offsets_prob: 0.5
+                probability: 1
+
+  world_size: 200
+  max_string_length: 800
+  n_retries: 30
+  n_extrude_retries: 30

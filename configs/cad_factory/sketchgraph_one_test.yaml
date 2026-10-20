@@ -1,0 +1,29 @@
+cad_factory_config:
+  name: sketchgraph_one_test
+  factories:
+    0:
+      either:
+        factory:
+          probabilities: [1.0]
+          factories:
+          - 0:
+              extrude:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 3
+                    max_n_commands: 8
+                    n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                plane: 0
+                reuse_plane_probability: 0
+                selected_plane_probability: 0
+                probability: 1
+          
+  world_size: 200
+  max_string_length: 800
+  n_retries: 30
+  n_extrude_retries: 30

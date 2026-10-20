@@ -1,0 +1,86 @@
+cad_factory_config:
+  name: eo_r_h_sc
+  factories:
+    0:
+      sketch:
+        factory: 
+          min_n_commands: 3
+          max_n_commands: 8
+          n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+          rotation_probability: 0.3
+          revolve_probability: 0.15
+          full_revolve_probability: 0.5
+          array_pattern_probability: 0.0
+          array_pattern_sketch_min_n_commands: 1
+          array_pattern_sketch_max_n_commands: 3
+          hole_probability: 0.3
+          hole_n_inner_probabilities: [0.5, 0.3, 0.2]
+          hole_outer_probability: 0.5
+          hole_symmetric_probability: 0.3
+          hole_cbore_probability: 0.6
+          from_sketchgraph: false
+        plane: 0
+        probability: 1
+
+    1:
+      face_fillet_chamfer:
+        factory:
+          fillet_chamfer_probs: [0.5, 0.5]
+          equal_offsets_prob: 0.5
+        probability: 0.03
+
+    2:
+      sketch:
+        factory:
+          min_n_commands: 3
+          max_n_commands: 8
+          n_outer_probabilities: [0.8, 0.2]
+          rotation_probability: 0.3
+          revolve_probability: 0.15
+          full_revolve_probability: 0.5
+          from_sketchgraph: false
+        plane: 0
+        probability: 0.5
+
+    3:
+      face_fillet_chamfer:
+        factory: 
+          fillet_chamfer_probs: [0.5, 0.5]
+          equal_offsets_prob: 0.5
+        probability: 0.09
+
+    4:
+      sketch:
+        factory:
+          min_n_commands: 1
+          max_n_commands: 2
+          n_outer_probabilities: [1]
+          rotation_probability: 0
+          revolve_probability: 0.5
+          full_revolve_probability: 0.5
+          from_sketchgraph: false
+        plane: 0
+        probability: 0.3
+    
+    5:
+      sketch:
+        factory:
+          min_n_commands: 3
+          max_n_commands: 8
+          n_outer_probabilities: [1]
+          rotation_probability: 0
+          revolve_probability: 0.15
+          full_revolve_probability: 0.5
+          from_sketchgraph: false
+        plane: 1
+        probability: 0.3
+
+    6:
+      face_fillet_chamfer:
+        factory:
+          fillet_chamfer_probs: [0.5, 0.5]
+          equal_offsets_prob: 0.5
+        probability: 0.03
+
+  world_size: 200
+  max_string_length: 800
