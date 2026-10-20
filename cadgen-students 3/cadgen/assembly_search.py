@@ -1,310 +1,143 @@
-
-# Этап 8. Автоматический поиск возможных соединений между CAD-деталями.
-# Объединяет анализ геометрии, поиск кандидатов, совмещение и проверку сборки.
+"""Search a generated STEP dataset directly; export contact/fit assemblies."""
 
 import argparse
-import json
-import subprocess
-import sys
 from collections import Counter
+from dataclasses import asdict
+from datetime import datetime
+from itertools import combinations, islice
+import json
 from pathlib import Path
+import time
+
+import cadquery as cq
+
+from .connection_search import SearchSettings, describe_part, search_pair
+from .geometry_analysis import load_part
 
 
-def load_json(path):
-    with open(path, "r", encoding="utf-8") as file:
-        data = json.load(file)
+def export_connection(a, moved_b, path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    assembly = cq.Assembly(name=path.stem)
+    assembly.add(a, name="part_a", color=cq.Color(0.2, 0.55, 0.9))
+    assembly.add(moved_b, name="part_b", color=cq.Color(1.0, 0.6, 0.15))
+    cq.exporters.export(assembly.toCompound(), str(path.with_suffix(".stl")),
+                        tolerance=0.05, angularTolerance=0.1)
+    assembly.save(str(path.with_suffix(".step")), exportType="STEP")
 
-    if not isinstance(data, list):
-        raise ValueError(f"Ожидается JSON-массив: {path}")
 
-    return data
-
-
-def run_stage(module_name, arguments, project_root):
-    command = [
-        sys.executable,
-        "-m",
-        module_name,
-        *arguments,
-    ]
-
-    print(f"\nЗапуск: {' '.join(command)}", flush=True)
-
-    subprocess.run(
-        command,
-        cwd=project_root,
-        check=True,
+def run_search(folder, output, settings, max_pairs=None, max_exports=100):
+    folder, output = Path(folder).resolve(), Path(output).resolve()
+    if not folder.is_dir():
+        raise ValueError(f"STEP folder does not exist: {folder}")
+    # Results must not become inputs on the next invocation.
+    files = sorted(p for p in folder.rglob("*")
+                   if p.suffix.lower() in (".step", ".stp") and ".tmp." not in p.name
+                   and not any(part.startswith("connections_") or part in ("assemblies", "connections")
+                               for part in p.relative_to(folder).parts[:-1])
+                   and (p != output and output not in p.parents))
+    if not files:
+        raise ValueError(f"No STEP files under {folder}")
+    output.mkdir(parents=True, exist_ok=False)
+    parts, load_errors = [], []
+    for i, path in enumerate(files):
+        print(f"Reading {i+1}/{len(files)}: {path.name}", flush=True)
+        try:
+            parts.append(describe_part(str(path), load_part(path), settings))
+        except Exception as error:
+            load_errors.append(dict(file=str(path), error=f"{type(error).__name__}: {error}"))
+    total_pairs = len(parts)*(len(parts)-1)//2
+    planned = total_pairs if max_pairs is None else min(total_pairs, max_pairs)
+    report = dict(
+        schema_version=2, input_folder=str(folder), settings=asdict(settings),
+        note="Bounded geometric search. Two support directions, curved recess, or cylindrical "
+             "insertion; no material overlap. Approach is sampled, not continuously proven. "
+             "A not_found result is not a proof of impossibility. Units follow the imported STEP.",
+        parts=[dict(id=i, file=p.name, warnings=p.warnings) for i, p in enumerate(parts)],
+        load_errors=load_errors, pairs=[], summary={},
     )
+    counts = Counter()
+    exports = 0
+    start = time.monotonic()
 
-
-def count_candidates_with_clear_path(candidates):
-    count = 0
-
-    for candidate in candidates:
-        if candidate.get("path_sampled_clear") is True:
-            count += 1
-            continue
-
-        trials = candidate.get("path_trials", [])
-
-        if isinstance(trials, list) and any(
-            isinstance(trial, dict)
-            and trial.get("path_sampled_clear") is True
-            for trial in trials
-        ):
-            count += 1
-
-    return count
-
-
-def build_report(features, matching, alignments, validations):
-    matching_by_pair = {
-        (entry["part_a"], entry["part_b"]): entry
-        for entry in matching
-    }
-
-    alignment_by_pair = {
-        (entry["part_a"], entry["part_b"]): entry
-        for entry in alignments
-    }
-
-    results = []
-    status_totals = Counter()
-
-    for pair in validations:
-        part_a = pair["part_a"]
-        part_b = pair["part_b"]
-
-        pair_key = (part_a, part_b)
-
-        matching_info = matching_by_pair.get(pair_key, {})
-        alignment_info = alignment_by_pair.get(pair_key, {})
-
-        candidates = pair.get("validation_candidates", [])
-        pose_statuses = Counter(
-            candidate.get("status", "unknown")
-            for candidate in candidates
+    def save():
+        report["summary"] = dict(
+            input_files=len(files), parts_analyzed=len(parts), load_errors=len(load_errors),
+            total_possible_pairs=total_pairs, pairs_checked=len(report["pairs"]),
+            pairs_skipped=total_pairs-len(report["pairs"]), status_counts=dict(counts),
+            assemblies_exported=exports, elapsed_seconds=round(time.monotonic()-start, 2),
         )
+        temporary = output / "report.tmp"
+        temporary.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+        temporary.replace(output / "report.json")
 
-        clear_paths = count_candidates_with_clear_path(candidates)
-
-        # Подтверждение возможно только при явной проверке
-        # посадки и непрерывного пути сборки.
-        confirmed = [
-            candidate
-            for candidate in candidates
-            if candidate.get("status") == "confirmed_connection"
-            and candidate.get("tolerances_checked") is True
-            and candidate.get("assembly_path_checked") is True
-            and candidate.get("continuous_path_checked") is True
-        ]
-
-        has_contact = any(
-            candidate.get("status") in (
-                "contact_candidate",
-                "planar_contact_candidate",
-            )
-            or (
-                candidate.get("intersection_volume") == 0
-                and candidate.get("planar_contact_area", 0) > 0
-            )
-            for candidate in candidates
-        )
-
-        if confirmed:
-            result_status = "confirmed_connection"
-
-        elif has_contact:
-            result_status = "requires_connector_validation"
-
-        elif candidates and all(
-            candidate.get("status") == "collision"
-            for candidate in candidates
-        ):
-            result_status = "all_tested_poses_collide"
-
-        elif not candidates:
-            result_status = "no_pose_candidates"
-
-        else:
-            result_status = "not_confirmed"
-
-        status_totals[result_status] += 1
-
-        results.append({
-            "part_a": part_a,
-            "part_b": part_b,
-            "status": result_status,
-            "cylindrical_matching": matching_info,
-            "alignment_candidates_count": len(
-                alignment_info.get("alignment_candidates", [])
-            ),
-            "validated_poses_count": len(candidates),
-            "pose_status_counts": dict(pose_statuses),
-            "sampled_clear_paths_count": clear_paths,
-            "confirmed_poses_count": len(confirmed),
-        })
-
-    summary = {
-        "parts_analyzed": len(features),
-        "pairs_checked": len(results),
-        "pairs_with_alignment": sum(
-            item["alignment_candidates_count"] > 0
-            for item in results
-        ),
-        "poses_checked": sum(
-            item["validated_poses_count"]
-            for item in results
-        ),
-        "preliminary_pairs": status_totals[
-            "requires_connector_validation"
-        ],
-        "confirmed_pairs": status_totals[
-            "confirmed_connection"
-        ],
-        "pair_status_counts": dict(status_totals),
-    }
-
-    return {
-        "summary": summary,
-        "confirmation_note": (
-            "Контакт и дискретно свободный путь не доказывают "
-            "совместимость соединительных элементов. "
-            "Требуется проверка посадки и непрерывной траектории."
-        ),
-        "pairs": results,
-    }
+    save()
+    try:
+        for k, ((i, a), (j, b)) in enumerate(
+                islice(combinations(enumerate(parts), 2), planned), 1):
+            result, moved = search_pair(a, b, settings)
+            result.update(part_a=a.name, part_b=b.name, part_a_id=i, part_b_id=j)
+            if moved is not None and exports < max_exports:
+                target = output / "assemblies" / f"pair_{i:03d}_{j:03d}"
+                try:
+                    export_connection(a.shape, moved, target)
+                    result["assembly_stl"] = target.with_suffix(".stl").relative_to(output).as_posix()
+                    result["assembly_step"] = target.with_suffix(".step").relative_to(output).as_posix()
+                    exports += 1
+                except Exception as error:
+                    result["export_error"] = f"{type(error).__name__}: {error}"
+            elif moved is not None:
+                result["export_skipped"] = "max_exports"
+            counts[result["status"]] += 1
+            report["pairs"].append(result)
+            save()
+            print(f"Pair {k}/{planned}: {i} + {j}: {result['status']}; "
+                  f"poses={result['tested_poses']}", flush=True)
+    except KeyboardInterrupt:
+        report["interrupted"] = True
+        save()
+        print("Interrupted. Completed pair results have been saved.", flush=True)
+    print(json.dumps(report["summary"], ensure_ascii=False, indent=2))
+    print(f"Report: {output / 'report.json'}")
+    if len(parts) == 1:
+        print("One part: no distinct pair to check. Generate at least two parts.")
+    return report
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Этап 8: автоматический поиск соединений CAD-деталей"
-    )
-
-    parser.add_argument(
-        "--folder",
-        default="generations/demo/train/0",
-        help="Папка со STEP-файлами",
-    )
-
-    parser.add_argument(
-        "--project-root",
-        default=".",
-        help="Корневая папка проекта",
-    )
-
-    parser.add_argument(
-        "--output",
-        default="assembly_search.json",
-        help="Итоговый JSON-отчёт",
-    )
-
-    parser.add_argument(
-        "--reuse-files",
-        action="store_true",
-        help="Использовать существующие JSON без повторного анализа",
-    )
-
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--folder", required=True, help="Dataset or train folder; STEP search is recursive")
+    parser.add_argument("--output", help="New results directory; never overwrite an earlier run")
+    parser.add_argument("--project-root", default=".", help="Base directory for relative paths")
+    parser.add_argument("--max-poses", type=int, default=32, help="Maximum poses per pair")
+    parser.add_argument("--max-pairs", type=int, help="Optional limit; default: all distinct pairs")
+    parser.add_argument("--max-exports", type=int, default=100, help="Maximum exported assemblies")
+    parser.add_argument("--contact-tolerance", type=float, default=0.1)
+    parser.add_argument("--volume-tolerance", type=float, default=1e-5)
+    parser.add_argument("--min-contact-area", type=float, default=0.1)
+    parser.add_argument("--min-engagement", type=float, default=1.0)
+    parser.add_argument("--path-steps", type=int, default=12)
     args = parser.parse_args()
-
+    import math
+    numbers = (args.contact_tolerance, args.volume_tolerance,
+               args.min_contact_area, args.min_engagement)
+    if any(not math.isfinite(x) or x <= 0 for x in numbers):
+        parser.error("Geometric tolerances, contact area and engagement must be finite and positive")
+    if (args.max_poses < 1 or args.path_steps < 2 or args.max_exports < 0
+            or (args.max_pairs is not None and args.max_pairs < 0)):
+        parser.error("max-poses >= 1, path-steps >= 2, max-pairs/max-exports >= 0")
     root = Path(args.project_root).resolve()
-
-    files = {
-        "features": root / "connection_features.json",
-        "matching": root / "connection_matching.json",
-        "alignment": root / "assembly_alignment.json",
-        "validation": root / "assembly_validation.json",
-    }
-
-    if not args.reuse_files:
-        folder = Path(args.folder)
-
-        if not folder.is_absolute():
-            folder = root / folder
-
-        if not folder.is_dir():
-            parser.error(f"Папка с STEP-файлами не найдена: {folder}")
-
-        # Этапы 3–5: распознавание и сопоставление.
-        run_stage(
-            "cadgen.connection_features",
-            [
-                str(folder),
-                "--output",
-                str(files["features"]),
-            ],
-            root,
-        )
-
-        run_stage(
-            "cadgen.connection_matching",
-            [
-                "--features",
-                str(files["features"]),
-                "--output",
-                str(files["matching"]),
-            ],
-            root,
-        )
-
-        # Этап 6: построение гипотез совмещения.
-        run_stage(
-            "cadgen.assembly_alignment",
-            [],
-            root,
-        )
-
-        # Этап 7: проверка геометрии и пути сборки.
-        run_stage(
-            "cadgen.assembly_validation",
-            [],
-            root,
-        )
-
-    for filename in files.values():
-        if not filename.is_file():
-            parser.error(f"Не найден файл: {filename}")
-
-    report = build_report(
-        load_json(files["features"]),
-        load_json(files["matching"]),
-        load_json(files["alignment"]),
-        load_json(files["validation"]),
-    )
-
-    output_path = Path(args.output)
-
-    if not output_path.is_absolute():
-        output_path = root / output_path
-
-    output_path.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    with open(output_path, "w", encoding="utf-8") as file:
-        json.dump(
-            report,
-            file,
-            indent=4,
-            ensure_ascii=False,
-        )
-
-    summary = report["summary"]
-
-    print("\n========== ЭТАП 8 ==========")
-    print(f"Проанализировано деталей: {summary['parts_analyzed']}")
-    print(f"Проверено пар: {summary['pairs_checked']}")
-    print(f"Пар с совмещениями: {summary['pairs_with_alignment']}")
-    print(f"Проверено положений: {summary['poses_checked']}")
-    print(f"Предварительных пар: {summary['preliminary_pairs']}")
-    print(f"Подтверждённых пар: {summary['confirmed_pairs']}")
-    print(f"Результаты сохранены: {output_path}")
-
-    print(
-        "\nВнимание: пока не проверены все требования "
-        "к посадке соединительных элементов."
-    )
+    folder = root / args.folder
+    output = root / args.output if args.output else (
+        folder / ("connections_" + datetime.now().strftime("%Y%m%d_%H%M%S_%f")))
+    settings = SearchSettings(contact_tolerance=args.contact_tolerance,
+                              volume_tolerance=args.volume_tolerance,
+                              min_contact_area=args.min_contact_area,
+                              min_engagement=args.min_engagement,
+                              max_poses=args.max_poses, path_steps=args.path_steps)
+    try:
+        run_search(folder, output, settings, args.max_pairs, args.max_exports)
+    except (ValueError, FileExistsError) as error:
+        parser.error(str(error))
 
 
 if __name__ == "__main__":

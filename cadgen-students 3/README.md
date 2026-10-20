@@ -3,6 +3,9 @@
 Generate CAD programs and STL meshes using public Python dependencies.
 No access to the original GitLab repositories is needed for procedural generation.
 
+Поиск соединений (уголок–куб, овальная выемка, вставка в отверстие), команды
+генерации 1/10/100 деталей и просмотр сборок: [CONNECTIONS.md](CONNECTIONS.md).
+
 ## Install
 
 Extract the archive, then open a terminal in the `cadgen-students` folder.
