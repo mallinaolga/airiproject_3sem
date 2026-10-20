@@ -1,0 +1,92 @@
+cad_factory_config:
+  name: selected_planes
+  factories:
+    0:
+      sketch:
+        factory: 
+          min_n_commands: 3
+          max_n_commands: 8
+          n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+          rotation_probability: 0.3
+          revolve_probability: 0.15
+          full_revolve_probability: 0.5
+          array_pattern_probability: 0.15
+          array_pattern_sketch_min_n_commands: 1
+          array_pattern_sketch_max_n_commands: 3
+          hole_probability: 0.3
+          hole_n_inner_probabilities: [0.5, 0.3, 0.2]
+          hole_outer_probability: 0.5
+          hole_symmetric_probability: 0.3
+          hole_cbore_probability: 0.6
+          side_cut_probability: 0.15
+          from_sketchgraph: false
+        plane: 0
+        probability: 1
+        selected_plane_probability: 0
+
+    1:
+      sketch:
+        factory:
+          min_n_commands: 3
+          max_n_commands: 8
+          n_outer_probabilities: [0.8, 0.2]
+          rotation_probability: 0.3
+          revolve_probability: 0.15
+          array_pattern_probability: 0.15
+          hole_probability: 0.3
+          hole_n_inner_probabilities: [0.5, 0.3, 0.2]
+          hole_outer_probability: 0.5
+          hole_symmetric_probability: 0.3
+          hole_cbore_probability: 0.6
+          side_cut_probability: 0.15
+          full_revolve_probability: 0.5
+          from_sketchgraph: false
+        plane: 0
+        probability: 1
+        selected_plane_probability: 1.0
+        selected_plane_centered_probability: 0.2
+    2:
+      sketch:
+        factory:
+          min_n_commands: 3
+          max_n_commands: 8
+          n_outer_probabilities: [0.8, 0.2]
+          rotation_probability: 0.3
+          revolve_probability: 0.15
+          array_pattern_probability: 0.15
+          hole_probability: 0.3
+          hole_n_inner_probabilities: [0.5, 0.3, 0.2]
+          hole_outer_probability: 0.5
+          hole_symmetric_probability: 0.3
+          hole_cbore_probability: 0.6
+          side_cut_probability: 0.15
+          full_revolve_probability: 0.5
+          from_sketchgraph: false
+        plane: 0
+        probability: 0.8
+        selected_plane_probability: 1.0
+        selected_plane_centered_probability: 0.2
+    3:
+      sketch:
+        factory:
+          min_n_commands: 3
+          max_n_commands: 8
+          n_outer_probabilities: [0.8, 0.2]
+          rotation_probability: 0.3
+          revolve_probability: 0.15
+          array_pattern_probability: 0.15
+          hole_probability: 0.3
+          hole_n_inner_probabilities: [0.5, 0.3, 0.2]
+          hole_outer_probability: 0.5
+          hole_symmetric_probability: 0.3
+          hole_cbore_probability: 0.6
+          side_cut_probability: 0.15
+          full_revolve_probability: 0.5
+          from_sketchgraph: false
+        plane: 0
+        probability: 0.5
+        selected_plane_probability: 1.0
+        selected_plane_centered_probability: 0.2
+
+  world_size: 200
+  max_string_length: 800

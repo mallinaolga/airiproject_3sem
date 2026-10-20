@@ -1,0 +1,208 @@
+cad_factory_config:
+  name: face_planes_neo_r_ap_h_sc_sw_lo_control
+  factories:
+    0:
+      either:
+        factory:
+          probabilities: [0.09, 0.01, 0.2, 0.7]
+          factories:
+          - 0:
+              loft:
+                factory: {}
+                probability: 1
+            1:
+              stop:
+                factory: {}
+                probability: 1
+          - 0:
+              sweep:
+                factory: {}
+                probability: 1
+            1:
+              stop:
+                factory: {}
+                probability: 1
+          - 0:
+              revolve:
+                factory:
+                  sketch_factory:
+                    min_n_commands: 3
+                    max_n_commands: 8
+                    n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+                    rotation_probability: 0.3
+                    array_pattern_probability: 0.15
+                    array_pattern_sketch_min_n_commands: 1
+                    array_pattern_sketch_max_n_commands: 3
+                    from_sketchgraph: false
+                  full_revolve_probability: 0.5
+                  
+                plane: 0
+                probability: 1
+          - 0:
+              block:
+                factory:
+                  factories:
+                    - extrude:
+                        factory:
+                          sketch_factory:
+                            min_n_commands: 3
+                            max_n_commands: 8
+                            n_outer_probabilities: [0.65, 0.2, 0.1, 0.05]
+                            rotation_probability: 0.3
+                            array_pattern_probability: 0.15
+                            array_pattern_sketch_min_n_commands: 1
+                            array_pattern_sketch_max_n_commands: 3
+                            from_sketchgraph: false
+                        plane: 0
+                        selected_plane_probability: 0
+                        probability: 1
+                
+                    - fillet_chamfer:
+                        factory:
+                          fillet_chamfer_probs: [0.5, 0.5]
+                          equal_offsets_prob: 0.5
+                        probability: 0.5
+                
+                    - hole:
+                        factory:
+                          n_inner_probabilities: [0.5, 0.3, 0.2]
+                          outer_probability: 0.5
+                          symmetric_probability: 0.3
+                          cbore_probability: 0.6
+                        plane: 0
+                        probability: 0.3
+            1:
+              block:
+                factory:
+                  factories:
+                    - extrude:
+                        factory:
+                          sketch_factory:
+                            min_n_commands: 3
+                            max_n_commands: 8
+                            n_outer_probabilities: [0.8, 0.2]
+                            rotation_probability: 0.3
+                            array_pattern_probability: 0.15
+                            array_pattern_sketch_min_n_commands: 1
+                            array_pattern_sketch_max_n_commands: 3
+                            from_sketchgraph: false
+                        plane: 0
+                        selected_plane_probability: 0.3
+                        selected_plane_centered_probability: 0.2
+                        probability: 0.5
+                
+                    - fillet_chamfer:
+                        factory:
+                          fillet_chamfer_probs: [0.5, 0.5]
+                          equal_offsets_prob: 0.5
+                        probability: 0.5
+                
+                    - hole:
+                        factory:
+                          n_inner_probabilities: [0.5, 0.3, 0.2]
+                          outer_probability: 0.5
+                          symmetric_probability: 0.3
+                          cbore_probability: 0.6
+                        plane: 0
+                        probability: 0.10
+            2:
+              block:
+                factory:
+                  factories:
+                    - extrude:
+                        factory:
+                          sketch_factory:
+                            min_n_commands: 1
+                            max_n_commands: 2
+                            n_outer_probabilities: [1]
+                            rotation_probability: 0.0
+                            array_pattern_probability: 0.15
+                            array_pattern_sketch_min_n_commands: 1
+                            array_pattern_sketch_max_n_commands: 3
+                            from_sketchgraph: false
+                        plane: 0
+                        selected_plane_probability: 0.3
+                        selected_plane_centered_probability: 0.2
+                        probability: 0.25
+                
+                    - hole:
+                        factory:
+                          n_inner_probabilities: [0.5, 0.3, 0.2]
+                          outer_probability: 0.5
+                          symmetric_probability: 0.3
+                          cbore_probability: 0.6
+                        plane: 0
+                        probability: 0.10
+            3:
+              block:
+                factory:
+                  factories:
+                    - extrude:
+                        factory:
+                          sketch_factory:
+                            min_n_commands: 3
+                            max_n_commands: 8
+                            n_outer_probabilities: [1]
+                            rotation_probability: 0.0
+                            array_pattern_probability: 0.15
+                            array_pattern_sketch_min_n_commands: 1
+                            array_pattern_sketch_max_n_commands: 3
+                            from_sketchgraph: false
+                        plane: 1
+                        selected_plane_probability: 0.3
+                        selected_plane_centered_probability: 0.2
+                        probability: 0.25
+                    
+                    - fillet_chamfer:
+                        factory:
+                          fillet_chamfer_probs: [0.5, 0.5]
+                          equal_offsets_prob: 1.0
+                        probability: 0.5
+                
+                    - hole:
+                        factory:
+                          n_inner_probabilities: [0.5, 0.3, 0.2]
+                          outer_probability: 0.5
+                          symmetric_probability: 0.3
+                          cbore_probability: 0.6
+                        plane: 1
+                        probability: 0.10
+    
+    4:
+      hole:
+        factory:
+          hole_type_probabilities:
+            cut_thru_all: 1.0
+            through: 0.0
+            blind: 0.0
+            cbore: 0.0
+            csk: 0.0
+          sketch_factory:
+            min_n_commands: 1
+            max_n_commands: 1
+            n_outer_probabilities: [1.0]
+            rotation_probability: 0.3
+            array_pattern_probability: 0.0
+            from_sketchgraph: false
+        probability: 0.2
+    
+    5:
+      hole:
+        factory:
+          hole_type_probabilities:
+            cut_thru_all: 1.0
+            through: 0.0
+            blind: 0.0
+            cbore: 0.0
+            csk: 0.0
+          sketch_factory:
+            min_n_commands: 1
+            max_n_commands: 1
+            n_outer_probabilities: [1.0]
+            rotation_probability: 0.3
+            array_pattern_probability: 0.0
+            from_sketchgraph: false
+        probability: 0.2
+
+  world_size: 200
+  max_string_length: 800

@@ -1,0 +1,14 @@
+defaults:
+ - _self_
+
+cwd: /home/jovyan/users/dandrignatyev/gitlabai/cadgen
+output_root: /mnt/virtual_ai0001071-04018_A100-MT-nfs1/NFS1-cad-3d-SR008/CAD/cadexp/datasets
+
+dataset_root: /mnt/virtual_ai0001071-04018_A100-MT-nfs1/NFS1-cad-3d-SR008/CAD/cadexp/datasets/
+dataset: cadrecode_eo_r_h_sc
+timeout: 600.0
+while_successful: true
+max_retries: 30
+debug_mode: false
+
+hydra_run_dir: ${cwd}/cadgen_outputs/${dataset}/stepgen/${now:%Y-%m-%d-%H-%M-%S}

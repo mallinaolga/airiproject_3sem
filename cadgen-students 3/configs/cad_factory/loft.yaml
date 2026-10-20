@@ -1,0 +1,30 @@
+cad_factory_config:
+  name: loft
+  factories:
+    0:
+      either:
+        factory:
+          probabilities: [1, 0]
+          factories:
+          - 0:
+              loft:
+                factory: {}
+                probability: 1
+            1:
+              stop:
+                factory: {}
+                probability: 1
+          - 0:
+              sweep_init:
+                factory: {}
+                probability: 1
+            1:
+              stop:
+                factory: {}
+                probability: 1
+
+  world_size: 200
+  max_string_length: 8000
+  n_retries: 15
+  n_extrude_retries: 15
+  single_solid_check: false

@@ -1,0 +1,25 @@
+defaults:
+ - cad_factory: eo_r_h_sc
+ - _self_
+
+cwd: /mnt/virtual_ai0001071-04018_A100-MT-nfs1/CFS-cad-3d-SR008/users/kabisov/Projects/cadgen_orig
+output_root: /mnt/virtual_ai0001071-04018_A100-MT-nfs1/CFS-cad-3d-SR008/users/kabisov/datasets/synt
+
+n_train_samples: 1000000
+n_val_samples: 1000
+n_folders: 10
+start_from: 0
+twin: false
+use_cot_filter: false
+while_successful: true
+max_workers: null
+render: false
+with_defects: false
+split_train_name: train
+tag: ""
+output: ${output_root}/cadrecode_${cad_factory.cad_factory_config.name}${fmt_tag:${tag}}
+debug_mode: false
+log_exceptions: false
+skip_fix: false
+
+hydra_run_dir: ${cwd}/cadgen_outputs/cadrecode_${cad_factory.cad_factory_config.name}${fmt_tag:${tag}}/gen/${now:%Y-%m-%d-%H-%M-%S}

@@ -1,0 +1,48 @@
+cad_factory_config:
+  name: test_holes
+  factories:
+    0:
+      extrude:
+        factory:
+          sketch_factory:
+            min_n_commands: 1
+            max_n_commands: 1
+            n_outer_probabilities: [1.0]
+            rotation_probability: 0.3
+            array_pattern_probability: 0.0
+            from_sketchgraph: false
+        plane: 0
+        reuse_plane_probability: 0.0
+        selected_plane_probability: 0.0
+        probability: 1.0
+
+    1:
+      selected_face_plane:
+        factory:
+          top_p: 1.0
+        probability: 1.0
+
+    2:
+      hole:
+        factory:
+          hole_type_probabilities:
+            blind: 0
+            through: 0
+            cut_thru_all: 0
+            multi_cbore: 1
+            cbore: 0
+            csk: 0
+          sketch_factory:
+            min_n_commands: 1
+            max_n_commands: 8
+            n_outer_probabilities: [1.0]
+            rotation_probability: 0.2
+            array_pattern_probability: 0.0
+            from_sketchgraph: true
+        plane: 0
+        probability: 1.0
+
+  world_size: 200
+  max_string_length: 800
+  n_retries: 50
+  n_extrude_retries: 30
