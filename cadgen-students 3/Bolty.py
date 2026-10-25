@@ -1,20 +1,26 @@
-"""Генератор шести типов болтов/винтов с гладким цилиндрическим стержнем.
+r"""Генератор шести типов болтов/винтов с гладким цилиндрическим стержнем.
 
 Из папки cadgen-students 3:
-    .\.venv-win\Scripts\python.exe "Генерирование болтов.py" --count 24
-    .\.venv-win\Scripts\python.exe "Генерирование болтов.py" --type all --count 24
-    .\.venv-win\Scripts\python.exe "Генерирование болтов.py" --type hex_socket --count 10 --seed 42
-    .\.venv-win\Scripts\python.exe "Генерирование болтов.py" --self-test
+    .\.venv-win\Scripts\python.exe Bolty.py --count 24
+    .\.venv-win\Scripts\python.exe Bolty.py --type all --count 24
+    .\.venv-win\Scripts\python.exe Bolty.py --type hex_socket --count 10 --seed 42
+    .\.venv-win\Scripts\python.exe Bolty.py --self-test
 
 --type random: count моделей со случайным типом.
 --type all: count моделей КАЖДОГО из шести типов.
 Каждая модель сохраняется как STEP, STL и JSON с размерами в мм.
 Результаты: generirovanie_boltov/batch_... рядом с этим файлом.
 
-Резьбы нет. Диаметр стержня всегда SHAFT_DIAMETER_MM, длина случайная.
+Резьбы нет. Диаметр стержня случайный, 4–10 мм; длина случайная, 12–70 мм.
+Линейные параметры болтов выбираются с шагом 0.5 мм, включая размеры шлица.
+У полусферической головки диаметр целый, чтобы радиус и высота также были
+кратны 0.5 мм. Размеры шлица округляются; тип его профиля сохраняется.
+Ширина головки минимум на 4 мм больше диаметра стержня.
+Otverstiya.py и Gaiki.py выбирают отверстия независимо в том же диапазоне:
+совместимость конкретной пары не гарантируется. Диапазон задан ниже один раз.
 Плоская головка — цилиндр с плоским верхом, а не потайной конус.
 Полукруглая головка — полусфера на невысоком цилиндрическом основании.
-Углубления имеют фиксированные пропорции и случайный масштаб: прямой шлиц,
+Углубления имеют одинаковые типы профилей и случайные размеры: прямой шлиц,
 симметричный крест и правильный шестигранник. Это упрощённые CAD-профили,
 без привязки к стандартам отвёрток и крепежа.
 Импорт файла ничего не генерирует. --self-test строит модели только в памяти.
@@ -29,10 +35,47 @@ import json
 import math
 from pathlib import Path
 import random
+import time
 
 
-# Один диаметр для ВСЕХ типов и всех запусков; случайно он не выбирается.
-SHAFT_DIAMETER_MM = 6.0
+# Общий диапазон стержней и отверстий; импортируется двумя другими генераторами.
+DIAMETER_MIN_MM = 4.0
+DIAMETER_MAX_MM = 10.0
+DIMENSION_STEP_MM = 0.5
+
+
+def sample_dimension(rng: random.Random, minimum: float, maximum: float,
+                     step: float = DIMENSION_STEP_MM) -> float:
+    """Равновероятный выбор допустимого значения на сетке, без выхода за границы."""
+    lower = math.ceil(minimum / step - 1e-9)
+    upper = math.floor(maximum / step + 1e-9)
+    if lower > upper:
+        raise ValueError(f"No values with step {step} in [{minimum}, {maximum}]")
+    return rng.randint(lower, upper) * step
+
+
+def snap_dimension(value: float) -> float:
+    return math.floor(value / DIMENSION_STEP_MM + 0.5) * DIMENSION_STEP_MM
+
+
+def sample_diameter(rng: random.Random) -> float:
+    return sample_dimension(rng, DIAMETER_MIN_MM, DIAMETER_MAX_MM)
+
+
+def save_manifest_json(path: Path, data: dict) -> None:
+    """Retry short Windows sharing locks while keeping the previous index intact."""
+    temporary = path.with_suffix(".tmp")
+    temporary.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    for attempt in range(10):
+        try:
+            temporary.replace(path)
+            return
+        except PermissionError:
+            if attempt == 9:
+                raise
+            time.sleep(0.05*(attempt+1))
+
+
 TYPES = (
     "slotted_round",  # Полукруглая головка, прямой шлиц «−».
     "slotted_flat",   # Плоская головка, прямой шлиц «−».
@@ -47,6 +90,7 @@ TYPES = (
 class BoltSpec:
     kind: str
     shaft_length: float
+    shaft_diameter: float
     head_width: float  # Диаметр круглой головки или размер шестигранника по граням.
     head_height: float  # Номинальная высота головки до вырезания углубления.
     band_height: float  # Цилиндрическое основание полусферы; 0 у плоских головок.
@@ -62,36 +106,38 @@ class BoltSpec:
 
     @property
     def drive_depth(self) -> float:
-        return self.drive_size * (0.65 if self.kind == "hex_socket" else 0.45)
+        return snap_dimension(self.drive_size * (0.65 if self.kind == "hex_socket" else 0.45))
 
     @property
     def drive_width(self) -> float | None:
         if self.drive_kind == "slot":
-            return self.drive_size / 6
+            return snap_dimension(self.drive_size / 6)
         if self.drive_kind == "cross":
-            return self.drive_size / 4
+            return snap_dimension(self.drive_size / 4)
         return None
 
 
 def sample_spec(rng: random.Random, kind: str) -> BoltSpec:
     if kind not in TYPES:
         raise ValueError(f"Unknown bolt type: {kind}")
-    length = round(rng.uniform(12.0, 70.0), 2)
-    width = round(rng.uniform(10.0, 18.0), 2)
+    length = sample_dimension(rng, 12.0, 70.0)
+    diameter = sample_diameter(rng)
+    width = sample_dimension(rng, max(10.0, diameter+4.0), 18.0,
+                             step=1.0 if kind.endswith("round") else DIMENSION_STEP_MM)
     if kind == "hex_head":
-        return BoltSpec(kind, length, width, round(rng.uniform(4.0, 9.0), 2), 0.0, 0.0)
+        return BoltSpec(kind, length, diameter, width, sample_dimension(rng, 4.0, 9.0), 0.0, 0.0)
     if kind == "hex_socket":
-        size = round(width*rng.uniform(0.28, 0.5), 2)
-        height = round(size*0.65 + rng.uniform(1.5, 3.5), 2)
-        return BoltSpec(kind, length, width, height, 0.0, size)
-    size = round(width*rng.uniform(0.45, 0.75), 2)
+        size = sample_dimension(rng, width*0.28, width*0.5)
+        height = snap_dimension(size*0.65) + sample_dimension(rng, 1.5, 3.5)
+        return BoltSpec(kind, length, diameter, width, height, 0.0, size)
+    size = sample_dimension(rng, width*0.45, width*0.75)
     if kind.endswith("round"):
-        band = round(rng.uniform(1.0, 2.5), 2)
+        band = sample_dimension(rng, 1.0, 2.5)
         height = band + width/2
     else:
         band = 0.0
-        height = round(size*0.45 + rng.uniform(1.5, 3.5), 2)
-    return BoltSpec(kind, length, width, height, band, size)
+        height = snap_dimension(size*0.45) + sample_dimension(rng, 1.5, 3.5)
+    return BoltSpec(kind, length, diameter, width, height, band, size)
 
 
 def build_bolt(spec: BoltSpec):
@@ -103,12 +149,13 @@ def build_bolt(spec: BoltSpec):
     for field, value in asdict(spec).items():
         if field != "kind" and (not math.isfinite(value) or value < 0):
             raise ValueError(f"Invalid dimension: {field}")
-    if spec.shaft_length <= 0 or spec.head_width <= SHAFT_DIAMETER_MM or spec.head_height <= 0:
-        raise ValueError("Length and head height must be positive; head must be wider than shaft")
+    if (spec.shaft_length <= 0 or spec.shaft_diameter <= 0
+            or spec.head_width < spec.shaft_diameter+4.0-1e-9 or spec.head_height <= 0):
+        raise ValueError("Length and head height must be positive; head must be at least 4 mm wider than shaft")
     if spec.drive_kind != "none" and (spec.drive_size <= 0 or spec.drive_depth >= spec.head_height):
         raise ValueError("Drive must be nonempty and leave material below its floor")
 
-    shaft = (cq.Workplane("XY").circle(SHAFT_DIAMETER_MM/2)
+    shaft = (cq.Workplane("XY").circle(spec.shaft_diameter/2)
              .extrude(spec.shaft_length).translate((0, 0, -spec.shaft_length)).val())
     if spec.kind == "hex_head":
         head = (cq.Workplane("XY").polygon(6, spec.head_width, circumscribed=True)
@@ -150,8 +197,8 @@ def build_bolt(spec: BoltSpec):
 
 def metadata(spec: BoltSpec) -> dict:
     return {
-        "units": "mm", "type": spec.kind,
-        "shaft": {"shape": "cylinder", "diameter": SHAFT_DIAMETER_MM,
+        "units": "mm", "type": spec.kind, "dimension_step_mm": DIMENSION_STEP_MM,
+        "shaft": {"shape": "cylinder", "diameter": spec.shaft_diameter,
                   "length": spec.shaft_length, "threaded": False},
         "head": {"width": spec.head_width,
                  "width_meaning": "across_flats" if spec.kind == "hex_head" else "diameter",
@@ -171,19 +218,19 @@ def generate(count: int, kind: str, seed: int | None, output: Path | None) -> Pa
     if count < 1 or kind not in ("random", "all", *TYPES):
         raise ValueError("Invalid count or type")
     seed = seed if seed is not None else random.SystemRandom().randrange(2**63)
-    rng = random.Random(seed)
+    rng = random.Random(f"bolts:{seed}")
     output = output or (Path(__file__).resolve().parent / "generirovanie_boltov" /
                         ("batch_" + datetime.now().strftime("%Y%m%d_%H%M%S_%f")))
     output = output.resolve()
     output.mkdir(parents=True, exist_ok=False)
     kinds = [t for t in TYPES for _ in range(count)] if kind == "all" else [kind]*count
-    manifest = {"schema_version": 1, "seed": seed, "units": "mm", "type": kind,
-                "shaft_diameter": SHAFT_DIAMETER_MM, "requested_models": len(kinds), "models": []}
+    manifest = {"schema_version": 3, "seed": seed, "units": "mm", "type": kind,
+                "dimension_step_mm": DIMENSION_STEP_MM,
+                "shaft_diameter_range_mm": [DIAMETER_MIN_MM, DIAMETER_MAX_MM],
+                "requested_models": len(kinds), "models": []}
 
     def save_manifest():
-        temporary = output / "manifest.tmp"
-        temporary.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-        temporary.replace(output / "manifest.json")
+        save_manifest_json(output / "manifest.json", manifest)
 
     save_manifest()
     for index, selected in enumerate(kinds):
@@ -218,14 +265,15 @@ def self_test():
             spec = sample_spec(rng, kind)
             shape = build_bolt(spec)
             # Isolate a 1 mm slice midway along the shaft: its volume and width
-            # must match the SAME cylinder for every head type and random length.
+            # must match this specimen's diameter for every head type and length.
             slab = (cq.Workplane("XY", origin=(0, 0, -spec.shaft_length/2))
                     .box(40, 40, 1).val())
             section = shape.intersect(slab)
             box = section.BoundingBox()
-            assert math.isclose(box.xlen, SHAFT_DIAMETER_MM, abs_tol=1e-6)
-            assert math.isclose(box.ylen, SHAFT_DIAMETER_MM, abs_tol=1e-6)
-            assert math.isclose(section.Volume(), math.pi*(SHAFT_DIAMETER_MM/2)**2, rel_tol=1e-6)
+            assert DIAMETER_MIN_MM <= spec.shaft_diameter <= DIAMETER_MAX_MM
+            assert math.isclose(box.xlen, spec.shaft_diameter, abs_tol=1e-6)
+            assert math.isclose(box.ylen, spec.shaft_diameter, abs_tol=1e-6)
+            assert math.isclose(section.Volume(), math.pi*(spec.shaft_diameter/2)**2, rel_tol=1e-6)
             assert math.isclose(shape.BoundingBox().zmin, -spec.shaft_length, abs_tol=1e-6)
             if spec.drive_kind != "none":
                 floor = spec.head_height-spec.drive_depth
@@ -238,7 +286,7 @@ def self_test():
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Six bolt types; fixed 6 mm smooth shaft, random length and heads")
+    parser = argparse.ArgumentParser(description="Six bolt types; random 4-10 mm smooth shafts, lengths and heads")
     parser.add_argument("--count", type=int, default=1, help="Total models, or models PER TYPE with --type all")
     parser.add_argument("--type", choices=("random", "all", *TYPES), default="random")
     parser.add_argument("--seed", type=int, help="Optional reproducible seed")
