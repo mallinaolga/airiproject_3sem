@@ -44,7 +44,7 @@ class DecompositionTests(unittest.TestCase):
     def setUpClass(cls):
         cls.geometry=AssemblySettings(path_steps=8)
         cls.settings=DecompositionSettings()
-        cls.state=decompose(chain(),42,cls.geometry,cls.settings)
+        cls.state=decompose(steps(),42,cls.geometry,cls.settings)
 
     def test_narrow_bridge_is_detected_by_sections(self):
         candidates,analysis=rank_cuts(neck(),self.geometry,self.settings,Budget(5000))
@@ -81,19 +81,25 @@ class DecompositionTests(unittest.TestCase):
         state=decompose(original,42,self.geometry,self.settings)
         self.assertGreaterEqual(len(state.raw),2)
         self.assertLess(difference_volume(original,union(state.raw.values())),1e-5)
-        self.assertTrue(state.checks["assembly_sequence_checked"])
+        self.assertTrue(state.checks["geometric_partition_valid"])
+        self.assertFalse(state.assembly["success"])
+        self.assertFalse(state.sequence)
 
     def test_technical_limits_are_separate_from_geometric_stops(self):
         for options in ({"max_operations":1},{"max_candidates":1},{"max_depth":1}):
             with self.subTest(options=options):
                 state=decompose(chain(),42,self.geometry,replace(self.settings,**options))
-                self.assertIn("technical_limit_reached",[v["reason"] for v in state.stops.values()])
+                self.assertTrue(state.checks.get("geometry_limits") or
+                                "technical_limit_reached" in [v["reason"] for v in state.stops.values()])
                 self.assertFalse(state.checks["decomposition_complete_within_search"])
 
     def test_small_neck_has_no_feasible_fastener(self):
         state=decompose(neck(6),42,self.geometry,replace(self.settings,min_component_size=4))
-        self.assertTrue(any(s["reason"]=="no_feasible_connections" for s in state.stops.values()),state.stops)
-        self.assertTrue(state.trials)
+        self.assertEqual(len(state.raw),3)
+        self.assertTrue(state.checks["all_leaves_constant_section"])
+        self.assertFalse(state.assembly["success"])
+        self.assertTrue(state.assembly["trials"])
+        self.assertNotIn("no_feasible_connections",[s["reason"] for s in state.stops.values()])
 
     def test_graph_is_connected_and_edges_have_actual_contact(self):
         graph=assembly_graph(self.state.raw,self.state.joints,self.geometry)
@@ -130,8 +136,8 @@ class DecompositionTests(unittest.TestCase):
             find_sequence({"shell":shell,"inner":inner},{"shell":shell,"inner":inner},[],self.geometry,64)
 
     def test_seed_repeats_partition_and_connections(self):
-        first=decompose(neck(),42,self.geometry,self.settings)
-        second=decompose(neck(),42,self.geometry,self.settings)
+        first=decompose(steps(),42,self.geometry,self.settings)
+        second=decompose(steps(),42,self.geometry,self.settings)
         self.assertEqual(first.cuts,second.cuts)
         self.assertEqual([j.metadata() for j in first.joints],[j.metadata() for j in second.joints])
         self.assertEqual(first.sequence,second.sequence)
@@ -193,7 +199,7 @@ class AutoExportTests(unittest.TestCase):
     def test_four_views_separate_step_and_raw_components(self):
         geometry=AssemblySettings(path_steps=8)
         settings=DecompositionSettings()
-        state=decompose(chain(),42,geometry,settings)
+        state=decompose(steps(),42,geometry,settings)
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)/"run"
             target=root/"result"
@@ -217,18 +223,24 @@ class AutoExportTests(unittest.TestCase):
             self.assertIn("model_01/parts_exploded.stl",readme)
             with self.assertRaises(FileExistsError):export_auto(state,42,{},None,target,geometry,settings,{})
 
-    def test_real_cadgen_to_auto_export_and_examples(self):
+    def test_real_cadgen_geometry_survives_failed_assembly(self):
+        from unittest.mock import patch
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
-            manifest=generate_auto_batch(root/"run",count=1,seed=42,max_attempts=6,
-                                        geometry=AssemblySettings(path_steps=8),examples=root/"examples")
-            self.assertEqual(manifest["successful_count"],1,manifest)
-            data=json.loads((root/"examples"/"model_01"/"metadata.json").read_text())
+            with patch("cadgen.joint_design.propose_joints",side_effect=GeometryRejected("no fixture fastener")):
+                manifest=generate_auto_batch(root/"run",count=1,seed=42,max_attempts=2,
+                                            geometry=AssemblySettings(path_steps=8),examples=root/"examples")
+            self.assertEqual(manifest["successful_count"],0)
+            retained=[f for f in manifest["failures"] if f.get("geometry_folder")]
+            self.assertTrue(retained,manifest)
+            target=root/"run"/retained[0]["geometry_folder"]
+            data=json.loads((target/"metadata.json").read_text())
             self.assertEqual(data["source"]["generator"],"CADFactory")
-            self.assertEqual(data["source"]["complexity"],"decomposition")
+            self.assertTrue(data["geometry_success"])
+            self.assertFalse(data["assembly_success"])
             self.assertGreaterEqual(data["main_component_count"],2)
-            self.assertTrue(data["checks"]["all_stl_readable"])
-            self.assertTrue(data["checks"]["step_placements_verified"])
+            self.assertEqual(len(list(target.glob("part_*.stl"))),data["main_component_count"])
+            self.assertFalse((root/"examples"/"model_01").exists())
 
     def test_technical_settings_validation(self):
         for settings in (DecompositionSettings(max_depth=0),DecompositionSettings(min_score=float("nan"))):

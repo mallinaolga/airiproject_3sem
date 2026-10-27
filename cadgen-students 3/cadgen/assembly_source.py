@@ -8,6 +8,50 @@ import cadquery as cq
 import numpy as np
 
 
+def decomposition_history(parameters):
+    """Read extrusion directions/end-plane hints without replaying CADGen.
+
+    Placed extrusions may snap to a different surface in the final program.
+    Consequently these planes are proposals only; decomposition verifies their
+    actual external-contour transition in the final B-rep before using them.
+    Unknown operations/placements are reported and fall back to geometry.
+    """
+    cad = parameters.get("cad", parameters) if parameters else {}
+    result = dict(directions=[], boundaries=[], operations=[], unsupported=[])
+    planes = cad.get("planes", [])
+    vectors = {"X": [1,0,0], "Y": [0,1,0], "Z": [0,0,1],
+               "-X": [-1,0,0], "-Y": [0,-1,0], "-Z": [0,0,-1]}
+    for index, entry in enumerate(cad.get("cs", [])):
+        op, placement = entry.get("op", {}), entry.get("plane")
+        try:
+            if isinstance(placement, int):
+                plane = planes[placement]
+                normal = np.eye(3)[plane["axis"]]
+                point = normal*plane["origin"]
+            elif isinstance(placement, dict) and placement.get("type") == "AxisWorkplane":
+                normal = np.array(vectors[placement["normal"]], dtype=float)
+                point = np.array(placement["point"], dtype=float)
+            else:
+                raise ValueError("unsupported workplane")
+            result["directions"].append(normal.tolist())
+            segments = [(point,op)]
+            if op.get("type") == "TwoExtrudes":
+                # Only the normal coordinate matters for plane proposals.
+                segments = [(point,op["first"]),
+                            (point+normal*op["second_normal_offset"],op["second"])]
+            elif op.get("type") != "Extrude":
+                raise ValueError("not a supported extrusion operation")
+            for start, segment in segments:
+                end = start+normal*segment["extent"]
+                result["operations"].append(dict(index=index,type=op["type"],
+                    normal=normal.tolist(),start=start.tolist(),end=end.tolist()))
+                for p in (start,end):
+                    result["boundaries"].append(dict(normal=normal.tolist(),point=p.tolist(),operation=index))
+        except (KeyError, IndexError, TypeError, ValueError) as error:
+            result["unsupported"].append(dict(index=index,type=op.get("type"),reason=str(error)))
+    return result
+
+
 @contextmanager
 def seeded_generators(seed):
     python_state, numpy_state = random.getstate(), np.random.get_state()

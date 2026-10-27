@@ -14,8 +14,10 @@ import numpy as np
 import trimesh
 
 from .assembly_geometry import AssemblySettings, GeometryRejected, difference_volume
-from .assembly_source import generate_source
-from .decomposition import DecompositionSettings, decompose
+from .assembly_source import generate_source, decomposition_history
+from .decomposition import DecompositionSettings, decompose_geometry
+from .decomposition_assembly import assemble_partition
+from .decomposition_export import export_geometry
 from .joint_design import materialize
 
 
@@ -53,6 +55,8 @@ def layout(shapes,margin):
 
 def export_auto(state,seed,parameters,program,target,geometry,settings,request):
     from .assembly_generator import save_json,location
+    if not state.assembly.get("success"):
+        raise GeometryRejected("Ready assembly export requires success on all fixed geometric constituents")
     target=Path(target);target.mkdir(parents=True,exist_ok=False)
     raw_names={name:f"part_{i}" for i,name in enumerate(sorted(state.raw),1)}
     hardware_names={};b=0;n=0
@@ -68,6 +72,7 @@ def export_auto(state,seed,parameters,program,target,geometry,settings,request):
     split_exploded=layout(state.raw,max(8,state.original.BoundingBox().DiagonalLength*.05))
     metadata=dict(schema_version=2,status="exporting",success=False,seed=seed,units="mm",
         request=request,source=parameters,settings=asdict(geometry),decomposition_settings=asdict(settings),
+        assembly_status=state.assembly["status"],assembly_report=state.assembly,
         main_component_count=len(state.raw),cut_count=len(state.cuts),
         joints=renamed([j.metadata() for j in state.joints],names),
         graph=renamed(state.checks["graph"],names),cuts=state.cuts,
@@ -213,14 +218,21 @@ def generate_auto_batch(output,count=1,connection="auto",seed=None,profile="auto
                        difference_volume(s,original)<=geometry.volume_tolerance for s in originals):
                     raise GeometryRejected("Duplicate source geometry")
                 stage="decomposition"
-                state=decompose(original,item_seed,geometry,settings,connection,profile)
-                if len(state.raw)<2:raise GeometryRejected("No feasible meaningful decomposition of this source")
-                stage="export"
+                state=decompose_geometry(original,settings,history=decomposition_history(parameters))
                 folder=f"assembly_{len(manifest['assemblies'])+1:04d}_slot_{slot+1:04d}_attempt_{attempt+1:02d}"
-                meta=export_auto(state,item_seed,parameters,program,output/folder,geometry,settings,
+                geometry_folder=folder+"/geometry"
+                stage="geometry_export"
+                export_geometry(state,output/geometry_folder,settings,parameters,program)
+                stage="assembly"
+                assemble_partition(state,item_seed,geometry,settings,connection,profile)
+                save_json(output/folder/"assembly_report.json",state.assembly)
+                if len(state.raw)<2 or not state.assembly["success"]:
+                    raise GeometryRejected(state.assembly.get("reason","Source has only one geometric constituent"))
+                stage="export"
+                meta=export_auto(state,item_seed,parameters,program,output/folder/"assembly",geometry,settings,
                                  dict(decomposition="auto",connection=connection,profile=profile,
                                       source=source,cad_config=str(config) if config else None))
-                manifest["assemblies"].append(dict(folder=folder,seed=item_seed,
+                manifest["assemblies"].append(dict(folder=folder+"/assembly",geometry_folder=geometry_folder,seed=item_seed,
                     main_components=len(state.raw),cuts=len(state.cuts),
                     connection_types=dict(Counter(j.parameters["type"] for j in state.joints)),
                     decomposition_complete_within_search=state.checks["decomposition_complete_within_search"]))
@@ -234,7 +246,10 @@ def generate_auto_batch(output,count=1,connection="auto",seed=None,profile="auto
                              error_type=type(error).__name__,reason=str(error))
                 if parameters:
                     failure["source_parameters"]={k:v for k,v in parameters.items() if k!="cad"}
-                if state:failure.update(stops=state.stops,rejected_candidates=state.trials)
+                if state:
+                    failure.update(stops=state.stops,assembly=state.assembly)
+                    if stage in ("assembly","export"):
+                        failure["geometry_folder"]=geometry_folder
                 manifest["failures"].append(failure)
                 print(f"Rejected slot {slot+1}/{count}, attempt {attempt+1}: {stage}: {error}",flush=True)
                 save_json(output/"manifest.json",manifest)

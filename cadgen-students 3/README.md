@@ -7,6 +7,10 @@ No access to the original GitLab repositories is needed for procedural generatio
 выступы либо болты с гайками — [ASSEMBLY_GENERATION.md](ASSEMBLY_GENERATION.md).
 Рекурсивная декомпозиция на переменное число компонентов, автоматический выбор
 креплений и четыре вида: [AUTO_DECOMPOSITION.md](AUTO_DECOMPOSITION.md).
+Распознавание постоянного внешнего сечения и сравнение на прежних исходниках:
+[TWO_STAGE_DECOMPOSITION.md](TWO_STAGE_DECOMPOSITION.md).
+Все 10 геометрических разбиений для просмотра STL на GitHub:
+[examples/two_stage_decomposition/README.md](examples/two_stage_decomposition/README.md).
 
 ## Install
 

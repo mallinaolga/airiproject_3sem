@@ -73,19 +73,26 @@ def verify_model(folder):
     main={c["name"] for c in metadata["components"] if c["role"]=="main"}
     assert main==set(raw)
     assert len(main)==metadata["main_component_count"]>=2
-    assert len(metadata["cuts"])==len(main)-1==metadata["cut_count"]
+    assert len(metadata["cuts"])==metadata["cut_count"]
+    assert 1+sum(len(c["children"])-1 for c in metadata["cuts"])-len(metadata["checks"].get("geometry_merges",[]))==len(main)
     assert difference_volume(original,union(raw.values()))<=tolerance,"Raw parts do not reconstruct source"
     for a,b in combinations(raw,2):assert overlap_volume(raw[a],raw[b])<=tolerance,(a,b)
     for a,b in combinations(parts,2):assert overlap_volume(parts[a],parts[b])<=tolerance,(a,b)
-    main_shape=union(parts[n] for n in main)
-    assert main_shape.cut(original).Volume()<=tolerance
+    # Keep the delivered touching solids separate. OCC fuse can bridge a
+    # narrow clearance after STEP reimport even when every individual body
+    # is valid and exactly matches its recipe. Subtracting each body tests
+    # the actual assembly set without introducing that intermediate union.
+    actual_void=original
+    for name in sorted(main):
+        assert parts[name].cut(original).Volume()<=tolerance
+        actual_void=actual_void.cut(parts[name])
     # Compare actual geometric sets, not the subtraction of two independently
     # integrated large-volume values (OCC quadrature can differ numerically).
     expected_void,expected_parts=declared_voids(metadata,raw)
     assert set(expected_parts)==set(parts)
     for name,expected in expected_parts.items():
         assert difference_volume(expected,parts[name])<=tolerance,("Component recipe mismatch",name)
-    void_error=difference_volume(original.cut(main_shape),expected_void)
+    void_error=difference_volume(actual_void,expected_void)
     assert void_error<=tolerance, ("Technological void geometry mismatch",void_error)
     loaded=cq.importers.importStep(str(folder/"assembly.step"))
     assert len(loaded.solids().vals())==len(parts)
@@ -128,7 +135,8 @@ def verify_model(folder):
         installed.add(name)
     assert installed==set(parts)
     assert set(metadata["stopping_conditions"])==main
-    technical=any(v["reason"]=="technical_limit_reached" for v in metadata["stopping_conditions"].values())
+    technical=bool(metadata["checks"].get("geometry_limits")) or any(
+        v["reason"]=="technical_limit_reached" for v in metadata["stopping_conditions"].values())
     assert metadata["checks"]["decomposition_complete_within_search"]== (not technical)
     assert not metadata["checks"]["continuous_path_proven"]
     assert not metadata["checks"]["threaded"]
@@ -148,6 +156,42 @@ def verify_model(folder):
                 all_checks_passed=True,stl_files=meshes),original
 
 
+def verify_geometry(folder):
+    from cadgen.decomposition import validate_raw_partition
+    metadata=json.loads((folder/"metadata.json").read_text())
+    assert metadata["stage"]=="geometry" and metadata["geometry_success"]
+    assert not metadata["assembly_success"]
+    original=require_solid(cq.importers.importStep(str(folder/"original.step")).val(),"original")
+    raw={}
+    for component in metadata["raw_components"]:
+        local=require_solid(cq.importers.importStep(str(folder/component["step"])).val(),component["name"])
+        raw[component["name"]]=transform_part(local,component["rotation_matrix"],component["translation"])
+    assert len(raw)==metadata["main_component_count"]
+    assert 1+sum(len(c["children"])-1 for c in metadata["cuts"])-len(metadata["checks"].get("geometry_merges",[]))==len(raw)
+    checks=validate_raw_partition(original,raw)
+    for filename,exploded in (("geometric_partition.step",False),("split_exploded.step",True)):
+        shapes=[]
+        for c in metadata["raw_components"]:
+            shift=np.array(c["exploded_translation"])-np.array(c["translation"]) if exploded else np.zeros(3)
+            shapes.append(raw[c["name"]].translate(tuple(shift)))
+        view=cq.importers.importStep(str(folder/filename))
+        assert len(view.solids().vals())==len(raw)
+        assert all(s.isValid() for s in view.solids().vals())
+        assert difference_volume(view.val(),cq.Compound.makeCompound(shapes))<=1e-5
+        if exploded:
+            for a,b in combinations(shapes,2):assert overlap_volume(a,b)<=1e-5
+    for path in folder.glob("*.stl"):
+        mesh=trimesh.load(str(path),force="mesh")
+        assert len(mesh.faces)>0 and np.isfinite(mesh.vertices).all() and mesh.volume>0,path
+        assert len(mesh.faces)==metadata["stl_exports"][path.name]["triangles"],path
+    assert len(list(folder.glob("part_*.stl")))==len(raw)
+    assert set(metadata["stopping_conditions"])==set(raw)
+    simple=sum(v.get("analysis",{}).get("recognition",{}).get("simple",False)
+               for v in metadata["stopping_conditions"].values())
+    return dict(model=folder.parent.name,geometric_components=len(raw),simple=simple,
+                unrecognized=len(raw)-simple,all_geometry_checks_passed=True,**checks),original,raw
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--folder",type=Path,default=Path("examples/assemblies"))
@@ -158,14 +202,38 @@ def main():
     assert len(models)==args.expected_count
     report=[];originals=[]
     for folder in models:
-        row,original=verify_model(folder)
+        if (folder/"geometry").is_dir():
+            row,original,raw=verify_geometry(folder/"geometry")
+            comparison=json.loads((root/"report.json").read_text())
+            reference=Path(comparison["source"])/folder.name/"original.step"
+            assert difference_volume(original,cq.importers.importStep(str(reference)).val())<=1e-5
+            row["matches_previous_original_step"]=True
+            top=json.loads((folder/"metadata.json").read_text())
+            attempt=json.loads((folder/"assembly_report.json").read_text())
+            assert top["assembly_success"]==attempt["success"]==top["success"]
+            assert not attempt["partition_modified"]
+            if attempt["success"]:
+                ready,_=verify_model(folder/"assembly")
+                meta=json.loads((folder/"assembly"/"metadata.json").read_text())
+                assert len(meta["raw_components"])==len(raw)
+                for c in meta["raw_components"]:
+                    shape=cq.importers.importStep(str(folder/"assembly"/c["step"])).val()
+                    shape=transform_part(shape,c["rotation_matrix"],c["translation"])
+                    assert difference_volume(raw[c["name"]],shape)<=1e-5
+                row["assembly_validation"]=ready
+            else:
+                assert not (folder/"assembly").exists(),"Failed assembly has ready-model exports"
+            row["assembly_success"]=attempt["success"]
+            print(f"PASS {folder.name}: geometry {len(raw)}; assembly {attempt['status']}",flush=True)
+        else:
+            row,original=verify_model(folder)
+            print(f"PASS {folder.name}: {row['main_components']} main parts; {row['connection_types']}",flush=True)
         assert not any(abs(s.Volume()-original.Volume())<1e-5 and difference_volume(s,original)<1e-5 for s in originals)
         originals.append(original);report.append(row)
-        print(f"PASS {folder.name}: {row['main_components']} main parts; {row['connection_types']}",flush=True)
     for target in re.findall(r'\]\(([^)]+)\)',(root/"README.md").read_text()):
         assert not target.startswith(("http:","https:","/"))
         assert (root/target).is_file(),target
-    result=dict(status="passed",models_verified=len(report),source="CADFactory replay matches original STEP",
+    result=dict(status="passed",models_verified=len(report),source="existing CADFactory STEP; geometry verified separately from assembly",
                 continuous_path_proven=False,models=report)
     save_json(root/"validation.json",result)
     print(f"Verified {len(report)} distinct CADGen sources and all delivered STEP/STL views.")
