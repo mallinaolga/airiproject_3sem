@@ -240,8 +240,9 @@ def generate_batch(output, count=1, connection="random", seed=None, profile="rec
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--count", type=int, default=1, help="Requested SUCCESSFUL assemblies")
-    parser.add_argument("--connection", choices=("groove", "bolted", "random"), default="random")
-    parser.add_argument("--profile", choices=("random", *PROFILE_TYPES), default="rectangular")
+    parser.add_argument("--decomposition", choices=("two", "auto"), default="two")
+    parser.add_argument("--connection", choices=("groove", "bolted", "random", "auto", "combined"))
+    parser.add_argument("--profile", choices=("random", "auto", *PROFILE_TYPES))
     parser.add_argument("--source", choices=("cadgen", "box"), default="cadgen")
     parser.add_argument("--cad-config", type=Path, help="Optional existing Python config exposing cad_factory")
     parser.add_argument("--seed", type=int)
@@ -253,20 +254,52 @@ def main():
     parser.add_argument("--min-wall", type=float, default=2.0)
     parser.add_argument("--volume-tolerance", type=float, default=1e-5)
     parser.add_argument("--path-steps", type=int, default=16)
+    parser.add_argument("--min-component-size", type=float, default=6.0)
+    parser.add_argument("--min-component-volume", type=float, default=300.0)
+    parser.add_argument("--min-split-score", type=float, default=0.8)
+    parser.add_argument("--min-simplicity-gain", type=float, default=0.08)
+    parser.add_argument("--neck-weight", type=float, default=2.0)
+    parser.add_argument("--transition-weight", type=float, default=2.0)
+    parser.add_argument("--simplicity-weight", type=float, default=3.0)
+    parser.add_argument("--imbalance-weight", type=float, default=0.35)
+    parser.add_argument("--max-cut-candidates", type=int, default=160)
+    parser.add_argument("--max-recursion-depth", type=int, default=12)
+    parser.add_argument("--cad-operation-budget", type=int, default=5000)
+    parser.add_argument("--max-connection-trials", type=int, default=12)
+    parser.add_argument("--max-sequence-states", type=int, default=256)
+    parser.add_argument("--examples", type=Path, help="Auto mode: curate at most ten actual results in a NEW directory")
     args = parser.parse_args()
     settings = AssemblySettings(clearance=args.clearance, min_wall=args.min_wall,
                                 volume_tolerance=args.volume_tolerance, plane_attempts=args.plane_attempts,
                                 feature_attempts=args.feature_attempts, path_steps=args.path_steps)
     try:
         settings.validate()
+        args.connection=args.connection or ("auto" if args.decomposition=="auto" else "random")
+        args.profile=args.profile or ("auto" if args.decomposition=="auto" else "rectangular")
         if args.count < 1 or args.max_attempts < 1:
             raise ValueError("count and max-attempts must be positive")
         if args.cad_config and (not args.cad_config.is_file() or args.source != "cadgen"):
             raise ValueError("cad-config must be an existing file and requires source=cadgen")
         output = args.output or Path("generations/assemblies")/(
             "run_"+datetime.now().strftime("%Y%m%d_%H%M%S_%f"))
-        manifest = generate_batch(output, args.count, args.connection, args.seed, args.profile,
-                                  args.source, args.cad_config, args.max_attempts, settings)
+        if args.decomposition=="auto":
+            from .auto_assembly import generate_auto_batch
+            from .decomposition import DecompositionSettings
+            automatic=DecompositionSettings(
+                min_component_size=args.min_component_size,min_component_volume=args.min_component_volume,
+                min_score=args.min_split_score,min_simplicity_gain=args.min_simplicity_gain,
+                neck_weight=args.neck_weight,transition_weight=args.transition_weight,
+                simplicity_weight=args.simplicity_weight,imbalance_weight=args.imbalance_weight,
+                max_candidates=args.max_cut_candidates,max_depth=args.max_recursion_depth,
+                max_operations=args.cad_operation_budget,max_connection_trials=args.max_connection_trials,
+                max_sequence_states=args.max_sequence_states)
+            manifest=generate_auto_batch(output,args.count,args.connection,args.seed,args.profile,
+                args.source,args.cad_config,args.max_attempts,settings,automatic,args.examples)
+        else:
+            if args.examples or args.connection in ("auto","combined") or args.profile=="auto":
+                raise ValueError("auto/combined profiles and examples require --decomposition auto")
+            manifest = generate_batch(output, args.count, args.connection, args.seed, args.profile,
+                                      args.source, args.cad_config, args.max_attempts, settings)
     except (ValueError, FileExistsError) as error:
         parser.error(str(error))
     return 0 if manifest["successful_count"] == args.count else 1

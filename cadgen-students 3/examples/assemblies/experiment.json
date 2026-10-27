@@ -1,0 +1,465 @@
+{
+  "schema_version": 2,
+  "decomposition": "auto",
+  "seed": 42,
+  "requested_count": 10,
+  "successful_count": 10,
+  "connection": "auto",
+  "profile": "auto",
+  "source": "cadgen",
+  "settings": {
+    "clearance": 0.2,
+    "min_wall": 2.0,
+    "volume_tolerance": 1e-05,
+    "min_part_fraction": 0.15,
+    "plane_attempts": 9,
+    "feature_attempts": 8,
+    "path_steps": 16
+  },
+  "decomposition_settings": {
+    "min_component_size": 6.0,
+    "min_component_volume": 300.0,
+    "min_score": 0.8,
+    "min_simplicity_gain": 0.08,
+    "neck_weight": 2.0,
+    "transition_weight": 2.0,
+    "simplicity_weight": 3.0,
+    "imbalance_weight": 0.35,
+    "max_candidates": 160,
+    "max_depth": 12,
+    "max_operations": 5000,
+    "max_connection_trials": 12,
+    "max_sequence_states": 256
+  },
+  "max_attempts_per_assembly": 16,
+  "assemblies": [
+    {
+      "model": "model_01",
+      "folder": "assembly_0001_slot_0001_attempt_02",
+      "seed": 4759556275248130055,
+      "main_components": 4,
+      "cuts": 3,
+      "connection_types": {
+        "groove": 3
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_02",
+      "folder": "assembly_0002_slot_0002_attempt_02",
+      "seed": 2366738684808547986,
+      "main_components": 6,
+      "cuts": 5,
+      "connection_types": {
+        "groove": 5
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_03",
+      "folder": "assembly_0003_slot_0003_attempt_01",
+      "seed": 3365915334631980501,
+      "main_components": 5,
+      "cuts": 4,
+      "connection_types": {
+        "groove": 4
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_04",
+      "folder": "assembly_0004_slot_0004_attempt_07",
+      "seed": 8697456928445524537,
+      "main_components": 5,
+      "cuts": 4,
+      "connection_types": {
+        "groove": 4
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_05",
+      "folder": "assembly_0005_slot_0005_attempt_01",
+      "seed": 6408026581464355185,
+      "main_components": 5,
+      "cuts": 4,
+      "connection_types": {
+        "groove": 4
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_06",
+      "folder": "assembly_0006_slot_0006_attempt_01",
+      "seed": 3498244309149206551,
+      "main_components": 2,
+      "cuts": 1,
+      "connection_types": {
+        "groove": 1
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_07",
+      "folder": "assembly_0007_slot_0007_attempt_01",
+      "seed": 5018634549418312103,
+      "main_components": 4,
+      "cuts": 3,
+      "connection_types": {
+        "groove": 3
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_08",
+      "folder": "assembly_0008_slot_0008_attempt_02",
+      "seed": 3693542949846216359,
+      "main_components": 4,
+      "cuts": 3,
+      "connection_types": {
+        "groove": 3
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_09",
+      "folder": "assembly_0009_slot_0009_attempt_03",
+      "seed": 2994180625895095827,
+      "main_components": 5,
+      "cuts": 4,
+      "connection_types": {
+        "groove": 4
+      },
+      "decomposition_complete_within_search": true
+    },
+    {
+      "model": "model_10",
+      "folder": "assembly_0010_slot_0010_attempt_01",
+      "seed": 9178489342659831066,
+      "main_components": 4,
+      "cuts": 3,
+      "connection_types": {
+        "groove": 3
+      },
+      "decomposition_complete_within_search": true
+    }
+  ],
+  "failures": [
+    {
+      "slot": 1,
+      "attempt": 1,
+      "seed": 42,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 204.76312195112604,
+        "requested_operations": 6,
+        "actual_operations": 5,
+        "complexity": "decomposition"
+      }
+    },
+    {
+      "slot": 2,
+      "attempt": 1,
+      "seed": 3824517218556106302,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 187.23782117155113,
+        "requested_operations": 8,
+        "actual_operations": 6,
+        "complexity": "decomposition"
+      }
+    },
+    {
+      "slot": 4,
+      "attempt": 1,
+      "seed": 125395099290334108,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "No feasible meaningful decomposition of this source",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 193.81228837120022,
+        "requested_operations": 6,
+        "actual_operations": 3,
+        "complexity": "decomposition"
+      },
+      "stops": {
+        "p": {
+          "reason": "no_feasible_connections",
+          "analysis": {
+            "sampled_candidates": 33,
+            "meaningful_candidates": 3,
+            "truncated": false,
+            "errors": [
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: upper half: expected one valid positive-volume solid",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: Split makes an insufficient-volume component"
+            ],
+            "plane_family": "dominant B-rep normals/inertia; section transitions and valleys"
+          },
+          "considered_connections": 3
+        }
+      },
+      "rejected_candidates": [
+        {
+          "node": "p",
+          "candidate": 0,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 1,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 2,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        }
+      ]
+    },
+    {
+      "slot": 4,
+      "attempt": 2,
+      "seed": 3663688310479763116,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "No feasible meaningful decomposition of this source",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 182.98391353561578,
+        "requested_operations": 8,
+        "actual_operations": 6,
+        "complexity": "decomposition"
+      },
+      "stops": {
+        "p": {
+          "reason": "technical_limit_reached",
+          "analysis": {
+            "sampled_candidates": 74,
+            "meaningful_candidates": 17,
+            "truncated": false,
+            "errors": [
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: upper half: expected one valid positive-volume solid",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: upper half: expected one valid positive-volume solid",
+              "GeometryRejected: upper half: expected one valid positive-volume solid",
+              "GeometryRejected: Split makes an insufficient-volume component",
+              "GeometryRejected: lower half: expected one valid positive-volume solid",
+              "GeometryRejected: upper half: expected one valid positive-volume solid"
+            ],
+            "plane_family": "dominant B-rep normals/inertia; section transitions and valleys"
+          },
+          "considered_connections": 12
+        }
+      },
+      "rejected_candidates": [
+        {
+          "node": "p",
+          "candidate": 0,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 1,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 2,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 3,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 4,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 5,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 'round', 'reason': 'groove/round: Feature too small for minimum wall setting'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 6,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 7,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 8,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 9,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 10,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        },
+        {
+          "node": "p",
+          "candidate": 11,
+          "reason": "GeometryRejected: No feasible joint design: [{'type': 'groove', 'profile': 't', 'reason': 'groove/t: Feature too small for minimum wall setting'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'groove', 'profile': 't', 'reason': 'groove/t: Insufficient floor/side material around groove'}, {'type': 'bolted', 'reason': \"No accessible bolt column: ['bolted: No full material column and flat accessible bearing seats']\"}, {'type': 'combined', 'reason': 'No eligible longitudinal guide needing a conditional slide stop'}]"
+        }
+      ]
+    },
+    {
+      "slot": 4,
+      "attempt": 3,
+      "seed": 157763915309227134,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 208.06451901883747,
+        "requested_operations": 5,
+        "actual_operations": 4,
+        "complexity": "decomposition"
+      }
+    },
+    {
+      "slot": 4,
+      "attempt": 4,
+      "seed": 5869617199205690709,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 237.16139378611894,
+        "requested_operations": 7,
+        "actual_operations": 6,
+        "complexity": "decomposition"
+      }
+    },
+    {
+      "slot": 4,
+      "attempt": 5,
+      "seed": 6679734418959767134,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 220.62911021942801,
+        "requested_operations": 5,
+        "actual_operations": 4,
+        "complexity": "decomposition"
+      }
+    },
+    {
+      "slot": 4,
+      "attempt": 6,
+      "seed": 266241474911616498,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 208.065143401906,
+        "requested_operations": 6,
+        "actual_operations": 5,
+        "complexity": "decomposition"
+      }
+    },
+    {
+      "slot": 8,
+      "attempt": 1,
+      "seed": 7833177120872197831,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 209.602087346936,
+        "requested_operations": 5,
+        "actual_operations": 4,
+        "complexity": "decomposition"
+      }
+    },
+    {
+      "slot": 9,
+      "attempt": 1,
+      "seed": 4938880261301966558,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 218.42072850938644,
+        "requested_operations": 8,
+        "actual_operations": 4,
+        "complexity": "decomposition"
+      }
+    },
+    {
+      "slot": 9,
+      "attempt": 2,
+      "seed": 6423345258700518767,
+      "stage": "decomposition",
+      "error_type": "GeometryRejected",
+      "reason": "original: expected one valid positive-volume solid",
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 182.58257395193104,
+        "requested_operations": 8,
+        "actual_operations": 4,
+        "complexity": "decomposition"
+      }
+    }
+  ],
+  "status": "complete",
+  "elapsed_seconds": 378.457,
+  "failure_counts": {
+    "decomposition:GeometryRejected": 11
+  }
+}

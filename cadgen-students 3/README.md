@@ -5,6 +5,8 @@ No access to the original GitLab repositories is needed for procedural generatio
 
 Генерация сборок из одной цельной модели: разделение, согласованные пазы и
 выступы либо болты с гайками — [ASSEMBLY_GENERATION.md](ASSEMBLY_GENERATION.md).
+Рекурсивная декомпозиция на переменное число компонентов, автоматический выбор
+креплений и четыре вида: [AUTO_DECOMPOSITION.md](AUTO_DECOMPOSITION.md).
 
 ## Install
 

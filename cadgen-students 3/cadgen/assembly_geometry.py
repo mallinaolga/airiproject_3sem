@@ -88,6 +88,21 @@ class Split:
                     cut_to_world_rotation=self.rotation.tolist(), checks=self.checks)
 
 
+def contact_patch(first, second, tolerance=1e-6):
+    """Exact trimmed planar interface. Solid common may discard zero-volume faces."""
+    patches=[]
+    for a in first.Faces():
+        if a.geomType() != "PLANE":continue
+        n=a.normalAt()
+        for b in second.Faces():
+            if b.geomType() != "PLANE" or n.dot(b.normalAt()) > -0.999999:continue
+            offset=(b.Center()-a.Center()).dot(n)
+            if abs(offset)>tolerance:continue
+            common=a.intersect(b.translate(tuple(-offset*n)))
+            if common.Area()>1e-7:patches.extend(common.Faces())
+    return cq.Compound.makeCompound(patches)
+
+
 def halfspace(shape, upper, padding=1.0):
     bb = shape.BoundingBox()
     size = bb.DiagonalLength + max(abs(v) for v in (
@@ -201,14 +216,17 @@ class Connection:
     paths: list  # (moving name, stationary names, withdrawal directions)
 
 
-def build_groove(split, rng, settings, profile="rectangular"):
+def build_groove(split, rng, settings, profile="rectangular", *, centers=None, footprint=None):
     bb = split.original.BoundingBox()
     last_reason = "No supported feature placement"
-    for x, y in feature_centers(split, rng, settings.feature_attempts):
+    for x, y in (feature_centers(split, rng, settings.feature_attempts) if centers is None else centers):
         try:
             sampled = sample_profile(rng, profile)
             depth = -split.lower.BoundingBox().zmin * rng.uniform(0.20, 0.35)
             width = bb.xlen * rng.uniform(0.18, 0.3)
+            if footprint:
+                width = min(width, footprint["width"])
+                depth = min(depth, footprint["depth"])
             scale = min(width/sampled.max_width, depth/sampled.depth)
             values = asdict(sampled)
             for key in values:
@@ -217,6 +235,8 @@ def build_groove(split, rng, settings, profile="rectangular"):
             selected = type(sampled)(**values)
             sliding = selected.kind in ("dovetail", "t")
             core_length = bb.ylen*rng.uniform(0.22, 0.38)
+            if footprint:
+                core_length = min(core_length, footprint["length"])
             if min(selected.opening_width, selected.depth, core_length) < settings.min_wall:
                 raise GeometryRejected("Feature too small for minimum wall setting")
             length = (2*(max(abs(bb.ymin-y), abs(bb.ymax-y))+settings.min_wall)
@@ -269,10 +289,10 @@ def build_groove(split, rng, settings, profile="rectangular"):
     raise GeometryRejected(f"groove/{profile}: {last_reason}")
 
 
-def build_bolted(split, rng, settings):
+def build_bolted(split, rng, settings, *, centers=None):
     bb = split.original.BoundingBox()
     last_reason = "No accessible through column"
-    for x, y in feature_centers(split, rng, settings.feature_attempts):
+    for x, y in (feature_centers(split, rng, settings.feature_attempts) if centers is None else centers):
         try:
             diameter = rng.choice((4.0, 5.0, 6.0))
             head_width, nut_height = diameter+4.0, 4.0
