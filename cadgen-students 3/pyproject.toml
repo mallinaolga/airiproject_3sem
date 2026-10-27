@@ -26,7 +26,10 @@ GitHub = "ssh://github.com/axtonio/cadgen"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["cadgen*"]
+include = ["cadgen*", "generirovanie_pazov*"]
+
+[tool.setuptools]
+py-modules = ["Bolty", "Gaiki", "Otverstiya"]
 
 [tool.setuptools.dynamic]
 version = { attr = "cadgen.__version__" }

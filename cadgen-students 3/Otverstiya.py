@@ -60,6 +60,18 @@ def sample_spec(rng: random.Random, shape: str = "random") -> PlateSpec:
     return PlateSpec(shape, width, length, thickness, hole)
 
 
+def through_hole_cutter(diameter: float, z_min: float, z_max: float,
+                        center: tuple[float, float] = (0.0, 0.0)):
+    """Shared axial tool for plates and two halves of one assembly (millimeters)."""
+    import cadquery as cq
+
+    if (not all(math.isfinite(x) for x in (diameter, z_min, z_max, *center))
+            or diameter <= 0 or z_max <= z_min):
+        raise ValueError("Invalid through-hole dimensions")
+    return (cq.Workplane("XY", origin=(*center, z_min)).circle(diameter/2)
+            .extrude(z_max-z_min).val())
+
+
 def build_plate(spec: PlateSpec):
     import cadquery as cq
 
@@ -77,8 +89,7 @@ def build_plate(spec: PlateSpec):
         body = plane.circle(spec.width/2).extrude(spec.thickness).val()
     else:
         body = plane.polygon(6, spec.width, circumscribed=True).extrude(spec.thickness).val()
-    cutter = (cq.Workplane("XY", origin=(0, 0, -1))
-              .circle(spec.hole_diameter/2).extrude(spec.thickness+2).val())
+    cutter = through_hole_cutter(spec.hole_diameter, -1, spec.thickness+1)
     result = body.cut(cutter).clean()
     if not result.isValid() or len(result.Solids()) != 1 or result.Volume() <= 0:
         raise RuntimeError(f"Invalid plate: {spec}")

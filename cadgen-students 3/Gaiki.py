@@ -15,6 +15,7 @@ generirovanie_gaek/batch_... . Импорт ничего не генерируе
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 from datetime import datetime
 import json
 import math
@@ -25,15 +26,29 @@ from Bolty import (DIAMETER_MIN_MM, DIAMETER_MAX_MM, DIMENSION_STEP_MM,
                    sample_diameter, sample_dimension, save_manifest_json)
 
 
-def make_nut(rng: random.Random):
+@dataclass(frozen=True)
+class NutSpec:
+    hole_diameter: float
+    across_flats: float
+    height: float
+    chamfer: float = 0.5
+
+
+def build_nut(spec: NutSpec):
+    """Build explicitly dimensioned compatible hardware; no thread is modeled."""
     import cadquery as cq
 
-    hole = sample_diameter(rng)
-    across_flats = sample_dimension(rng, hole+3.0, hole+8.0)
-    height = sample_dimension(rng, 3.0, 8.0)
-    chamfer = sample_dimension(rng, 0.25, min(0.65, height*0.2, (across_flats-hole)*0.2))
+    hole, across_flats, height, chamfer = (spec.hole_diameter, spec.across_flats,
+                                          spec.height, spec.chamfer)
+    if (not all(math.isfinite(x) and x > 0 for x in (hole, across_flats, height))
+            or not math.isfinite(chamfer) or chamfer < 0
+            or across_flats <= hole or 2*chamfer >= min(height, across_flats-hole)):
+        raise ValueError("Invalid nut dimensions or insufficient wall for chamfer")
     body = (cq.Workplane("XY").polygon(6, across_flats, circumscribed=True)
-            .extrude(height).faces(">Z or <Z").edges().chamfer(chamfer).val())
+            .extrude(height))
+    if chamfer:
+        body = body.faces(">Z or <Z").edges().chamfer(chamfer)
+    body = body.val()
     cutter = (cq.Workplane("XY", origin=(0, 0, -1)).circle(hole/2)
               .extrude(height+2).val())
     nut = body.cut(cutter).clean()
@@ -46,6 +61,15 @@ def make_nut(rng: random.Random):
              .extrude(height+2).val())
     if nut.intersect(shaft).Volume() > 1e-6:
         raise RuntimeError("Through-hole probe intersects the nut")
+    return nut
+
+
+def make_nut(rng: random.Random):
+    hole = sample_diameter(rng)
+    across_flats = sample_dimension(rng, hole+3.0, hole+8.0)
+    height = sample_dimension(rng, 3.0, 8.0)
+    chamfer = sample_dimension(rng, 0.25, min(0.65, height*0.2, (across_flats-hole)*0.2))
+    nut = build_nut(NutSpec(hole, across_flats, height, chamfer))
     details = {
         "units": "mm", "role": "nut", "outer_shape": "hexagonal",
         "dimension_step_mm": DIMENSION_STEP_MM,
