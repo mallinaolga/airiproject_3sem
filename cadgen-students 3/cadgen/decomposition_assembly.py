@@ -8,7 +8,7 @@ from .assembly_geometry import GeometryRejected, Split, contact_patch, frame
 from .assembly_validation import overlap_volume, transform_part
 
 
-def assemble_partition(state, seed, geometry, settings, connection="auto", profile="auto"):
+def assemble_partition(state, seed, geometry, settings, connection="auto", profile="auto", *, edge_callback=None):
     from .assembly_planning import assembly_graph, validate_partition
     from .joint_design import materialize, propose_joints
 
@@ -36,11 +36,19 @@ def assemble_partition(state, seed, geometry, settings, connection="auto", profi
             split = Split(local(state.raw[a].fuse(state.raw[b])),local(state.raw[a]),
                           local(state.raw[b]),r,origin,dict(final_geometric_neighbours=True))
             options = propose_joints(split,(b,a),f"e{len(trials)+1}",seed,geometry,connection,profile)
-            entry.update(status="options_found",options=len(options))
+            entry.update(status="options_found",options=len(options),
+                         joint_types=sorted(set(o.parameters["type"] for o in options)),
+                         adaptive_search=options[0].selection.get("adaptive_search"),
+                         designs=[o.metadata() for o in options])
+            if edge_callback:
+                edge_callback(a,b,options)
             edges.append((a,b,options))
         except Exception as error:
-            entry.update(status="rejected",reason=f"{type(error).__name__}: {error}")
+            entry.update(status="rejected",reason=f"{type(error).__name__}: {error}",
+                         adaptive_search=getattr(error,"report",None))
         trials.append(entry)
+        if edge_callback:
+            edge_callback(a,b,None,entry)
 
     reached = {identifiers[0]}
     while True:
@@ -56,12 +64,17 @@ def assemble_partition(state, seed, geometry, settings, connection="auto", profi
         return state
 
     visited, limited, failures = 0, False, []
+    seen_joint_sets=set()
 
     def search(reached, joints):
         nonlocal visited, limited
+        signature=frozenset(id(joint) for joint in joints)
+        if signature in seen_joint_sets:
+            return False
         if visited>=settings.max_sequence_states:
             limited = True
             return False
+        seen_joint_sets.add(signature)
         visited += 1
         if len(reached)==len(identifiers):
             try:
@@ -73,7 +86,9 @@ def assemble_partition(state, seed, geometry, settings, connection="auto", profi
                 state.checks.update(checks)
                 return True
             except Exception as error:
-                failures.append(dict(reason=f"{type(error).__name__}: {error}"))
+                failures.append(dict(reason=f"{type(error).__name__}: {error}",
+                                     joints=[dict(id=j.id,components=list(j.owners),
+                                                  profile=j.parameters.get("profile",{}).get("kind")) for j in joints]))
                 return False
         for a,b,options in edges:
             if (a in reached)==(b in reached):

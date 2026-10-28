@@ -34,7 +34,7 @@ class NutSpec:
     chamfer: float = 0.5
 
 
-def build_nut(spec: NutSpec):
+def build_nut(spec: NutSpec, *, adaptive=False):
     """Build explicitly dimensioned compatible hardware; no thread is modeled."""
     import cadquery as cq
 
@@ -57,7 +57,7 @@ def build_nut(spec: NutSpec):
     removed = body.Volume()-nut.Volume()
     if not math.isclose(removed, math.pi*(hole/2)**2*height, rel_tol=1e-6):
         raise RuntimeError("Hole is not fully through the nut")
-    shaft = (cq.Workplane("XY", origin=(0, 0, -1)).circle((hole-0.1)/2)
+    shaft = (cq.Workplane("XY", origin=(0, 0, -1)).circle((hole*.9 if adaptive else hole-0.1)/2)
              .extrude(height+2).val())
     if nut.intersect(shaft).Volume() > 1e-6:
         raise RuntimeError("Through-hole probe intersects the nut")

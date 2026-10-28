@@ -12,6 +12,11 @@ No access to the original GitLab repositories is needed for procedural generatio
 Все 10 геометрических разбиений для просмотра STL на GitHub:
 [examples/two_stage_decomposition/README.md](examples/two_stage_decomposition/README.md).
 
+Адаптивные пазы и болты на сохранённых компонентах без новой декомпозиции:
+[ADAPTIVE_JOINTS.md](ADAPTIVE_JOINTS.md).
+Готовые сборки после адаптивных креплений: [10 моделей и отдельные детали](examples/adaptive_joints/README.md).
+[Размеры всех 76 соединений и разбор микроскопических пазов](JOINT_DIMENSIONS.md).
+
 ## Install
 
 Extract the archive, then open a terminal in the `cadgen-students` folder.

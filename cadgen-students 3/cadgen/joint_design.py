@@ -89,7 +89,7 @@ def make_joint(split, result, owners, name, score, selection, geometry):
     dirs = tuple(split.rotation@np.asarray(v,float) for v in result.paths[0][2])
     params = dict(result.parameters, cut_to_world_rotation=split.rotation.tolist(),
                   cut_origin=split.origin.tolist())
-    zone=connection_zone(split,result,geometry.min_wall)
+    zone=connection_zone(split,result,result.parameters.get("local_material_margin",geometry.min_wall))
     local_zone=transform_part(zone,split.rotation.T,-split.rotation.T@split.origin)
     b=local_zone.BoundingBox();body=split.original.BoundingBox()
     future_levels=set(round(f.Center().z,5) for f in split.original.Faces()
@@ -136,7 +136,14 @@ def bolt_group(split, centers, seed, geometry, desired, excluded=()):
         requested_geometric_bolt_count=desired,feasible_columns=len(accepted),threaded=False),paths)
 
 
-def propose_joints(split, owners, name, seed, geometry, connection="auto", profile="auto", excluded=()):
+def propose_joints(split, owners, name, seed, geometry, connection="auto", profile="auto", excluded=(), *, adaptive=True):
+    if adaptive and connection!="combined":
+        from .adaptive_joints import propose_adaptive_joints
+        return propose_adaptive_joints(split,owners,name,seed,geometry,connection,profile,excluded)
+    return legacy_joints(split,owners,name,seed,geometry,connection,profile,excluded)
+
+
+def legacy_joints(split, owners, name, seed, geometry, connection="auto", profile="auto", excluded=()):
     split, patch = orient_interface(split)
     b = patch.BoundingBox()
     area = patch.Area()

@@ -44,8 +44,8 @@ class AssemblySettings:
             raise ValueError("plane/feature attempts >= 1, path_steps >= 2")
 
 
-def require_solid(shape, label):
-    if not shape.isValid() or len(shape.Solids()) != 1 or shape.Volume() <= 1e-8:
+def require_solid(shape, label, *, minimum_volume=1e-8):
+    if not shape.isValid() or len(shape.Solids()) != 1 or shape.Volume() <= minimum_volume:
         raise GeometryRejected(f"{label}: expected one valid positive-volume solid")
     return shape.Solids()[0]
 
@@ -99,7 +99,13 @@ def contact_patch(first, second, tolerance=1e-6):
             offset=(b.Center()-a.Center()).dot(n)
             if abs(offset)>tolerance:continue
             common=a.intersect(b.translate(tuple(-offset*n)))
-            if common.Area()>1e-7:patches.extend(common.Faces())
+            if common.Area()>1e-7:
+                for face in common.Faces():
+                    # Boolean face intersections can inherit either operand's
+                    # orientation. Contact normals must point out of first.
+                    if face.normalAt().dot(n)<0:
+                        face=cq.Face(face.wrapped.Reversed())
+                    patches.append(face)
     return cq.Compound.makeCompound(patches)
 
 
@@ -216,7 +222,7 @@ class Connection:
     paths: list  # (moving name, stationary names, withdrawal directions)
 
 
-def build_groove(split, rng, settings, profile="rectangular", *, centers=None, footprint=None):
+def build_groove(split, rng, settings, profile="rectangular", *, centers=None, footprint=None, adaptive=False):
     bb = split.original.BoundingBox()
     last_reason = "No supported feature placement"
     for x, y in (feature_centers(split, rng, settings.feature_attempts) if centers is None else centers):
@@ -237,9 +243,13 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
             core_length = bb.ylen*rng.uniform(0.22, 0.38)
             if footprint:
                 core_length = min(core_length, footprint["length"])
-            if min(selected.opening_width, selected.depth, core_length) < settings.min_wall:
+            margin = (min(selected.opening_width, selected.depth, core_length)*.12
+                      if adaptive else settings.min_wall)
+            if adaptive and min(selected.opening_width, selected.depth, core_length) < 5e-6:
+                raise GeometryRejected("Feature is below reliable CAD resolution")
+            if not adaptive and min(selected.opening_width, selected.depth, core_length) < settings.min_wall:
                 raise GeometryRejected("Feature too small for minimum wall setting")
-            length = (2*(max(abs(bb.ymin-y), abs(bb.ymax-y))+settings.min_wall)
+            length = (2*(max(abs(bb.ymin-y), abs(bb.ymax-y))+margin)
                       if sliding else core_length)
             pin_tool = profile_prism(selected, length).translate((x, y, 0))
             cavity = offset_prism(pin_tool, settings.clearance)
@@ -247,25 +257,29 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
             # A local envelope certifies floor/side material; for sliding slots
             # open ends are intentional, so test the central engagement region.
             core = profile_prism(selected, core_length).translate((x, y, 0))
-            envelope = offset_prism(core, settings.clearance+settings.min_wall)
+            envelope = offset_prism(core, settings.clearance+margin)
             envelope = envelope.intersect(halfspace(split.original, False))
             if envelope.cut(split.lower).Volume() > settings.volume_tolerance:
                 raise GeometryRejected("Insufficient floor/side material around groove")
-            anchor = cq.Solid.makeBox(selected.max_width+2*settings.min_wall,
-                                     core_length+2*settings.min_wall, settings.min_wall,
-                                     cq.Vector(x-selected.max_width/2-settings.min_wall,
-                                               y-core_length/2-settings.min_wall, 0))
+            anchor = cq.Solid.makeBox(selected.max_width+2*margin,
+                                     core_length+2*margin,
+                                     min(margin, footprint["anchor_depth"]) if adaptive else margin,
+                                     cq.Vector(x-selected.max_width/2-margin,
+                                               y-core_length/2-margin, 0))
             if anchor.cut(split.upper).Volume() > settings.volume_tolerance:
                 raise GeometryRejected("Insufficient material anchoring the protrusion")
             tongue = pin_tool.intersect(split.lower).clean()
-            require_solid(tongue, "transferred tongue")
+            require_solid(tongue, "transferred tongue",
+                          minimum_volume=settings.volume_tolerance if adaptive else 1e-8)
             if not sliding and pin_tool.cut(split.lower).Volume() > settings.volume_tolerance:
                 raise GeometryRejected("Closed-pocket protrusion leaves the original body")
             if tongue.cut(cavity).Volume() > settings.volume_tolerance:
                 raise GeometryRejected("Groove does not contain the shared protrusion")
             donor = require_solid(split.upper.fuse(tongue).clean(), "protrusion component")
             receiver = require_solid(split.lower.cut(cavity).clean(), "groove component")
-            if min(donor.Volume(), receiver.Volume()) < split.original.Volume()*settings.min_part_fraction:
+            if adaptive and difference_volume(donor.cut(split.upper),tongue)>settings.volume_tolerance:
+                raise GeometryRejected("CAD Boolean did not preserve the complete transferred tongue")
+            if not adaptive and min(donor.Volume(), receiver.Volume()) < split.original.Volume()*settings.min_part_fraction:
                 raise GeometryRejected("Connection removes too much material")
             removed = split.lower.intersect(cavity).cut(tongue)
             directions = [(0, 1, 0), (0, -1, 0)] if sliding else [(0, 0, 1)]
@@ -281,7 +295,8 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
                 insertion="longitudinal_slide" if sliding else "normal_to_split",
                 transferred_volume=tongue.Volume(), profile_containment_checked=True,
                 material_check="central envelope and anchor containment; valid single-solid outputs",
-                global_minimum_wall_certified=False)
+                global_minimum_wall_certified=False, adaptive=adaptive,
+                local_material_margin=margin, volume_tolerance_used=settings.volume_tolerance)
             return Connection([("part_1", donor), ("part_2", receiver)], removed, parameters,
                               [("part_1", ["part_2"], directions)])
         except (GeometryRejected, ValueError, RuntimeError) as error:
@@ -289,35 +304,39 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
     raise GeometryRejected(f"groove/{profile}: {last_reason}")
 
 
-def build_bolted(split, rng, settings, *, centers=None):
+def build_bolted(split, rng, settings, *, centers=None, adaptive=False, diameter=None):
     bb = split.original.BoundingBox()
+    requested_diameter=diameter
     last_reason = "No accessible through column"
     for x, y in (feature_centers(split, rng, settings.feature_attempts) if centers is None else centers):
         try:
-            diameter = rng.choice((4.0, 5.0, 6.0))
-            head_width, nut_height = diameter+4.0, 4.0
+            diameter = requested_diameter if requested_diameter is not None else rng.choice((4.0, 5.0, 6.0))
+            head_width, nut_height = (1.7*diameter, .65*diameter) if adaptive else (diameter+4.0, 4.0)
+            margin = .12*diameter if adaptive else settings.min_wall
+            head_height = .6*diameter if adaptive else 4.0
+            tip = .35*diameter if adaptive else 2.0
             outer_radius = head_width/(2*math.cos(math.pi/6))
-            pad = through_hole_cutter(2*(outer_radius+settings.min_wall), bb.zmin, bb.zmax, (x, y))
+            pad = through_hole_cutter(2*(outer_radius+margin), bb.zmin, bb.zmax, (x, y))
             if pad.cut(split.original).Volume() > settings.volume_tolerance:
                 raise GeometryRejected("No full material column and flat accessible bearing seats")
             hole_diameter = diameter+2*settings.clearance
             tool = through_hole_cutter(hole_diameter, bb.zmin-1, bb.zmax+1, (x, y))
             upper = require_solid(split.upper.cut(tool).clean(), "drilled upper component")
             lower = require_solid(split.lower.cut(tool).clean(), "drilled lower component")
-            if min(upper.Volume(), lower.Volume()) < split.original.Volume()*settings.min_part_fraction:
+            if not adaptive and min(upper.Volume(), lower.Volume()) < split.original.Volume()*settings.min_part_fraction:
                 raise GeometryRejected("Bolt channel removes too much material")
             lengths = [split.upper.BoundingBox().zmax, -split.lower.BoundingBox().zmin]
             expected_holes = [math.pi*(hole_diameter/2)**2*d for d in lengths]
             actual_holes = [split.upper.Volume()-upper.Volume(), split.lower.Volume()-lower.Volume()]
             if any(abs(a-e) > settings.volume_tolerance for a, e in zip(actual_holes, expected_holes)):
                 raise GeometryRejected("Coaxial hole is not fully through both halves")
-            spec = BoltSpec("hex_head", bb.zlen+nut_height+2, diameter, head_width, 4.0, 0.0, 0.0)
-            bolt = build_bolt(spec).translate((x, y, bb.zmax))
-            nut_spec = NutSpec(hole_diameter, head_width, nut_height, 0.5)
-            nut = build_nut(nut_spec).translate((x, y, bb.zmin-nut_height))
+            spec = BoltSpec("hex_head", bb.zlen+nut_height+tip, diameter, head_width, head_height, 0.0, 0.0)
+            bolt = (build_bolt(spec, adaptive=True) if adaptive else build_bolt(spec)).translate((x, y, bb.zmax))
+            nut_spec = NutSpec(hole_diameter, head_width, nut_height, min(.08*diameter,.2*(head_width-hole_diameter)) if adaptive else 0.5)
+            nut = (build_nut(nut_spec, adaptive=True) if adaptive else build_nut(nut_spec)).translate((x, y, bb.zmin-nut_height))
             head_area = planar_contact_area(upper, bolt, 1e-6)
             nut_area = planar_contact_area(lower, nut, 1e-6)
-            if min(head_area, nut_area) < 1.0:
+            if min(head_area, nut_area) < (.05*diameter**2 if adaptive else 1.0):
                 raise GeometryRejected("Insufficient bearing contact for head or nut")
             parameters = dict(
                 type="bolted", axis_in_cut_frame=[0, 0, 1], center_in_cut_frame=[x, y, 0],
@@ -329,8 +348,9 @@ def build_bolted(split, rng, settings, *, centers=None):
                 expected_hole_removed_volumes=expected_holes,
                 head_bearing_area=head_area, nut_bearing_area=nut_area,
                 head_cannot_pass_hole=head_width > hole_diameter,
-                tip_beyond_nut=2.0, threaded=False, thread_retention_modeled=False,
-                material_check="full column contains bearing radius plus min_wall",
+                tip_beyond_nut=tip, threaded=False, thread_retention_modeled=False,
+                material_check="full column contains bearing radius plus local material margin",
+                adaptive=adaptive, local_material_margin=margin, volume_tolerance_used=settings.volume_tolerance,
                 global_minimum_wall_certified=False)
             return Connection([("part_1", upper), ("part_2", lower), ("bolt_1", bolt), ("nut_1", nut)],
                               split.original.intersect(tool), parameters,

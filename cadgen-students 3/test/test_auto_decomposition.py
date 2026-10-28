@@ -82,8 +82,8 @@ class DecompositionTests(unittest.TestCase):
         self.assertGreaterEqual(len(state.raw),2)
         self.assertLess(difference_volume(original,union(state.raw.values())),1e-5)
         self.assertTrue(state.checks["geometric_partition_valid"])
-        self.assertFalse(state.assembly["success"])
-        self.assertFalse(state.sequence)
+        self.assertTrue(state.assembly["success"],state.assembly)
+        self.assertEqual({s["component"] for s in state.sequence},set(state.raw))
 
     def test_technical_limits_are_separate_from_geometric_stops(self):
         for options in ({"max_operations":1},{"max_candidates":1},{"max_depth":1}):
@@ -93,11 +93,14 @@ class DecompositionTests(unittest.TestCase):
                                 "technical_limit_reached" in [v["reason"] for v in state.stops.values()])
                 self.assertFalse(state.checks["decomposition_complete_within_search"])
 
-    def test_small_neck_has_no_feasible_fastener(self):
+    def test_small_neck_now_accepts_adaptive_grooves(self):
         state=decompose(neck(6),42,self.geometry,replace(self.settings,min_component_size=4))
         self.assertEqual(len(state.raw),3)
         self.assertTrue(state.checks["all_leaves_constant_section"])
-        self.assertFalse(state.assembly["success"])
+        self.assertTrue(state.assembly["success"],state.assembly)
+        self.assertEqual(len(state.joints),len(state.raw)-1)
+        self.assertTrue(all(j.parameters["type"]=="groove" for j in state.joints))
+        self.assertTrue(state.checks["assembly_sequence_checked"])
         self.assertTrue(state.assembly["trials"])
         self.assertNotIn("no_feasible_connections",[s["reason"] for s in state.stops.values()])
 
@@ -147,6 +150,7 @@ class AutomaticJointTests(unittest.TestCase):
     def setUp(self):self.geometry=AssemblySettings(path_steps=8)
 
     def options(self,dimensions,**kwargs):
+        kwargs.setdefault("adaptive",False)  # retain the original ranking contract in legacy search
         original=block(dimensions)
         split=split_model(original,[0,0,0],[0,0,1],self.geometry)
         return original,split,propose_joints(split,("a","b"),"j1",42,self.geometry,**kwargs)

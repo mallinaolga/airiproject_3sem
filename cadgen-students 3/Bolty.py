@@ -140,7 +140,7 @@ def sample_spec(rng: random.Random, kind: str) -> BoltSpec:
     return BoltSpec(kind, length, diameter, width, height, band, size)
 
 
-def build_bolt(spec: BoltSpec):
+def build_bolt(spec: BoltSpec, *, adaptive=False):
     """Стержень занимает z=-length..0, головка начинается на z=0."""
     import cadquery as cq
 
@@ -150,8 +150,8 @@ def build_bolt(spec: BoltSpec):
         if field != "kind" and (not math.isfinite(value) or value < 0):
             raise ValueError(f"Invalid dimension: {field}")
     if (spec.shaft_length <= 0 or spec.shaft_diameter <= 0
-            or spec.head_width < spec.shaft_diameter+4.0-1e-9 or spec.head_height <= 0):
-        raise ValueError("Length and head height must be positive; head must be at least 4 mm wider than shaft")
+            or spec.head_width < (1.4*spec.shaft_diameter if adaptive else spec.shaft_diameter+4.0-1e-9) or spec.head_height <= 0):
+        raise ValueError("Length and head height must be positive; head must leave a positive bearing shoulder (legacy: at least 4 mm wider)")
     if spec.drive_kind != "none" and (spec.drive_size <= 0 or spec.drive_depth >= spec.head_height):
         raise ValueError("Drive must be nonempty and leave material below its floor")
 

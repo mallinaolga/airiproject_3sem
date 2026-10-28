@@ -47,22 +47,23 @@ def declared_voids(metadata,raw):
                 if void.Solids():result.append(transform_part(void,r,t))
                 for owner in joint["components"]:expected[owner]=expected[owner].cut(transform_part(tool,r,t))
                 x,y=bolt["center_in_cut_frame"][:2]
-                built_bolt=build_bolt(BoltSpec(**bolt["bolt"])).translate((x,y,upper.BoundingBox().zmax))
-                built_nut=build_nut(NutSpec(**bolt["nut"])).translate((x,y,lower.BoundingBox().zmin-bolt["nut"]["height"]))
+                built_bolt=build_bolt(BoltSpec(**bolt["bolt"]),adaptive=bolt.get("adaptive",False)).translate((x,y,upper.BoundingBox().zmax))
+                built_nut=build_nut(NutSpec(**bolt["nut"]),adaptive=bolt.get("adaptive",False)).translate((x,y,lower.BoundingBox().zmin-bolt["nut"]["height"]))
                 expected[joint["hardware"][2*index]]=transform_part(built_bolt,r,t)
                 expected[joint["hardware"][2*index+1]]=transform_part(built_nut,r,t)
     return (union(result) if result else cq.Compound.makeCompound([])),expected
 
 
-def verify_model(folder):
+def verify_model(folder, *, check_program=True):
     metadata=json.loads((folder/"metadata.json").read_text())
     assert metadata["success"] and metadata["status"]=="success",folder
     assert metadata["source"]["generator"]=="CADFactory",folder
     tolerance=metadata["settings"]["volume_tolerance"]
     original=require_solid(cq.importers.importStep(str(folder/"original.step")).val(),"original")
-    namespace={}
-    exec(compile((folder/"original.py").read_text(),str(folder/"original.py"),"exec"),namespace)
-    assert difference_volume(original,namespace["r"].val())<=tolerance, "CADGen program differs from original STEP"
+    if check_program:
+        namespace={}
+        exec(compile((folder/"original.py").read_text(),str(folder/"original.py"),"exec"),namespace)
+        assert difference_volume(original,namespace["r"].val())<=tolerance, "CADGen program differs from original STEP"
     parts={};raw={};mass_integration_differences=[]
     for entries,destination in ((metadata["components"],parts),(metadata["raw_components"],raw)):
         for component in entries:
@@ -92,6 +93,26 @@ def verify_model(folder):
     assert set(expected_parts)==set(parts)
     for name,expected in expected_parts.items():
         assert difference_volume(expected,parts[name])<=tolerance,("Component recipe mismatch",name)
+    # Tiny adaptive features must survive STEP at their own tolerance, even
+    # when their entire volume is below the old whole-model CAD threshold.
+    adaptive_features=[]
+    for joint in metadata["joints"]:
+        p=joint["parameters"]
+        if not p.get("adaptive") or p["type"]!="groove":continue
+        r=np.array(p["cut_to_world_rotation"]);t=np.array(p["cut_origin"])
+        local=lambda shape:transform_part(shape,r.T,-r.T@t)
+        donor,receiver=joint["components"]
+        pin=profile_prism(Profile(**p["profile"]),p["tool_length"]).translate(tuple(p["center_in_cut_frame"]))
+        cavity=offset_prism(pin,p["clearance"])
+        tongue=local(raw[receiver]).intersect(pin)
+        feature_tolerance=p["volume_tolerance_used"]
+        missing=max(0.,tongue.cut(local(parts[donor])).Volume())
+        intrusion=overlap_volume(local(parts[receiver]),cavity)
+        collision=overlap_volume(parts[donor],parts[receiver])
+        assert max(missing,intrusion,collision)<=feature_tolerance,("Adaptive feature lost or obstructed after STEP",joint["id"])
+        adaptive_features.append(dict(id=joint["id"],tongue_volume=tongue.Volume(),
+            missing_tongue_volume=missing,material_in_cavity=intrusion,pair_overlap=collision,
+            local_volume_tolerance=feature_tolerance))
     void_error=difference_volume(actual_void,expected_void)
     assert void_error<=tolerance, ("Technological void geometry mismatch",void_error)
     loaded=cq.importers.importStep(str(folder/"assembly.step"))
@@ -153,7 +174,7 @@ def verify_model(folder):
                 connection_types=dict(Counter(j["parameters"]["type"] for j in metadata["joints"])),
                 stop_reasons=dict(Counter(v["reason"] for v in metadata["stopping_conditions"].values())),
                 technological_void_error_volume=void_error,mass_integration_differences=mass_integration_differences,
-                all_checks_passed=True,stl_files=meshes),original
+                all_checks_passed=True,adaptive_features=adaptive_features,stl_files=meshes),original
 
 
 def verify_geometry(folder):
