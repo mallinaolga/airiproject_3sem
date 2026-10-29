@@ -59,10 +59,11 @@ def export_auto(state,seed,parameters,program,target,geometry,settings,request):
         raise GeometryRejected("Ready assembly export requires success on all fixed geometric constituents")
     target=Path(target);target.mkdir(parents=True,exist_ok=False)
     raw_names={name:f"part_{i}" for i,name in enumerate(sorted(state.raw),1)}
-    hardware_names={};b=0;n=0
+    hardware_names={};b=0;n=0;screw_count=0
     for joint in state.joints:
         for name,_ in joint.hardware:
             if "_bolt_" in name:b+=1;hardware_names[name]=f"bolt_{b}"
+            elif "_screw_" in name:screw_count+=1;hardware_names[name]=f"screw_{screw_count}"
             else:n+=1;hardware_names[name]=f"nut_{n}"
     names=dict(raw_names,**hardware_names)
     parts=materialize(state.raw,state.joints,geometry)
@@ -84,6 +85,12 @@ def export_auto(state,seed,parameters,program,target,geometry,settings,request):
         components=[],raw_components=[],component_id_map=names,
         note="Bounded heuristic decomposition; not all possible cuts. Finite trajectory samples "
              "do not prove continuous clearance. No thread or mechanical retention modeled.")
+    if state.checks.get("method")=="constructive_operation_volumes":
+        features=[f for j in state.joints for f in j.parameters.get("features",[])]
+        grooves=sum(f["type"] in ("groove","cylindrical_fit") for f in features)
+        metadata["counts"].update(grooves=grooves,protrusions=grooves,screws=screw_count,
+            cylindrical_fits=sum(f["type"]=="cylindrical_fit" for f in features),
+            constructive_components=len(state.raw))
     save_json(target/"metadata.json",metadata)
 
     def stl(shape,path):
@@ -116,7 +123,7 @@ def export_auto(state,seed,parameters,program,target,geometry,settings,request):
             color=cq.Color(*(palette[index%len(palette)] if old in state.raw else (.6,.62,.65)))
             assembly.add(local,name=name,loc=location(np.eye(3),center),color=color)
             exploded_assembly.add(local,name=name,loc=location(np.eye(3),center+exploded[old]),color=color)
-            metadata["components"].append(dict(name=name,role="main" if old in state.raw else "bolt" if "_bolt_" in old else "nut",
+            metadata["components"].append(dict(name=name,role="main" if old in state.raw else "bolt" if "_bolt_" in old else "screw" if "_screw_" in old else "nut",
                 step=f"{name}.step",stl=f"{name}.stl",rotation_matrix=np.eye(3).tolist(),translation=center.tolist(),
                 exploded_translation=(center+exploded[old]).tolist(),volume=shape.Volume()))
         for old,shape in sorted(state.raw.items()):

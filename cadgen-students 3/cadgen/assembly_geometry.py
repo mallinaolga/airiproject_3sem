@@ -222,7 +222,7 @@ class Connection:
     paths: list  # (moving name, stationary names, withdrawal directions)
 
 
-def build_groove(split, rng, settings, profile="rectangular", *, centers=None, footprint=None, adaptive=False):
+def build_groove(split, rng, settings, profile="rectangular", *, centers=None, footprint=None, adaptive=False, exact_profile=None):
     bb = split.original.BoundingBox()
     last_reason = "No supported feature placement"
     for x, y in (feature_centers(split, rng, settings.feature_attempts) if centers is None else centers):
@@ -238,9 +238,10 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
             for key in values:
                 if key != "kind" and values[key] is not None:
                     values[key] *= scale
-            selected = type(sampled)(**values)
+            selected = exact_profile or type(sampled)(**values)
             sliding = selected.kind in ("dovetail", "t")
-            core_length = bb.ylen*rng.uniform(0.22, 0.38)
+            core_length = (footprint["length"] if exact_profile is not None
+                           else bb.ylen*rng.uniform(0.22, 0.38))
             if footprint:
                 core_length = min(core_length, footprint["length"])
             margin = (min(selected.opening_width, selected.depth, core_length)*.12

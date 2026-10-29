@@ -16,10 +16,11 @@ def union(shapes):
     return result
 
 
-def assembly_graph(raw,joints,geometry):
+def assembly_graph(raw,joints,geometry,contact_function=None):
+    contact_function=contact_function or contact_patch
     contacts=[]
     for a,b in combinations(raw,2):
-        patch=contact_patch(raw[a],raw[b])
+        patch=contact_function(raw[a],raw[b])
         if patch.Area()<=1e-6 or not patch.Faces():continue
         face=max(patch.Faces(),key=lambda f:f.Area())
         contacts.append(dict(components=[a,b],area=patch.Area(),position=list(face.Center().toTuple()),
@@ -50,7 +51,9 @@ def find_sequence(parts,raw,joints,geometry,max_states):
             joint=hardware[name]
             if "_bolt_" in name and any(n in remaining and "_nut_" in n for n,_ in joint.hardware):
                 return []
-            return [joint.axis if "_bolt_" in name else -joint.axis]
+            custom=joint.parameters.get("hardware_directions_world",{}).get(name)
+            if custom is not None:return [np.asarray(d,float) for d in custom]
+            return [joint.axis if "_bolt_" in name or "_screw_" in name else -joint.axis]
         if any(name in j.owners and any(n in remaining for n,_ in j.hardware) for j in joints):
             return []
         constraints=[]

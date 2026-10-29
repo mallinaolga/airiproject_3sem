@@ -71,6 +71,10 @@ def interface_centers(patch):
 
 
 def connection_zone(split, result, margin):
+    if result.parameters.get("feature_zones_local"):
+        boxes=[cq.Solid.makeBox(b[3]-b[0],b[4]-b[1],b[5]-b[2],cq.Vector(*b[:3]))
+               for b in result.parameters["feature_zones_local"]]
+        return split.world(cq.Compound.makeCompound(boxes))
     first, second = [s for _, s in result.components[:2]]
     altered = [first.cut(split.upper), split.upper.cut(first), second.cut(split.lower), split.lower.cut(second)]
     altered += [s for _, s in result.components[2:]]

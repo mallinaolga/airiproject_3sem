@@ -1,0 +1,802 @@
+{
+  "method": "constructive_operation_volumes",
+  "components": {
+    "part_1": {
+      "history_elements": [
+        "h1"
+      ],
+      "family": "cylinder",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cylinder": {
+        "radius": 17.0,
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "origin": [
+          62.0,
+          -14.0,
+          68.0
+        ]
+      },
+      "operations": [
+        {
+          "program_line": 3,
+          "call": "r=extrude(r, (62, 0, 0), 'YZ', \"sketch().push([(-14, 68)]).circle(17).finalize()\", -129)",
+          "operation_subvolume": 1,
+          "operation_solid_count": 1,
+          "family": "cylinder",
+          "source_volume": 117121.71571848108,
+          "service_overlap_mm": 0.0005
+        }
+      ],
+      "trimmed_by_attachment": true
+    },
+    "part_2": {
+      "history_elements": [
+        "h1"
+      ],
+      "family": "cylinder",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cylinder": {
+        "radius": 17.0,
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "origin": [
+          62.0,
+          -14.0,
+          68.0
+        ]
+      },
+      "operations": [
+        {
+          "program_line": 3,
+          "call": "r=extrude(r, (62, 0, 0), 'YZ', \"sketch().push([(-14, 68)]).circle(17).finalize()\", -129)",
+          "operation_subvolume": 1,
+          "operation_solid_count": 1,
+          "family": "cylinder",
+          "source_volume": 117121.71571848108,
+          "service_overlap_mm": 0.0005
+        }
+      ],
+      "trimmed_by_attachment": true
+    },
+    "part_3": {
+      "history_elements": [
+        "part_3"
+      ],
+      "family": "cylinder",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cylinder": {
+        "radius": 23.0,
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "origin": [
+          -28.0,
+          -14.0,
+          68.0
+        ]
+      },
+      "operations": [
+        {
+          "program_line": 4,
+          "call": "r=extrude(r, (-28, -14, 68), 'YZ', \"sketch().push([(-14, 68)]).circle(23).finalize()\", -18, False)",
+          "operation_subvolume": 1,
+          "operation_solid_count": 1,
+          "family": "cylinder",
+          "source_volume": 29914.245247482006,
+          "service_overlap_mm": 0.0005
+        }
+      ],
+      "trimmed_by_attachment": false
+    },
+    "part_4": {
+      "history_elements": [
+        "part_4"
+      ],
+      "family": "prism",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cylinder": null,
+      "operations": [
+        {
+          "program_line": 5,
+          "call": "r=extrude(r, (-49, 3, 68), 'YZ', \"sketch().arc((-5, 55), (3, 68), (-5, 81)).segment((14, 78)).arc((23, 81), (33, 78)).arc((37, 68), (33, 58)).arc((23, 55), (14, 58)).close().assemble().finalize()\", -63)",
+          "operation_subvolume": 1,
+          "operation_solid_count": 1,
+          "family": "prism",
+          "source_volume": 50465.42281890183,
+          "service_overlap_mm": 0.0005
+        }
+      ],
+      "trimmed_by_attachment": false
+    },
+    "part_5": {
+      "history_elements": [
+        "part_5"
+      ],
+      "family": "cylinder",
+      "axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cylinder": {
+        "radius": 5.0,
+        "axis": [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        "origin": [
+          61.9995,
+          -23.0,
+          75.0
+        ]
+      },
+      "operations": [
+        {
+          "program_line": 6,
+          "call": "r=extrude(r, (62, -23, 75), 'YZ', \"sketch().push([(-23, 75)]).circle(5).finalize()\", 50)",
+          "operation_subvolume": 1,
+          "operation_solid_count": 1,
+          "family": "cylinder",
+          "source_volume": 3926.990816987241,
+          "service_overlap_mm": 0.0005
+        }
+      ],
+      "trimmed_by_attachment": false
+    },
+    "part_6": {
+      "history_elements": [
+        "part_6"
+      ],
+      "family": "cylinder",
+      "axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "cylinder": {
+        "radius": 1.0,
+        "axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "origin": [
+          -20.0,
+          -14.0,
+          51.0005
+        ]
+      },
+      "operations": [
+        {
+          "program_line": 7,
+          "call": "r=extrude(r, (-20, -14, 51), 'XY', \"sketch().push([(-20, -14)]).circle(1).finalize()\", -143)",
+          "operation_subvolume": 1,
+          "operation_solid_count": 1,
+          "family": "cylinder",
+          "source_volume": 449.2477494633405,
+          "service_overlap_mm": 0.0005
+        }
+      ],
+      "trimmed_by_attachment": false
+    }
+  },
+  "allocations": [
+    {
+      "operation": "part_3",
+      "selected": "natural_coaxial_step_ownership",
+      "steps": [
+        {
+          "parent": "h1",
+          "segments": [
+            "part_1",
+            "part_2"
+          ],
+          "reason": "natural coaxial radius-step intervals"
+        }
+      ],
+      "overlap_volume": 16342.564983974105,
+      "added_volume": 13571.680263507906,
+      "alternative_rejected": "annular/shell sleeve would hide the natural section transition"
+    },
+    {
+      "operation": "part_4",
+      "selected": "preserve_new_element",
+      "overlap_volume": 191.13559938032472,
+      "added_volume": 50274.2872195215,
+      "alternatives": [
+        {
+          "strategy": "preserve_existing_elements",
+          "valid": true,
+          "reason": null,
+          "priority": 4.03,
+          "preserved_primitive_score": 4
+        },
+        {
+          "strategy": "preserve_new_element",
+          "valid": true,
+          "reason": null,
+          "priority": 5.02,
+          "preserved_primitive_score": 5
+        }
+      ]
+    },
+    {
+      "operation": "part_5",
+      "selected": "preserve_new_element",
+      "overlap_volume": 0.039269908170059924,
+      "added_volume": 3926.9515470790716,
+      "alternatives": [
+        {
+          "strategy": "preserve_existing_elements",
+          "valid": true,
+          "reason": null,
+          "priority": 5.03,
+          "preserved_primitive_score": 5
+        },
+        {
+          "strategy": "preserve_new_element",
+          "valid": true,
+          "reason": null,
+          "priority": 9.02,
+          "preserved_primitive_score": 9
+        }
+      ]
+    },
+    {
+      "operation": "part_6",
+      "selected": "preserve_new_element",
+      "overlap_volume": 0.00017354856240783944,
+      "added_volume": 449.24757591455244,
+      "alternatives": [
+        {
+          "strategy": "preserve_existing_elements",
+          "valid": true,
+          "reason": null,
+          "priority": 9.03,
+          "preserved_primitive_score": 9
+        },
+        {
+          "strategy": "preserve_new_element",
+          "valid": true,
+          "reason": null,
+          "priority": 13.02,
+          "preserved_primitive_score": 13
+        }
+      ]
+    }
+  ],
+  "merges": [],
+  "stops": {
+    "part_1": {
+      "reason": "constructive_element",
+      "analysis": {
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "extrusion_length": 90.00000020000002,
+          "reconstruction_error_volume": 0.00017354856097125462,
+          "tolerance_volume": 0.0008171282474632186,
+          "ignored_bores": [
+            {
+              "radius": 5.0,
+              "axis": [
+                -1.0,
+                -0.0,
+                -0.0
+              ],
+              "start": [
+                62.0,
+                -23.0,
+                75.0
+              ],
+              "depth": 0.0005000000000023874
+            }
+          ],
+          "errors": []
+        }
+      },
+      "history_elements": [
+        "h1"
+      ],
+      "construction_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "constant_along_construction": true,
+      "note": "Attachment trimming is retained; this label is not a claim of constant section when recognition is false."
+    },
+    "part_2": {
+      "reason": "constructive_element",
+      "analysis": {
+        "recognition": {
+          "simple": false,
+          "reason": "no_constant_section_direction_verified",
+          "ignored_bores": [],
+          "directions_tested": 6,
+          "errors": []
+        }
+      },
+      "history_elements": [
+        "h1"
+      ],
+      "construction_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "constant_along_construction": false,
+      "note": "Attachment trimming is retained; this label is not a claim of constant section when recognition is false."
+    },
+    "part_3": {
+      "reason": "constructive_element",
+      "analysis": {
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "extrusion_length": 18.000000000000014,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.00029914245247482005,
+          "ignored_bores": [],
+          "errors": []
+        }
+      },
+      "history_elements": [
+        "part_3"
+      ],
+      "construction_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "constant_along_construction": true,
+      "note": "Attachment trimming is retained; this label is not a claim of constant section when recognition is false."
+    },
+    "part_4": {
+      "reason": "constructive_element",
+      "analysis": {
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ],
+          "extrusion_length": 63.000000000000014,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.0005046542281890184,
+          "ignored_bores": [],
+          "errors": []
+        }
+      },
+      "history_elements": [
+        "part_4"
+      ],
+      "construction_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "constant_along_construction": true,
+      "note": "Attachment trimming is retained; this label is not a claim of constant section when recognition is false."
+    },
+    "part_5": {
+      "reason": "constructive_element",
+      "analysis": {
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "extrusion_length": 50.0,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 3.9269908169872414e-05,
+          "ignored_bores": [],
+          "errors": []
+        }
+      },
+      "history_elements": [
+        "part_5"
+      ],
+      "construction_axis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "constant_along_construction": true,
+      "note": "Attachment trimming is retained; this label is not a claim of constant section when recognition is false."
+    },
+    "part_6": {
+      "reason": "constructive_element",
+      "analysis": {
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "extrusion_length": 143.0,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 1e-05,
+          "ignored_bores": [],
+          "errors": []
+        }
+      },
+      "history_elements": [
+        "part_6"
+      ],
+      "construction_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "constant_along_construction": true,
+      "note": "Attachment trimming is retained; this label is not a claim of constant section when recognition is false."
+    }
+  },
+  "checks": {
+    "raw_reconstruction_error_volume": 0.0,
+    "raw_intersection_volumes": {
+      "part_1/part_2": 0.0,
+      "part_1/part_3": 0.0,
+      "part_1/part_4": 0.0,
+      "part_1/part_5": 0.0,
+      "part_1/part_6": 0.0,
+      "part_2/part_3": 0.0,
+      "part_2/part_4": 0.0,
+      "part_2/part_5": 0.0,
+      "part_2/part_6": 0.0,
+      "part_3/part_4": 0.0,
+      "part_3/part_5": 0.0,
+      "part_3/part_6": 0.0,
+      "part_4/part_5": 0.0,
+      "part_4/part_6": 0.0,
+      "part_5/part_6": 0.0
+    },
+    "geometric_partition_valid": true,
+    "constructive_elements": {
+      "part_1": {
+        "history_elements": [
+          "h1"
+        ],
+        "family": "cylinder",
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "cylinder": {
+          "radius": 17.0,
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "origin": [
+            62.0,
+            -14.0,
+            68.0
+          ]
+        },
+        "operations": [
+          {
+            "program_line": 3,
+            "call": "r=extrude(r, (62, 0, 0), 'YZ', \"sketch().push([(-14, 68)]).circle(17).finalize()\", -129)",
+            "operation_subvolume": 1,
+            "operation_solid_count": 1,
+            "family": "cylinder",
+            "source_volume": 117121.71571848108,
+            "service_overlap_mm": 0.0005
+          }
+        ],
+        "trimmed_by_attachment": true
+      },
+      "part_2": {
+        "history_elements": [
+          "h1"
+        ],
+        "family": "cylinder",
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "cylinder": {
+          "radius": 17.0,
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "origin": [
+            62.0,
+            -14.0,
+            68.0
+          ]
+        },
+        "operations": [
+          {
+            "program_line": 3,
+            "call": "r=extrude(r, (62, 0, 0), 'YZ', \"sketch().push([(-14, 68)]).circle(17).finalize()\", -129)",
+            "operation_subvolume": 1,
+            "operation_solid_count": 1,
+            "family": "cylinder",
+            "source_volume": 117121.71571848108,
+            "service_overlap_mm": 0.0005
+          }
+        ],
+        "trimmed_by_attachment": true
+      },
+      "part_3": {
+        "history_elements": [
+          "part_3"
+        ],
+        "family": "cylinder",
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "cylinder": {
+          "radius": 23.0,
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "origin": [
+            -28.0,
+            -14.0,
+            68.0
+          ]
+        },
+        "operations": [
+          {
+            "program_line": 4,
+            "call": "r=extrude(r, (-28, -14, 68), 'YZ', \"sketch().push([(-14, 68)]).circle(23).finalize()\", -18, False)",
+            "operation_subvolume": 1,
+            "operation_solid_count": 1,
+            "family": "cylinder",
+            "source_volume": 29914.245247482006,
+            "service_overlap_mm": 0.0005
+          }
+        ],
+        "trimmed_by_attachment": false
+      },
+      "part_4": {
+        "history_elements": [
+          "part_4"
+        ],
+        "family": "prism",
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "cylinder": null,
+        "operations": [
+          {
+            "program_line": 5,
+            "call": "r=extrude(r, (-49, 3, 68), 'YZ', \"sketch().arc((-5, 55), (3, 68), (-5, 81)).segment((14, 78)).arc((23, 81), (33, 78)).arc((37, 68), (33, 58)).arc((23, 55), (14, 58)).close().assemble().finalize()\", -63)",
+            "operation_subvolume": 1,
+            "operation_solid_count": 1,
+            "family": "prism",
+            "source_volume": 50465.42281890183,
+            "service_overlap_mm": 0.0005
+          }
+        ],
+        "trimmed_by_attachment": false
+      },
+      "part_5": {
+        "history_elements": [
+          "part_5"
+        ],
+        "family": "cylinder",
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "cylinder": {
+          "radius": 5.0,
+          "axis": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "origin": [
+            61.9995,
+            -23.0,
+            75.0
+          ]
+        },
+        "operations": [
+          {
+            "program_line": 6,
+            "call": "r=extrude(r, (62, -23, 75), 'YZ', \"sketch().push([(-23, 75)]).circle(5).finalize()\", 50)",
+            "operation_subvolume": 1,
+            "operation_solid_count": 1,
+            "family": "cylinder",
+            "source_volume": 3926.990816987241,
+            "service_overlap_mm": 0.0005
+          }
+        ],
+        "trimmed_by_attachment": false
+      },
+      "part_6": {
+        "history_elements": [
+          "part_6"
+        ],
+        "family": "cylinder",
+        "axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "cylinder": {
+          "radius": 1.0,
+          "axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "origin": [
+            -20.0,
+            -14.0,
+            51.0005
+          ]
+        },
+        "operations": [
+          {
+            "program_line": 7,
+            "call": "r=extrude(r, (-20, -14, 51), 'XY', \"sketch().push([(-20, -14)]).circle(1).finalize()\", -143)",
+            "operation_subvolume": 1,
+            "operation_solid_count": 1,
+            "family": "cylinder",
+            "source_volume": 449.2477494633405,
+            "service_overlap_mm": 0.0005
+          }
+        ],
+        "trimmed_by_attachment": false
+      }
+    },
+    "constructive_allocations": [
+      {
+        "operation": "part_3",
+        "selected": "natural_coaxial_step_ownership",
+        "steps": [
+          {
+            "parent": "h1",
+            "segments": [
+              "part_1",
+              "part_2"
+            ],
+            "reason": "natural coaxial radius-step intervals"
+          }
+        ],
+        "overlap_volume": 16342.564983974105,
+        "added_volume": 13571.680263507906,
+        "alternative_rejected": "annular/shell sleeve would hide the natural section transition"
+      },
+      {
+        "operation": "part_4",
+        "selected": "preserve_new_element",
+        "overlap_volume": 191.13559938032472,
+        "added_volume": 50274.2872195215,
+        "alternatives": [
+          {
+            "strategy": "preserve_existing_elements",
+            "valid": true,
+            "reason": null,
+            "priority": 4.03,
+            "preserved_primitive_score": 4
+          },
+          {
+            "strategy": "preserve_new_element",
+            "valid": true,
+            "reason": null,
+            "priority": 5.02,
+            "preserved_primitive_score": 5
+          }
+        ]
+      },
+      {
+        "operation": "part_5",
+        "selected": "preserve_new_element",
+        "overlap_volume": 0.039269908170059924,
+        "added_volume": 3926.9515470790716,
+        "alternatives": [
+          {
+            "strategy": "preserve_existing_elements",
+            "valid": true,
+            "reason": null,
+            "priority": 5.03,
+            "preserved_primitive_score": 5
+          },
+          {
+            "strategy": "preserve_new_element",
+            "valid": true,
+            "reason": null,
+            "priority": 9.02,
+            "preserved_primitive_score": 9
+          }
+        ]
+      },
+      {
+        "operation": "part_6",
+        "selected": "preserve_new_element",
+        "overlap_volume": 0.00017354856240783944,
+        "added_volume": 449.24757591455244,
+        "alternatives": [
+          {
+            "strategy": "preserve_existing_elements",
+            "valid": true,
+            "reason": null,
+            "priority": 9.03,
+            "preserved_primitive_score": 9
+          },
+          {
+            "strategy": "preserve_new_element",
+            "valid": true,
+            "reason": null,
+            "priority": 13.02,
+            "preserved_primitive_score": 13
+          }
+        ]
+      }
+    ],
+    "constructive_merges": [],
+    "geometric_analyses": {},
+    "geometry_limits": [],
+    "all_leaves_constant_section": false,
+    "decomposition_complete_within_search": true,
+    "unresolved_constructive_clusters": [],
+    "method": "constructive_operation_volumes",
+    "global_planes_through_neighbours_used": false,
+    "service_overlaps_kept_in_material": true,
+    "step_placements_verified": true,
+    "all_stl_readable": true
+  }
+}

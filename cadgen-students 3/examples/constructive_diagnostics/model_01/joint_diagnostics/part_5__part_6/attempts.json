@@ -1,0 +1,321 @@
+{
+  "model": "model_01",
+  "components": [
+    "part_5",
+    "part_6"
+  ],
+  "contact": {
+    "area_mm2": 68.82926565134989,
+    "minimum_distance_mm": 2.07157025572446e-13,
+    "faces": [
+      {
+        "type": "CYLINDER",
+        "area_mm2": 34.41463282567494,
+        "center_world_mm": [
+          22.5,
+          -42.271258070750264,
+          -42.22318493456588
+        ],
+        "dimensions_mm": [
+          23.0,
+          1.3033758166832357,
+          0.7344536362058633
+        ],
+        "bounds_mm": [
+          11.0,
+          -42.91928257889323,
+          -42.59691289447293,
+          34.0,
+          -41.615906762209995,
+          -41.862459258267066
+        ],
+        "radius_mm": 25.0,
+        "axis_world": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "angular_span_radians": 0.05985153534939203,
+        "axial_span_mm": 23.0
+      },
+      {
+        "type": "CYLINDER",
+        "area_mm2": 34.41463282567494,
+        "center_world_mm": [
+          22.5,
+          -17.728741929232463,
+          -42.22318493457561
+        ],
+        "dimensions_mm": [
+          23.0,
+          1.3033758166778924,
+          0.7344536362021614
+        ],
+        "bounds_mm": [
+          11.0,
+          -18.384093237780995,
+          -42.59691289447293,
+          34.0,
+          -17.080717421103103,
+          -41.86245925827077
+        ],
+        "radius_mm": 25.0,
+        "axis_world": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "angular_span_radians": 0.05985153534923593,
+        "axial_span_mm": 23.0
+      }
+    ],
+    "definition": "shared_trimmed_BRep_faces"
+  },
+  "part_dimensions_mm": {
+    "part_5": [
+      53.034964960580425,
+      50.03496496058044,
+      50.03496496058045
+    ],
+    "part_6": [
+      23.0,
+      26.000000000000007,
+      41.59641289447384
+    ]
+  },
+  "original_pair_trial": {
+    "components": [
+      "part_5",
+      "part_6"
+    ],
+    "interface_area": 68.82926565134989,
+    "status": "rejected",
+    "reason": "GeometryRejected: No constructive joint within bounded design search",
+    "adaptive_search": {
+      "attempts": 2,
+      "limit": 72,
+      "valid_designs": 0,
+      "rejected": [
+        {
+          "design": "cylinder_axis",
+          "reason": "Cylinder axis misses receiver material"
+        },
+        {
+          "design": "curved_attachment_cylindrical_boss",
+          "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+        },
+        {
+          "design": "curved_attachment_cylindrical_boss",
+          "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+        }
+      ],
+      "exhaustive": false,
+      "ranked_by_geometry": true,
+      "first_success_not_automatically_selected": true
+    }
+  },
+  "diagnostic_replay": true,
+  "geometry_unchanged": true,
+  "algorithms_unchanged": true,
+  "settings": {
+    "clearance": 0.2,
+    "min_wall": 2.0,
+    "volume_tolerance": 1e-05,
+    "min_part_fraction": 0.15,
+    "plane_attempts": 9,
+    "feature_attempts": 8,
+    "path_steps": 16
+  },
+  "design_settings": {
+    "max_shaft_length": 50.0,
+    "min_blind_bolt_engagement": 10.0,
+    "min_feature_size": 0.1,
+    "service_overlap": 0.0005,
+    "max_designs_per_pair": 72,
+    "max_options_per_pair": 12,
+    "max_assembly_states": 128
+  },
+  "attempts": [
+    {
+      "id": "attempt_001",
+      "label": "curved_attachment_cylindrical_boss",
+      "owners": [
+        "part_5",
+        "part_6"
+      ],
+      "cut_to_world_rotation": [
+        [
+          -0.0,
+          1.0,
+          -0.0
+        ],
+        [
+          0.8712026312753172,
+          0.0,
+          0.4909235941151777
+        ],
+        [
+          0.4909235941151777,
+          0.0,
+          -0.8712026312753172
+        ]
+      ],
+      "cut_origin_mm": [
+        22.5,
+        -42.273089852879444,
+        -42.21993421811
+      ],
+      "feature_proposals": [],
+      "builder_calls": [
+        {
+          "function": "cylindrical_fit",
+          "returned_connection": false,
+          "values": {
+            "depth_scale": 1.0,
+            "crossed": false,
+            "radius": 2.1129441169635235,
+            "depth": 0.55778421087606,
+            "gap": 0.05282360292408809,
+            "floor": 0.3169416175445285,
+            "rd": 0.8581295551939385,
+            "dd": 50.00000000000619
+          }
+        }
+      ],
+      "builder_succeeded": false,
+      "static_geometry_passed": false,
+      "local_validation_passed": false,
+      "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement",
+      "outcome": "cylindrical_fit_creation_failed",
+      "builder_role_to_published_part": {
+        "part_1": "part_5",
+        "part_2": "part_6"
+      }
+    },
+    {
+      "id": "attempt_002",
+      "label": "curved_attachment_cylindrical_boss",
+      "owners": [
+        "part_6",
+        "part_5"
+      ],
+      "cut_to_world_rotation": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          -0.8712026312753172,
+          0.0,
+          -0.4909235941151777
+        ],
+        [
+          -0.4909235941151777,
+          0.0,
+          0.8712026312753172
+        ]
+      ],
+      "cut_origin_mm": [
+        22.5,
+        -42.273089852879444,
+        -42.21993421811
+      ],
+      "feature_proposals": [],
+      "builder_calls": [
+        {
+          "function": "cylindrical_fit",
+          "returned_connection": false,
+          "values": {
+            "depth_scale": 1.0,
+            "crossed": false,
+            "radius": 2.1129441169635235,
+            "depth": 4.225888233927047,
+            "gap": 0.05282360292408809,
+            "floor": 0.3169416175445285,
+            "rd": 50.00000000000616,
+            "dd": 0.8581295551939394
+          }
+        }
+      ],
+      "builder_succeeded": false,
+      "static_geometry_passed": false,
+      "local_validation_passed": false,
+      "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor",
+      "outcome": "cylindrical_fit_creation_failed",
+      "builder_role_to_published_part": {
+        "part_1": "part_6",
+        "part_2": "part_5"
+      }
+    }
+  ],
+  "pre_filter_and_search_rejections": [
+    {
+      "design": "cylinder_axis",
+      "reason": "Cylinder axis misses receiver material"
+    },
+    {
+      "design": "curved_attachment_cylindrical_boss",
+      "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+    },
+    {
+      "design": "curved_attachment_cylindrical_boss",
+      "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+    }
+  ],
+  "budget_skipped_calls": [],
+  "search_report": {
+    "attempts": 2,
+    "limit": 72,
+    "valid_designs": 0,
+    "rejected": [
+      {
+        "design": "cylinder_axis",
+        "reason": "Cylinder axis misses receiver material"
+      },
+      {
+        "design": "curved_attachment_cylindrical_boss",
+        "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+      },
+      {
+        "design": "curved_attachment_cylindrical_boss",
+        "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "error": {
+    "reason": "GeometryRejected: No constructive joint within bounded design search",
+    "report": {
+      "attempts": 2,
+      "limit": 72,
+      "valid_designs": 0,
+      "rejected": [
+        {
+          "design": "cylinder_axis",
+          "reason": "Cylinder axis misses receiver material"
+        },
+        {
+          "design": "curved_attachment_cylindrical_boss",
+          "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+        },
+        {
+          "design": "curved_attachment_cylindrical_boss",
+          "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+        }
+      ],
+      "exhaustive": false,
+      "ranked_by_geometry": true,
+      "first_success_not_automatically_selected": true
+    }
+  },
+  "locally_valid_returned_options": 0,
+  "representative_views": [],
+  "global_model_status": "failed",
+  "why_local_options_are_not_complete_model": "Original complete search stopped before joint combinations/order: no connected graph; unreachable ['part_6']",
+  "original_global_rejections": [],
+  "remaining_scope": "Local replay only; no new global assembly or part decomposition was run. No continuous path or strength proof.",
+  "global_rejections_involving_pair": []
+}

@@ -1,0 +1,305 @@
+{
+  "model": "model_07",
+  "components": [
+    "part_1",
+    "part_4"
+  ],
+  "contact": {
+    "area_mm2": 1.2801324873976223,
+    "minimum_distance_mm": 5.559686779182252e-13,
+    "faces": [
+      {
+        "type": "PLANE",
+        "area_mm2": 1.2800046905535738,
+        "center_world_mm": [
+          2.05745657060751e-12,
+          -24.000500000000244,
+          40.00000000000276
+        ],
+        "dimensions_mm": [
+          0.17888284309185307,
+          2.0000192080260604e-07,
+          7.2244586995619215
+        ],
+        "bounds_mm": [
+          -0.08944142154592437,
+          -24.000500100001204,
+          36.38777065021886,
+          0.0894414215459287,
+          -24.000499899999284,
+          43.61222934978078
+        ],
+        "normal_world": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "local_dimensions_mm": [
+          7.2244584995606,
+          0.17888264309348817
+        ]
+      },
+      {
+        "type": "PLANE",
+        "area_mm2": 6.389842202429529e-05,
+        "center_world_mm": [
+          2.1722284578706543e-13,
+          -24.000299999464264,
+          36.42222222222238
+        ],
+        "dimensions_mm": [
+          0.17888284309080102,
+          0.0005002000011273822,
+          0.06890314400588693
+        ],
+        "bounds_mm": [
+          -0.08944142154539335,
+          -24.000500100000686,
+          36.38777065021938,
+          0.08944142154540767,
+          -23.99999989999956,
+          36.45667379422527
+        ],
+        "normal_world": [
+          0.3594422338570449,
+          -0.0,
+          0.9331673378981165
+        ],
+        "local_dimensions_mm": [
+          0.19169406796089583,
+          0.000500000000243972
+        ]
+      },
+      {
+        "type": "PLANE",
+        "area_mm2": 6.389842202427694e-05,
+        "center_world_mm": [
+          2.048651451650559e-12,
+          -24.000299999464264,
+          43.57777777778313
+        ],
+        "dimensions_mm": [
+          0.17888284310189673,
+          0.0005002000122189543,
+          0.0689031440169785
+        ],
+        "bounds_mm": [
+          -0.0894414215509512,
+          -24.00050010000623,
+          43.543326205768835,
+          0.08944142155094553,
+          -23.999999899994013,
+          43.612229349785814
+        ],
+        "normal_world": [
+          -0.3594422338570449,
+          -0.0,
+          -0.9331673378981165
+        ],
+        "local_dimensions_mm": [
+          0.19169406796091704,
+          0.000500000000243972
+        ]
+      }
+    ],
+    "definition": "shared_trimmed_BRep_faces"
+  },
+  "part_dimensions_mm": {
+    "part_1": [
+      16.011188923385625,
+      16.011188923385973,
+      14.01118892338597
+    ],
+    "part_4": [
+      138.00000000000068,
+      115.0,
+      58.00000000000001
+    ]
+  },
+  "original_pair_trial": {
+    "components": [
+      "part_1",
+      "part_4"
+    ],
+    "interface_area": 1.2801324873976223,
+    "status": "rejected",
+    "reason": "GeometryRejected: No constructive joint within bounded design search",
+    "adaptive_search": {
+      "attempts": 0,
+      "limit": 72,
+      "valid_designs": 0,
+      "rejected": [
+        {
+          "design": "cylinder_axis",
+          "reason": "Cylinder axis misses receiver material"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        }
+      ],
+      "exhaustive": false,
+      "ranked_by_geometry": true,
+      "first_success_not_automatically_selected": true
+    }
+  },
+  "diagnostic_replay": true,
+  "geometry_unchanged": true,
+  "algorithms_unchanged": true,
+  "settings": {
+    "clearance": 0.2,
+    "min_wall": 2.0,
+    "volume_tolerance": 1e-05,
+    "min_part_fraction": 0.15,
+    "plane_attempts": 9,
+    "feature_attempts": 8,
+    "path_steps": 16
+  },
+  "design_settings": {
+    "max_shaft_length": 50.0,
+    "min_blind_bolt_engagement": 10.0,
+    "min_feature_size": 0.1,
+    "service_overlap": 0.0005,
+    "max_designs_per_pair": 72,
+    "max_options_per_pair": 12,
+    "max_assembly_states": 128
+  },
+  "attempts": [],
+  "pre_filter_and_search_rejections": [
+    {
+      "design": "cylinder_axis",
+      "reason": "Cylinder axis misses receiver material"
+    },
+    {
+      "design": "planar_interface",
+      "reason": "service-overlap ribbon; no microscopic fastening"
+    },
+    {
+      "design": "planar_interface",
+      "reason": "service-overlap ribbon; no microscopic fastening"
+    },
+    {
+      "design": "planar_interface",
+      "reason": "service-overlap ribbon; no microscopic fastening"
+    },
+    {
+      "design": "planar_interface",
+      "reason": "service-overlap ribbon; no microscopic fastening"
+    },
+    {
+      "design": "planar_interface",
+      "reason": "service-overlap ribbon; no microscopic fastening"
+    },
+    {
+      "design": "planar_interface",
+      "reason": "service-overlap ribbon; no microscopic fastening"
+    }
+  ],
+  "budget_skipped_calls": [],
+  "search_report": {
+    "attempts": 0,
+    "limit": 72,
+    "valid_designs": 0,
+    "rejected": [
+      {
+        "design": "cylinder_axis",
+        "reason": "Cylinder axis misses receiver material"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "error": {
+    "reason": "GeometryRejected: No constructive joint within bounded design search",
+    "report": {
+      "attempts": 0,
+      "limit": 72,
+      "valid_designs": 0,
+      "rejected": [
+        {
+          "design": "cylinder_axis",
+          "reason": "Cylinder axis misses receiver material"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        }
+      ],
+      "exhaustive": false,
+      "ranked_by_geometry": true,
+      "first_success_not_automatically_selected": true
+    }
+  },
+  "locally_valid_returned_options": 0,
+  "representative_views": [],
+  "global_model_status": "failed",
+  "why_local_options_are_not_complete_model": "Original complete search stopped before joint combinations/order: no connected graph; unreachable ['part_4']",
+  "original_global_rejections": [],
+  "remaining_scope": "Local replay only; no new global assembly or part decomposition was run. No continuous path or strength proof.",
+  "global_rejections_involving_pair": []
+}

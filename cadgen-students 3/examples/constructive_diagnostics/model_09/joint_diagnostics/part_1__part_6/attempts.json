@@ -1,0 +1,1174 @@
+{
+  "model": "model_09",
+  "components": [
+    "part_1",
+    "part_6"
+  ],
+  "contact": {
+    "area_mm2": 0.5202250550639713,
+    "minimum_distance_mm": 3.2171190647067566e-14,
+    "faces": [
+      {
+        "type": "PLANE",
+        "area_mm2": 0.5200509132628343,
+        "center_world_mm": [
+          -19.999999999994085,
+          -14.000000000000309,
+          51.00050000000304
+        ],
+        "dimensions_mm": [
+          2.0,
+          0.2607661787889999,
+          0.0
+        ],
+        "bounds_mm": [
+          -20.9999999999941,
+          -14.130383089394392,
+          51.00050000000304,
+          -18.9999999999941,
+          -13.869616910605393,
+          51.00050000000304
+        ],
+        "normal_world": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "local_dimensions_mm": [
+          0.2607661787890003,
+          2.0
+        ]
+      },
+      {
+        "type": "CYLINDER",
+        "area_mm2": 8.707090403007348e-05,
+        "center_world_mm": [
+          -20.998293570108338,
+          -13.999999999999904,
+          51.00030009772497
+        ],
+        "dimensions_mm": [
+          0.010440410806118905,
+          0.26267028030311934,
+          0.00239601130180489
+        ],
+        "bounds_mm": [
+          -21.000952050752158,
+          -14.131335140151453,
+          50.9990560394593,
+          -20.99051163994604,
+          -13.868664859848334,
+          51.0014520507611
+        ],
+        "radius_mm": 1.0,
+        "axis_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "angular_span_radians": 0.26151071523194513,
+        "axial_span_mm": 0.0005000000000024
+      },
+      {
+        "type": "CYLINDER",
+        "area_mm2": 4.353544775345235e-05,
+        "center_world_mm": [
+          -19.00170642980328,
+          -13.951050449537323,
+          51.000300097739725
+        ],
+        "dimensions_mm": [
+          0.008536509289996275,
+          0.13038328939360966,
+          0.0005002000000047246
+        ],
+        "bounds_mm": [
+          -19.008536409284094,
+          -14.000000100000003,
+          50.99999990000304,
+          -18.999999899994098,
+          -13.869616810606393,
+          51.000500100003045
+        ],
+        "radius_mm": 1.0,
+        "axis_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "angular_span_radians": 0.13075535761553284,
+        "axial_span_mm": 0.0005000000000024358
+      },
+      {
+        "type": "CYLINDER",
+        "area_mm2": 4.353544935359076e-05,
+        "center_world_mm": [
+          -19.001706429817773,
+          -14.048949550924874,
+          51.00030009773061
+        ],
+        "dimensions_mm": [
+          0.008536509289996275,
+          0.13038328939364696,
+          0.0005002000000047246
+        ],
+        "bounds_mm": [
+          -19.008536409284094,
+          -14.130383189393648,
+          50.99999990000304,
+          -18.999999899994098,
+          -13.9999999,
+          51.000500100003045
+        ],
+        "radius_mm": 1.0,
+        "axis_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "angular_span_radians": 0.13075535761537904,
+        "axial_span_mm": 0.0005000000002854151
+      }
+    ],
+    "definition": "shared_trimmed_BRep_faces"
+  },
+  "part_dimensions_mm": {
+    "part_1": [
+      90.02377623718884,
+      34.02377623719445,
+      34.023776237194845
+    ],
+    "part_6": [
+      2.000000200000006,
+      2.000000200000013,
+      143.00000009999502
+    ]
+  },
+  "original_pair_trial": {
+    "components": [
+      "part_1",
+      "part_6"
+    ],
+    "interface_area": 0.5202250550639713,
+    "status": "options_found",
+    "options": 1,
+    "joint_types": [
+      "cylindrical_fit_transverse_bolt"
+    ],
+    "adaptive_search": null,
+    "constructive_search": {
+      "attempts": 1,
+      "limit": 72,
+      "valid_designs": 1,
+      "rejected": [
+        {
+          "design": "cylinder_axis",
+          "reason": "Cylinder axis misses receiver material"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        },
+        {
+          "design": "planar_interface",
+          "reason": "service-overlap ribbon; no microscopic fastening"
+        }
+      ],
+      "exhaustive": false,
+      "ranked_by_geometry": true,
+      "first_success_not_automatically_selected": true
+    },
+    "designs": [
+      {
+        "id": "j_h1_s1_h5",
+        "components": [
+          "part_6",
+          "part_1"
+        ],
+        "parameters": {
+          "type": "cylindrical_fit_transverse_bolt",
+          "features": [
+            {
+              "type": "cylindrical_fit",
+              "pin_radius": 1.0,
+              "hole_radius": 1.025,
+              "depth": 28.89957499999743,
+              "clearance": 0.025,
+              "coaxial": true,
+              "receiver_axis_depth": 33.99949999999698,
+              "actual_axis_floor": 5.074924999999547,
+              "crossed_axes": true,
+              "full_cylinder_not_round_profile": true,
+              "remaining_unfixed_dof": [
+                "axial_withdrawal",
+                "rotation_about_axis"
+              ]
+            },
+            {
+              "type": "bolted",
+              "center_in_fastener_frame": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "shaft_diameter": 0.3,
+              "shaft_length": 33.825411118554086,
+              "max_shaft_length": 50.0,
+              "clearance": 0.0075,
+              "head_seat_z": 16.76270555927701,
+              "lower_seat_z": -16.762705559277084,
+              "head_bearing_area": 0.1746018749804305,
+              "nut_bearing_area": 0.1473220747612207,
+              "bolt": {
+                "kind": "hex_head",
+                "shaft_length": 33.825411118554086,
+                "shaft_diameter": 0.3,
+                "head_width": 0.54,
+                "head_height": 0.18,
+                "band_height": 0.0,
+                "drive_size": 0.0
+              },
+              "nut": {
+                "hole_diameter": 0.315,
+                "across_flats": 0.54,
+                "height": 0.195,
+                "chamfer": 0.015
+              },
+              "second_part_engagement_mm": null,
+              "min_blind_bolt_engagement": 10.0,
+              "blind": false,
+              "threaded": false,
+              "retention_assumed": false,
+              "thread_retention_proven": false,
+              "head_accessibility_requires_path_check": true,
+              "fastener_to_joint_rotation": [
+                [
+                  0.0,
+                  -0.0,
+                  1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  -1.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              "fastener_origin_in_joint": [
+                0.0,
+                0.0,
+                -14.449787499998715
+              ]
+            }
+          ],
+          "feature_count": 2,
+          "bolts": 1,
+          "blind_bolts": 0,
+          "feature_zones_local": [
+            [
+              -1.1749999999999998,
+              -1.1749999999999998,
+              -29.074574999997427,
+              1.1749999999999998,
+              1.1749999999999998,
+              0.15
+            ],
+            [
+              -17.09270555927708,
+              -0.3492692453623979,
+              -14.799056745361119,
+              16.97270555927701,
+              0.3492692453623979,
+              -14.13900483146513
+            ]
+          ],
+          "hardware_directions_local": {
+            "bolt_1": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "nut_1": [
+              [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          "cut_to_world_rotation": [
+            [
+              0.0,
+              1.0,
+              -0.0
+            ],
+            [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "cut_origin": [
+            -20.0,
+            -14.0,
+            51.00050000000304
+          ],
+          "hardware_directions_world": {
+            "j_h1_s1_h5_bolt_1": [
+              [
+                0.0,
+                1.0,
+                0.0
+              ]
+            ],
+            "j_h1_s1_h5_nut_1": [
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ]
+          }
+        },
+        "score": 12.8,
+        "selection": {
+          "design": "cylindrical_fit_transverse_bolt",
+          "scoring": {
+            "engagement_area_fraction": 1.0,
+            "distribution_score": 1.5,
+            "geometric_anti_rotation_heuristic": true,
+            "mechanical_strength_checked": false,
+            "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+          },
+          "future_parallel_transitions_protected": 0,
+          "constructive_search": {
+            "attempts": 1,
+            "limit": 72,
+            "valid_designs": 1,
+            "rejected": [
+              {
+                "design": "cylinder_axis",
+                "reason": "Cylinder axis misses receiver material"
+              },
+              {
+                "design": "planar_interface",
+                "reason": "service-overlap ribbon; no microscopic fastening"
+              },
+              {
+                "design": "planar_interface",
+                "reason": "service-overlap ribbon; no microscopic fastening"
+              }
+            ],
+            "exhaustive": false,
+            "ranked_by_geometry": true,
+            "first_success_not_automatically_selected": true
+          }
+        },
+        "protected_zone_bounds": [
+          -21.175000000000004,
+          -31.092705559277082,
+          50.850500000003045,
+          -18.825,
+          2.9727055592770135,
+          80.07507500000048
+        ],
+        "possible_withdrawal_directions": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "hardware": [
+          "j_h1_s1_h5_bolt_1",
+          "j_h1_s1_h5_nut_1"
+        ]
+      }
+    ]
+  },
+  "diagnostic_replay": true,
+  "geometry_unchanged": true,
+  "algorithms_unchanged": true,
+  "settings": {
+    "clearance": 0.2,
+    "min_wall": 2.0,
+    "volume_tolerance": 1e-05,
+    "min_part_fraction": 0.15,
+    "plane_attempts": 9,
+    "feature_attempts": 8,
+    "path_steps": 16
+  },
+  "design_settings": {
+    "max_shaft_length": 50.0,
+    "min_blind_bolt_engagement": 10.0,
+    "min_feature_size": 0.1,
+    "service_overlap": 0.0005,
+    "max_designs_per_pair": 72,
+    "max_options_per_pair": 12,
+    "max_assembly_states": 128
+  },
+  "attempts": [
+    {
+      "id": "attempt_001",
+      "label": "cylindrical_fit_transverse_bolt",
+      "owners": [
+        "part_6",
+        "part_1"
+      ],
+      "cut_to_world_rotation": [
+        [
+          0.0,
+          1.0,
+          -0.0
+        ],
+        [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "cut_origin_mm": [
+        -20.0,
+        -14.0,
+        51.00050000000304
+      ],
+      "feature_proposals": [],
+      "builder_calls": [
+        {
+          "function": "cylindrical_fit",
+          "returned_connection": true,
+          "values": {
+            "depth_scale": 1.0,
+            "crossed": true,
+            "radius": 1.0,
+            "depth": 28.89957499999743,
+            "gap": 0.025,
+            "floor": 0.15,
+            "rd": 33.99949999999698,
+            "dd": 142.99999999999818
+          }
+        },
+        {
+          "function": "fasten",
+          "returned_connection": true,
+          "values": {
+            "kind": "bolted",
+            "centers": [
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            "diameter": 0.3,
+            "gap": 0.0075,
+            "x": 0.0,
+            "y": 0.0,
+            "length": 33.825411118554086,
+            "engagement": null,
+            "top": 16.76270555927701,
+            "bottom": -16.762705559277084
+          }
+        },
+        {
+          "function": "_transverse",
+          "returned_connection": true,
+          "values": {
+            "diameter": 0.3,
+            "depth": 28.89957499999743
+          }
+        }
+      ],
+      "builder_succeeded": true,
+      "static_geometry_passed": true,
+      "local_validation_passed": true,
+      "built_parameters": {
+        "type": "cylindrical_fit_transverse_bolt",
+        "features": [
+          {
+            "type": "cylindrical_fit",
+            "pin_radius": 1.0,
+            "hole_radius": 1.025,
+            "depth": 28.89957499999743,
+            "clearance": 0.025,
+            "coaxial": true,
+            "receiver_axis_depth": 33.99949999999698,
+            "actual_axis_floor": 5.074924999999547,
+            "crossed_axes": true,
+            "full_cylinder_not_round_profile": true,
+            "remaining_unfixed_dof": [
+              "axial_withdrawal",
+              "rotation_about_axis"
+            ]
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "shaft_diameter": 0.3,
+            "shaft_length": 33.825411118554086,
+            "max_shaft_length": 50.0,
+            "clearance": 0.0075,
+            "head_seat_z": 16.76270555927701,
+            "lower_seat_z": -16.762705559277084,
+            "head_bearing_area": 0.1746018749804305,
+            "nut_bearing_area": 0.1473220747612207,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 33.825411118554086,
+              "shaft_diameter": 0.3,
+              "head_width": 0.54,
+              "head_height": 0.18,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.315,
+              "across_flats": 0.54,
+              "height": 0.195,
+              "chamfer": 0.015
+            },
+            "second_part_engagement_mm": null,
+            "min_blind_bolt_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true,
+            "fastener_to_joint_rotation": [
+              [
+                0.0,
+                -0.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "fastener_origin_in_joint": [
+              0.0,
+              0.0,
+              -14.449787499998715
+            ]
+          }
+        ],
+        "feature_count": 2,
+        "bolts": 1,
+        "blind_bolts": 0,
+        "feature_zones_local": [
+          [
+            -1.1749999999999998,
+            -1.1749999999999998,
+            -29.074574999997427,
+            1.1749999999999998,
+            1.1749999999999998,
+            0.15
+          ],
+          [
+            -17.09270555927708,
+            -0.3492692453623979,
+            -14.799056745361119,
+            16.97270555927701,
+            0.3492692453623979,
+            -14.13900483146513
+          ]
+        ],
+        "hardware_directions_local": {
+          "bolt_1": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "nut_1": [
+            [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "static_checks": {
+        "intersections": {
+          "part_1/part_2": 0.0,
+          "part_1/bolt_1": 0.0,
+          "part_1/nut_1": 0.0,
+          "part_2/bolt_1": 0.0,
+          "part_2/nut_1": 0.0,
+          "bolt_1/nut_1": 0.0
+        },
+        "added": 0.0,
+        "void_error": 0.0
+      },
+      "last_path_check": {
+        "status": "sampled_clear",
+        "withdrawal_direction_in_cut_frame": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "travel": 242.77793323128856,
+        "checked_positions": 23,
+        "distances": [
+          242.77793323128856,
+          227.60431240433303,
+          212.4306915773775,
+          197.25707075042195,
+          182.08344992346642,
+          166.9098290965109,
+          151.73620826955533,
+          136.5625874425998,
+          121.38896661564428,
+          106.21534578868875,
+          91.04172496173321,
+          75.86810413477767,
+          60.69448330782214,
+          45.520862480866604,
+          30.34724165391107,
+          15.173620826955535,
+          12.138896661564429,
+          4.855558664625772,
+          2.427779332312886,
+          1.213889666156443,
+          0.24277793323128857,
+          0.024277793323128856,
+          0.0
+        ],
+        "continuous_path_proven": false,
+        "failed_trials": [],
+        "withdrawal_direction_world": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "stationary_components": [
+          "part_1",
+          "part_2",
+          "bolt_1"
+        ]
+      },
+      "joint": {
+        "id": "j_part_1_part_6",
+        "components": [
+          "part_6",
+          "part_1"
+        ],
+        "parameters": {
+          "type": "cylindrical_fit_transverse_bolt",
+          "features": [
+            {
+              "type": "cylindrical_fit",
+              "pin_radius": 1.0,
+              "hole_radius": 1.025,
+              "depth": 28.89957499999743,
+              "clearance": 0.025,
+              "coaxial": true,
+              "receiver_axis_depth": 33.99949999999698,
+              "actual_axis_floor": 5.074924999999547,
+              "crossed_axes": true,
+              "full_cylinder_not_round_profile": true,
+              "remaining_unfixed_dof": [
+                "axial_withdrawal",
+                "rotation_about_axis"
+              ]
+            },
+            {
+              "type": "bolted",
+              "center_in_fastener_frame": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "shaft_diameter": 0.3,
+              "shaft_length": 33.825411118554086,
+              "max_shaft_length": 50.0,
+              "clearance": 0.0075,
+              "head_seat_z": 16.76270555927701,
+              "lower_seat_z": -16.762705559277084,
+              "head_bearing_area": 0.1746018749804305,
+              "nut_bearing_area": 0.1473220747612207,
+              "bolt": {
+                "kind": "hex_head",
+                "shaft_length": 33.825411118554086,
+                "shaft_diameter": 0.3,
+                "head_width": 0.54,
+                "head_height": 0.18,
+                "band_height": 0.0,
+                "drive_size": 0.0
+              },
+              "nut": {
+                "hole_diameter": 0.315,
+                "across_flats": 0.54,
+                "height": 0.195,
+                "chamfer": 0.015
+              },
+              "second_part_engagement_mm": null,
+              "min_blind_bolt_engagement": 10.0,
+              "blind": false,
+              "threaded": false,
+              "retention_assumed": false,
+              "thread_retention_proven": false,
+              "head_accessibility_requires_path_check": true,
+              "fastener_to_joint_rotation": [
+                [
+                  0.0,
+                  -0.0,
+                  1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  -1.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              "fastener_origin_in_joint": [
+                0.0,
+                0.0,
+                -14.449787499998715
+              ]
+            }
+          ],
+          "feature_count": 2,
+          "bolts": 1,
+          "blind_bolts": 0,
+          "feature_zones_local": [
+            [
+              -1.1749999999999998,
+              -1.1749999999999998,
+              -29.074574999997427,
+              1.1749999999999998,
+              1.1749999999999998,
+              0.15
+            ],
+            [
+              -17.09270555927708,
+              -0.3492692453623979,
+              -14.799056745361119,
+              16.97270555927701,
+              0.3492692453623979,
+              -14.13900483146513
+            ]
+          ],
+          "hardware_directions_local": {
+            "bolt_1": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "nut_1": [
+              [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          "cut_to_world_rotation": [
+            [
+              0.0,
+              1.0,
+              -0.0
+            ],
+            [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "cut_origin": [
+            -20.0,
+            -14.0,
+            51.00050000000304
+          ],
+          "hardware_directions_world": {
+            "j_part_1_part_6_bolt_1": [
+              [
+                0.0,
+                1.0,
+                0.0
+              ]
+            ],
+            "j_part_1_part_6_nut_1": [
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ]
+          }
+        },
+        "score": 12.8,
+        "selection": {
+          "design": "cylindrical_fit_transverse_bolt",
+          "scoring": {
+            "engagement_area_fraction": 1.0,
+            "distribution_score": 1.5,
+            "geometric_anti_rotation_heuristic": true,
+            "mechanical_strength_checked": false,
+            "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+          },
+          "future_parallel_transitions_protected": 0
+        },
+        "protected_zone_bounds": [
+          -21.175000000000004,
+          -31.092705559277082,
+          50.850500000003045,
+          -18.825,
+          2.9727055592770135,
+          80.07507500000048
+        ],
+        "possible_withdrawal_directions": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "hardware": [
+          "j_part_1_part_6_bolt_1",
+          "j_part_1_part_6_nut_1"
+        ]
+      },
+      "outcome": "local_valid",
+      "retained_in_returned_options": true,
+      "builder_role_to_published_part": {
+        "part_1": "part_6",
+        "part_2": "part_1"
+      },
+      "matches_saved_global_variant_parameters_1e_7": true
+    }
+  ],
+  "pre_filter_and_search_rejections": [
+    {
+      "design": "cylinder_axis",
+      "reason": "Cylinder axis misses receiver material"
+    },
+    {
+      "design": "planar_interface",
+      "reason": "service-overlap ribbon; no microscopic fastening"
+    },
+    {
+      "design": "planar_interface",
+      "reason": "service-overlap ribbon; no microscopic fastening"
+    }
+  ],
+  "budget_skipped_calls": [],
+  "search_report": {
+    "attempts": 1,
+    "limit": 72,
+    "valid_designs": 1,
+    "rejected": [
+      {
+        "design": "cylinder_axis",
+        "reason": "Cylinder axis misses receiver material"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "error": null,
+  "locally_valid_returned_options": 1,
+  "representative_views": [
+    {
+      "stem": "valid_candidate_01",
+      "local_geometry_and_sampled_pair_path_passed": true,
+      "global_assembly_success": false,
+      "joint": {
+        "id": "j_part_1_part_6",
+        "components": [
+          "part_6",
+          "part_1"
+        ],
+        "parameters": {
+          "type": "cylindrical_fit_transverse_bolt",
+          "features": [
+            {
+              "type": "cylindrical_fit",
+              "pin_radius": 1.0,
+              "hole_radius": 1.025,
+              "depth": 28.89957499999743,
+              "clearance": 0.025,
+              "coaxial": true,
+              "receiver_axis_depth": 33.99949999999698,
+              "actual_axis_floor": 5.074924999999547,
+              "crossed_axes": true,
+              "full_cylinder_not_round_profile": true,
+              "remaining_unfixed_dof": [
+                "axial_withdrawal",
+                "rotation_about_axis"
+              ]
+            },
+            {
+              "type": "bolted",
+              "center_in_fastener_frame": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "shaft_diameter": 0.3,
+              "shaft_length": 33.825411118554086,
+              "max_shaft_length": 50.0,
+              "clearance": 0.0075,
+              "head_seat_z": 16.76270555927701,
+              "lower_seat_z": -16.762705559277084,
+              "head_bearing_area": 0.1746018749804305,
+              "nut_bearing_area": 0.1473220747612207,
+              "bolt": {
+                "kind": "hex_head",
+                "shaft_length": 33.825411118554086,
+                "shaft_diameter": 0.3,
+                "head_width": 0.54,
+                "head_height": 0.18,
+                "band_height": 0.0,
+                "drive_size": 0.0
+              },
+              "nut": {
+                "hole_diameter": 0.315,
+                "across_flats": 0.54,
+                "height": 0.195,
+                "chamfer": 0.015
+              },
+              "second_part_engagement_mm": null,
+              "min_blind_bolt_engagement": 10.0,
+              "blind": false,
+              "threaded": false,
+              "retention_assumed": false,
+              "thread_retention_proven": false,
+              "head_accessibility_requires_path_check": true,
+              "fastener_to_joint_rotation": [
+                [
+                  0.0,
+                  -0.0,
+                  1.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  -1.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              "fastener_origin_in_joint": [
+                0.0,
+                0.0,
+                -14.449787499998715
+              ]
+            }
+          ],
+          "feature_count": 2,
+          "bolts": 1,
+          "blind_bolts": 0,
+          "feature_zones_local": [
+            [
+              -1.1749999999999998,
+              -1.1749999999999998,
+              -29.074574999997427,
+              1.1749999999999998,
+              1.1749999999999998,
+              0.15
+            ],
+            [
+              -17.09270555927708,
+              -0.3492692453623979,
+              -14.799056745361119,
+              16.97270555927701,
+              0.3492692453623979,
+              -14.13900483146513
+            ]
+          ],
+          "hardware_directions_local": {
+            "bolt_1": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "nut_1": [
+              [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          "cut_to_world_rotation": [
+            [
+              0.0,
+              1.0,
+              -0.0
+            ],
+            [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "cut_origin": [
+            -20.0,
+            -14.0,
+            51.00050000000304
+          ],
+          "hardware_directions_world": {
+            "j_part_1_part_6_bolt_1": [
+              [
+                0.0,
+                1.0,
+                0.0
+              ]
+            ],
+            "j_part_1_part_6_nut_1": [
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ]
+          }
+        },
+        "score": 12.8,
+        "selection": {
+          "design": "cylindrical_fit_transverse_bolt",
+          "scoring": {
+            "engagement_area_fraction": 1.0,
+            "distribution_score": 1.5,
+            "geometric_anti_rotation_heuristic": true,
+            "mechanical_strength_checked": false,
+            "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+          },
+          "future_parallel_transitions_protected": 0,
+          "constructive_search": {
+            "attempts": 1,
+            "limit": 72,
+            "valid_designs": 1,
+            "rejected": [
+              {
+                "design": "cylinder_axis",
+                "reason": "Cylinder axis misses receiver material"
+              },
+              {
+                "design": "planar_interface",
+                "reason": "service-overlap ribbon; no microscopic fastening"
+              },
+              {
+                "design": "planar_interface",
+                "reason": "service-overlap ribbon; no microscopic fastening"
+              }
+            ],
+            "exhaustive": false,
+            "ranked_by_geometry": true,
+            "first_success_not_automatically_selected": true
+          }
+        },
+        "protected_zone_bounds": [
+          -21.175000000000004,
+          -31.092705559277082,
+          50.850500000003045,
+          -18.825,
+          2.9727055592770135,
+          80.07507500000048
+        ],
+        "possible_withdrawal_directions": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "hardware": [
+          "j_part_1_part_6_bolt_1",
+          "j_part_1_part_6_nut_1"
+        ]
+      }
+    }
+  ],
+  "global_model_status": "export_failed",
+  "why_local_options_are_not_complete_model": "Full in-memory assembly and order passed; subsequent STEP roundtrip failed; model is partial, not fully successful",
+  "original_global_rejections": [
+    {
+      "reason": "no remaining compatible joint graph",
+      "unreachable": [
+        "part_4"
+      ]
+    },
+    {
+      "reason": "no remaining compatible joint graph",
+      "unreachable": [
+        "part_4"
+      ]
+    },
+    {
+      "edge": [
+        "part_2",
+        "part_3"
+      ],
+      "reason": "joint protected zones conflict"
+    },
+    {
+      "edge": [
+        "part_2",
+        "part_3"
+      ],
+      "reason": "joint protected zones conflict"
+    }
+  ],
+  "remaining_scope": "Local replay only; no new global assembly or part decomposition was run. No continuous path or strength proof.",
+  "global_rejections_involving_pair": []
+}
