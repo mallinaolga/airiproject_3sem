@@ -1,0 +1,142 @@
+{
+  "components": [
+    "h1",
+    "h6"
+  ],
+  "interface_area": 38.610066527597056,
+  "status": "options_found",
+  "options": 1,
+  "joint_types": [
+    "cylindrical_fit"
+  ],
+  "adaptive_search": null,
+  "constructive_search": {
+    "attempts": 2,
+    "limit": 72,
+    "valid_designs": 1,
+    "rejected": [
+      {
+        "design": "cylinder_axis",
+        "reason": "Cylinder axis misses receiver material"
+      },
+      {
+        "design": "curved_attachment_cylindrical_boss",
+        "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "designs": [
+    {
+      "id": "j_h1_h6",
+      "components": [
+        "h6",
+        "h1"
+      ],
+      "parameters": {
+        "type": "cylindrical_fit",
+        "features": [
+          {
+            "type": "cylindrical_fit",
+            "pin_radius": 0.9171055448421682,
+            "hole_radius": 0.9400331834632224,
+            "depth": 1.8342110896843364,
+            "clearance": 0.022927638621054208,
+            "coaxial": true,
+            "receiver_axis_depth": 19.999999999999982,
+            "actual_axis_floor": 18.142861271694592,
+            "crossed_axes": false,
+            "full_cylinder_not_round_profile": true,
+            "remaining_unfixed_dof": [
+              "axial_withdrawal",
+              "rotation_about_axis"
+            ]
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.022927638621054208,
+        "feature_zones_local": [
+          [
+            -1.0775990151895476,
+            -1.0775990151895476,
+            -1.994704560031716,
+            1.0775990151895476,
+            1.0775990151895476,
+            0.13756583172632522
+          ]
+        ],
+        "local_material_margin": 0.13756583172632522,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            -0.3162277660168377,
+            0.0,
+            0.9486832980505139
+          ],
+          [
+            0.9486832980505139,
+            0.0,
+            0.3162277660168377
+          ]
+        ],
+        "cut_origin": [
+          -17.5,
+          9.486832980505138,
+          8.162277660168376
+        ]
+      },
+      "score": 4.8421826343780445,
+      "selection": {
+        "design": "curved_attachment_cylindrical_boss",
+        "scoring": {
+          "engagement_area_fraction": 0.06843652687560883,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 2,
+          "limit": 72,
+          "valid_designs": 1,
+          "rejected": [
+            {
+              "design": "cylinder_axis",
+              "reason": "Cylinder axis misses receiver material"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -18.57759901518955,
+        7.253723350622515,
+        6.509196505579942,
+        -16.42240098481045,
+        9.958106116681666,
+        9.228079983521447
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          0.9486832980505139,
+          0.3162277660168377
+        ]
+      ],
+      "hardware": []
+    }
+  ]
+}

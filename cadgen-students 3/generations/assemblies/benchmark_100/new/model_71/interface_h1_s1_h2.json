@@ -1,0 +1,2581 @@
+{
+  "components": [
+    "h1_s1",
+    "h2"
+  ],
+  "interface_area": 312.0,
+  "status": "options_found",
+  "options": 12,
+  "joint_types": [
+    "distributed_grooves",
+    "self_tapping_screw"
+  ],
+  "adaptive_search": null,
+  "constructive_search": {
+    "attempts": 68,
+    "limit": 72,
+    "valid_designs": 55,
+    "rejected": [
+      {
+        "design": "two_end_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "bolted/4",
+        "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+      },
+      {
+        "design": "bolted/2",
+        "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+      },
+      {
+        "design": "bolted/1",
+        "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+      },
+      {
+        "design": "two_end_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "bolted/4",
+        "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+      },
+      {
+        "design": "self_tapping_screw/4",
+        "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+      },
+      {
+        "design": "bolted/2",
+        "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+      },
+      {
+        "design": "self_tapping_screw/2",
+        "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+      },
+      {
+        "design": "bolted/1",
+        "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+      },
+      {
+        "design": "self_tapping_screw/1",
+        "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "designs": [
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 1.2800000320000027,
+              "depth": 1.3200000330000028,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -2.000000050000022,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 31.980000164000025,
+            "central_engagement_length": 31.980000164000025,
+            "clearance": 0.03200000080000007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.032000000800000095,
+              0.032000000800000095,
+              0.032000000800000095
+            ],
+            "axial_end_clearance": 0.03200000080000007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 54.03341097876512,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.1536000038400003,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 1.2800000320000027,
+              "depth": 1.3200000330000028,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              2.0000000499999864,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 31.980000164000025,
+            "central_engagement_length": 31.980000164000025,
+            "clearance": 0.03200000080000007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.032000000800000095,
+              0.032000000800000095,
+              0.032000000800000095
+            ],
+            "axial_end_clearance": 0.03200000080000007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 54.03341097876512,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.1536000038400003,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.03200000080000007,
+        "feature_zones_local": [
+          [
+            -2.8256000706400237,
+            -16.175600086640014,
+            -1.5056000376400032,
+            -1.17440002936002,
+            16.175600086640014,
+            0.1536000038400003
+          ],
+          [
+            1.1744000293599846,
+            -16.175600086640014,
+            -1.5056000376400032,
+            2.825600070639988,
+            16.175600086640014,
+            0.1536000038400003
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 5.112000039528209,
+      "selection": {
+        "design": "two_long_grooves/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.2624000079056418,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.84639999616,
+        -5.825600070640028,
+        -10.675600086640017,
+        79.50560003764001,
+        -0.1743999293600078,
+        21.675600086640017
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h1_s1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "self_tapping_screw",
+        "features": [
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -2.2400000000000198,
+              -10.920000000000003,
+              0.0
+            ],
+            "shaft_diameter": 0.6400000000000003,
+            "shaft_length": 36.904000000000025,
+            "max_shaft_length": 50.0,
+            "clearance": 0.01600000000000001,
+            "head_seat_z": 26.90400000000003,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 1.1163316209718661,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 36.904000000000025,
+              "shaft_diameter": 0.6400000000000003,
+              "head_width": 1.1520000000000006,
+              "head_height": 0.3840000000000002,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -2.2400000000000198,
+              10.920000000000003,
+              0.0
+            ],
+            "shaft_diameter": 0.6400000000000003,
+            "shaft_length": 36.904000000000025,
+            "max_shaft_length": 50.0,
+            "clearance": 0.01600000000000001,
+            "head_seat_z": 26.90400000000003,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 1.1163316209718661,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 36.904000000000025,
+              "shaft_diameter": 0.6400000000000003,
+              "head_width": 1.1520000000000006,
+              "head_height": 0.3840000000000002,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              2.2399999999999824,
+              -10.920000000000003,
+              0.0
+            ],
+            "shaft_diameter": 0.6400000000000003,
+            "shaft_length": 36.904000000000025,
+            "max_shaft_length": 50.0,
+            "clearance": 0.01600000000000001,
+            "head_seat_z": 26.90400000000003,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 1.1163316209718661,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 36.904000000000025,
+              "shaft_diameter": 0.6400000000000003,
+              "head_width": 1.1520000000000006,
+              "head_height": 0.3840000000000002,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              2.2399999999999824,
+              10.920000000000003,
+              0.0
+            ],
+            "shaft_diameter": 0.6400000000000003,
+            "shaft_length": 36.904000000000025,
+            "max_shaft_length": 50.0,
+            "clearance": 0.01600000000000001,
+            "head_seat_z": 26.90400000000003,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 1.1163316209718661,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 36.904000000000025,
+              "shaft_diameter": 0.6400000000000003,
+              "head_width": 1.1520000000000006,
+              "head_height": 0.3840000000000002,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 0,
+        "screws": 4,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -2.9851075101064692,
+            -11.665107510106452,
+            -10.064,
+            -1.4948924898935705,
+            -10.174892489893555,
+            27.35200000000003
+          ],
+          [
+            -2.9851075101064692,
+            10.174892489893555,
+            -10.064,
+            -1.4948924898935705,
+            11.665107510106452,
+            27.35200000000003
+          ],
+          [
+            1.4948924898935332,
+            -11.665107510106452,
+            -10.064,
+            2.985107510106432,
+            -10.174892489893555,
+            27.35200000000003
+          ],
+          [
+            1.4948924898935332,
+            10.174892489893555,
+            -10.064,
+            2.985107510106432,
+            11.665107510106452,
+            27.35200000000003
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 2.3525128205128203,
+      "selection": {
+        "design": "self_tapping_screw/4",
+        "scoring": {
+          "engagement_area_fraction": 0.010502564102564114,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        67.93599999999999,
+        -5.985107510106472,
+        -6.16510751010646,
+        105.35200000000003,
+        -0.014892489893564953,
+        17.165107510106456
+      ],
+      "possible_withdrawal_directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_s1_h2_screw_1",
+        "j_h1_s1_h2_screw_2",
+        "j_h1_s1_h2_screw_3",
+        "j_h1_s1_h2_screw_4"
+      ]
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_long_groove",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.3600000840000073,
+              "depth": 2.400000060000005,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -1.7867248676755778e-14,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 31.980000164000025,
+            "central_engagement_length": 31.980000164000025,
+            "clearance": 0.06000000150000012,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.06000000150000018,
+              0.06000000150000018,
+              0.06000000150000018
+            ],
+            "axial_end_clearance": 0.06000000150000012,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 257.8867342168335,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.2880000072000006,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.06000000150000012,
+        "feature_zones_local": [
+          [
+            -2.028000050700022,
+            -16.338000090700014,
+            -2.7480000687000055,
+            2.0280000506999865,
+            16.338000090700014,
+            0.2880000072000006
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 2.2220000518807748,
+      "selection": {
+        "design": "one_long_groove/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.3444000103761549,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.7119999928,
+        -5.028000050700026,
+        -10.838000090700017,
+        80.74800006870001,
+        -0.9719999493000095,
+        21.838000090700017
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_end_pins",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.200000080000007,
+              "depth": 2.400000060000005,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -1.7867248676755778e-14,
+              -11.70000006000001,
+              0
+            ],
+            "tool_length": 6.240000032000005,
+            "central_engagement_length": 6.240000032000005,
+            "clearance": 0.06000000150000012,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.06000000150000018,
+              0.06000000150000018,
+              0.06000000150000018
+            ],
+            "axial_end_clearance": 0.06000000150000012,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 47.92320264192028,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.2880000072000006,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.200000080000007,
+              "depth": 2.400000060000005,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -1.7867248676755778e-14,
+              11.70000006000001,
+              0
+            ],
+            "tool_length": 6.240000032000005,
+            "central_engagement_length": 6.240000032000005,
+            "clearance": 0.06000000150000012,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.06000000150000018,
+              0.06000000150000018,
+              0.06000000150000018
+            ],
+            "axial_end_clearance": 0.06000000150000012,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 47.923202641920284,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.2880000072000006,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.06000000150000012,
+        "feature_zones_local": [
+          [
+            -1.948000048700022,
+            -15.168000084700012,
+            -2.7480000687000055,
+            1.9480000486999864,
+            -8.232000035300008,
+            0.2880000072000006
+          ],
+          [
+            -1.948000048700022,
+            8.232000035300008,
+            -2.7480000687000055,
+            1.9480000486999864,
+            15.168000084700012,
+            0.2880000072000006
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 1.9400000192820532,
+      "selection": {
+        "design": "two_end_pins/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.12800000385641064,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.7119999928,
+        -4.948000048700026,
+        -9.668000084700015,
+        80.74800006870001,
+        -1.0519999513000098,
+        20.668000084700015
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_central_pin",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 1.7600000440000039,
+              "depth": 2.400000060000005,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -1.7867248676755778e-14,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 4.4000001100000095,
+            "central_engagement_length": 4.4000001100000095,
+            "clearance": 0.0440000011000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.04400000110000013,
+              0.04400000110000013,
+              0.04400000110000013
+            ],
+            "axial_end_clearance": 0.0440000011000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 18.58560139392015,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.21120000528000046,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.0440000011000001,
+        "feature_zones_local": [
+          [
+            -1.1352000283800203,
+            -2.455200061380005,
+            -2.6552000663800053,
+            1.1352000283799846,
+            2.455200061380005,
+            0.21120000528000046
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 0.6241025703076929,
+      "selection": {
+        "design": "one_central_pin/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.024820514061538585,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.78879999472,
+        -4.135200028380021,
+        3.0447999386199944,
+        80.65520006638,
+        -1.8647999716200145,
+        7.9552000613800065
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 1.2800000320000027,
+              "depth": 2.400000060000005,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -2.000000050000022,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 31.980000164000025,
+            "central_engagement_length": 31.980000164000025,
+            "clearance": 0.03200000080000007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.032000000800000226,
+              0.032000000800000226
+            ],
+            "axial_end_clearance": 0.03200000080000007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 49.121282707968284,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.1536000038400003,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 1.2800000320000027,
+              "depth": 2.400000060000005,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              2.0000000499999864,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 31.980000164000025,
+            "central_engagement_length": 31.980000164000025,
+            "clearance": 0.03200000080000007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.03200000080000017,
+              0.032000000799999956
+            ],
+            "axial_end_clearance": 0.03200000080000007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 49.12128270796828,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.1536000038400003,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.03200000080000007,
+        "feature_zones_local": [
+          [
+            -2.8256000706400237,
+            -16.175600086640014,
+            -2.5856000646400052,
+            -1.17440002936002,
+            16.175600086640014,
+            0.1536000038400003
+          ],
+          [
+            1.1744000293599846,
+            -16.175600086640014,
+            -2.5856000646400052,
+            2.825600070639988,
+            16.175600086640014,
+            0.1536000038400003
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 5.112000039528209,
+      "selection": {
+        "design": "two_long_grooves/v",
+        "scoring": {
+          "engagement_area_fraction": 0.2624000079056418,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.84639999616,
+        -5.825600070640028,
+        -10.675600086640017,
+        80.58560006464,
+        -0.1743999293600078,
+        21.675600086640017
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h1_s1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "self_tapping_screw",
+        "features": [
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -1.852694361061594e-14,
+              -11.700000000000001,
+              0.0
+            ],
+            "shaft_diameter": 0.6400000000000003,
+            "shaft_length": 36.904000000000025,
+            "max_shaft_length": 50.0,
+            "clearance": 0.01600000000000001,
+            "head_seat_z": 26.90400000000003,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 1.1163316209718663,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 36.904000000000025,
+              "shaft_diameter": 0.6400000000000003,
+              "head_width": 1.1520000000000006,
+              "head_height": 0.3840000000000002,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -1.852694361061594e-14,
+              11.700000000000001,
+              0.0
+            ],
+            "shaft_diameter": 0.6400000000000003,
+            "shaft_length": 36.904000000000025,
+            "max_shaft_length": 50.0,
+            "clearance": 0.01600000000000001,
+            "head_seat_z": 26.90400000000003,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 1.1163316209718663,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 36.904000000000025,
+              "shaft_diameter": 0.6400000000000003,
+              "head_width": 1.1520000000000006,
+              "head_height": 0.3840000000000002,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 2,
+        "bolts": 0,
+        "screws": 2,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -0.7451075101064678,
+            -12.44510751010645,
+            -10.064,
+            0.7451075101064307,
+            -10.954892489893552,
+            27.35200000000003
+          ],
+          [
+            -0.7451075101064678,
+            10.954892489893552,
+            -10.064,
+            0.7451075101064307,
+            12.44510751010645,
+            27.35200000000003
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 1.5262564102564102,
+      "selection": {
+        "design": "self_tapping_screw/2",
+        "scoring": {
+          "engagement_area_fraction": 0.005251282051282057,
+          "distribution_score": 0.7,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        67.93599999999999,
+        -3.745107510106471,
+        -6.945107510106459,
+        105.35200000000003,
+        -2.2548924898935665,
+        17.945107510106453
+      ],
+      "possible_withdrawal_directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_s1_h2_screw_1",
+        "j_h1_s1_h2_screw_2"
+      ]
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_long_groove",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.3600000840000073,
+              "depth": 1.3200000330000028,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -1.7867248676755778e-14,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 31.980000164000025,
+            "central_engagement_length": 31.980000164000025,
+            "clearance": 0.03300000082500007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.03300000082499999,
+              0.03300000082500021,
+              0.03300000082499999
+            ],
+            "axial_end_clearance": 0.03300000082500007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 141.83770381925845,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.15840000396000034,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.03300000082500007,
+        "feature_zones_local": [
+          [
+            -1.8714000467850218,
+            -16.181400086785015,
+            -1.5114000377850032,
+            1.8714000467849863,
+            16.181400086785015,
+            0.15840000396000034
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 2.2220000518807748,
+      "selection": {
+        "design": "one_long_groove/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.3444000103761549,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.84159999604,
+        -4.871400046785026,
+        -10.681400086785018,
+        79.51140003778501,
+        -1.1285999532150097,
+        21.68140008678502
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_end_pins",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.200000080000007,
+              "depth": 1.3200000330000028,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -1.7867248676755778e-14,
+              -11.70000006000001,
+              0
+            ],
+            "tool_length": 6.240000032000005,
+            "central_engagement_length": 6.240000032000005,
+            "clearance": 0.03300000082500007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.03300000082499999,
+              0.03300000082500021,
+              0.03300000082499999
+            ],
+            "axial_end_clearance": 0.03300000082500007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 26.35776145305615,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.15840000396000034,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.200000080000007,
+              "depth": 1.3200000330000028,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -1.7867248676755778e-14,
+              11.70000006000001,
+              0
+            ],
+            "tool_length": 6.240000032000005,
+            "central_engagement_length": 6.240000032000005,
+            "clearance": 0.03300000082500007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.03300000082499999,
+              0.03300000082500021,
+              0.03300000082499999
+            ],
+            "axial_end_clearance": 0.03300000082500007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 26.357761453056153,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.15840000396000034,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.03300000082500007,
+        "feature_zones_local": [
+          [
+            -1.7914000447850216,
+            -15.011400080785013,
+            -1.5114000377850032,
+            1.791400044784986,
+            -8.388600039215007,
+            0.15840000396000034
+          ],
+          [
+            -1.7914000447850216,
+            8.388600039215007,
+            -1.5114000377850032,
+            1.791400044784986,
+            15.011400080785013,
+            0.15840000396000034
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 1.9400000192820532,
+      "selection": {
+        "design": "two_end_pins/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.12800000385641064,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.84159999604,
+        -4.791400044785026,
+        -9.511400080785016,
+        79.51140003778501,
+        -1.2085999552150102,
+        20.511400080785016
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_central_pin",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 1.7600000440000039,
+              "depth": 1.3200000330000028,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -1.7867248676755778e-14,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 4.4000001100000095,
+            "central_engagement_length": 4.4000001100000095,
+            "clearance": 0.03300000082500007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.0330000008250001,
+              0.03300000082500021,
+              0.0330000008250001
+            ],
+            "axial_end_clearance": 0.03300000082500007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 10.222080766656084,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.15840000396000034,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.03300000082500007,
+        "feature_zones_local": [
+          [
+            -1.0714000267850203,
+            -2.391400059785005,
+            -1.5114000377850032,
+            1.0714000267849846,
+            2.391400059785005,
+            0.15840000396000034
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 0.6241025703076929,
+      "selection": {
+        "design": "one_central_pin/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.024820514061538585,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.84159999604,
+        -4.071400026785021,
+        3.1085999402149946,
+        79.51140003778501,
+        -1.928599973215015,
+        7.891400059785006
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h2",
+        "h1_s1"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "trapezoid",
+              "opening_width": 1.2800000320000027,
+              "depth": 2.400000060000005,
+              "bottom_width": 0.816179795685395,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -2.000000050000022,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 31.980000164000025,
+            "central_engagement_length": 31.980000164000025,
+            "clearance": 0.03200000080000007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.032000000800000206,
+              0.032000000800000095,
+              0.032000000800000206
+            ],
+            "axial_end_clearance": 0.03200000080000007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 80.44299949085817,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.1536000038400003,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "trapezoid",
+              "opening_width": 1.2800000320000027,
+              "depth": 2.400000060000005,
+              "bottom_width": 0.816179795685395,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              2.0000000499999864,
+              -9.205126394318187e-17,
+              0
+            ],
+            "tool_length": 31.980000164000025,
+            "central_engagement_length": 31.980000164000025,
+            "clearance": 0.03200000080000007,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.032000000800000206,
+              0.032000000800000095,
+              0.032000000799999984
+            ],
+            "axial_end_clearance": 0.03200000080000007,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 80.44299949085817,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.1536000038400003,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.03200000080000007,
+        "feature_zones_local": [
+          [
+            -2.8256000706400237,
+            -16.175600086640014,
+            -2.5856000646400052,
+            -1.17440002936002,
+            16.175600086640014,
+            0.1536000038400003
+          ],
+          [
+            1.1744000293599846,
+            -16.175600086640014,
+            -2.5856000646400052,
+            2.825600070639988,
+            16.175600086640014,
+            0.1536000038400003
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 5.112000039528209,
+      "selection": {
+        "design": "two_long_grooves/trapezoid",
+        "scoring": {
+          "engagement_area_fraction": 0.2624000079056418,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        77.84639999616,
+        -5.825600070640028,
+        -10.675600086640017,
+        80.58560006464,
+        -0.1743999293600078,
+        21.675600086640017
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s1_h2",
+      "components": [
+        "h1_s1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "self_tapping_screw",
+        "features": [
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -1.852694361061594e-14,
+              7.728044130220737e-16,
+              0.0
+            ],
+            "shaft_diameter": 0.6400000000000003,
+            "shaft_length": 36.904000000000025,
+            "max_shaft_length": 50.0,
+            "clearance": 0.01600000000000001,
+            "head_seat_z": 26.90400000000003,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 1.1163316209718663,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 36.904000000000025,
+              "shaft_diameter": 0.6400000000000003,
+              "head_width": 1.1520000000000006,
+              "head_height": 0.3840000000000002,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 1,
+        "bolts": 0,
+        "screws": 1,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -0.7451075101064678,
+            -0.7451075101064485,
+            -10.064,
+            0.7451075101064307,
+            0.74510751010645,
+            27.35200000000003
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          78.0,
+          -3.0,
+          5.5
+        ]
+      },
+      "score": 0.7131282051282051,
+      "selection": {
+        "design": "self_tapping_screw/1",
+        "scoring": {
+          "engagement_area_fraction": 0.0026256410256410285,
+          "distribution_score": 0.7,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 55,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "bolted/4",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/2",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            },
+            {
+              "design": "bolted/1",
+              "reason": "GeometryRejected: Shaft length 98.448 exceeds 50 mm"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Shaft length 80.904 exceeds 50 mm"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        67.93599999999999,
+        -3.745107510106468,
+        4.754892489893545,
+        105.35200000000003,
+        -2.254892489893569,
+        6.245107510106452
+      ],
+      "possible_withdrawal_directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_s1_h2_screw_1"
+      ]
+    }
+  ]
+}

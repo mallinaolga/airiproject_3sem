@@ -115,6 +115,83 @@ def _grooves(split,face,layout,kind,geometry,design,depth_factor=1.):
         [('part_1',['part_2'],directions)])
 
 
+def lateral_cylinder_grooves(donor, receiver, contacts, geometry, design, *, short=False):
+    """Transfer two axial ribs from a convex cylinder into a concave saddle.
+
+    The common radial direction is the insertion direction; neither cylinder
+    end nor a model identifier participates in placement.
+    """
+    from OCP.BRepAdaptor import BRepAdaptor_Surface
+    from generirovanie_pazov.generate_grooves import profile_prism
+    from .assembly_geometry import offset_prism
+    faces=[f for f in contacts.Faces() if f.geomType()=='CYLINDER']
+    if len(faces)!=2:raise GeometryRejected('Lateral saddle needs two cylindrical contact bands')
+    cylinders=[BRepAdaptor_Surface(f.wrapped).Cylinder() for f in faces]
+    axis=np.array(cylinders[0].Axis().Direction().Coord())
+    origin=np.array(cylinders[0].Location().Coord())
+    radius=cylinders[0].Radius()
+    floor=max(geometry.min_wall,design.min_feature_size)
+    if radius<5*floor:raise GeometryRejected('Cylinder too small for lateral groove material allowance')
+    normals=[]
+    for f,c in zip(faces,cylinders):
+        other_axis=np.array(c.Axis().Direction().Coord())
+        delta=np.array(c.Location().Coord())-origin
+        if abs(np.dot(axis,other_axis))<.99999 or np.linalg.norm(delta-axis*np.dot(delta,axis))>1e-5 or abs(c.Radius()-radius)>1e-5:
+            raise GeometryRejected('Contact bands do not share one cylinder')
+        radial=np.array(f.Center().toTuple())-origin
+        radial-=axis*np.dot(radial,axis);radial/=np.linalg.norm(radial)
+        if not receiver.isInside(cq.Vector(*(np.array(f.Center().toTuple())-radial*.1)),1e-7):
+            raise GeometryRejected('Receiver must have an outward cylindrical surface')
+        normals.append(radial)
+    normal=sum(normals)
+    if np.linalg.norm(normal)<1e-6:raise GeometryRejected('Opposed contact bands have no radial insertion direction')
+    normal/=np.linalg.norm(normal)
+    rotation=np.column_stack((np.cross(axis,normal),axis,normal))
+    split=_split(donor,receiver,rotation,origin)
+    local_faces=[transform_part(f,rotation.T,-rotation.T@origin) for f in faces]
+    upper,lower=split.upper,split.lower;features=[];voids=[];zones=[]
+    for face in local_faces:
+        b=face.BoundingBox();x=(b.xmin+b.xmax)/2
+        width=min(b.xlen*.7,radius*.08)
+        length=b.ylen*.88
+        if min(width,length)<max(.5,design.min_feature_size):
+            raise GeometryRejected('Lateral contact too narrow for a non-microscopic groove')
+        depth=min(radius*.12,3.)
+        centers=[(b.ymin+b.ymax)/2]
+        if short:
+            centers=[b.ymin+b.ylen*.25,b.ymin+b.ylen*.75];length=b.ylen*.36
+        for y in centers:
+            for lift in (.2,.4,.8,1.2,2.):
+                top=b.zmax+lift
+                anchor=cq.Solid.makeBox(width,length,.15,cq.Vector(x-width/2,y-length/2,top-.15))
+                if anchor.cut(upper).Volume()<=geometry.volume_tolerance:break
+            else:raise GeometryRejected('Lateral rib lacks a full donor anchor')
+            profile=sized_profile('rectangular',width,depth+top-b.zmin)
+            tool=profile_prism(profile,length).translate((x,y,top))
+            gap=min(geometry.clearance,.1*width)
+            cavity=offset_prism(tool,gap)
+            bottom=top-profile.depth
+            support=cq.Solid.makeBox(width+2*floor,length+2*floor,floor,
+                cq.Vector(x-width/2-floor,y-length/2-floor,bottom-floor-gap))
+            if support.cut(lower).Volume()>geometry.volume_tolerance:
+                raise GeometryRejected('Lateral groove lacks floor and side support')
+            tongue=require_solid(tool.intersect(lower).clean(),'lateral tongue')
+            upper=require_solid(upper.fuse(tongue).clean(),'lateral donor')
+            removed=lower.intersect(cavity).cut(tongue)
+            lower=require_solid(lower.cut(cavity).clean(),'lateral receiver')
+            voids.append(removed);zones.append(box_bounds(cavity,floor*.1))
+            features.append(dict(type='groove',profile=asdict(profile),central_engagement_length=length,
+                tool_length=length,clearance=gap,center_in_cut_frame=[x,y,top],
+                insertion='radial_normal',open_ends='closed_pocket',transferred_volume=tongue.Volume(),
+                material_check='full donor anchor and buried floor/side support'))
+    result=Connection([('part_1',upper),('part_2',lower)],combine(voids),
+        dict(type='lateral_cylinder_grooves',layout='four_short_grooves' if short else 'two_long_grooves',
+             features=features,feature_count=len(features),clearance=max(f['clearance'] for f in features),
+             feature_zones_local=zones,mechanical_retention_checked=False),
+        [('part_1',['part_2'],[(0,0,1)])])
+    return split,result
+
+
 def cylindrical_fit(split,pin_radius,geometry,design,*,crossed=False,depth_scale=1.):
     rd=positive_depth(split.lower,[0,0,0],(0,0,-1));dd=positive_depth(split.upper,[0,0,0],(0,0,1))
     if min(rd,dd)<=0:raise GeometryRejected('No connected donor and receiver material on fit axis')
@@ -287,6 +364,17 @@ def propose_constructive(raw,a,b,descriptions,geometry,design,*,only=None,profil
             radius=min(raw[a].BoundingBox().DiagonalLength,raw[b].BoundingBox().DiagonalLength)*.06
             attempt('curved_attachment_cylindrical_boss',split,owners,
                     lambda:cylindrical_fit(split,radius,geometry,design),.5)
+    if not options and only in (None,'lateral_cylinder_grooves') and len([f for f in patch.Faces() if f.geomType()=='CYLINDER'])==2:
+        for donor,receiver in ((a,b),(b,a)):
+            for short in (False,True):
+                if attempts>=design.max_designs_per_pair:break
+                attempts+=1
+                try:
+                    lateral_split,lateral_result=lateral_cylinder_grooves(
+                        raw[donor],raw[receiver],general_contact(raw[receiver],raw[donor]),geometry,design,short=short)
+                    accept(lateral_split,(donor,receiver),lateral_result,2.,dict(design='lateral_cylinder_grooves'))
+                except Exception as error:
+                    rejected.append(dict(design='lateral_cylinder_grooves',reason=f'{type(error).__name__}: {error}'))
     report=dict(attempts=attempts,limit=design.max_designs_per_pair,valid_designs=len(options),
                 rejected=rejected,exhaustive=False,ranked_by_geometry=True,first_success_not_automatically_selected=True)
     if not options:

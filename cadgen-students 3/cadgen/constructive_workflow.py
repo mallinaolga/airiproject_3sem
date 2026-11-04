@@ -1,6 +1,8 @@
 """CLI comparison on existing CADGen sources, plus twelve constructive controls."""
 
 import argparse
+import ast
+from itertools import combinations
 from collections import Counter
 from dataclasses import asdict
 import hashlib
@@ -14,7 +16,7 @@ import cadquery as cq
 from .assembly_geometry import AssemblySettings
 from .assembly_generator import save_json
 from .auto_assembly import export_auto,renamed
-from .constructive_geometry import ConstructiveSettings
+from .constructive_geometry import ConstructiveSettings,general_contact
 from .constructive_decomposition import history_elements,decompose_constructive
 from .constructive_assembly import assemble_constructive
 from .decomposition import DecompositionSettings,Partition,validate_raw_partition
@@ -47,6 +49,13 @@ def execute(state,target,parameters,geometry,design,program=None,only=None,profi
         components=state.checks.get('constructive_elements',{}),allocations=state.checks.get('constructive_allocations',[]),
         merges=state.checks.get('constructive_merges',[]),stops=state.stops,checks=state.checks))
     print('GEOMETRY',target.name,len(state.raw),'constituents',flush=True)
+    descriptions=state.checks.get('constructive_elements',{})
+    lateral_contacts=[]
+    for a,b in combinations(state.raw,2):
+        if {descriptions.get(n,{}).get('family') for n in (a,b)}!={'cylinder','prism'}:continue
+        if any(f.geomType()=='CYLINDER' for f in general_contact(state.raw[a],state.raw[b]).Faces()):
+            lateral_contacts.append([a,b])
+
     def edge(a,b,options,entry=None):
         if entry:
             save_json(target/f'interface_{a}_{b}.json',entry)
@@ -82,6 +91,8 @@ def execute(state,target,parameters,geometry,design,program=None,only=None,profi
         raw_simple_components=sum(s.get('analysis',{}).get('recognition',{}).get('simple',False) for s in state.stops.values()),
         assembly_folder='assembly' if assembly else None,design_settings=asdict(design))
     normalize_result(row)
+    row.update(lateral_cylinder_prism_contacts=lateral_contacts,
+        successful_lateral_groove_connections=sum(j.parameters['type']=='lateral_cylinder_grooves' for j in state.joints) if row['assembly_success'] else 0)
     save_json(target/'metadata.json',row)
     print(json.dumps(row,ensure_ascii=False),flush=True)
     return row
@@ -112,11 +123,13 @@ def compare(source,output,geometry,design,models=None,geometry_only=False,reuse_
         random_source_generation_performed=False,original_geometries_modified=False,
         decomposition_algorithm_sha256=hashlib.sha256((Path(__file__).parent/'constructive_decomposition.py').read_bytes()).hexdigest())
     save_json(output/'report.json',report)
-    model_order={value:index for index,value in enumerate(models or range(1,11))}
-    for folder in sorted(source.glob('model_*'),key=lambda p:model_order.get(int(p.name[-2:]),99)):
-        if models and int(folder.name[-2:]) not in models:continue
+    folders=[p for p in source.glob('model_*') if p.is_dir() and p.name[6:].isdigit()]
+    model_order={value:index for index,value in enumerate(models or sorted(int(p.name[6:]) for p in folders))}
+    for folder in sorted(folders,key=lambda p:model_order.get(int(p.name[6:]),len(model_order))):
+        if models and int(folder.name[6:]) not in models:continue
         started=time.monotonic();metadata=json.loads((folder/'metadata.json').read_text())
-        original=cq.importers.importStep(str(folder/'original.step')).val();program=programs[folder.name]
+        original=cq.importers.importStep(str(folder/'original.step')).val()
+        program=(folder/'history.py').read_text() if (folder/'history.py').exists() else programs[folder.name]
         state=None
         try:
             if reuse_geometry:
@@ -139,10 +152,13 @@ def compare(source,output,geometry,design,models=None,geometry_only=False,reuse_
                 state=decompose_constructive(original,elements)
                 print('HISTORY',folder.name,len(elements),'extrusions',flush=True)
             row=execute(state,output/folder.name,metadata['source'],geometry,design,program,geometry_only=geometry_only)
-            row.update(history_operations=len(next(p['extrude_calls'] for p in provenance['programs']
-                if p['model']==folder.name)),decomposition_success=True,geometry_only=geometry_only)
+            row.update(history_operations=sum(isinstance(n,ast.Call) and isinstance(n.func,ast.Name)
+                and n.func.id=='extrude' for n in ast.walk(ast.parse(program))),
+                decomposition_success=True,geometry_only=geometry_only)
         except Exception as error:
-            row=dict(model=folder.name,assembly_success=False,decomposition_success=False,
+            row=dict(model=folder.name,assembly_success=False,decomposition_success=state is not None,
+                     assembly_status='workflow_failed' if state is not None else 'decomposition_failed',
+                     assembly_reason=f'{type(error).__name__}: {error}',
                      reason=f'{type(error).__name__}: {error}')
             target=output/folder.name
             # Do not lose a valid raw decomposition merely because construction

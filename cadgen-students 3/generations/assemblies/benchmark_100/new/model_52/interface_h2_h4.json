@@ -1,0 +1,174 @@
+{
+  "components": [
+    "h2",
+    "h4"
+  ],
+  "interface_area": 3.767958647419847,
+  "status": "options_found",
+  "options": 1,
+  "joint_types": [
+    "cylindrical_fit"
+  ],
+  "adaptive_search": null,
+  "constructive_search": {
+    "attempts": 2,
+    "limit": 72,
+    "valid_designs": 1,
+    "rejected": [
+      {
+        "design": "cylinder_axis",
+        "reason": "Cylinder axis misses receiver material"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "planar_interface",
+        "reason": "service-overlap ribbon; no microscopic fastening"
+      },
+      {
+        "design": "curved_attachment_cylindrical_boss",
+        "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "designs": [
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h4",
+        "h2"
+      ],
+      "parameters": {
+        "type": "cylindrical_fit",
+        "features": [
+          {
+            "type": "cylindrical_fit",
+            "pin_radius": 1.856088629349364,
+            "hole_radius": 1.902490845083098,
+            "depth": 3.712177258698728,
+            "clearance": 0.0464022157337341,
+            "coaxial": true,
+            "receiver_axis_depth": 42.0,
+            "actual_axis_floor": 38.24142052556754,
+            "crossed_axes": false,
+            "full_cylinder_not_round_profile": true,
+            "remaining_unfixed_dof": [
+              "axial_withdrawal",
+              "rotation_about_axis"
+            ]
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.0464022157337341,
+        "feature_zones_local": [
+          [
+            -2.1809041394855027,
+            -2.1809041394855027,
+            -4.036992768834867,
+            2.1809041394855027,
+            2.1809041394855027,
+            0.2784132944024046
+          ]
+        ],
+        "local_material_margin": 0.2784132944024046,
+        "cut_to_world_rotation": [
+          [
+            -1.0,
+            0.0,
+            6.123233995736766e-17
+          ],
+          [
+            6.123233995736766e-17,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          2.0000000000000013,
+          27.0,
+          32.5
+        ]
+      },
+      "score": 9.5,
+      "selection": {
+        "design": "curved_attachment_cylindrical_boss",
+        "scoring": {
+          "engagement_area_fraction": 1.0,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 2,
+          "limit": 72,
+          "valid_designs": 1,
+          "rejected": [
+            {
+              "design": "cylinder_axis",
+              "reason": "Cylinder axis misses receiver material"
+            },
+            {
+              "design": "planar_interface",
+              "reason": "service-overlap ribbon; no microscopic fastening"
+            },
+            {
+              "design": "planar_interface",
+              "reason": "service-overlap ribbon; no microscopic fastening"
+            },
+            {
+              "design": "planar_interface",
+              "reason": "service-overlap ribbon; no microscopic fastening"
+            },
+            {
+              "design": "planar_interface",
+              "reason": "service-overlap ribbon; no microscopic fastening"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -0.1809041394855029,
+        22.963007231165133,
+        30.319095860514498,
+        4.180904139485505,
+        27.278413294402405,
+        34.680904139485506
+      ],
+      "possible_withdrawal_directions": [
+        [
+          6.123233995736766e-17,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    }
+  ]
+}

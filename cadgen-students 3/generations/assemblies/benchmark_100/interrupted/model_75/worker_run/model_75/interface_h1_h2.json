@@ -1,0 +1,2611 @@
+{
+  "components": [
+    "h1",
+    "h2"
+  ],
+  "interface_area": 1339.9769999999999,
+  "status": "options_found",
+  "options": 12,
+  "joint_types": [
+    "bolted",
+    "distributed_grooves"
+  ],
+  "adaptive_search": null,
+  "constructive_search": {
+    "attempts": 68,
+    "limit": 72,
+    "valid_designs": 58,
+    "rejected": [
+      {
+        "design": "two_end_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "self_tapping_screw/4",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      },
+      {
+        "design": "self_tapping_screw/2",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      },
+      {
+        "design": "self_tapping_screw/1",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      },
+      {
+        "design": "two_end_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "self_tapping_screw/4",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      },
+      {
+        "design": "self_tapping_screw/2",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      },
+      {
+        "design": "self_tapping_screw/1",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "designs": [
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 2.5600000320000067,
+              "depth": 0.27486250000000323,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.000000049999995,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 54.940000164000054,
+            "central_engagement_length": 54.940000164000054,
+            "clearance": 0.006871562500000081,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.0068715624999997615,
+              0.006871562500000095,
+              0.0068715624999997615
+            ],
+            "axial_end_clearance": 0.006871562500000081,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 38.65842171862913,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03298350000000039,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 2.5600000320000067,
+              "depth": 0.27486250000000273,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              4.0000000500000255,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 54.940000164000054,
+            "central_engagement_length": 54.940000164000054,
+            "clearance": 0.006871562500000069,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.0068715624999997615,
+              0.006871562500000039,
+              0.0068715624999997615
+            ],
+            "axial_end_clearance": 0.006871562500000069,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 38.65842171862906,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.032983500000000325,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.006871562500000081,
+        "feature_zones_local": [
+          [
+            -5.319855128499999,
+            -27.509855144500015,
+            -0.3147175625000037,
+            -2.6801449714999914,
+            27.509855144500037,
+            0.03298350000000039
+          ],
+          [
+            2.6801449715000216,
+            -27.509855144500015,
+            -0.31471756250000316,
+            5.319855128500029,
+            27.509855144500037,
+            0.032983500000000325
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 4.849618032085032,
+      "selection": {
+        "design": "two_long_grooves/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.20992360641700647,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.032983500000002,
+        -22.319855128500006,
+        -43.009855144500044,
+        -9.685282437499994,
+        -11.680144871499964,
+        12.009855144500023
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "bolted",
+        "features": [
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -4.479999999999988,
+              -18.759999999999998,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.8954999999999975,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 0.8075000000000115,
+            "lower_seat_z": -1.8079999999999847,
+            "head_bearing_area": 3.1785301329770856,
+            "nut_bearing_area": 2.681916525430938,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.8954999999999975,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -4.479999999999988,
+              18.76000000000002,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.8954999999999975,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 0.8075000000000115,
+            "lower_seat_z": -1.8079999999999847,
+            "head_bearing_area": 3.1785301329770856,
+            "nut_bearing_area": 2.681916525430938,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.8954999999999975,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              4.480000000000018,
+              -18.759999999999998,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.895499999999997,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 0.8075000000000095,
+            "lower_seat_z": -1.8079999999999865,
+            "head_bearing_area": 3.178530132977085,
+            "nut_bearing_area": 2.681916525430938,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.895499999999997,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              4.480000000000018,
+              18.76000000000002,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.895499999999997,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 0.8075000000000095,
+            "lower_seat_z": -1.8079999999999865,
+            "head_bearing_area": 3.178530132977085,
+            "nut_bearing_area": 2.681916525430938,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.895499999999997,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 4,
+        "screws": 0,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -5.970215020212887,
+            -20.250215020212895,
+            -3.215999999999986,
+            -2.989784979787089,
+            -17.2697849797871,
+            1.7035000000000122
+          ],
+          [
+            -5.970215020212887,
+            17.269784979787122,
+            -3.215999999999986,
+            -2.989784979787089,
+            20.250215020212917,
+            1.7035000000000122
+          ],
+          [
+            2.989784979787119,
+            -20.250215020212895,
+            -3.2159999999999878,
+            5.970215020212917,
+            -17.2697849797871,
+            1.7035000000000102
+          ],
+          [
+            2.989784979787119,
+            17.269784979787122,
+            -3.2159999999999878,
+            5.970215020212917,
+            20.250215020212917,
+            1.7035000000000102
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 2.348908302157425,
+      "selection": {
+        "design": "bolted/4",
+        "scoring": {
+          "engagement_area_fraction": 0.009781660431485033,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -11.703500000000012,
+        -22.97021502021289,
+        -35.75021502021292,
+        -6.784000000000011,
+        -11.029784979787078,
+        4.750215020212899
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_h2_bolt_1",
+        "j_h1_h2_nut_1",
+        "j_h1_h2_bolt_2",
+        "j_h1_h2_nut_2",
+        "j_h1_h2_bolt_3",
+        "j_h1_h2_nut_3",
+        "j_h1_h2_bolt_4",
+        "j_h1_h2_nut_4"
+      ]
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_long_groove",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 6.720000084000017,
+              "depth": 0.49975000000000536,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              1.484179615511386e-14,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 54.940000164000054,
+            "central_engagement_length": 54.940000164000054,
+            "clearance": 0.012493750000000135,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.01249374999999997,
+              0.012493750000000081,
+              0.01249374999999997
+            ],
+            "axial_end_clearance": 0.012493750000000135,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 184.5061036570934,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.05997000000000064,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.012493750000000135,
+        "feature_zones_local": [
+          [
+            -3.4324637919999947,
+            -27.542463832000017,
+            -0.5722137500000061,
+            3.432463792000024,
+            27.54246383200004,
+            0.05997000000000064
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 1.8776236671116049,
+      "selection": {
+        "design": "one_long_groove/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.275524733422321,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.059970000000002,
+        -20.432463792,
+        -43.042463832000045,
+        -9.427786249999993,
+        -13.567536207999968,
+        12.042463832000024
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_end_pins",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 6.400000080000018,
+              "depth": 0.49975000000000536,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              1.484179615511386e-14,
+              -20.10000006000001,
+              0
+            ],
+            "tool_length": 10.720000032000012,
+            "central_engagement_length": 10.720000032000012,
+            "clearance": 0.012493750000000135,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.01249374999999997,
+              0.012493750000000081,
+              0.01249374999999997
+            ],
+            "axial_end_clearance": 0.012493750000000135,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 34.286848530934904,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.05997000000000064,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 6.400000080000018,
+              "depth": 0.49975000000000536,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              1.484179615511386e-14,
+              20.10000006000003,
+              0
+            ],
+            "tool_length": 10.720000032000012,
+            "central_engagement_length": 10.720000032000012,
+            "clearance": 0.012493750000000135,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.01249374999999997,
+              0.012493750000000081,
+              0.01249374999999997
+            ],
+            "axial_end_clearance": 0.012493750000000135,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 34.286848530934904,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.05997000000000064,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.012493750000000135,
+        "feature_zones_local": [
+          [
+            -3.272463789999995,
+            -25.53246382600002,
+            -0.5722137500000061,
+            3.272463790000024,
+            -14.667536294000003,
+            0.05997000000000064
+          ],
+          [
+            -3.272463789999995,
+            14.667536294000024,
+            -0.5722137500000061,
+            3.272463790000024,
+            25.53246382600004,
+            0.05997000000000064
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 1.8120087961390403,
+      "selection": {
+        "design": "two_end_pins/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.10240175922780805,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.059970000000002,
+        -20.272463790000003,
+        -41.03246382600005,
+        -9.427786249999993,
+        -13.727536209999968,
+        10.032463826000026
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_central_pin",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.520000044000009,
+              "depth": 0.49975000000000536,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              1.484179615511386e-14,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 8.800000110000024,
+            "central_engagement_length": 8.800000110000024,
+            "clearance": 0.012493750000000135,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.012493750000000192,
+              0.012493750000000081,
+              0.012493750000000192
+            ],
+            "axial_end_clearance": 0.012493750000000135,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 15.480256387006651,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.05997000000000064,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.012493750000000135,
+        "feature_zones_local": [
+          [
+            -1.8324637719999906,
+            -4.472463805000002,
+            -0.5722137500000061,
+            1.8324637720000203,
+            4.472463805000023,
+            0.05997000000000064
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 0.6155840763475797,
+      "selection": {
+        "design": "one_central_pin/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.02311681526951595,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.059970000000002,
+        -18.832463771999993,
+        -19.972463805000025,
+        -9.427786249999993,
+        -15.167536227999978,
+        -11.027536194999996
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 2.5600000320000067,
+              "depth": 0.4997500000000058,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.000000049999995,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 54.940000164000054,
+            "central_engagement_length": 54.940000164000054,
+            "clearance": 0.012493750000000145,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.01249375000000016,
+              0.012493750000000527
+            ],
+            "axial_end_clearance": 0.012493750000000145,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 35.1440197442083,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.059970000000000696,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 2.5600000320000067,
+              "depth": 0.4997500000000049,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              4.0000000500000255,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 54.940000164000054,
+            "central_engagement_length": 54.940000164000054,
+            "clearance": 0.012493750000000123,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.012493750000000475,
+              0.012493750000000107
+            ],
+            "axial_end_clearance": 0.012493750000000123,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 35.144019744208244,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.059970000000000585,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.012493750000000145,
+        "feature_zones_local": [
+          [
+            -5.352463815999999,
+            -27.542463832000017,
+            -0.5722137500000067,
+            -2.647536283999991,
+            27.54246383200004,
+            0.059970000000000696
+          ],
+          [
+            2.6475362840000214,
+            -27.542463832000017,
+            -0.5722137500000056,
+            5.3524638160000295,
+            27.54246383200004,
+            0.059970000000000585
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 4.849618032085032,
+      "selection": {
+        "design": "two_long_grooves/v",
+        "scoring": {
+          "engagement_area_fraction": 0.20992360641700647,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.059970000000002,
+        -22.352463816000007,
+        -43.042463832000045,
+        -9.427786249999992,
+        -11.647536183999964,
+        12.042463832000024
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h2",
+        "h1"
+      ],
+      "parameters": {
+        "type": "bolted",
+        "features": [
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -4.480000000000003,
+              -18.760000000000005,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.895500000000019,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 1.808000000000006,
+            "lower_seat_z": -0.8075000000000115,
+            "head_bearing_area": 3.178530132977085,
+            "nut_bearing_area": 2.681916525430937,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.895500000000019,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -4.480000000000003,
+              18.760000000000005,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.895500000000019,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 1.808000000000006,
+            "lower_seat_z": -0.8075000000000115,
+            "head_bearing_area": 3.178530132977085,
+            "nut_bearing_area": 2.681916525430937,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.895500000000019,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              4.480000000000003,
+              -18.760000000000005,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.8955000000000184,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 1.8080000000000078,
+            "lower_seat_z": -0.8075000000000095,
+            "head_bearing_area": 3.178530132977085,
+            "nut_bearing_area": 2.6819165254309363,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.8955000000000184,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              4.480000000000003,
+              18.760000000000005,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.8955000000000184,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 1.8080000000000078,
+            "lower_seat_z": -0.8075000000000095,
+            "head_bearing_area": 3.178530132977085,
+            "nut_bearing_area": 2.6819165254309363,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.8955000000000184,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 4,
+        "screws": 0,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -5.970215020212902,
+            -20.250215020212902,
+            -2.215500000000013,
+            -2.989784979787104,
+            -17.269784979787108,
+            2.704000000000007
+          ],
+          [
+            -5.970215020212902,
+            17.269784979787108,
+            -2.215500000000013,
+            -2.989784979787104,
+            20.250215020212902,
+            2.704000000000007
+          ],
+          [
+            2.989784979787104,
+            -20.250215020212902,
+            -2.2155000000000107,
+            5.970215020212902,
+            -17.269784979787108,
+            2.7040000000000086
+          ],
+          [
+            2.989784979787104,
+            17.269784979787108,
+            -2.2155000000000107,
+            5.970215020212902,
+            20.250215020212902,
+            2.7040000000000086
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 2.348908302157425,
+      "selection": {
+        "design": "bolted/4",
+        "scoring": {
+          "engagement_area_fraction": 0.009781660431485033,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -12.215500000000013,
+        -22.97021502021291,
+        -35.750215020212906,
+        -7.295999999999991,
+        -11.029784979787092,
+        4.750215020212906
+      ],
+      "possible_withdrawal_directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_h2_bolt_1",
+        "j_h1_h2_nut_1",
+        "j_h1_h2_bolt_2",
+        "j_h1_h2_nut_2",
+        "j_h1_h2_bolt_3",
+        "j_h1_h2_nut_3",
+        "j_h1_h2_bolt_4",
+        "j_h1_h2_nut_4"
+      ]
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_long_groove",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 6.720000084000017,
+              "depth": 0.27486250000000295,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              1.484179615511386e-14,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 54.940000164000054,
+            "central_engagement_length": 54.940000164000054,
+            "clearance": 0.006871562500000074,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.006871562500000206,
+              0.006871562500000039,
+              0.006871562500000206
+            ],
+            "axial_end_clearance": 0.006871562500000074,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 101.47835701140136,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03298350000000035,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.006871562500000074,
+        "feature_zones_local": [
+          [
+            -3.3998551044999945,
+            -27.509855144500015,
+            -0.3147175625000034,
+            3.399855104500024,
+            27.509855144500037,
+            0.03298350000000035
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 1.8776236671116049,
+      "selection": {
+        "design": "one_long_groove/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.275524733422321,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.032983500000002,
+        -20.399855104500002,
+        -43.009855144500044,
+        -9.685282437499996,
+        -13.60014489549997,
+        12.009855144500023
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_end_pins",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 6.400000080000018,
+              "depth": 0.27486250000000295,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              1.484179615511386e-14,
+              -20.10000006000001,
+              0
+            ],
+            "tool_length": 10.720000032000012,
+            "central_engagement_length": 10.720000032000012,
+            "clearance": 0.006871562500000074,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.006871562500000206,
+              0.006871562500000039,
+              0.006871562500000206
+            ],
+            "axial_end_clearance": 0.006871562500000074,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 18.857766692014195,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03298350000000035,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 6.400000080000018,
+              "depth": 0.27486250000000295,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              1.484179615511386e-14,
+              20.10000006000003,
+              0
+            ],
+            "tool_length": 10.720000032000012,
+            "central_engagement_length": 10.720000032000012,
+            "clearance": 0.006871562500000074,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.006871562500000206,
+              0.006871562500000039,
+              0.006871562500000206
+            ],
+            "axial_end_clearance": 0.006871562500000074,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 18.857766692014195,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03298350000000035,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.006871562500000074,
+        "feature_zones_local": [
+          [
+            -3.2398551024999946,
+            -25.499855138500017,
+            -0.3147175625000034,
+            3.239855102500024,
+            -14.700144981500003,
+            0.03298350000000035
+          ],
+          [
+            -3.2398551024999946,
+            14.700144981500024,
+            -0.3147175625000034,
+            3.239855102500024,
+            25.49985513850004,
+            0.03298350000000035
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 1.8120087961390403,
+      "selection": {
+        "design": "two_end_pins/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.10240175922780805,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.032983500000002,
+        -20.2398551025,
+        -40.999855138500045,
+        -9.685282437499996,
+        -13.76014489749997,
+        9.999855138500024
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_central_pin",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.520000044000009,
+              "depth": 0.27486250000000295,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              1.484179615511386e-14,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 8.800000110000024,
+            "central_engagement_length": 8.800000110000024,
+            "clearance": 0.006871562500000074,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.006871562499999984,
+              0.006871562500000039,
+              0.006871562499999984
+            ],
+            "axial_end_clearance": 0.006871562500000074,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 8.514141012853658,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03298350000000035,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.006871562500000074,
+        "feature_zones_local": [
+          [
+            -1.7998550844999899,
+            -4.439855117500001,
+            -0.3147175625000034,
+            1.7998550845000196,
+            4.439855117500023,
+            0.03298350000000035
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 0.6155840763475797,
+      "selection": {
+        "design": "one_central_pin/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.02311681526951595,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.0329835,
+        -18.799855084499992,
+        -19.939855117500024,
+        -9.685282437499996,
+        -15.20014491549998,
+        -11.060144882499998
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "trapezoid",
+              "opening_width": 2.5600000320000067,
+              "depth": 0.4997500000000058,
+              "bottom_width": 1.6323595709662964,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.000000049999995,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 54.940000164000054,
+            "central_engagement_length": 54.940000164000054,
+            "clearance": 0.012493750000000145,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.012493749999999918,
+              0.012493750000000081,
+              0.01249374999999988
+            ],
+            "axial_end_clearance": 0.012493750000000145,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 57.55326828897033,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.059970000000000696,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "trapezoid",
+              "opening_width": 2.5600000320000067,
+              "depth": 0.4997500000000049,
+              "bottom_width": 1.6323595709662964,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              4.0000000500000255,
+              1.0477729794899915e-14,
+              0
+            ],
+            "tool_length": 54.940000164000054,
+            "central_engagement_length": 54.940000164000054,
+            "clearance": 0.012493750000000123,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.012493749999999899,
+              0.012493750000000081,
+              0.01249375000000028
+            ],
+            "axial_end_clearance": 0.012493750000000123,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 57.55326828897024,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.059970000000000585,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.012493750000000145,
+        "feature_zones_local": [
+          [
+            -5.352463815999999,
+            -27.542463832000017,
+            -0.5722137500000067,
+            -2.647536283999991,
+            27.54246383200004,
+            0.059970000000000696
+          ],
+          [
+            2.6475362840000214,
+            -27.542463832000017,
+            -0.5722137500000056,
+            5.3524638160000295,
+            27.54246383200004,
+            0.059970000000000585
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 4.849618032085032,
+      "selection": {
+        "design": "two_long_grooves/trapezoid",
+        "scoring": {
+          "engagement_area_fraction": 0.20992360641700647,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -10.059970000000002,
+        -22.352463816000007,
+        -43.042463832000045,
+        -9.427786249999992,
+        -11.647536183999964,
+        12.042463832000024
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_h2",
+      "components": [
+        "h1",
+        "h2"
+      ],
+      "parameters": {
+        "type": "bolted",
+        "features": [
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              1.484179615511386e-14,
+              -20.099999999999998,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.8954999999999975,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 0.8075000000000105,
+            "lower_seat_z": -1.8079999999999856,
+            "head_bearing_area": 3.178530132977086,
+            "nut_bearing_area": 2.681916525430937,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.8954999999999975,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              1.484179615511386e-14,
+              20.10000000000002,
+              0.0
+            ],
+            "shaft_diameter": 1.280000000000001,
+            "shaft_length": 3.8954999999999975,
+            "max_shaft_length": 50.0,
+            "clearance": 0.03200000000000002,
+            "head_seat_z": 0.8075000000000105,
+            "lower_seat_z": -1.8079999999999856,
+            "head_bearing_area": 3.178530132977086,
+            "nut_bearing_area": 2.681916525430937,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 3.8954999999999975,
+              "shaft_diameter": 1.280000000000001,
+              "head_width": 2.3040000000000016,
+              "head_height": 0.7680000000000006,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.344000000000001,
+              "across_flats": 2.3040000000000016,
+              "height": 0.8320000000000006,
+              "chamfer": 0.06400000000000004
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 2,
+        "bolts": 2,
+        "screws": 0,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -1.4902150202128839,
+            -21.590215020212895,
+            -3.215999999999987,
+            1.4902150202129136,
+            -18.6097849797871,
+            1.7035000000000111
+          ],
+          [
+            -1.4902150202128839,
+            18.609784979787122,
+            -3.215999999999987,
+            1.4902150202129136,
+            21.590215020212916,
+            1.7035000000000111
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -10.0,
+          -17.0,
+          -15.5
+        ]
+      },
+      "score": 1.5244541510787126,
+      "selection": {
+        "design": "bolted/2",
+        "scoring": {
+          "engagement_area_fraction": 0.004890830215742516,
+          "distribution_score": 0.7,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 58,
+          "rejected": [
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -11.70350000000001,
+        -18.49021502021289,
+        -37.09021502021292,
+        -6.784000000000011,
+        -15.509784979787081,
+        6.090215020212899
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_h2_bolt_1",
+        "j_h1_h2_nut_1",
+        "j_h1_h2_bolt_2",
+        "j_h1_h2_nut_2"
+      ]
+    }
+  ]
+}

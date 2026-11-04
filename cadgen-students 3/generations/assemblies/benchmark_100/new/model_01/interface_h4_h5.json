@@ -1,0 +1,427 @@
+{
+  "components": [
+    "h4",
+    "h5"
+  ],
+  "interface_area": 68.82926565133317,
+  "status": "options_found",
+  "options": 2,
+  "joint_types": [
+    "lateral_cylinder_grooves"
+  ],
+  "adaptive_search": null,
+  "constructive_search": {
+    "attempts": 6,
+    "limit": 72,
+    "valid_designs": 2,
+    "rejected": [
+      {
+        "design": "cylinder_axis",
+        "reason": "Cylinder axis misses receiver material"
+      },
+      {
+        "design": "curved_attachment_cylindrical_boss",
+        "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+      },
+      {
+        "design": "curved_attachment_cylindrical_boss",
+        "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+      },
+      {
+        "design": "lateral_cylinder_grooves",
+        "reason": "GeometryRejected: Receiver must have an outward cylindrical surface"
+      },
+      {
+        "design": "lateral_cylinder_grooves",
+        "reason": "GeometryRejected: Receiver must have an outward cylindrical surface"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "designs": [
+    {
+      "id": "j_h4_h5",
+      "components": [
+        "h5",
+        "h4"
+      ],
+      "parameters": {
+        "type": "lateral_cylinder_grooves",
+        "layout": "two_long_grooves",
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.9123630716735422,
+              "depth": 3.9344536361987323,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "central_engagement_length": 20.240000000000002,
+            "tool_length": 20.240000000000002,
+            "clearance": 0.09123630716735423,
+            "center_in_cut_frame": [
+              12.267594670556932,
+              -16.500000000000014,
+              22.337540741722925
+            ],
+            "insertion": "radial_normal",
+            "open_ends": "closed_pocket",
+            "transferred_volume": 62.378490578260426,
+            "material_check": "full donor anchor and buried floor/side support"
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.9123630716735709,
+              "depth": 3.934453636198743,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "central_engagement_length": 20.240000000000002,
+            "tool_length": 20.240000000000002,
+            "clearance": 0.09123630716735709,
+            "center_in_cut_frame": [
+              -12.2675946705569,
+              -16.500000000000004,
+              22.337540741722936
+            ],
+            "insertion": "radial_normal",
+            "open_ends": "closed_pocket",
+            "transferred_volume": 62.37849057826253,
+            "material_check": "full donor anchor and buried floor/side support"
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.09123630716735709,
+        "feature_zones_local": [
+          [
+            11.520176827552806,
+            -26.911236307167368,
+            18.11185079835684,
+            13.015012513561057,
+            -6.088763692832656,
+            22.628777048890278
+          ],
+          [
+            -13.015012513561041,
+            -26.911236307167364,
+            18.111850798356837,
+            -11.520176827552758,
+            -6.088763692832649,
+            22.628777048890292
+          ]
+        ],
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            1.2743568313150425e-16
+          ],
+          [
+            1.2743568313150425e-16,
+            0.0,
+            1.0
+          ]
+        ],
+        "cut_origin": [
+          39.0,
+          -30.0,
+          -64.0
+        ]
+      },
+      "score": 6.982903616060171,
+      "selection": {
+        "design": "lateral_cylinder_grooves",
+        "scoring": {
+          "engagement_area_fraction": 0.5365807232120342,
+          "distribution_score": 2.0,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 6,
+          "limit": 72,
+          "valid_designs": 2,
+          "rejected": [
+            {
+              "design": "cylinder_axis",
+              "reason": "Cylinder axis misses receiver material"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+            },
+            {
+              "design": "lateral_cylinder_grooves",
+              "reason": "GeometryRejected: Receiver must have an outward cylindrical surface"
+            },
+            {
+              "design": "lateral_cylinder_grooves",
+              "reason": "GeometryRejected: Receiver must have an outward cylindrical surface"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        12.088763692832632,
+        -43.01501251356107,
+        -45.88814920164316,
+        32.91123630716735,
+        -16.984987486438957,
+        -41.3712229511097
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.2743568313150425e-16,
+          1.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h4_h5",
+      "components": [
+        "h5",
+        "h4"
+      ],
+      "parameters": {
+        "type": "lateral_cylinder_grooves",
+        "layout": "four_short_grooves",
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.9123630716735422,
+              "depth": 3.9344536361987323,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "central_engagement_length": 8.280000000000001,
+            "tool_length": 8.280000000000001,
+            "clearance": 0.09123630716735423,
+            "center_in_cut_frame": [
+              12.267594670556932,
+              -22.250000000000014,
+              22.337540741722925
+            ],
+            "insertion": "radial_normal",
+            "open_ends": "closed_pocket",
+            "transferred_volume": 25.518473418379266,
+            "material_check": "full donor anchor and buried floor/side support"
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.9123630716735422,
+              "depth": 3.9344536361987323,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "central_engagement_length": 8.280000000000001,
+            "tool_length": 8.280000000000001,
+            "clearance": 0.09123630716735423,
+            "center_in_cut_frame": [
+              12.267594670556932,
+              -10.75000000000001,
+              22.337540741722925
+            ],
+            "insertion": "radial_normal",
+            "open_ends": "closed_pocket",
+            "transferred_volume": 25.51847341837928,
+            "material_check": "full donor anchor and buried floor/side support"
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.9123630716735709,
+              "depth": 3.934453636198743,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "central_engagement_length": 8.280000000000001,
+            "tool_length": 8.280000000000001,
+            "clearance": 0.09123630716735709,
+            "center_in_cut_frame": [
+              -12.2675946705569,
+              -22.250000000000007,
+              22.337540741722936
+            ],
+            "insertion": "radial_normal",
+            "open_ends": "closed_pocket",
+            "transferred_volume": 25.518473418380133,
+            "material_check": "full donor anchor and buried floor/side support"
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.9123630716735709,
+              "depth": 3.934453636198743,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "central_engagement_length": 8.280000000000001,
+            "tool_length": 8.280000000000001,
+            "clearance": 0.09123630716735709,
+            "center_in_cut_frame": [
+              -12.2675946705569,
+              -10.750000000000004,
+              22.337540741722936
+            ],
+            "insertion": "radial_normal",
+            "open_ends": "closed_pocket",
+            "transferred_volume": 25.518473418380104,
+            "material_check": "full donor anchor and buried floor/side support"
+          }
+        ],
+        "feature_count": 4,
+        "clearance": 0.09123630716735709,
+        "feature_zones_local": [
+          [
+            11.520176827552806,
+            -26.681236307167367,
+            18.11185079835684,
+            13.015012513561057,
+            -17.818763692832658,
+            22.628777048890278
+          ],
+          [
+            11.520176827552806,
+            -15.181236307167365,
+            18.11185079835684,
+            13.015012513561057,
+            -6.318763692832656,
+            22.628777048890278
+          ],
+          [
+            -13.015012513561041,
+            -26.68123630716736,
+            18.111850798356837,
+            -11.520176827552758,
+            -17.818763692832647,
+            22.628777048890292
+          ],
+          [
+            -13.015012513561041,
+            -15.181236307167362,
+            18.111850798356837,
+            -11.520176827552758,
+            -6.318763692832648,
+            22.628777048890292
+          ]
+        ],
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            1.2743568313150425e-16
+          ],
+          [
+            1.2743568313150425e-16,
+            0.0,
+            1.0
+          ]
+        ],
+        "cut_origin": [
+          39.0,
+          -30.0,
+          -64.0
+        ]
+      },
+      "score": 4.995102958594685,
+      "selection": {
+        "design": "lateral_cylinder_grooves",
+        "scoring": {
+          "engagement_area_fraction": 0.43902059171893704,
+          "distribution_score": 2.0,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 6,
+          "limit": 72,
+          "valid_designs": 2,
+          "rejected": [
+            {
+              "design": "cylinder_axis",
+              "reason": "Cylinder axis misses receiver material"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Fit is supported only by a narrow contact trace, not a bulk donor anchor"
+            },
+            {
+              "design": "lateral_cylinder_grooves",
+              "reason": "GeometryRejected: Receiver must have an outward cylindrical surface"
+            },
+            {
+              "design": "lateral_cylinder_grooves",
+              "reason": "GeometryRejected: Receiver must have an outward cylindrical surface"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        12.318763692832636,
+        -43.01501251356107,
+        -45.88814920164316,
+        32.68123630716735,
+        -16.984987486438957,
+        -41.3712229511097
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.2743568313150425e-16,
+          1.0
+        ]
+      ],
+      "hardware": []
+    }
+  ]
+}

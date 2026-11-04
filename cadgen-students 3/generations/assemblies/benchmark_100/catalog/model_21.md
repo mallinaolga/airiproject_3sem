@@ -1,0 +1,86 @@
+# model_21
+
+Статус: **success**.
+
+
+[Исходник STL](../sources/model_21/original.stl) · [Исходник STEP](../sources/model_21/original.step) · [История CADGen](../sources/model_21/history.py)
+
+## Геометрия и результаты
+
+### Декомпозиция
+
+- [geometric_partition.step](../new/model_21/geometry/geometric_partition.step)
+- [geometric_partition.stl](../new/model_21/geometry/geometric_partition.stl)
+- [metadata.json](../new/model_21/geometry/metadata.json)
+- [original.step](../new/model_21/geometry/original.step)
+- [original.stl](../new/model_21/geometry/original.stl)
+- [part_1.step](../new/model_21/geometry/part_1.step)
+- [part_1.stl](../new/model_21/geometry/part_1.stl)
+- [part_2.step](../new/model_21/geometry/part_2.step)
+- [part_2.stl](../new/model_21/geometry/part_2.stl)
+- [part_3.step](../new/model_21/geometry/part_3.step)
+- [part_3.stl](../new/model_21/geometry/part_3.stl)
+- [part_4.step](../new/model_21/geometry/part_4.step)
+- [part_4.stl](../new/model_21/geometry/part_4.stl)
+- [part_5.step](../new/model_21/geometry/part_5.step)
+- [part_5.stl](../new/model_21/geometry/part_5.stl)
+- [split_exploded.step](../new/model_21/geometry/split_exploded.step)
+- [split_exploded.stl](../new/model_21/geometry/split_exploded.stl)
+
+### Сборка с креплениями
+
+- [assembly.step](../new/model_21/assembly/assembly.step)
+- [assembly.stl](../new/model_21/assembly/assembly.stl)
+- [exploded.step](../new/model_21/assembly/exploded.step)
+- [metadata.json](../new/model_21/assembly/metadata.json)
+- [original.step](../new/model_21/assembly/original.step)
+- [original.stl](../new/model_21/assembly/original.stl)
+- [part_1.step](../new/model_21/assembly/part_1.step)
+- [part_1.stl](../new/model_21/assembly/part_1.stl)
+- [part_2.step](../new/model_21/assembly/part_2.step)
+- [part_2.stl](../new/model_21/assembly/part_2.stl)
+- [part_3.step](../new/model_21/assembly/part_3.step)
+- [part_3.stl](../new/model_21/assembly/part_3.stl)
+- [part_4.step](../new/model_21/assembly/part_4.step)
+- [part_4.stl](../new/model_21/assembly/part_4.stl)
+- [part_5.step](../new/model_21/assembly/part_5.step)
+- [part_5.stl](../new/model_21/assembly/part_5.stl)
+- [parts_exploded.stl](../new/model_21/assembly/parts_exploded.stl)
+- [screw_1.step](../new/model_21/assembly/screw_1.step)
+- [screw_1.stl](../new/model_21/assembly/screw_1.stl)
+- [screw_2.step](../new/model_21/assembly/screw_2.step)
+- [screw_2.stl](../new/model_21/assembly/screw_2.stl)
+- [screw_3.step](../new/model_21/assembly/screw_3.step)
+- [screw_3.stl](../new/model_21/assembly/screw_3.stl)
+- [screw_4.step](../new/model_21/assembly/screw_4.step)
+- [screw_4.stl](../new/model_21/assembly/screw_4.stl)
+- [screw_5.step](../new/model_21/assembly/screw_5.step)
+- [screw_5.stl](../new/model_21/assembly/screw_5.stl)
+- [screw_6.step](../new/model_21/assembly/screw_6.step)
+- [screw_6.stl](../new/model_21/assembly/screw_6.stl)
+- [screw_7.step](../new/model_21/assembly/screw_7.step)
+- [screw_7.stl](../new/model_21/assembly/screw_7.stl)
+- [screw_8.step](../new/model_21/assembly/screw_8.step)
+- [screw_8.stl](../new/model_21/assembly/screw_8.stl)
+- [split_exploded.step](../new/model_21/assembly/split_exploded.step)
+- [split_exploded.stl](../new/model_21/assembly/split_exploded.stl)
+- [split_part_1.step](../new/model_21/assembly/split_part_1.step)
+- [split_part_1.stl](../new/model_21/assembly/split_part_1.stl)
+- [split_part_2.step](../new/model_21/assembly/split_part_2.step)
+- [split_part_2.stl](../new/model_21/assembly/split_part_2.stl)
+- [split_part_3.step](../new/model_21/assembly/split_part_3.step)
+- [split_part_3.stl](../new/model_21/assembly/split_part_3.stl)
+- [split_part_4.step](../new/model_21/assembly/split_part_4.step)
+- [split_part_4.stl](../new/model_21/assembly/split_part_4.stl)
+- [split_part_5.step](../new/model_21/assembly/split_part_5.step)
+- [split_part_5.stl](../new/model_21/assembly/split_part_5.stl)
+
+## Диагностика
+
+- [assembly_report.json](../new/model_21/assembly_report.json)
+- [decomposition_report.json](../new/model_21/decomposition_report.json)
+- [interface_h1_s1_h2.json](../new/model_21/interface_h1_s1_h2.json)
+- [interface_h1_s1_h4.json](../new/model_21/interface_h1_s1_h4.json)
+- [interface_h1_s2_h2.json](../new/model_21/interface_h1_s2_h2.json)
+- [interface_h2_h3.json](../new/model_21/interface_h2_h3.json)
+- [metadata.json](../new/model_21/metadata.json)

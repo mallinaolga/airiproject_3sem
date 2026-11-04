@@ -1,0 +1,3412 @@
+{
+  "components": [
+    "h1_s2",
+    "h3"
+  ],
+  "interface_area": 1641.7961474308547,
+  "status": "options_found",
+  "options": 12,
+  "joint_types": [
+    "bolted",
+    "distributed_grooves",
+    "self_tapping_screw"
+  ],
+  "adaptive_search": null,
+  "constructive_search": {
+    "attempts": 70,
+    "limit": 72,
+    "valid_designs": 46,
+    "rejected": [
+      {
+        "design": "two_long_grooves/dovetail",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+      },
+      {
+        "design": "two_long_grooves/t",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+      },
+      {
+        "design": "one_long_groove/dovetail",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+      },
+      {
+        "design": "one_long_groove/t",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+      },
+      {
+        "design": "two_end_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "one_central_pin/dovetail",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+      },
+      {
+        "design": "one_central_pin/t",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+      },
+      {
+        "design": "self_tapping_screw/4",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      },
+      {
+        "design": "self_tapping_screw/2",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      },
+      {
+        "design": "self_tapping_screw/1",
+        "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+      },
+      {
+        "design": "cylindrical_fit",
+        "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+      },
+      {
+        "design": "cylindrical_fit",
+        "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+      },
+      {
+        "design": "cylindrical_fit_transverse_bolt",
+        "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+      },
+      {
+        "design": "two_long_grooves/dovetail",
+        "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+      },
+      {
+        "design": "two_long_grooves/t",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+      },
+      {
+        "design": "one_long_groove/dovetail",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+      },
+      {
+        "design": "one_long_groove/t",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+      },
+      {
+        "design": "two_end_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "one_central_pin/dovetail",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+      },
+      {
+        "design": "one_central_pin/t",
+        "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+      },
+      {
+        "design": "curved_attachment_cylindrical_boss",
+        "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+      },
+      {
+        "design": "curved_attachment_cylindrical_boss",
+        "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "designs": [
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h1_s2",
+        "h3"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 2.8800000000000003,
+              "depth": 3.000000000000001,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.500000000000005,
+              1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 75.43999999999912,
+            "central_engagement_length": 75.43999999999912,
+            "clearance": 0.07200000000000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.07200000000000006,
+              0.07200000000000006,
+              0.07200000000000006
+            ],
+            "axial_end_clearance": 0.07200000000000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 651.8015999999927,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.3456,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 2.8800000000000003,
+              "depth": 3.000000000000002,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              4.499999999999995,
+              1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 75.43999999999912,
+            "central_engagement_length": 75.43999999999912,
+            "clearance": 0.07200000000000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.07200000000000006,
+              0.07200000000000006,
+              0.07200000000000006
+            ],
+            "axial_end_clearance": 0.07200000000000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 651.8015999999931,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.3456,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.07200000000000001,
+        "feature_zones_local": [
+          [
+            -6.357600000000006,
+            -38.13759999999956,
+            -3.417600000000001,
+            -2.6424000000000047,
+            38.13759999999956,
+            0.3456
+          ],
+          [
+            2.642399999999994,
+            -38.13759999999956,
+            -3.4176000000000024,
+            6.357599999999995,
+            38.13759999999956,
+            0.3456
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            -0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.000000000000538,
+          -2.960848524839699
+        ]
+      },
+      "score": 5.123350650688185,
+      "selection": {
+        "design": "two_long_grooves/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.264670130137637,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -19.4171,
+        -30.13759999999902,
+        -9.318448524839695,
+        -15.653899999999995,
+        46.1376000000001,
+        3.396751475160307
+      ],
+      "possible_withdrawal_directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h1_s2",
+        "h3"
+      ],
+      "parameters": {
+        "type": "bolted",
+        "features": [
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -5.040000000000006,
+              -25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 46.0075,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 34.7835,
+            "lower_seat_z": -9.784000000000004,
+            "head_bearing_area": 4.02282719954912,
+            "nut_bearing_area": 3.394300602498525,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 46.0075,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.512,
+              "across_flats": 2.592,
+              "height": 0.9359999999999999,
+              "chamfer": 0.072
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -5.040000000000006,
+              25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 46.0075,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 34.7835,
+            "lower_seat_z": -9.784000000000004,
+            "head_bearing_area": 4.02282719954912,
+            "nut_bearing_area": 3.394300602498525,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 46.0075,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.512,
+              "across_flats": 2.592,
+              "height": 0.9359999999999999,
+              "chamfer": 0.072
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              5.039999999999996,
+              -25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 46.0075,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 34.7835,
+            "lower_seat_z": -9.784000000000008,
+            "head_bearing_area": 4.02282719954912,
+            "nut_bearing_area": 3.394300602498523,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 46.0075,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.512,
+              "across_flats": 2.592,
+              "height": 0.9359999999999999,
+              "chamfer": 0.072
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              5.039999999999996,
+              25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 46.0075,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 34.7835,
+            "lower_seat_z": -9.784000000000008,
+            "head_bearing_area": 4.02282719954912,
+            "nut_bearing_area": 3.394300602498523,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 46.0075,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.512,
+              "across_flats": 2.592,
+              "height": 0.9359999999999999,
+              "chamfer": 0.072
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 4,
+        "screws": 0,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -6.716491897739516,
+            -27.43649189773921,
+            -11.368000000000004,
+            -3.3635081022604965,
+            -24.08350810226019,
+            35.79149999999999
+          ],
+          [
+            -6.716491897739516,
+            24.08350810226019,
+            -11.368000000000004,
+            -3.3635081022604965,
+            27.43649189773921,
+            35.79149999999999
+          ],
+          [
+            3.363508102260486,
+            -27.43649189773921,
+            -11.368000000000004,
+            6.716491897739505,
+            -24.08350810226019,
+            35.79149999999999
+          ],
+          [
+            3.363508102260486,
+            24.08350810226019,
+            -11.368000000000004,
+            6.716491897739505,
+            27.43649189773921,
+            35.79149999999999
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            -0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.000000000000538,
+          -2.960848524839699
+        ]
+      },
+      "score": 2.3505202793475877,
+      "selection": {
+        "design": "bolted/4",
+        "scoring": {
+          "engagement_area_fraction": 0.010104055869517542,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -27.367500000000003,
+        -19.43649189773867,
+        -9.677340422579208,
+        19.791999999999994,
+        35.43649189773975,
+        3.755643372899829
+      ],
+      "possible_withdrawal_directions": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_s2_h3_bolt_1",
+        "j_h1_s2_h3_nut_1",
+        "j_h1_s2_h3_bolt_2",
+        "j_h1_s2_h3_nut_2",
+        "j_h1_s2_h3_bolt_3",
+        "j_h1_s2_h3_nut_3",
+        "j_h1_s2_h3_bolt_4",
+        "j_h1_s2_h3_nut_4"
+      ]
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "self_tapping_screw",
+        "features": [
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -5.040000000000005,
+              -25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 19.784,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 9.784,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 5.651428831170067,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 19.784,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -5.040000000000005,
+              25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 19.784,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 9.784,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 5.651428831170067,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 19.784,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              5.0399999999999965,
+              -25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 19.784000000000006,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 9.784000000000004,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 5.651428831170067,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 19.784000000000006,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              5.0399999999999965,
+              25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 19.784000000000006,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 9.784000000000004,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 5.651428831170067,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 19.784000000000006,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 0,
+        "screws": 4,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -6.716491897739515,
+            -27.43649189773921,
+            -10.144,
+            -3.3635081022604956,
+            -24.08350810226019,
+            10.792000000000002
+          ],
+          [
+            -6.716491897739515,
+            24.08350810226019,
+            -10.144,
+            -3.3635081022604956,
+            27.43649189773921,
+            10.792000000000002
+          ],
+          [
+            3.3635081022604867,
+            -27.43649189773921,
+            -10.144000000000002,
+            6.716491897739506,
+            -24.08350810226019,
+            10.792000000000005
+          ],
+          [
+            3.3635081022604867,
+            24.08350810226019,
+            -10.144000000000002,
+            6.716491897739506,
+            27.43649189773921,
+            10.792000000000005
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 2.3505202793475877,
+      "selection": {
+        "design": "self_tapping_screw/4",
+        "scoring": {
+          "engagement_area_fraction": 0.010104055869517542,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -26.7915,
+        -19.43649189773867,
+        -9.677340422579192,
+        -5.855499999999993,
+        35.43649189773975,
+        3.7556433728998373
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_s2_h3_screw_1",
+        "j_h1_s2_h3_screw_2",
+        "j_h1_s2_h3_screw_3",
+        "j_h1_s2_h3_screw_4"
+      ]
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_long_groove",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "trapezoid",
+              "opening_width": 7.56000008400001,
+              "depth": 5.000000000000001,
+              "bottom_width": 4.820561851314613,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.884981308350688e-15,
+              -1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 75.43441012558651,
+            "central_engagement_length": 75.43441012558651,
+            "clearance": 0.12500000000000003,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.12500000000000022,
+              0.125,
+              0.12500000000000022
+            ],
+            "axial_end_clearance": 0.12500000000000003,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 2334.800966534372,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.6000000000000001,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.12500000000000003,
+        "feature_zones_local": [
+          [
+            -4.50500004200001,
+            -38.442205062793256,
+            -5.725000000000001,
+            4.505000042000001,
+            38.442205062793256,
+            0.6000000000000001
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 2.2367690494898778,
+      "selection": {
+        "design": "one_long_groove/trapezoid",
+        "scoring": {
+          "engagement_area_fraction": 0.34735380989797554,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -16.5995,
+        -30.442205062792716,
+        -7.465848566839684,
+        -10.274499999999994,
+        46.442205062793796,
+        1.5441515171603284
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_end_pins",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 7.2000000800000095,
+              "depth": 5.000000000000001,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.884981308350688e-15,
+              -27.59795492399507,
+              0
+            ],
+            "tool_length": 14.718909292797369,
+            "central_engagement_length": 14.718909292797369,
+            "clearance": 0.12500000000000003,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.125,
+              0.125,
+              0.125
+            ],
+            "axial_end_clearance": 0.12500000000000003,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 529.8807404282697,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.6000000000000001,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 7.2000000800000095,
+              "depth": 5.000000000000001,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.884981308350688e-15,
+              27.59795492399506,
+              0
+            ],
+            "tool_length": 14.718909292797369,
+            "central_engagement_length": 14.718909292797369,
+            "clearance": 0.12500000000000003,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.125,
+              0.125,
+              0.125
+            ],
+            "axial_end_clearance": 0.12500000000000003,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 529.8807404282697,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.6000000000000001,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.12500000000000003,
+        "feature_zones_local": [
+          [
+            -4.32500004000001,
+            -35.68240957039375,
+            -5.725000000000001,
+            4.32500004,
+            -19.513500277596386,
+            0.6000000000000001
+          ],
+          [
+            -4.32500004000001,
+            19.51350027759638,
+            -5.725000000000001,
+            4.32500004,
+            35.682409570393745,
+            0.6000000000000001
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 1.9454890776269,
+      "selection": {
+        "design": "two_end_pins/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.12909781552538,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -16.5995,
+        -27.68240957039321,
+        -7.285848564839684,
+        -10.274499999999994,
+        43.682409570394285,
+        1.3641515151603267
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_central_pin",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.9600000440000054,
+              "depth": 5.000000000000001,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.884981308350688e-15,
+              -1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 9.900000110000013,
+            "central_engagement_length": 9.900000110000013,
+            "clearance": 0.09900000110000014,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.09900000110000029,
+              0.09900000110000029,
+              0.09900000110000029
+            ],
+            "axial_end_clearance": 0.09900000110000014,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 196.02000435600058,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.4752000052800006,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.09900000110000014,
+        "feature_zones_local": [
+          [
+            -2.5542000283800084,
+            -5.524200061380009,
+            -5.574200006380002,
+            2.5542000283799986,
+            5.5242000613800055,
+            0.4752000052800006
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 0.6193936315801083,
+      "selection": {
+        "design": "one_central_pin/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.02387872631602167,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -16.47470000528,
+        2.475799938620531,
+        -5.515048553219683,
+        -10.425299993619994,
+        13.524200061380546,
+        -0.4066484964596737
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 2.8800000000000003,
+              "depth": 5.0,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.500000000000004,
+              -1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 75.43999999999912,
+            "central_engagement_length": 75.43999999999912,
+            "clearance": 0.07200000000000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.07200000000000006,
+              0.07200000000000006,
+              0.07200000000000006
+            ],
+            "axial_end_clearance": 0.07200000000000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 1086.3359999999875,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.3456,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 2.8800000000000003,
+              "depth": 5.000000000000002,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              4.499999999999996,
+              -1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 75.43999999999912,
+            "central_engagement_length": 75.43999999999912,
+            "clearance": 0.07200000000000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.07200000000000006,
+              0.07200000000000006,
+              0.07200000000000006
+            ],
+            "axial_end_clearance": 0.07200000000000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 1086.335999999988,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.3456,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.07200000000000001,
+        "feature_zones_local": [
+          [
+            -6.357600000000005,
+            -38.13759999999956,
+            -5.4176,
+            -2.642400000000004,
+            38.13759999999956,
+            0.3456
+          ],
+          [
+            2.642399999999995,
+            -38.13759999999956,
+            -5.417600000000002,
+            6.357599999999996,
+            38.13759999999956,
+            0.3456
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 5.123350650688185,
+      "selection": {
+        "design": "two_long_grooves/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.264670130137637,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -16.3451,
+        -30.13759999999902,
+        -9.31844852483968,
+        -10.581899999999992,
+        46.1376000000001,
+        3.3967514751603236
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "bolted",
+        "features": [
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -5.040000000000005,
+              -25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 46.00749999999999,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 9.784,
+            "lower_seat_z": -34.7835,
+            "head_bearing_area": 4.02282719954912,
+            "nut_bearing_area": 3.3943006024985256,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 46.00749999999999,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.512,
+              "across_flats": 2.592,
+              "height": 0.9359999999999999,
+              "chamfer": 0.072
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -5.040000000000005,
+              25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 46.00749999999999,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 9.784,
+            "lower_seat_z": -34.7835,
+            "head_bearing_area": 4.02282719954912,
+            "nut_bearing_area": 3.3943006024985256,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 46.00749999999999,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.512,
+              "across_flats": 2.592,
+              "height": 0.9359999999999999,
+              "chamfer": 0.072
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              5.0399999999999965,
+              -25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 46.0075,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 9.784000000000004,
+            "lower_seat_z": -34.7835,
+            "head_bearing_area": 4.02282719954912,
+            "nut_bearing_area": 3.394300602498524,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 46.0075,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.512,
+              "across_flats": 2.592,
+              "height": 0.9359999999999999,
+              "chamfer": 0.072
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              5.0399999999999965,
+              25.7599999999997,
+              0.0
+            ],
+            "shaft_diameter": 1.44,
+            "shaft_length": 46.0075,
+            "max_shaft_length": 50.0,
+            "clearance": 0.036,
+            "head_seat_z": 9.784000000000004,
+            "lower_seat_z": -34.7835,
+            "head_bearing_area": 4.02282719954912,
+            "nut_bearing_area": 3.394300602498524,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 46.0075,
+              "shaft_diameter": 1.44,
+              "head_width": 2.592,
+              "head_height": 0.864,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 1.512,
+              "across_flats": 2.592,
+              "height": 0.9359999999999999,
+              "chamfer": 0.072
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 4,
+        "screws": 0,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -6.716491897739515,
+            -27.43649189773921,
+            -36.36749999999999,
+            -3.3635081022604956,
+            -24.08350810226019,
+            10.792000000000002
+          ],
+          [
+            -6.716491897739515,
+            24.08350810226019,
+            -36.36749999999999,
+            -3.3635081022604956,
+            27.43649189773921,
+            10.792000000000002
+          ],
+          [
+            3.3635081022604867,
+            -27.43649189773921,
+            -36.36749999999999,
+            6.716491897739506,
+            -24.08350810226019,
+            10.792000000000005
+          ],
+          [
+            3.3635081022604867,
+            24.08350810226019,
+            -36.36749999999999,
+            6.716491897739506,
+            27.43649189773921,
+            10.792000000000005
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 2.3505202793475877,
+      "selection": {
+        "design": "bolted/4",
+        "scoring": {
+          "engagement_area_fraction": 0.010104055869517542,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -26.7915,
+        -19.43649189773867,
+        -9.6773404225792,
+        20.367999999999995,
+        35.43649189773975,
+        3.7556433728998373
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h1_s2_h3_bolt_1",
+        "j_h1_s2_h3_nut_1",
+        "j_h1_s2_h3_bolt_2",
+        "j_h1_s2_h3_nut_2",
+        "j_h1_s2_h3_bolt_3",
+        "j_h1_s2_h3_nut_3",
+        "j_h1_s2_h3_bolt_4",
+        "j_h1_s2_h3_nut_4"
+      ]
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_long_groove",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 7.560000084000009,
+              "depth": 5.000000000000001,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.884981308350688e-15,
+              -1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 75.43441012558651,
+            "central_engagement_length": 75.43441012558651,
+            "clearance": 0.12500000000000003,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.125,
+              0.125,
+              0.125
+            ],
+            "axial_end_clearance": 0.12500000000000003,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 2851.4207344296265,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.6000000000000001,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.12500000000000003,
+        "feature_zones_local": [
+          [
+            -4.50500004200001,
+            -38.442205062793256,
+            -5.725000000000001,
+            4.505000042,
+            38.442205062793256,
+            0.6000000000000001
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 2.2367690494898773,
+      "selection": {
+        "design": "one_long_groove/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.3473538098979755,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -16.5995,
+        -30.442205062792716,
+        -7.465848566839684,
+        -10.274499999999994,
+        46.442205062793796,
+        1.5441515171603266
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_end_pins",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 7.2000000800000095,
+              "depth": 2.750000000000001,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.884981308350688e-15,
+              -27.59795492399507,
+              0
+            ],
+            "tool_length": 14.718909292797369,
+            "central_engagement_length": 14.718909292797369,
+            "clearance": 0.06875000000000002,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.06875000000000009,
+              0.06875000000000009,
+              0.06875000000000009
+            ],
+            "axial_end_clearance": 0.06875000000000002,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 291.4344072355484,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.33000000000000007,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 7.2000000800000095,
+              "depth": 2.750000000000001,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.884981308350688e-15,
+              27.59795492399506,
+              0
+            ],
+            "tool_length": 14.718909292797369,
+            "central_engagement_length": 14.718909292797369,
+            "clearance": 0.06875000000000002,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.06875000000000009,
+              0.06875000000000009,
+              0.06875000000000009
+            ],
+            "axial_end_clearance": 0.06875000000000002,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 291.4344072355484,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.33000000000000007,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.06875000000000002,
+        "feature_zones_local": [
+          [
+            -3.9987500400000098,
+            -35.35615957039375,
+            -3.148750000000001,
+            3.99875004,
+            -19.839750277596384,
+            0.33000000000000007
+          ],
+          [
+            -3.9987500400000098,
+            19.839750277596377,
+            -3.148750000000001,
+            3.99875004,
+            35.35615957039374,
+            0.33000000000000007
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 1.9454890776269,
+      "selection": {
+        "design": "two_end_pins/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.12909781552538,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -16.3295,
+        -27.35615957039321,
+        -6.959598564839683,
+        -12.850749999999994,
+        43.35615957039428,
+        1.0379015151603277
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_central_pin",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 3.9600000440000054,
+              "depth": 2.750000000000001,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.884981308350688e-15,
+              -1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 9.900000110000013,
+            "central_engagement_length": 9.900000110000013,
+            "clearance": 0.06875000000000002,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.06875000000000009,
+              0.06875000000000009,
+              0.06875000000000009
+            ],
+            "axial_end_clearance": 0.06875000000000002,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 107.81100239580033,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.33000000000000007,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.06875000000000002,
+        "feature_zones_local": [
+          [
+            -2.3787500220000077,
+            -5.348750055000008,
+            -3.148750000000001,
+            2.378750021999998,
+            5.3487500550000044,
+            0.33000000000000007
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 0.6193936315801083,
+      "selection": {
+        "design": "one_central_pin/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.02387872631602167,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -16.3295,
+        2.651249945000532,
+        -5.339598546839682,
+        -12.850749999999996,
+        13.348750055000544,
+        -0.5820985028396741
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h1_s2_h3",
+      "components": [
+        "h3",
+        "h1_s2"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_long_grooves",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 2.8800000320000043,
+              "depth": 5.0,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -4.50000005000001,
+              -1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 75.43441012558651,
+            "central_engagement_length": 75.43441012558651,
+            "clearance": 0.07200000080000012,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.07200000080000016,
+              0.07200000079999974
+            ],
+            "axial_end_clearance": 0.07200000080000012,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 543.1277589389765,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.3456000038400005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 2.8800000320000043,
+              "depth": 5.000000000000002,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              4.5000000500000015,
+              -1.7763568394002505e-15,
+              0
+            ],
+            "tool_length": 75.43441012558651,
+            "central_engagement_length": 75.43441012558651,
+            "clearance": 0.07200000080000012,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.07200000080000059,
+              0.07200000079999962
+            ],
+            "axial_end_clearance": 0.07200000080000012,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 543.1277589389766,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.3456000038400005,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.07200000080000012,
+        "feature_zones_local": [
+          [
+            -6.357600070640013,
+            -38.134805067433255,
+            -5.417600004640001,
+            -2.6424000293600076,
+            38.134805067433255,
+            0.3456000038400005
+          ],
+          [
+            2.6424000293599987,
+            -38.134805067433255,
+            -5.417600004640002,
+            6.357600070640004,
+            38.134805067433255,
+            0.3456000038400005
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            -0.0
+          ],
+          [
+            1.0,
+            0.0,
+            -0.0
+          ]
+        ],
+        "cut_origin": [
+          -15.999499999999998,
+          8.00000000000054,
+          -2.9608485248396725
+        ]
+      },
+      "score": 5.123252609135146,
+      "selection": {
+        "design": "two_long_grooves/v",
+        "scoring": {
+          "engagement_area_fraction": 0.2646505218270291,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 70,
+          "limit": 72,
+          "valid_designs": 46,
+          "rejected": [
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.009558544472898355}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.13303320092947554}]"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010627377914972343}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.14901874902451348}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.009276776334583608}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.11966936046003486}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.010447305185406073}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.13987364314048137}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352154, 'intersection_volume': 0.010834170536342527}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.82292028028232, 'intersection_volume': 0.14674816478328626}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 85.88194685352153, 'intersection_volume': 0.011451275679799144}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 128.8229202802823, 'intersection_volume': 0.15786597330282123}]"
+            },
+            {
+              "design": "self_tapping_screw/4",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/2",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "self_tapping_screw/1",
+              "reason": "GeometryRejected: Blind screw lacks required second-part engagement and floor"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "cylindrical_fit_transverse_bolt",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "two_long_grooves/dovetail",
+              "reason": "GeometryRejected: groove/dovetail: Null TopoDS_Shape object"
+            },
+            {
+              "design": "two_long_grooves/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.1825081544980952}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010627381084492855}]"
+            },
+            {
+              "design": "one_long_groove/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234652, 'intersection_volume': 0.14553517682925432}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.6283323234079, 'intersection_volume': 0.009219138979269908}]"
+            },
+            {
+              "design": "one_long_groove/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.17100686992912226}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.010428759692454864}]"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "one_central_pin/dovetail",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055387234654, 'intersection_volume': 0.1798219831869618}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833232340792, 'intersection_volume': 0.010834967298878891}]"
+            },
+            {
+              "design": "one_central_pin/t",
+              "reason": "GeometryRejected: No sampled assembly path for part_1: [{'direction': [0.0, 1.0, 0.0], 'reason': 'collision', 'distance': 124.38055396205976, 'intersection_volume': 0.19338407617888537}, {'direction': [0.0, -1.0, 0.0], 'reason': 'collision', 'distance': 74.62833237723586, 'intersection_volume': 0.011451276643430871}]"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            },
+            {
+              "design": "curved_attachment_cylindrical_boss",
+              "reason": "GeometryRejected: Socket lacks actual side material around its buried engagement"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        -16.34510000384,
+        -30.134805067432715,
+        -9.318448595479687,
+        -10.581899995359992,
+        46.134805067433796,
+        3.3967515458003312
+      ],
+      "possible_withdrawal_directions": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    }
+  ]
+}

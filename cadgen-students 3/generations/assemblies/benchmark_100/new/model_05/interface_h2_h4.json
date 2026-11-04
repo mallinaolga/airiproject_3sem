@@ -1,0 +1,2835 @@
+{
+  "components": [
+    "h2",
+    "h4"
+  ],
+  "interface_area": 4.0,
+  "status": "options_found",
+  "options": 12,
+  "joint_types": [
+    "bolted",
+    "distributed_grooves",
+    "self_tapping_screw"
+  ],
+  "adaptive_search": null,
+  "constructive_search": {
+    "attempts": 68,
+    "limit": 72,
+    "valid_designs": 60,
+    "rejected": [
+      {
+        "design": "four_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "four_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "four_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "four_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/dovetail",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      },
+      {
+        "design": "two_end_pins/t",
+        "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+      }
+    ],
+    "exhaustive": false,
+    "ranked_by_geometry": true,
+    "first_success_not_automatically_selected": true
+  },
+  "designs": [
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "four_pins",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.32000003200000043,
+              "depth": 0.33000003300000047,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -0.5600000560000008,
+              -0.5600000560000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000018,
+              0.008000000800000018,
+              0.008000000800000073
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.033792010137601164,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.32000003200000043,
+              "depth": 0.33000003300000047,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -0.5600000560000008,
+              0.5600000560000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000018,
+              0.008000000800000018,
+              0.008000000800000073
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.033792010137601164,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.32000003200000043,
+              "depth": 0.33000003300000047,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              0.5600000560000008,
+              -0.5600000560000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000073,
+              0.008000000800000018,
+              0.008000000800000018
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.03379201013760116,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.32000003200000043,
+              "depth": 0.33000003300000047,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              0.5600000560000008,
+              0.5600000560000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000073,
+              0.008000000800000018,
+              0.008000000800000018
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.03379201013760116,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 4,
+        "clearance": 0.00800000080000001,
+        "feature_zones_local": [
+          [
+            -0.7664000766400011,
+            -0.7664000766400011,
+            -0.3764000376400005,
+            -0.3536000353600005,
+            -0.3536000353600005,
+            0.03840000384000005
+          ],
+          [
+            -0.7664000766400011,
+            0.3536000353600005,
+            -0.3764000376400005,
+            -0.3536000353600005,
+            0.7664000766400011,
+            0.03840000384000005
+          ],
+          [
+            0.3536000353600005,
+            -0.7664000766400011,
+            -0.3764000376400005,
+            0.7664000766400011,
+            -0.3536000353600005,
+            0.03840000384000005
+          ],
+          [
+            0.3536000353600005,
+            0.3536000353600005,
+            -0.3764000376400005,
+            0.7664000766400011,
+            0.7664000766400011,
+            0.03840000384000005
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 3.812000102400006,
+      "selection": {
+        "design": "four_pins/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.1024000204800013,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.233599923359999,
+        -5.376400037640001,
+        -88.76640007664,
+        5.766400076640001,
+        -4.9615999961599995,
+        -87.23359992336
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "bolted",
+        "features": [
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -0.56,
+              -0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 47.1115,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 31.97599999999997,
+            "lower_seat_z": -14.97550000000003,
+            "head_bearing_area": 0.04966453332776688,
+            "nut_bearing_area": 0.04190494570985831,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 47.1115,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.168,
+              "across_flats": 0.28800000000000003,
+              "height": 0.10400000000000001,
+              "chamfer": 0.008
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -0.56,
+              0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 47.1115,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 31.97599999999997,
+            "lower_seat_z": -14.97550000000003,
+            "head_bearing_area": 0.04966453332776688,
+            "nut_bearing_area": 0.04190494570985831,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 47.1115,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.168,
+              "across_flats": 0.28800000000000003,
+              "height": 0.10400000000000001,
+              "chamfer": 0.008
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              0.56,
+              -0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 47.1115,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 31.97599999999997,
+            "lower_seat_z": -14.97550000000003,
+            "head_bearing_area": 0.04966453332776688,
+            "nut_bearing_area": 0.041904945709858296,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 47.1115,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.168,
+              "across_flats": 0.28800000000000003,
+              "height": 0.10400000000000001,
+              "chamfer": 0.008
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              0.56,
+              0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 47.1115,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 31.97599999999997,
+            "lower_seat_z": -14.97550000000003,
+            "head_bearing_area": 0.04966453332776688,
+            "nut_bearing_area": 0.041904945709858296,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 47.1115,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.168,
+              "across_flats": 0.28800000000000003,
+              "height": 0.10400000000000001,
+              "chamfer": 0.008
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 4,
+        "screws": 0,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -0.7462768775266123,
+            -0.7462768775266123,
+            -15.151500000000029,
+            -0.3737231224733878,
+            -0.3737231224733878,
+            32.087999999999965
+          ],
+          [
+            -0.7462768775266123,
+            0.3737231224733878,
+            -15.151500000000029,
+            -0.3737231224733878,
+            0.7462768775266123,
+            32.087999999999965
+          ],
+          [
+            0.3737231224733878,
+            -0.7462768775266123,
+            -15.151500000000029,
+            0.7462768775266123,
+            -0.3737231224733878,
+            32.087999999999965
+          ],
+          [
+            0.3737231224733878,
+            0.3737231224733878,
+            -15.151500000000029,
+            0.7462768775266123,
+            0.7462768775266123,
+            32.087999999999965
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 2.556,
+      "selection": {
+        "design": "bolted/4",
+        "scoring": {
+          "engagement_area_fraction": 0.0512,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.253723122473388,
+        -20.151500000000027,
+        -88.74627687752661,
+        5.746276877526612,
+        27.087999999999965,
+        -87.25372312247337
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h2_h4_bolt_1",
+        "j_h2_h4_nut_1",
+        "j_h2_h4_bolt_2",
+        "j_h2_h4_nut_2",
+        "j_h2_h4_bolt_3",
+        "j_h2_h4_nut_3",
+        "j_h2_h4_bolt_4",
+        "j_h2_h4_nut_4"
+      ]
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "self_tapping_screw",
+        "features": [
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -0.56,
+              -0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 41.97599999999997,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 31.97599999999997,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 0.06977072631074156,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 41.97599999999997,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -0.56,
+              0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 41.97599999999997,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 31.97599999999997,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 0.06977072631074156,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 41.97599999999997,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              0.56,
+              -0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 41.97599999999997,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 31.97599999999997,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 0.06977072631074153,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 41.97599999999997,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              0.56,
+              0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 41.97599999999997,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 31.97599999999997,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 0.06977072631074153,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 41.97599999999997,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 0,
+        "screws": 4,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -0.7462768775266123,
+            -0.7462768775266123,
+            -10.016,
+            -0.3737231224733878,
+            -0.3737231224733878,
+            32.087999999999965
+          ],
+          [
+            -0.7462768775266123,
+            0.3737231224733878,
+            -10.016,
+            -0.3737231224733878,
+            0.7462768775266123,
+            32.087999999999965
+          ],
+          [
+            0.3737231224733878,
+            -0.7462768775266123,
+            -10.016,
+            0.7462768775266123,
+            -0.3737231224733878,
+            32.087999999999965
+          ],
+          [
+            0.3737231224733878,
+            0.3737231224733878,
+            -10.016,
+            0.7462768775266123,
+            0.7462768775266123,
+            32.087999999999965
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 2.556,
+      "selection": {
+        "design": "self_tapping_screw/4",
+        "scoring": {
+          "engagement_area_fraction": 0.0512,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.253723122473388,
+        -15.016,
+        -88.74627687752661,
+        5.746276877526612,
+        27.087999999999965,
+        -87.25372312247337
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h2_h4_screw_1",
+        "j_h2_h4_screw_2",
+        "j_h2_h4_screw_3",
+        "j_h2_h4_screw_4"
+      ]
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_long_groove",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.8400000840000011,
+              "depth": 0.6000000600000008,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -8.239936510889834e-18,
+              -1.3877787807814457e-17,
+              0
+            ],
+            "tool_length": 1.6400001640000021,
+            "central_engagement_length": 1.6400001640000021,
+            "clearance": 0.015000001500000021,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.015000001500000026,
+              0.015000001500000026,
+              0.015000001500000026
+            ],
+            "axial_end_clearance": 0.015000001500000021,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.8265602479680281,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.07200000720000009,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.015000001500000021,
+        "feature_zones_local": [
+          [
+            -0.5070000507000006,
+            -0.9070000907000012,
+            -0.687000068700001,
+            0.5070000507000006,
+            0.9070000907000012,
+            0.07200000720000009
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 2.222000344400022,
+      "selection": {
+        "design": "one_long_groove/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.34440006888000435,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.4929999493,
+        -5.6870000687000015,
+        -88.90700009070001,
+        5.507000050700001,
+        -4.927999992799999,
+        -87.0929999093
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_end_pins",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.800000080000001,
+              "depth": 0.6000000600000008,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -8.239936510889834e-18,
+              -0.6000000600000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000018,
+              0.008000000800000073,
+              0.008000000800000018
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.15360004608000521,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.800000080000001,
+              "depth": 0.6000000600000008,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -8.239936510889834e-18,
+              0.6000000600000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000018,
+              0.008000000800000073,
+              0.008000000800000018
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.15360004608000521,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.00800000080000001,
+        "feature_zones_local": [
+          [
+            -0.44640004464000055,
+            -0.8064000806400011,
+            -0.6464000646400009,
+            0.44640004464000055,
+            -0.39360003936000054,
+            0.03840000384000005
+          ],
+          [
+            -0.44640004464000055,
+            0.39360003936000054,
+            -0.6464000646400009,
+            0.44640004464000055,
+            0.8064000806400011,
+            0.03840000384000005
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 1.940000128000008,
+      "selection": {
+        "design": "two_end_pins/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.12800002560000162,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.553599955359999,
+        -5.646400064640001,
+        -88.80640008064,
+        5.446400044640001,
+        -4.9615999961599995,
+        -87.19359991936
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_central_pin",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.4400000440000006,
+              "depth": 0.6000000600000008,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -8.239936510889834e-18,
+              -1.3877787807814457e-17,
+              0
+            ],
+            "tool_length": 0.4400000440000006,
+            "central_engagement_length": 0.4400000440000006,
+            "clearance": 0.011000001100000016,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.011000001100000018,
+              0.01100000109999999,
+              0.011000001100000018
+            ],
+            "axial_end_clearance": 0.011000001100000016,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.11616003484800394,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.05280000528000007,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.011000001100000016,
+        "feature_zones_local": [
+          [
+            -0.2838000283800004,
+            -0.2838000283800004,
+            -0.6638000663800009,
+            0.2838000283800004,
+            0.2838000283800004,
+            0.05280000528000007
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 0.7420000484000031,
+      "selection": {
+        "design": "one_central_pin/rectangular",
+        "scoring": {
+          "engagement_area_fraction": 0.04840000968000061,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.71619997162,
+        -5.663800066380001,
+        -88.28380002838,
+        5.283800028380001,
+        -4.947199994719999,
+        -87.71619997162
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "four_pins",
+        "depth_variant": 1.0,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 0.32000003200000043,
+              "depth": 0.6000000600000008,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -0.5600000560000008,
+              -0.5600000560000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000009,
+              0.008000000800000009
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.03072000921600105,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 0.32000003200000043,
+              "depth": 0.6000000600000008,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -0.5600000560000008,
+              0.5600000560000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000009,
+              0.008000000800000009
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.030720009216001053,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 0.32000003200000043,
+              "depth": 0.6000000600000008,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              0.5600000560000008,
+              -0.5600000560000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000009,
+              0.008000000800000009
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.030720009216001053,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "v",
+              "opening_width": 0.32000003200000043,
+              "depth": 0.6000000600000008,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              0.5600000560000008,
+              0.5600000560000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000009,
+              0.008000000800000009
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.030720009216001053,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 4,
+        "clearance": 0.00800000080000001,
+        "feature_zones_local": [
+          [
+            -0.7664000766400011,
+            -0.7664000766400011,
+            -0.6464000646400009,
+            -0.3536000353600005,
+            -0.3536000353600005,
+            0.03840000384000005
+          ],
+          [
+            -0.7664000766400011,
+            0.3536000353600005,
+            -0.6464000646400009,
+            -0.3536000353600005,
+            0.7664000766400011,
+            0.03840000384000005
+          ],
+          [
+            0.3536000353600005,
+            -0.7664000766400011,
+            -0.6464000646400009,
+            0.7664000766400011,
+            -0.3536000353600005,
+            0.03840000384000005
+          ],
+          [
+            0.3536000353600005,
+            0.3536000353600005,
+            -0.6464000646400009,
+            0.7664000766400011,
+            0.7664000766400011,
+            0.03840000384000005
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 3.812000102400006,
+      "selection": {
+        "design": "four_pins/v",
+        "scoring": {
+          "engagement_area_fraction": 0.1024000204800013,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.233599923359999,
+        -5.646400064640001,
+        -88.76640007664,
+        5.766400076640001,
+        -4.9615999961599995,
+        -87.23359992336
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h4",
+        "h2"
+      ],
+      "parameters": {
+        "type": "bolted",
+        "features": [
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -0.56,
+              -0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 47.11150000000001,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 14.975499999999974,
+            "lower_seat_z": -31.976000000000035,
+            "head_bearing_area": 0.04966453332776688,
+            "nut_bearing_area": 0.04190494570985831,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 47.11150000000001,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.168,
+              "across_flats": 0.28800000000000003,
+              "height": 0.10400000000000001,
+              "chamfer": 0.008
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              -0.56,
+              0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 47.11150000000001,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 14.975499999999974,
+            "lower_seat_z": -31.976000000000035,
+            "head_bearing_area": 0.04966453332776688,
+            "nut_bearing_area": 0.04190494570985831,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 47.11150000000001,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.168,
+              "across_flats": 0.28800000000000003,
+              "height": 0.10400000000000001,
+              "chamfer": 0.008
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              0.56,
+              -0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 47.11150000000001,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 14.975499999999974,
+            "lower_seat_z": -31.976000000000035,
+            "head_bearing_area": 0.04966453332776688,
+            "nut_bearing_area": 0.041904945709858296,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 47.11150000000001,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.168,
+              "across_flats": 0.28800000000000003,
+              "height": 0.10400000000000001,
+              "chamfer": 0.008
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "bolted",
+            "center_in_fastener_frame": [
+              0.56,
+              0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 47.11150000000001,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 14.975499999999974,
+            "lower_seat_z": -31.976000000000035,
+            "head_bearing_area": 0.04966453332776688,
+            "nut_bearing_area": 0.041904945709858296,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 47.11150000000001,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": {
+              "hole_diameter": 0.168,
+              "across_flats": 0.28800000000000003,
+              "height": 0.10400000000000001,
+              "chamfer": 0.008
+            },
+            "second_part_engagement_mm": null,
+            "min_screw_engagement": 10.0,
+            "blind": false,
+            "threaded": false,
+            "retention_assumed": false,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 4,
+        "screws": 0,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -0.7462768775266123,
+            -0.7462768775266123,
+            -32.15200000000003,
+            -0.3737231224733878,
+            -0.3737231224733878,
+            15.087499999999974
+          ],
+          [
+            -0.7462768775266123,
+            0.3737231224733878,
+            -32.15200000000003,
+            -0.3737231224733878,
+            0.7462768775266123,
+            15.087499999999974
+          ],
+          [
+            0.3737231224733878,
+            -0.7462768775266123,
+            -32.15200000000003,
+            0.7462768775266123,
+            -0.3737231224733878,
+            15.087499999999974
+          ],
+          [
+            0.3737231224733878,
+            0.3737231224733878,
+            -32.15200000000003,
+            0.7462768775266123,
+            0.7462768775266123,
+            15.087499999999974
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 2.556,
+      "selection": {
+        "design": "bolted/4",
+        "scoring": {
+          "engagement_area_fraction": 0.0512,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.253723122473388,
+        -20.087499999999977,
+        -88.74627687752663,
+        5.746276877526612,
+        27.15200000000003,
+        -87.25372312247339
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h2_h4_bolt_1",
+        "j_h2_h4_nut_1",
+        "j_h2_h4_bolt_2",
+        "j_h2_h4_nut_2",
+        "j_h2_h4_bolt_3",
+        "j_h2_h4_nut_3",
+        "j_h2_h4_bolt_4",
+        "j_h2_h4_nut_4"
+      ]
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h4",
+        "h2"
+      ],
+      "parameters": {
+        "type": "self_tapping_screw",
+        "features": [
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -0.56,
+              -0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 24.975499999999975,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 14.975499999999974,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 0.06977072631074156,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 24.975499999999975,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              -0.56,
+              0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 24.975499999999975,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 14.975499999999974,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 0.06977072631074156,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 24.975499999999975,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              0.56,
+              -0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 24.975499999999975,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 14.975499999999974,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 0.06977072631074153,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 24.975499999999975,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          },
+          {
+            "type": "self_tapping_screw",
+            "center_in_fastener_frame": [
+              0.56,
+              0.56,
+              0.0
+            ],
+            "shaft_diameter": 0.16,
+            "shaft_length": 24.975499999999975,
+            "max_shaft_length": 50.0,
+            "clearance": 0.004,
+            "head_seat_z": 14.975499999999974,
+            "lower_seat_z": -10.0,
+            "head_bearing_area": 0.06977072631074153,
+            "nut_bearing_area": null,
+            "bolt": {
+              "kind": "hex_head",
+              "shaft_length": 24.975499999999975,
+              "shaft_diameter": 0.16,
+              "head_width": 0.28800000000000003,
+              "head_height": 0.096,
+              "band_height": 0.0,
+              "drive_size": 0.0
+            },
+            "nut": null,
+            "second_part_engagement_mm": 10.0,
+            "min_screw_engagement": 10.0,
+            "blind": true,
+            "threaded": false,
+            "retention_assumed": true,
+            "thread_retention_proven": false,
+            "head_accessibility_requires_path_check": true
+          }
+        ],
+        "feature_count": 4,
+        "bolts": 0,
+        "screws": 4,
+        "threaded": false,
+        "feature_zones_local": [
+          [
+            -0.7462768775266123,
+            -0.7462768775266123,
+            -10.016000000000002,
+            -0.3737231224733878,
+            -0.3737231224733878,
+            15.087499999999974
+          ],
+          [
+            -0.7462768775266123,
+            0.3737231224733878,
+            -10.016000000000002,
+            -0.3737231224733878,
+            0.7462768775266123,
+            15.087499999999974
+          ],
+          [
+            0.3737231224733878,
+            -0.7462768775266123,
+            -10.016000000000002,
+            0.7462768775266123,
+            -0.3737231224733878,
+            15.087499999999974
+          ],
+          [
+            0.3737231224733878,
+            0.3737231224733878,
+            -10.016000000000002,
+            0.7462768775266123,
+            0.7462768775266123,
+            15.087499999999974
+          ]
+        ],
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 2.556,
+      "selection": {
+        "design": "self_tapping_screw/4",
+        "scoring": {
+          "engagement_area_fraction": 0.0512,
+          "distribution_score": 1.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.253723122473388,
+        -20.087499999999974,
+        -88.74627687752661,
+        5.746276877526612,
+        5.016000000000002,
+        -87.25372312247337
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      ],
+      "hardware": [
+        "j_h2_h4_screw_1",
+        "j_h2_h4_screw_2",
+        "j_h2_h4_screw_3",
+        "j_h2_h4_screw_4"
+      ]
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_long_groove",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.8400000840000011,
+              "depth": 0.33000003300000047,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -8.239936510889834e-18,
+              -1.3877787807814457e-17,
+              0
+            ],
+            "tool_length": 1.6400001640000021,
+            "central_engagement_length": 1.6400001640000021,
+            "clearance": 0.008250000825000011,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008250000824999992,
+              0.008250000825000048,
+              0.008250000824999992
+            ],
+            "axial_end_clearance": 0.008250000825000011,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.4546081363824155,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03960000396000005,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.008250000825000011,
+        "feature_zones_local": [
+          [
+            -0.46785004678500064,
+            -0.8678500867850012,
+            -0.37785003778500054,
+            0.46785004678500064,
+            0.8678500867850012,
+            0.03960000396000005
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 2.222000344400022,
+      "selection": {
+        "design": "one_long_groove/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.34440006888000435,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.532149953214999,
+        -5.3778500377850005,
+        -88.86785008678501,
+        5.467850046785001,
+        -4.96039999604,
+        -87.132149913215
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "two_end_pins",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.800000080000001,
+              "depth": 0.33000003300000047,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -8.239936510889834e-18,
+              -0.6000000600000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000018,
+              0.008000000800000018,
+              0.008000000800000018
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.08448002534400288,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          },
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.800000080000001,
+              "depth": 0.33000003300000047,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -8.239936510889834e-18,
+              0.6000000600000008,
+              0
+            ],
+            "tool_length": 0.32000003200000043,
+            "central_engagement_length": 0.32000003200000043,
+            "clearance": 0.00800000080000001,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.008000000800000018,
+              0.008000000800000018,
+              0.008000000800000018
+            ],
+            "axial_end_clearance": 0.00800000080000001,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.08448002534400288,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03840000384000005,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 2,
+        "clearance": 0.00800000080000001,
+        "feature_zones_local": [
+          [
+            -0.44640004464000055,
+            -0.8064000806400011,
+            -0.3764000376400005,
+            0.44640004464000055,
+            -0.39360003936000054,
+            0.03840000384000005
+          ],
+          [
+            -0.44640004464000055,
+            0.39360003936000054,
+            -0.3764000376400005,
+            0.44640004464000055,
+            0.8064000806400011,
+            0.03840000384000005
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 1.940000128000008,
+      "selection": {
+        "design": "two_end_pins/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.12800002560000162,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": true,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.553599955359999,
+        -5.376400037640001,
+        -88.80640008064,
+        5.446400044640001,
+        -4.9615999961599995,
+        -87.19359991936
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    },
+    {
+      "id": "j_h2_h4",
+      "components": [
+        "h2",
+        "h4"
+      ],
+      "parameters": {
+        "type": "distributed_grooves",
+        "layout": "one_central_pin",
+        "depth_variant": 0.55,
+        "features": [
+          {
+            "type": "groove",
+            "profile": {
+              "kind": "rectangular",
+              "opening_width": 0.4400000440000006,
+              "depth": 0.33000003300000047,
+              "bottom_width": null,
+              "neck_depth": null,
+              "radius": null
+            },
+            "center_in_cut_frame": [
+              -8.239936510889834e-18,
+              -1.3877787807814457e-17,
+              0
+            ],
+            "tool_length": 0.4400000440000006,
+            "central_engagement_length": 0.4400000440000006,
+            "clearance": 0.008250000825000011,
+            "clearance_meaning": "normal_offset_of_profile",
+            "measured_profile_surface_gaps": [
+              0.00825000082500002,
+              0.008250000825000048,
+              0.00825000082500002
+            ],
+            "axial_end_clearance": 0.008250000825000011,
+            "round_radial_clearance": null,
+            "round_diametral_clearance": null,
+            "open_ends": "closed_pocket",
+            "insertion": "normal_to_split",
+            "transferred_volume": 0.06388801916640217,
+            "profile_containment_checked": true,
+            "material_check": "central envelope and anchor containment; valid single-solid outputs",
+            "global_minimum_wall_certified": false,
+            "adaptive": true,
+            "local_material_margin": 0.03960000396000005,
+            "volume_tolerance_used": 1e-05
+          }
+        ],
+        "feature_count": 1,
+        "clearance": 0.008250000825000011,
+        "feature_zones_local": [
+          [
+            -0.26785002678500036,
+            -0.26785002678500036,
+            -0.37785003778500054,
+            0.26785002678500036,
+            0.26785002678500036,
+            0.03960000396000005
+          ]
+        ],
+        "length_selected_independently": true,
+        "mechanical_retention_checked": false,
+        "cut_to_world_rotation": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            0.0
+          ]
+        ],
+        "cut_origin": [
+          5.0,
+          -5.0,
+          -88.0
+        ]
+      },
+      "score": 0.7420000484000031,
+      "selection": {
+        "design": "one_central_pin/rectangular/shallower",
+        "scoring": {
+          "engagement_area_fraction": 0.04840000968000061,
+          "distribution_score": 0.5,
+          "geometric_anti_rotation_heuristic": false,
+          "mechanical_strength_checked": false,
+          "movement_constraints": "geometric layout heuristic, not a load or force-closure proof"
+        },
+        "future_parallel_transitions_protected": 0,
+        "constructive_search": {
+          "attempts": 68,
+          "limit": 72,
+          "valid_designs": 60,
+          "rejected": [
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "four_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/dovetail",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            },
+            {
+              "design": "two_end_pins/t",
+              "reason": "GeometryRejected: Feature below explicit design floor; no microscopic retry"
+            }
+          ],
+          "exhaustive": false,
+          "ranked_by_geometry": true,
+          "first_success_not_automatically_selected": true
+        }
+      },
+      "protected_zone_bounds": [
+        4.732149973215,
+        -5.3778500377850005,
+        -88.267850026785,
+        5.267850026785,
+        -4.96039999604,
+        -87.732149973215
+      ],
+      "possible_withdrawal_directions": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "hardware": []
+    }
+  ]
+}
