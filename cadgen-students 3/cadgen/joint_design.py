@@ -6,6 +6,7 @@ import random
 
 import cadquery as cq
 import numpy as np
+from .assembly_profiles import ASSEMBLY_PROFILE_TYPES
 
 from .assembly_geometry import (Connection, GeometryRejected, Split, build_bolted,
     build_groove, require_solid, validate_connection, contact_patch)
@@ -85,14 +86,21 @@ def connection_zone(split, result, margin):
 
 
 def make_joint(split, result, owners, name, score, selection, geometry):
-    validate_connection(split, result, geometry)
+    local_checks = validate_connection(split, result, geometry)
     upper, lower = [s for _, s in result.components[:2]]
     additions = tuple(split.world(a.cut(b)) for a,b in ((upper,split.upper),(lower,split.lower)))
     removals = tuple(split.world(a.cut(b)) for a,b in ((split.upper,upper),(split.lower,lower)))
     hardware = [(name+"_"+n,split.world(s)) for n,s in result.components[2:]]
-    dirs = tuple(split.rotation@np.asarray(v,float) for v in result.paths[0][2])
+    dirs = (() if result.parameters.get("type") in ("bayonet", "snap_fit") else
+            tuple(split.rotation@np.asarray(v,float) for v in result.paths[0][2]))
     params = dict(result.parameters, cut_to_world_rotation=split.rotation.tolist(),
-                  cut_origin=split.origin.tolist())
+                  cut_origin=split.origin.tolist(), local_geometry_checks=local_checks)
+    if result.parameters.get("joint_type") in ("threaded", "snap_fit"):
+        params["participating_components"] = list(owners)
+    if result.parameters.get("hardware_directions_local"):
+        params["hardware_directions_world"] = {
+            name+"_"+n: [(split.rotation@np.asarray(d)).tolist() for d in directions]
+            for n, directions in result.parameters["hardware_directions_local"].items()}
     zone=connection_zone(split,result,result.parameters.get("local_material_margin",geometry.min_wall))
     local_zone=transform_part(zone,split.rotation.T,-split.rotation.T@split.origin)
     b=local_zone.BoundingBox();body=split.original.BoundingBox()
@@ -135,12 +143,54 @@ def bolt_group(split, centers, seed, geometry, desired, excluded=()):
         paths.extend([(f"bolt_{index}",["part_1","part_2"],[(0,0,1)]),
                       (f"nut_{index}",["part_1","part_2",f"bolt_{index}"],[(0,0,-1)])])
         specs.append(result.parameters)
-    return Connection(components,removed,dict(type="bolted",bolts=specs,bolt_count=len(specs),
+    return Connection(components,removed,dict(type="bolted",joint_type="bolted",bolts=specs,bolt_count=len(specs),
         radial_clearance=geometry.clearance,diametral_clearance=2*geometry.clearance,
         requested_geometric_bolt_count=desired,feasible_columns=len(accepted),threaded=False),paths)
 
 
-def propose_joints(split, owners, name, seed, geometry, connection="auto", profile="auto", excluded=(), *, adaptive=True):
+def propose_joints(split, owners, name, seed, geometry, connection="auto", profile="auto", excluded=(), *, adaptive=True, preferred_types=()):
+    if connection == "all":
+        from .assembly_connections import propose_all_connections
+        return propose_all_connections(split, owners, name, seed, geometry,
+                                       preferred_types=preferred_types, excluded=excluded)
+    if connection in ("mortise_tenon", "dovetail"):
+        profile = "rectangular" if connection == "mortise_tenon" else "dovetail"
+        return propose_joints(split, owners, name, seed, geometry, "groove", profile, excluded, adaptive=adaptive)
+    if connection == "snap_fit":
+        from .snap_fit import build_snap_fit
+        result = build_snap_fit(split, geometry)
+        joint = make_joint(split, result, owners, name, 5., dict(method="cantilever_snap_pair"), geometry)
+        if any(overlap_volume(joint.zone, z) > geometry.volume_tolerance for z in excluded):
+            raise GeometryRejected("Snap-fit conflicts with a protected joint zone")
+        return [joint]
+    if connection == "threaded":
+        from .threaded import build_threaded
+        result = build_threaded(split, random.Random(f"threaded:{seed}:{name}"), geometry)
+        joint = make_joint(split, result, owners, name, 5., dict(method="symbolic_thread"), geometry)
+        if any(overlap_volume(joint.zone, z) > geometry.volume_tolerance for z in excluded):
+            raise GeometryRejected("Symbolic thread conflicts with a protected joint zone")
+        return [joint]
+    if connection == "bayonet":
+        from .bayonet import build_bayonet
+        result = build_bayonet(split, geometry)
+        joint = make_joint(split, result, owners, name, 5., dict(method="bayonet_pair"), geometry)
+        if any(overlap_volume(joint.zone, z) > geometry.volume_tolerance for z in excluded):
+            raise GeometryRejected("Bayonet conflicts with a protected joint zone")
+        return [joint]
+    if connection == "tongue_groove_stop":
+        from .tongue_groove_stop import build_tongue_groove_stop
+        result = build_tongue_groove_stop(split, random.Random(f"stop:{seed}:{name}"), geometry)
+        joint = make_joint(split, result, owners, name, 5., dict(method="longitudinal_stop"), geometry)
+        if any(overlap_volume(joint.zone, z) > geometry.volume_tolerance for z in excluded):
+            raise GeometryRejected("Stopped groove conflicts with a protected joint zone")
+        return [joint]
+    if connection == "pinned":
+        from .pin_joint import build_pin
+        result = build_pin(split, random.Random(f"pin:{seed}:{name}"), geometry)
+        joint = make_joint(split, result, owners, name, 5., dict(method="separate_pin"), geometry)
+        if any(overlap_volume(joint.zone, z) > geometry.volume_tolerance for z in excluded):
+            raise GeometryRejected("Pin conflicts with a protected joint zone")
+        return [joint]
     if adaptive and connection!="combined":
         from .adaptive_joints import propose_adaptive_joints
         return propose_adaptive_joints(split,owners,name,seed,geometry,connection,profile,excluded)
@@ -148,6 +198,8 @@ def propose_joints(split, owners, name, seed, geometry, connection="auto", profi
 
 
 def legacy_joints(split, owners, name, seed, geometry, connection="auto", profile="auto", excluded=()):
+    if profile not in ("auto", *ASSEMBLY_PROFILE_TYPES):
+        raise ValueError("Unknown or forbidden assembly profile")
     split, patch = orient_interface(split)
     b = patch.BoundingBox()
     area = patch.Area()
@@ -157,13 +209,13 @@ def legacy_joints(split, owners, name, seed, geometry, connection="auto", profil
     if profile != "auto":
         profiles=[profile]
     elif aspect > 2.2:
-        profiles=["dovetail","t","rectangular","trapezoid","v","round"]
+        profiles=["dovetail","t","rectangular","trapezoid"]
     elif curved > .2:
-        profiles=["round","rectangular","v","trapezoid","dovetail","t"]
+        profiles=list(ASSEMBLY_PROFILE_TYPES)
     elif b.xlen < 22:
-        profiles=["v","trapezoid","rectangular","round","dovetail","t"]
+        profiles=["trapezoid","rectangular","dovetail","t"]
     else:
-        profiles=["rectangular","trapezoid","round","v","dovetail","t"]
+        profiles=list(ASSEMBLY_PROFILE_TYPES)
     footprint=dict(width=b.xlen*.32,length=b.ylen*.38,
                    depth=min(-split.lower.BoundingBox().zmin*.27,16))
     options, rejected = [], []

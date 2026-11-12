@@ -6,7 +6,8 @@ import math
 import cadquery as cq
 import numpy as np
 
-from generirovanie_pazov.generate_grooves import sample_profile,PROFILE_TYPES
+from .assembly_profiles import (sample_assembly_profile as sample_profile,
+                                ASSEMBLY_PROFILE_TYPES as PROFILE_TYPES)
 from .assembly_geometry import (Connection,GeometryRejected,Split,build_groove,frame,
                                 require_solid,validate_connection,difference_volume)
 from .assembly_validation import transform_part,overlap_volume

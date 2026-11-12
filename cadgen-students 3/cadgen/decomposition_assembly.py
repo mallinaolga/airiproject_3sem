@@ -8,7 +8,7 @@ from .assembly_geometry import GeometryRejected, Split, contact_patch, frame
 from .assembly_validation import overlap_volume, transform_part
 
 
-def assemble_partition(state, seed, geometry, settings, connection="auto", profile="auto", *, edge_callback=None, joint_search=None, contact_function=None, incremental_validation=False):
+def assemble_partition(state, seed, geometry, settings, connection="auto", profile="auto", *, edge_callback=None, joint_search=None, contact_function=None, incremental_validation=False, check_sequence=True, preferred_types=()):
     from .assembly_planning import assembly_graph, validate_partition
     from .joint_design import materialize, propose_joints
 
@@ -39,7 +39,11 @@ def assemble_partition(state, seed, geometry, settings, connection="auto", profi
                 # The normal points out of a, so a is the lower/receiver side.
                 split = Split(local(state.raw[a].fuse(state.raw[b])),local(state.raw[a]),
                               local(state.raw[b]),r,origin,dict(final_geometric_neighbours=True))
-                options = propose_joints(split,(b,a),f"e{len(trials)+1}",seed,geometry,connection,profile)
+                if not check_sequence and connection in ("auto", "all"):
+                    options = propose_joints(split,(b,a),f"e{len(trials)+1}",seed,geometry,"all",profile,
+                                             preferred_types=preferred_types)
+                else:
+                    options = propose_joints(split,(b,a),f"e{len(trials)+1}",seed,geometry,connection,profile)
             entry.update(status="options_found",options=len(options),
                          joint_types=sorted(set(o.parameters["type"] for o in options)),
                          adaptive_search=options[0].selection.get("adaptive_search"),
@@ -104,7 +108,7 @@ def assemble_partition(state, seed, geometry, settings, connection="auto", profi
             try:
                 parts = materialize(state.raw,joints,geometry)
                 checks, sequence = validate_partition(state.original,state.raw,parts,joints,geometry,
-                                                      settings.max_sequence_states)
+                                                      settings.max_sequence_states,check_sequence=check_sequence)
                 checks["graph"] = assembly_graph(state.raw,joints,geometry,contact_function)
                 state.joints, state.sequence = joints, sequence
                 state.checks.update(checks)
@@ -117,7 +121,11 @@ def assemble_partition(state, seed, geometry, settings, connection="auto", profi
         for a,b,options in edges:
             if (a in reached)==(b in reached):
                 continue
-            for option in options[:settings.max_connection_trials]:
+            ranked_options = options
+            if not check_sequence and connection in ("auto", "all"):
+                used_types = {j.parameters.get("joint_type") for j in joints}
+                ranked_options = sorted(options, key=lambda j: j.parameters.get("joint_type") in used_types)
+            for option in ranked_options[:settings.max_connection_trials]:
                 if any(not compatible(option,old) for old in joints):
                     failures.append(dict(edge=[a,b],reason="joint protected zones conflict"))
                     continue
@@ -153,5 +161,8 @@ def assemble_partition(state, seed, geometry, settings, connection="auto", profi
                           incremental_pruning_can_exclude_future_joint_clearances=incremental_validation)
     if not success:
         state.assembly["reason"] = "No validated complete assembly of the fixed constituents within the search"
+    if success and not check_sequence:
+        state.assembly.update(status="geometry_verified", verification_scope="restored_geometry_only",
+                              assembly_sequence_checked=False, assembly_sequence_status="not_requested")
     assert tuple(state.raw)==identifiers
     return state

@@ -15,7 +15,7 @@ from cadgen.assembly_geometry import (AssemblySettings, GeometryRejected, Split,
 from cadgen.assembly_validation import transform_part, overlap_volume
 from cadgen.joint_design import materialize, propose_joints
 from cadgen.assembly_planning import validate_partition
-from generirovanie_pazov.generate_grooves import PROFILE_TYPES
+from cadgen.assembly_profiles import ASSEMBLY_PROFILE_TYPES
 
 
 def box(x,y,z,center=(0,0,0)):
@@ -31,9 +31,9 @@ class AdaptiveJointTests(unittest.TestCase):
     def setUp(self):
         self.geometry=AssemblySettings(path_steps=8)
 
-    def test_submillimeter_features_and_all_shared_profiles(self):
+    def test_submillimeter_features_and_allowed_assembly_profiles(self):
         split=fixture()
-        for kind in PROFILE_TYPES:
+        for kind in ASSEMBLY_PROFILE_TYPES:
             with self.subTest(kind=kind):
                 options=propose_joints(split,("upper","lower"),"j1",42,self.geometry,
                                        connection="groove",profile=kind)
@@ -62,12 +62,17 @@ class AdaptiveJointTests(unittest.TestCase):
         self.assertTrue(options)
         self.assertLess(upper.Volume()/split.original.Volume(),.001)
 
-    def test_round_profile_on_tiny_cylinder(self):
+    def test_allowed_profiles_on_tiny_cylinder(self):
         lower=cq.Solid.makeCylinder(.6,.5,cq.Vector(0,0,-.5))
         upper=cq.Solid.makeCylinder(.6,.4)
         split=Split(lower.fuse(upper),lower,upper,np.eye(3),np.zeros(3),{})
         options=propose_joints(split,("u","l"),"j",42,self.geometry,connection="groove")
-        self.assertIn("round",[o.parameters["profile"]["kind"] for o in options])
+        self.assertTrue(options)
+        self.assertTrue(all(o.parameters["profile"]["kind"] in ASSEMBLY_PROFILE_TYPES
+                            for o in options))
+        for option in options:
+            evaluated = option.selection["adaptive_search"]["evaluated_profiles"]
+            self.assertTrue(set(evaluated).issubset(ASSEMBLY_PROFILE_TYPES))
 
     def test_failed_large_feature_is_shrunk_before_rejection(self):
         from cadgen.adaptive_joints import build_groove as actual
@@ -105,7 +110,7 @@ class AdaptiveJointTests(unittest.TestCase):
             return actual(*args,**kwargs)
         with patch("cadgen.adaptive_joints.build_groove",side_effect=reject_first):
             options=propose_joints(fixture(),("u","l"),"j",42,self.geometry,connection="groove")
-        self.assertEqual(set(attempted),set(PROFILE_TYPES))
+        self.assertEqual(set(attempted),set(ASSEMBLY_PROFILE_TYPES))
         self.assertTrue(options)
         self.assertNotIn("rectangular",[j.parameters["profile"]["kind"] for j in options])
 

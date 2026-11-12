@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import cadquery as cq
 import numpy as np
@@ -17,7 +18,7 @@ from cadgen.decomposition import Budget, DecompositionSettings, decompose, rank_
 from cadgen.joint_design import materialize, propose_joints
 from cadgen.assembly_planning import assembly_graph, find_sequence, validate_partition, union
 from cadgen.auto_assembly import export_auto, export_examples, generate_auto_batch
-from generirovanie_pazov.generate_grooves import PROFILE_TYPES
+from cadgen.assembly_profiles import ASSEMBLY_PROFILE_TYPES
 
 
 def block(dimensions, center=(0,0,0)):
@@ -177,13 +178,27 @@ class AutomaticJointTests(unittest.TestCase):
         self.assertEqual({s["component"] for s in sequence},set(parts))
         self.assertTrue(checks["assembly_sequence_checked"])
 
-    def test_all_existing_profiles_are_reused_and_verified(self):
-        for profile in PROFILE_TYPES:
+    def test_allowed_assembly_profiles_are_reused_and_verified(self):
+        for profile in ASSEMBLY_PROFILE_TYPES:
             with self.subTest(profile=profile):
                 _,_,options=self.options((60,50,40),connection="groove",profile=profile)
                 self.assertEqual(options[0].parameters["profile"]["kind"],profile)
                 for gap in options[0].parameters["measured_profile_surface_gaps"]:
                     self.assertAlmostEqual(gap,.2,places=6)
+
+    def test_legacy_search_never_attempts_forbidden_profiles(self):
+        sources = [block(size) for size in ((180, 60, 40), (50, 14, 40), (60, 50, 40))]
+        sources.append(cq.Workplane("XY").circle(30).extrude(40).translate((0, 0, -20)).val())
+        for original in sources:
+            split = split_model(original, [0, 0, 0], [0, 0, 1], self.geometry)
+            # Force exhaustion so even low-ranked candidates are inspected.
+            with patch("cadgen.joint_design.build_groove",
+                       side_effect=GeometryRejected("blocked test placement")) as builder:
+                with self.assertRaises(GeometryRejected):
+                    propose_joints(split, ("a", "b"), "j", 42, self.geometry,
+                                   connection="groove", adaptive=False)
+            self.assertEqual({call.args[3] for call in builder.call_args_list},
+                             set(ASSEMBLY_PROFILE_TYPES))
 
     def test_bolts_installed_after_bodies_nuts_after_bolts(self):
         original,split,options=self.options((100,100,40))

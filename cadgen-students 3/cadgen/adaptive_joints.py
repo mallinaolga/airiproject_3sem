@@ -14,7 +14,7 @@ import numpy as np
 from OCP.BRepIntCurveSurface import BRepIntCurveSurface_Inter
 from OCP.gp import gp_Dir, gp_Lin, gp_Pnt
 
-from generirovanie_pazov.generate_grooves import PROFILE_TYPES
+from .assembly_profiles import ASSEMBLY_PROFILE_TYPES as PROFILE_TYPES
 from .assembly_geometry import (GeometryRejected, Split, build_groove, build_bolted,
                                 contact_patch, frame)
 from .assembly_validation import overlap_volume, transform_part
@@ -166,9 +166,7 @@ def propose_adaptive_joints(split, owners, name, seed, geometry, connection="aut
             placements.append((center,radius,lower_depth,upper_depth))
         configs.append((local,roles,description,placements))
     report["interface_configurations"]=len(configs)
-    curved=any(f.geomType()!="PLANE" for f in split.original.Faces())
-    preferences=(["round","rectangular","v","trapezoid","dovetail","t"] if curved else
-                 ["rectangular","round","v","trapezoid","dovetail","t"])
+    preferences=list(PROFILE_TYPES)
     profiles=[profile] if profile!="auto" else preferences
 
     def record(error,design):

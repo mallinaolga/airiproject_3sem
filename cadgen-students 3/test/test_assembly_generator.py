@@ -14,7 +14,7 @@ import cadquery as cq
 import numpy as np
 
 from Gaiki import NutSpec, build_nut
-from generirovanie_pazov.generate_grooves import PROFILE_TYPES
+from cadgen.assembly_profiles import ASSEMBLY_PROFILE_TYPES
 from cadgen.assembly_geometry import (
     AssemblySettings, GeometryRejected, build_bolted, build_groove, difference_volume,
     sampled_path, split_model, validate_connection,
@@ -70,8 +70,8 @@ class AssemblyGeometryTests(unittest.TestCase):
         self.assertLess(checks["removed_main_body_volume"], 1e-5)
         self.assertLess(checks["added_main_body_volume"], 1e-5)
 
-    def test_all_six_existing_profiles_with_appropriate_paths(self):
-        for profile in PROFILE_TYPES:
+    def test_allowed_assembly_profiles_with_appropriate_paths(self):
+        for profile in ASSEMBLY_PROFILE_TYPES:
             with self.subTest(profile=profile):
                 connection = build_groove(self.split, random.Random(42), self.settings, profile)
                 checks = validate_connection(self.split, connection, self.settings)
@@ -83,9 +83,6 @@ class AssemblyGeometryTests(unittest.TestCase):
                     self.assertEqual(connection.parameters["open_ends"], "both")
                     self.assertEqual(connection.parameters["insertion"], "longitudinal_slide")
                     self.assertEqual(abs(checks["paths"]["part_1"]["withdrawal_direction_in_cut_frame"][1]), 1)
-                if profile == "round":
-                    self.assertEqual(connection.parameters["round_radial_clearance"], 0.2)
-                    self.assertEqual(connection.parameters["round_diametral_clearance"], 0.4)
 
     def test_undercuts_reject_normal_insertion_and_closed_ends(self):
         for profile in ("dovetail", "t"):

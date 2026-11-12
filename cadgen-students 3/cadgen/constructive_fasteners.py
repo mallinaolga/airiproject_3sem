@@ -19,6 +19,11 @@ def fasten(split,centers,diameter,geometry,design,kind='bolted'):
     exterior surfaces. Screw retention is assumed, never proved by a smooth rod.
     """
     if kind not in ('bolted','self_tapping_screw'):raise ValueError(kind)
+    if kind == 'bolted':
+        geometry.validate()
+        design.validate()
+        if not math.isfinite(diameter) or diameter <= 0:
+            raise ValueError('Bolt diameter must be positive and finite')
     upper,lower=split.upper,split.lower
     source=upper.fuse(lower)
     tools=[];hardware=[];paths=[('part_1',['part_2'],[(0,0,1)])];specs=[];zones=[]
@@ -91,6 +96,10 @@ def fasten(split,centers,diameter,geometry,design,kind='bolted'):
         tools.append(cutter);zones.append(box_bounds(cq.Compound.makeCompound(protected),diameter*.1))
         upper,lower=next_upper,next_lower
     removed=source.cut(upper.fuse(lower))
-    return Connection([('part_1',upper),('part_2',lower),*hardware],removed,
+    result = Connection([('part_1',upper),('part_2',lower),*hardware],removed,
         dict(type=kind,features=specs,feature_count=len(specs),bolts=len(specs) if kind=='bolted' else 0,
              screws=len(specs) if kind!='bolted' else 0,threaded=False,feature_zones_local=zones),paths)
+    if kind == 'bolted':
+        result.parameters['joint_type'] = 'bolted'
+        for feature in specs: feature['joint_type'] = 'bolted'
+    return result

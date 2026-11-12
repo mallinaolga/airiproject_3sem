@@ -40,6 +40,12 @@ def assembly_graph(raw,joints,geometry,contact_function=None):
 
 
 def find_sequence(parts,raw,joints,geometry,max_states):
+    if any(j.parameters.get("type") == "snap_fit" for j in joints):
+        from .snap_fit import pair_sequence
+        return pair_sequence(parts, raw, joints, geometry)
+    if any(j.parameters.get("type") == "bayonet" for j in joints):
+        from .bayonet import pair_sequence
+        return pair_sequence(parts, raw, joints, geometry)
     main=set(raw)
     hardware={name:j for j in joints for name,_ in j.hardware}
     visited=set()
@@ -107,11 +113,17 @@ def find_sequence(parts,raw,joints,geometry,max_states):
             checked_positions=path["checked_positions"],distances=path["distances"],
             continuous_path_proven=False))
         installed.append(entry["component"])
+    for step in sequence:
+        threaded_owners = any(j.parameters.get("joint_type") == "threaded"
+                              and step["component"] in j.owners for j in joints)
+        if step["action"] != "place_base" and threaded_owners:
+            step.update(action="smooth_proxy_linear_insertion", intended_installation="screw-like/helical",
+                        helical_motion_checked=False, thread_geometry=False)
     return sequence,dict(states_explored=len(visited),state_limit=max_states,trials=attempts,
                          continuous_path_proven=False,technical_limit_reached=limited)
 
 
-def validate_partition(original,raw,parts,joints,geometry,max_states):
+def validate_partition(original,raw,parts,joints,geometry,max_states, *, check_sequence=True):
     for name,shape in list(raw.items())+list(parts.items()):require_solid(shape,name)
     raw_overlap={f"{a}/{b}":overlap_volume(raw[a],raw[b]) for a,b in combinations(raw,2)}
     if any(v>geometry.volume_tolerance for v in raw_overlap.values()):raise GeometryRejected("Raw partition overlaps")
@@ -130,10 +142,37 @@ def validate_partition(original,raw,parts,joints,geometry,max_states):
     actual=original.cut(main)
     if main.cut(original).Volume()>geometry.volume_tolerance or difference_volume(expected,actual)>geometry.volume_tolerance:
         raise GeometryRejected("Main geometry changed outside declared joint voids")
+    if not check_sequence:
+        from .joint_design import materialize
+        protected_checks = []
+        for joint in joints:
+            expected_parts = materialize(raw, [joint], geometry)
+            errors = {owner: difference_volume(parts[owner].intersect(joint.zone),
+                       expected_parts[owner].intersect(joint.zone)) for owner in joint.owners}
+            if any(v > geometry.volume_tolerance for v in errors.values()):
+                raise GeometryRejected("Another connection changed the protected local joint geometry")
+            for name, expected_hardware in joint.hardware:
+                if difference_volume(parts[name], expected_hardware) > geometry.volume_tolerance:
+                    raise GeometryRejected("Additional hardware geometry changed")
+            protected_checks.append(dict(joint=joint.id, local_geometry_error_volumes=errors))
+        graph = assembly_graph(raw, joints, geometry)
+        return dict(raw_reconstruction_error_volume=error, raw_intersection_volumes=raw_overlap,
+            final_intersection_volumes=overlaps, main_geometry_preserved=True,
+            allowed_removed_volume=expected.Volume(), actual_removed_volume=actual.Volume(),
+            main_added_volume=main.cut(original).Volume(), graph=graph,
+            protected_joint_checks=protected_checks, geometry_verified=True,
+            verification_scope="restored_geometry_and_local_joint_checks",
+            assembly_sequence_checked=False, assembly_sequence_status="not_requested",
+            continuous_path_proven=False, physical_strength_checked=False), []
     sequence,planning=find_sequence(parts,raw,joints,geometry,max_states)
     return dict(raw_reconstruction_error_volume=error,raw_intersection_volumes=raw_overlap,
                 final_intersection_volumes=overlaps,main_geometry_preserved=True,
                 allowed_removed_volume=expected.Volume(),actual_removed_volume=actual.Volume(),
-                main_added_volume=main.cut(original).Volume(),assembly_sequence_checked=True,
-                planning=planning,continuous_path_proven=False,threaded=False,
+                main_added_volume=main.cut(original).Volume(),
+                assembly_sequence_checked=not any(j.parameters.get("type") == "threaded" for j in joints),
+                **(dict(smooth_proxy_sequence_checked=True, helical_motion_checked=False,
+                        thread_geometry=False, verification_scope="smooth_proxy_only")
+                   if any(j.parameters.get("type") == "threaded" for j in joints) else {}),
+                planning=planning,continuous_path_proven=False,
+                threaded=any(j.parameters.get("type") == "threaded" for j in joints),
                 mechanical_retention_checked=False),sequence

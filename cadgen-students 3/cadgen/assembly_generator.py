@@ -17,13 +17,18 @@ import cadquery as cq
 import numpy as np
 from OCP.gp import gp_Trsf
 
-from generirovanie_pazov.generate_grooves import PROFILE_TYPES
+from .assembly_profiles import ASSEMBLY_PROFILE_TYPES as PROFILE_TYPES
 
 from .assembly_geometry import (
     AssemblySettings, Connection, GeometryRejected, Split, build_bolted, build_groove,
     candidate_planes, require_solid, split_model, validate_connection,
 )
 from .assembly_source import generate_source
+from .pin_joint import build_pin
+from .bayonet import build_bayonet
+from .threaded import build_threaded
+from .snap_fit import build_snap_fit
+from .tongue_groove_stop import build_tongue_groove_stop
 from .assembly_validation import transform_part
 
 
@@ -50,7 +55,7 @@ def create_from_model(original, seed, connection="groove", profile="rectangular"
     """Try bounded cuts/features on ONE supplied source, never independent pairs."""
     settings = settings or AssemblySettings()
     settings.validate()
-    if connection not in ("groove", "bolted", "random") or profile not in (*PROFILE_TYPES, "random"):
+    if connection not in ("groove", "bolted", "pinned", "tongue_groove_stop", "bayonet", "threaded", "snap_fit", "random") or profile not in (*PROFILE_TYPES, "random"):
         raise ValueError("Unknown connection or profile")
     original = require_solid(original, "original")
     rng = random.Random(f"assembly:{seed}")
@@ -62,6 +67,11 @@ def create_from_model(original, seed, connection="groove", profile="rectangular"
             split = split_model(original, origin, normal, settings)
             stage = "connection"
             result = (build_groove(split, rng, settings, profile) if selected == "groove"
+                      else build_snap_fit(split, settings) if selected == "snap_fit"
+                      else build_threaded(split, rng, settings) if selected == "threaded"
+                      else build_bayonet(split, settings) if selected == "bayonet"
+                      else build_tongue_groove_stop(split, rng, settings) if selected == "tongue_groove_stop"
+                      else build_pin(split, rng, settings) if selected == "pinned"
                       else build_bolted(split, rng, settings))
             stage = "validation"
             checks = validate_connection(split, result, settings)
@@ -118,6 +128,17 @@ def export_result(result, target, settings):
                     checks=result.checks, rejected_candidates=result.rejections, components=[],
                     note="Finite path samples do not prove continuous clearance. "
                          "No thread, friction, load capacity or mechanical retention is modeled.")
+    if result.connection.parameters.get("joint_type") == "bayonet":
+        metadata["note"] = ("Bayonet axial and rotational poses checked discretely; axial retention "
+                            "has a collision witness. Reverse unlocking is allowed. "
+                            "Continuous clearance and physical load capacity are not proven.")
+    if result.connection.parameters.get("joint_type") == "threaded":
+        metadata["note"] = ("Integral two-body symbolic thread; no hardware or thread geometry. Only smooth proxy geometry and "
+                            "sampled linear access checked. Helical motion and physical retention unverified.")
+    if result.connection.parameters.get("joint_type") == "snap_fit":
+        metadata["note"] = ("Two-body cantilever snap-fit; prescribed deformed poses checked discretely. "
+                            "Geometric engagement has a collision witness. Physical elasticity, strength, "
+                            "release actuator access and continuous clearance are unverified.")
     save_json(target/"metadata.json", metadata)
     try:
         cq.exporters.export(result.original, str(target/"original.step"))
@@ -136,16 +157,17 @@ def export_result(result, target, settings):
             # Exploded positions are display placements; only the assembly
             # sequence recorded in checks.paths was collision sampled.
             axis = np.array([0., 1., 0.]) if result.connection.parameters.get("insertion") == "longitudinal_slide" else np.array([0., 0., 1.])
-            offset = axis*distance*((1, -1, 3, -3)[index])
+            offset = axis*distance*((-1)**index*(2*(index//2)+1))
             exploded_translation = translation + rotation@offset
             cq.exporters.export(local, str(target/f"{name}.step"))
             cq.exporters.export(local, str(target/f"{name}.stl"), tolerance=0.05, angularTolerance=0.1)
-            color = cq.Color(*colors[index])
+            color = cq.Color(*colors[index % len(colors)])
             assembled.add(local, name=name, loc=location(rotation, translation), color=color)
             exploded.add(local, name=name, loc=location(rotation, exploded_translation), color=color)
             metadata["components"].append(dict(
                 name=name, step=f"{name}.step", stl=f"{name}.stl",
                 provenance=("split_original_with_joint_modifications" if name.startswith("part_")
+                            else "cadgen.pin_joint.build_pin" if name.startswith("pin_")
                             else "Bolty.build_bolt" if name.startswith("bolt_") else "Gaiki.build_nut"),
                 coordinates="component local; apply placement to reconstruct assembly",
                 rotation_matrix=rotation.tolist(), translation=translation.tolist(),
@@ -187,7 +209,7 @@ def generate_batch(output, count=1, connection="random", seed=None, profile="rec
     settings.validate()
     if count < 1 or max_attempts < 1:
         raise ValueError("count and max_attempts must be positive")
-    if connection not in ("random", "groove", "bolted") or profile not in ("random", *PROFILE_TYPES):
+    if connection not in ("random", "groove", "bolted", "pinned", "tongue_groove_stop", "bayonet", "threaded", "snap_fit") or profile not in ("random", *PROFILE_TYPES):
         raise ValueError("Unknown connection or profile")
     if source not in ("box", "cadgen") or (config and source != "cadgen"):
         raise ValueError("A CAD config requires source=cadgen")
@@ -241,7 +263,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--count", type=int, default=1, help="Requested SUCCESSFUL assemblies")
     parser.add_argument("--decomposition", choices=("two", "auto"), default="two")
-    parser.add_argument("--connection", choices=("groove", "bolted", "random", "auto", "combined"))
+    parser.add_argument("--connection", choices=("all", "mortise_tenon", "dovetail", "groove", "bolted", "pinned", "tongue_groove_stop", "bayonet", "threaded", "snap_fit", "random", "auto", "combined"))
+    parser.add_argument("--check-sequence", action="store_true", help="Auto mode: explicitly request the existing limited sequence checker")
     parser.add_argument("--profile", choices=("random", "auto", *PROFILE_TYPES))
     parser.add_argument("--source", choices=("cadgen", "box"), default="cadgen")
     parser.add_argument("--cad-config", type=Path, help="Optional existing Python config exposing cad_factory")
@@ -294,7 +317,8 @@ def main():
                 max_operations=args.cad_operation_budget,max_connection_trials=args.max_connection_trials,
                 max_sequence_states=args.max_sequence_states)
             manifest=generate_auto_batch(output,args.count,args.connection,args.seed,args.profile,
-                args.source,args.cad_config,args.max_attempts,settings,automatic,args.examples)
+                args.source,args.cad_config,args.max_attempts,settings,automatic,args.examples,
+                check_sequence=args.check_sequence)
         else:
             if args.examples or args.connection in ("auto","combined") or args.profile=="auto":
                 raise ValueError("auto/combined profiles and examples require --decomposition auto")

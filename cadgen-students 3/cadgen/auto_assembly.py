@@ -59,11 +59,12 @@ def export_auto(state,seed,parameters,program,target,geometry,settings,request):
         raise GeometryRejected("Ready assembly export requires success on all fixed geometric constituents")
     target=Path(target);target.mkdir(parents=True,exist_ok=False)
     raw_names={name:f"part_{i}" for i,name in enumerate(sorted(state.raw),1)}
-    hardware_names={};b=0;n=0;screw_count=0
+    hardware_names={};b=0;n=0;screw_count=0;pin_count=0
     for joint in state.joints:
         for name,_ in joint.hardware:
             if "_bolt_" in name:b+=1;hardware_names[name]=f"bolt_{b}"
             elif "_screw_" in name:screw_count+=1;hardware_names[name]=f"screw_{screw_count}"
+            elif "_pin_" in name:pin_count+=1;hardware_names[name]=f"pin_{pin_count}"
             else:n+=1;hardware_names[name]=f"nut_{n}"
     names=dict(raw_names,**hardware_names)
     parts=materialize(state.raw,state.joints,geometry)
@@ -79,18 +80,35 @@ def export_auto(state,seed,parameters,program,target,geometry,settings,request):
         graph=renamed(state.checks["graph"],names),cuts=state.cuts,
         stopping_conditions=renamed(state.stops,names),rejected_candidates=state.trials,
         checks=renamed(state.checks,names),assembly_sequence=renamed(state.sequence,names),
-        counts=dict(main_components=len(state.raw),cuts=len(state.cuts),bolts=b,nuts=n,
-                    grooves=sum(j.parameters["type"] in ("groove","combined") for j in state.joints),
-                    protrusions=sum(j.parameters["type"] in ("groove","combined") for j in state.joints)),
+        counts=dict(main_components=len(state.raw),cuts=len(state.cuts),bolts=b,nuts=n,pins=pin_count,
+                    grooves=sum(j.parameters["type"] in ("groove","combined","tongue_groove_stop") for j in state.joints),
+                    protrusions=sum(j.parameters["type"] in ("groove","combined","tongue_groove_stop") for j in state.joints)),
         components=[],raw_components=[],component_id_map=names,
         note="Bounded heuristic decomposition; not all possible cuts. Finite trajectory samples "
              "do not prove continuous clearance. No thread or mechanical retention modeled.")
+    if any(j.parameters.get("joint_type") == "bayonet" for j in state.joints):
+        metadata["note"] = ("Bayonet pair motion checked at discrete axial and rotational poses; "
+                        "reverse unlocking is allowed. Continuous clearance and physical "
+                        "load capacity are not proven.")
+    if any(j.parameters.get("joint_type") == "threaded" for j in state.joints):
+        metadata["note"] = ("Integral two-body symbolic thread without hardware or thread geometry; success describes smooth proxy "
+                            "geometry and sampled access only. Helical installation is unverified.")
+    if any(j.parameters.get("joint_type") == "snap_fit" for j in state.joints):
+        metadata["note"] = ("Two-body cantilever snap-fit with sampled prescribed deformation; geometric "
+                            "engagement checked. Physical elasticity, strength, release actuation and "
+                            "continuous clearance are unverified.")
     if state.checks.get("method")=="constructive_operation_volumes":
         features=[f for j in state.joints for f in j.parameters.get("features",[])]
         grooves=sum(f["type"] in ("groove","cylindrical_fit") for f in features)
         metadata["counts"].update(grooves=grooves,protrusions=grooves,screws=screw_count,
             cylindrical_fits=sum(f["type"]=="cylindrical_fit" for f in features),
             constructive_components=len(state.raw))
+    if state.checks.get("verification_scope") == "restored_geometry_and_local_joint_checks":
+        metadata["verification_scope"] = state.checks["verification_scope"]
+        metadata["assembly_sequence_status"] = "not_requested"
+        metadata["note"] = ("Restored multi-part geometry and local joint checks verified. "
+                            "No global installation order, coordinated motion, continuous trajectory "
+                            "or physical strength has been verified.")
     save_json(target/"metadata.json",metadata)
 
     def stl(shape,path):
@@ -123,7 +141,7 @@ def export_auto(state,seed,parameters,program,target,geometry,settings,request):
             color=cq.Color(*(palette[index%len(palette)] if old in state.raw else (.6,.62,.65)))
             assembly.add(local,name=name,loc=location(np.eye(3),center),color=color)
             exploded_assembly.add(local,name=name,loc=location(np.eye(3),center+exploded[old]),color=color)
-            metadata["components"].append(dict(name=name,role="main" if old in state.raw else "bolt" if "_bolt_" in old else "screw" if "_screw_" in old else "nut",
+            metadata["components"].append(dict(name=name,role="main" if old in state.raw else "bolt" if "_bolt_" in old else "screw" if "_screw_" in old else "pin" if "_pin_" in old else "nut",
                 step=f"{name}.step",stl=f"{name}.stl",rotation_matrix=np.eye(3).tolist(),translation=center.tolist(),
                 exploded_translation=(center+exploded[old]).tolist(),volume=shape.Volume()))
         for old,shape in sorted(state.raw.items()):
@@ -177,7 +195,7 @@ def export_examples(output,manifest,target):
         shutil.copytree(Path(output)/entry["folder"],target/name)
         meta=json.loads((target/name/"metadata.json").read_text())
         kinds=Counter(j["parameters"]["type"] for j in meta["joints"])
-        grooves=sum(j["parameters"]["type"] in ("groove","combined") for j in meta["joints"])
+        grooves=sum(j["parameters"]["type"] in ("groove","combined","tongue_groove_stop") for j in meta["joints"])
         bolts=sum(c["role"]=="bolt" for c in meta["components"])
         stops=dict(Counter(v["reason"] for v in meta["stopping_conditions"].values()))
         views=" · ".join(f"[{label}]({name}/{file})" for label,file in [
@@ -197,12 +215,13 @@ def export_examples(output,manifest,target):
 
 
 def generate_auto_batch(output,count=1,connection="auto",seed=None,profile="auto",source="cadgen",config=None,
-                        max_attempts=8,geometry=None,settings=None,examples=None):
+                        max_attempts=8,geometry=None,settings=None,examples=None, *, check_sequence=False,
+                        preferred_types=()):
     from .assembly_generator import save_json
     geometry=geometry or AssemblySettings();settings=settings or DecompositionSettings()
     geometry.validate();settings.validate()
     if count<1 or max_attempts<1:raise ValueError("count and max_attempts must be positive")
-    if connection not in ("auto","groove","bolted","combined"):raise ValueError("Unknown automatic connection mode")
+    if connection not in ("auto","all","mortise_tenon","dovetail","groove","bolted","combined","pinned","tongue_groove_stop","bayonet","threaded","snap_fit"):raise ValueError("Unknown automatic connection mode")
     if profile=="random":raise ValueError("Use --profile auto for geometric profile selection in automatic mode")
     if examples and source!="cadgen":raise ValueError("Demonstration examples require real CADGen sources")
     if examples and Path(examples).exists():raise FileExistsError("Examples directory already exists")
@@ -211,16 +230,25 @@ def generate_auto_batch(output,count=1,connection="auto",seed=None,profile="auto
     manifest=dict(schema_version=2,decomposition="auto",seed=seed,requested_count=count,successful_count=0,
         connection=connection,profile=profile,source=source,settings=asdict(geometry),
         decomposition_settings=asdict(settings),max_attempts_per_assembly=max_attempts,
-        assemblies=[],failures=[],status="running")
+        assemblies=[],failures=[],status="running", check_sequence=check_sequence,
+        preferred_types=list(preferred_types))
     originals=[];start=time.monotonic()
     save_json(output/"manifest.json",manifest)
     for slot in range(count):
         stream=random.Random(f"auto-batch:{seed}:{slot}")
         for attempt in range(max_attempts):
             item_seed=seed if slot==0 and attempt==0 else stream.randrange(2**63)
-            stage="source";state=None;parameters=None
+            stage="source";state=None;parameters=None;original=None
             try:
                 original,parameters,program=generate_source(item_seed,source,config,complexity="decomposition")
+                source_folder=f"source_slot_{slot+1:04d}_attempt_{attempt+1:02d}"
+                source_target=output/source_folder
+                source_target.mkdir(exist_ok=False)
+                save_json(source_target/"parameters.json",parameters)
+                if program:(source_target/"original.py").write_text(program,encoding="utf-8")
+                stage="source_export"
+                cq.exporters.export(original,str(source_target/"original.step"))
+                cq.exporters.export(original,str(source_target/"original.stl"))
                 if any(abs(s.Volume()-original.Volume())<geometry.volume_tolerance and
                        difference_volume(s,original)<=geometry.volume_tolerance for s in originals):
                     raise GeometryRejected("Duplicate source geometry")
@@ -231,7 +259,8 @@ def generate_auto_batch(output,count=1,connection="auto",seed=None,profile="auto
                 stage="geometry_export"
                 export_geometry(state,output/geometry_folder,settings,parameters,program)
                 stage="assembly"
-                assemble_partition(state,item_seed,geometry,settings,connection,profile)
+                assemble_partition(state,item_seed,geometry,settings,connection,profile,
+                                   check_sequence=check_sequence,preferred_types=preferred_types)
                 save_json(output/folder/"assembly_report.json",state.assembly)
                 if len(state.raw)<2 or not state.assembly["success"]:
                     raise GeometryRejected(state.assembly.get("reason","Source has only one geometric constituent"))
@@ -241,7 +270,9 @@ def generate_auto_batch(output,count=1,connection="auto",seed=None,profile="auto
                                       source=source,cad_config=str(config) if config else None))
                 manifest["assemblies"].append(dict(folder=folder+"/assembly",geometry_folder=geometry_folder,seed=item_seed,
                     main_components=len(state.raw),cuts=len(state.cuts),
-                    connection_types=dict(Counter(j.parameters["type"] for j in state.joints)),
+                    connection_types=dict(Counter(j.parameters.get("joint_type",j.parameters["type"]) for j in state.joints)),
+                    joint_count=len(state.joints), geometry_verified=True,
+                    assembly_sequence_checked=state.checks["assembly_sequence_checked"],
                     decomposition_complete_within_search=state.checks["decomposition_complete_within_search"]))
                 originals.append(original)
                 manifest["successful_count"]=len(manifest["assemblies"])
@@ -251,8 +282,11 @@ def generate_auto_batch(output,count=1,connection="auto",seed=None,profile="auto
             except Exception as error:
                 failure=dict(slot=slot+1,attempt=attempt+1,seed=item_seed,stage=stage,
                              error_type=type(error).__name__,reason=str(error))
+                if original is not None:
+                    failure["source_geometry"] = dict(valid=original.isValid(),solid_count=len(original.Solids()))
                 if parameters:
                     failure["source_parameters"]={k:v for k,v in parameters.items() if k!="cad"}
+                    failure["source_folder"]=source_folder
                 if state:
                     failure.update(stops=state.stops,assembly=state.assembly)
                     if stage in ("assembly","export"):

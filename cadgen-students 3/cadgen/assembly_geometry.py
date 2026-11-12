@@ -14,7 +14,8 @@ import numpy as np
 from Bolty import BoltSpec, build_bolt
 from Gaiki import NutSpec, build_nut
 from Otverstiya import through_hole_cutter
-from generirovanie_pazov.generate_grooves import profile_prism, sample_profile
+from generirovanie_pazov.generate_grooves import profile_prism
+from .assembly_profiles import ASSEMBLY_PROFILE_TYPES, sample_assembly_profile
 
 from .assembly_validation import overlap_volume, planar_contact_area, transform_part
 
@@ -223,11 +224,16 @@ class Connection:
 
 
 def build_groove(split, rng, settings, profile="rectangular", *, centers=None, footprint=None, adaptive=False, exact_profile=None):
+    settings.validate()
+    if profile not in (*ASSEMBLY_PROFILE_TYPES, "random"):
+        raise ValueError(f"Profile {profile!r} is not permitted for AIRI assemblies")
+    if exact_profile is not None and exact_profile.kind not in ASSEMBLY_PROFILE_TYPES:
+        raise ValueError("Exact profile is not permitted for AIRI assemblies")
     bb = split.original.BoundingBox()
     last_reason = "No supported feature placement"
     for x, y in (feature_centers(split, rng, settings.feature_attempts) if centers is None else centers):
         try:
-            sampled = sample_profile(rng, profile)
+            sampled = sample_assembly_profile(rng, profile)
             depth = -split.lower.BoundingBox().zmin * rng.uniform(0.20, 0.35)
             width = bb.xlen * rng.uniform(0.18, 0.3)
             if footprint:
@@ -239,6 +245,7 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
                 if key != "kind" and values[key] is not None:
                     values[key] *= scale
             selected = exact_profile or type(sampled)(**values)
+            selected.validate()
             sliding = selected.kind in ("dovetail", "t")
             core_length = (footprint["length"] if exact_profile is not None
                            else bb.ylen*rng.uniform(0.22, 0.38))
@@ -282,6 +289,8 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
                 raise GeometryRejected("CAD Boolean did not preserve the complete transferred tongue")
             if not adaptive and min(donor.Volume(), receiver.Volume()) < split.original.Volume()*settings.min_part_fraction:
                 raise GeometryRejected("Connection removes too much material")
+            dovetail_checks = (dovetail_retention(tongue, receiver, selected.depth, settings)
+                               if selected.kind == "dovetail" else {})
             removed = split.lower.intersect(cavity).cut(tongue)
             directions = [(0, 1, 0), (0, -1, 0)] if sliding else [(0, 0, 1)]
             parameters = dict(
@@ -298,6 +307,34 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
                 material_check="central envelope and anchor containment; valid single-solid outputs",
                 global_minimum_wall_certified=False, adaptive=adaptive,
                 local_material_margin=margin, volume_tolerance_used=settings.volume_tolerance)
+            if selected.kind == "dovetail":
+                parameters.update(
+                    joint_type="dovetail", insertion_method="longitudinal_slide",
+                    candidate_insertion_directions_in_cut_frame=[[0, -1, 0], [0, 1, 0]],
+                    constrained_dof=["straight_positive_z_withdrawal_at_seated_xy"],
+                    remaining_unfixed_dof=["longitudinal_translation"],
+                    longitudinal_stop=False, self_retaining=False,
+                    physical_strength_checked=False, retention_checks=dovetail_checks)
+            if selected.kind == "rectangular":
+                # Retain the legacy groove/profile dispatch keys. This describes
+                # the mechanical joint without introducing another builder.
+                tongue_depth = -tongue.BoundingBox().zmin
+                pocket_depth = -cavity.BoundingBox().zmin
+                if (abs(tongue_depth-selected.depth) > 1e-6
+                        or abs(pocket_depth-tongue_depth-settings.clearance) > 1e-6):
+                    raise GeometryRejected("Mortise depth does not match tenon and bottom clearance")
+                parameters.update(
+                    joint_type="mortise_tenon", socket="blind",
+                    tenon_depth=tongue_depth, socket_depth=pocket_depth,
+                    bottom_clearance=pocket_depth-tongue_depth,
+                    socket_length=core_length+2*settings.clearance,
+                    socket_width=selected.opening_width+2*settings.clearance,
+                    insertion_direction_in_cut_frame=[0, 0, -1],
+                    insertion_method="linear_insertion", self_retaining=False,
+                    remaining_unfixed_dof=["withdrawal_along_insertion_axis"],
+                    movement_constraints="Side walls limit transverse motion and rotation after clearance take-up; axial withdrawal remains possible",
+                    seating_depth_checked=True, local_wall_envelope_checked=True,
+                    physical_strength_checked=False)
             return Connection([("part_1", donor), ("part_2", receiver)], removed, parameters,
                               [("part_1", ["part_2"], directions)])
         except (GeometryRejected, ValueError, RuntimeError) as error:
@@ -306,6 +343,9 @@ def build_groove(split, rng, settings, profile="rectangular", *, centers=None, f
 
 
 def build_bolted(split, rng, settings, *, centers=None, adaptive=False, diameter=None):
+    settings.validate()
+    if diameter is not None and (not math.isfinite(diameter) or diameter <= 0):
+        raise ValueError("Bolt diameter must be positive and finite")
     bb = split.original.BoundingBox()
     requested_diameter=diameter
     last_reason = "No accessible through column"
@@ -340,7 +380,7 @@ def build_bolted(split, rng, settings, *, centers=None, adaptive=False, diameter
             if min(head_area, nut_area) < (.05*diameter**2 if adaptive else 1.0):
                 raise GeometryRejected("Insufficient bearing contact for head or nut")
             parameters = dict(
-                type="bolted", axis_in_cut_frame=[0, 0, 1], center_in_cut_frame=[x, y, 0],
+                type="bolted", joint_type="bolted", axis_in_cut_frame=[0, 0, 1], center_in_cut_frame=[x, y, 0],
                 shaft_diameter=diameter, hole_diameter=hole_diameter,
                 radial_clearance=settings.clearance, diametral_clearance=2*settings.clearance,
                 nut_radial_clearance=settings.clearance, bolt=asdict(spec), nut=asdict(nut_spec),
@@ -390,7 +430,35 @@ def sampled_path(moving, stationary, directions, settings):
     return dict(status="not_found", continuous_path_proven=False, failed_trials=trials)
 
 
+def dovetail_retention(tongue, receiver, depth, settings):
+    """Find an actual collision witness on straight normal withdrawal.
+
+    Nominal undercut dimensions alone do not imply retention after offsetting
+    the cavity. Reject unconfirmed retention conservatively; no 6DoF claim.
+    """
+    for fraction in (.25, .5, .75, .9, .99):
+        distance = depth*fraction
+        volume = overlap_volume(tongue.translate((0, 0, distance)), receiver)
+        if volume > settings.volume_tolerance:
+            return dict(normal_withdrawal_blocked=True, witness_translation=[0, 0, distance],
+                        witness_intersection_volume=volume)
+    raise GeometryRejected("Dovetail normal retention not confirmed: clearance may erase the undercut")
+
+
 def validate_connection(split, connection, settings):
+    pin_checks = {}
+    if connection.parameters.get("type") == "snap_fit":
+        from .snap_fit import validate_snap_fit
+        pin_checks = dict(snap_fit_checks=validate_snap_fit(split, connection, settings))
+    if connection.parameters.get("type") == "threaded":
+        from .threaded import validate_threaded
+        pin_checks = validate_threaded(split, connection, settings)
+    if connection.parameters.get("type") == "pinned":
+        from .pin_joint import validate_pin
+        pin_checks = validate_pin(split, connection, settings)
+    if connection.parameters.get("type") == "tongue_groove_stop":
+        from .tongue_groove_stop import validate_tongue_groove_stop
+        pin_checks = validate_tongue_groove_stop(split, connection, settings)
     parts = dict(connection.components)
     for name, shape in parts.items():
         require_solid(shape, name)
@@ -404,7 +472,18 @@ def validate_connection(split, connection, settings):
     void_error = difference_volume(missing, connection.removed)
     if added > settings.volume_tolerance or void_error > settings.volume_tolerance:
         raise GeometryRejected("Main geometry changed outside the declared technological void")
+    bolted_checks = {}
+    if connection.parameters.get("type") == "bolted":
+        from .bolted_validation import validate_bolted
+        bolted_checks = validate_bolted(split, connection, settings)
+    dovetail_checks = {}
+    if connection.parameters.get("type") == "groove" and connection.parameters.get("profile", {}).get("kind") == "dovetail":
+        dovetail_checks = dovetail_retention(parts["part_1"].cut(split.upper), parts["part_2"],
+                                             connection.parameters["profile"]["depth"], settings)
     paths = {}
+    if connection.parameters.get("type") == "bayonet":
+        from .bayonet import validate_bayonet
+        paths["part_1"] = validate_bayonet(split, connection, settings)
     for moving, fixed, directions in connection.paths:
         path = sampled_path(parts[moving], [parts[n] for n in fixed], directions, settings)
         if path["status"] != "sampled_clear":
@@ -418,4 +497,4 @@ def validate_connection(split, connection, settings):
                 expected_removed_volume=connection.removed.Volume(),
                 technological_void_error_volume=void_error, main_geometry_preserved=True,
                 paths=paths, continuous_path_proven=False,
-                mechanical_retention_checked=False, thread_retention_modeled=False)
+                mechanical_retention_checked=False, thread_retention_modeled=False, **pin_checks, **dovetail_checks, **bolted_checks)
