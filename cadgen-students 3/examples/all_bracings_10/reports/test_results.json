@@ -1,0 +1,13 @@
+{
+  "final_unique_tests_passed": 19,
+  "remaining_test_failures": 0,
+  "full_suite_run": false,
+  "runs": [
+    {"scope": "initial integration tests", "passed": 4, "failed": 1,
+     "reason": "Test incorrectly required every preferred type to be selected. Preferences rank feasible choices; they do not force placement. The test now requires a real multi-part mixed bayonet/snap-fit result and preserves geometric checks."},
+    {"scope": "integration and directly affected existing tests", "passed": 16, "failed": 1,
+     "reason": "New catalogue bypassed the shared propose_joints entry point. Fixed routing through propose_joints; existing forced-rejection regression restored."},
+    {"scope": "failed regression and integration retest", "passed": 6, "failed": 0},
+    {"scope": "disconnected graph and rejected source preservation", "passed": 2, "failed": 0}
+  ]
+}
