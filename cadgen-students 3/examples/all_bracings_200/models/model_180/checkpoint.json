@@ -1,0 +1,63 @@
+{
+  "status": "rejected",
+  "seed": 140180,
+  "started": "2026-11-14T08:14:38.674602+00:00",
+  "output": "C:\\Users\\Azat\\PycharmProjects\\airiproject_3sem\\cadgen-students 3\\examples\\all_bracings_200\\models\\model_180\\attempt_001",
+  "worker_pid": 25780,
+  "result": {
+    "schema_version": 2,
+    "decomposition": "auto",
+    "seed": 140180,
+    "requested_count": 1,
+    "successful_count": 0,
+    "connection": "all",
+    "profile": "auto",
+    "source": "cadgen",
+    "settings": {
+      "clearance": 0.2,
+      "min_wall": 2.0,
+      "volume_tolerance": 1e-05,
+      "min_part_fraction": 0.15,
+      "plane_attempts": 9,
+      "feature_attempts": 8,
+      "path_steps": 4
+    },
+    "decomposition_settings": {
+      "min_component_size": 0.1,
+      "min_component_volume": 0.001,
+      "min_score": 0.8,
+      "min_simplicity_gain": 0.08,
+      "neck_weight": 2.0,
+      "transition_weight": 2.0,
+      "simplicity_weight": 3.0,
+      "imbalance_weight": 0.35,
+      "max_candidates": 160,
+      "max_depth": 12,
+      "max_operations": 5000,
+      "max_connection_trials": 12,
+      "max_sequence_states": 256
+    },
+    "max_attempts_per_assembly": 1,
+    "assemblies": [],
+    "failures": [
+      {
+        "slot": 1,
+        "attempt": 1,
+        "seed": 140180,
+        "stage": "source",
+        "error_type": "CADFinalFixTooDestructive",
+        "reason": "Final cascade cleanup would delete 4/5 operations (80.0%), starting at op index 1: Extrude operation fix failed: "
+      }
+    ],
+    "status": "incomplete",
+    "check_sequence": false,
+    "preferred_types": [],
+    "elapsed_seconds": 3.125,
+    "failure_counts": {
+      "source:CADFinalFixTooDestructive": 1
+    }
+  },
+  "exit_code": 0,
+  "ended": "2026-11-14T08:14:49.470243+00:00",
+  "elapsed_seconds": 6.686999999998079
+}

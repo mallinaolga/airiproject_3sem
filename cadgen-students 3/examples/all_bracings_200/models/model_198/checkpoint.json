@@ -1,0 +1,76 @@
+{
+  "status": "rejected",
+  "seed": 140198,
+  "started": "2026-11-14T08:48:45.126397+00:00",
+  "output": "C:\\Users\\Azat\\PycharmProjects\\airiproject_3sem\\cadgen-students 3\\examples\\all_bracings_200\\models\\model_198\\attempt_001",
+  "worker_pid": 10540,
+  "result": {
+    "schema_version": 2,
+    "decomposition": "auto",
+    "seed": 140198,
+    "requested_count": 1,
+    "successful_count": 0,
+    "connection": "all",
+    "profile": "auto",
+    "source": "cadgen",
+    "settings": {
+      "clearance": 0.2,
+      "min_wall": 2.0,
+      "volume_tolerance": 1e-05,
+      "min_part_fraction": 0.15,
+      "plane_attempts": 9,
+      "feature_attempts": 8,
+      "path_steps": 4
+    },
+    "decomposition_settings": {
+      "min_component_size": 0.1,
+      "min_component_volume": 0.001,
+      "min_score": 0.8,
+      "min_simplicity_gain": 0.08,
+      "neck_weight": 2.0,
+      "transition_weight": 2.0,
+      "simplicity_weight": 3.0,
+      "imbalance_weight": 0.35,
+      "max_candidates": 160,
+      "max_depth": 12,
+      "max_operations": 5000,
+      "max_connection_trials": 12,
+      "max_sequence_states": 256
+    },
+    "max_attempts_per_assembly": 1,
+    "assemblies": [],
+    "failures": [
+      {
+        "slot": 1,
+        "attempt": 1,
+        "seed": 140198,
+        "stage": "decomposition",
+        "error_type": "GeometryRejected",
+        "reason": "original: expected one valid positive-volume solid",
+        "source_geometry": {
+          "valid": true,
+          "solid_count": 2
+        },
+        "source_parameters": {
+          "generator": "CADFactory",
+          "config": null,
+          "world_size": 211.6914793216427,
+          "requested_operations": 6,
+          "actual_operations": 5,
+          "complexity": "decomposition"
+        },
+        "source_folder": "source_slot_0001_attempt_01"
+      }
+    ],
+    "status": "incomplete",
+    "check_sequence": false,
+    "preferred_types": [],
+    "elapsed_seconds": 2.937,
+    "failure_counts": {
+      "decomposition:GeometryRejected": 1
+    }
+  },
+  "exit_code": 0,
+  "ended": "2026-11-14T08:48:55.609056+00:00",
+  "elapsed_seconds": 5.937999999994645
+}

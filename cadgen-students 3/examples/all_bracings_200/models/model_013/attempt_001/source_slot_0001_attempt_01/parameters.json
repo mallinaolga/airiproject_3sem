@@ -1,0 +1,158 @@
+{
+  "generator": "CADFactory",
+  "config": null,
+  "world_size": 193.03110121507802,
+  "requested_operations": 8,
+  "actual_operations": 2,
+  "cad": {
+    "type": "CAD",
+    "planes": [
+      {
+        "axis": 1,
+        "origin": -97
+      }
+    ],
+    "face_planes": [],
+    "cs": [
+      {
+        "type": "TwoExtrudes",
+        "op": {
+          "type": "TwoExtrudes",
+          "first": {
+            "type": "Extrude",
+            "sketch": {
+              "type": "Sketch",
+              "wires": [
+                {
+                  "type": "circle",
+                  "outer": true,
+                  "center": [
+                    0,
+                    -2
+                  ],
+                  "radius": 10
+                }
+              ],
+              "array_pattern_sketch": null,
+              "array_pattern_n": null,
+              "array_pattern_radius": null,
+              "array_pattern_dx": null,
+              "array_pattern_dy": null,
+              "array_pattern_nx": null,
+              "array_pattern_ny": null,
+              "array_pattern_type": null,
+              "array_pattern_mode": null,
+              "array_pattern_start_angle": null,
+              "array_pattern_span": null,
+              "corner_fillet": null,
+              "corner_chamfer": null,
+              "point": [
+                -5,
+                5
+              ]
+            },
+            "extent": 193,
+            "point_on_surface": true
+          },
+          "second": {
+            "type": "Extrude",
+            "sketch": {
+              "type": "Sketch",
+              "wires": [
+                {
+                  "type": "circle",
+                  "outer": true,
+                  "center": [
+                    0,
+                    0
+                  ],
+                  "radius": 15
+                }
+              ],
+              "array_pattern_sketch": null,
+              "array_pattern_n": null,
+              "array_pattern_radius": null,
+              "array_pattern_dx": null,
+              "array_pattern_dy": null,
+              "array_pattern_nx": null,
+              "array_pattern_ny": null,
+              "array_pattern_type": null,
+              "array_pattern_mode": null,
+              "array_pattern_start_angle": null,
+              "array_pattern_span": null,
+              "corner_fillet": null,
+              "corner_chamfer": null,
+              "point": [
+                -8,
+                11
+              ]
+            },
+            "extent": 36,
+            "point_on_surface": false
+          },
+          "second_center": [
+            0,
+            -2
+          ],
+          "second_normal_offset": 84
+        },
+        "plane": 0,
+        "plane_axes": null
+      },
+      {
+        "type": "Extrude",
+        "op": {
+          "type": "Extrude",
+          "sketch": {
+            "type": "Sketch",
+            "wires": [
+              {
+                "type": "circle",
+                "outer": true,
+                "center": [
+                  0,
+                  0
+                ],
+                "radius": 8
+              }
+            ],
+            "array_pattern_sketch": null,
+            "array_pattern_n": null,
+            "array_pattern_radius": null,
+            "array_pattern_dx": null,
+            "array_pattern_dy": null,
+            "array_pattern_nx": null,
+            "array_pattern_ny": null,
+            "array_pattern_type": null,
+            "array_pattern_mode": null,
+            "array_pattern_start_angle": null,
+            "array_pattern_span": null,
+            "corner_fillet": null,
+            "corner_chamfer": null,
+            "point": [
+              15,
+              8
+            ]
+          },
+          "extent": 5,
+          "point_on_surface": true
+        },
+        "plane": {
+          "type": "AxisWorkplane",
+          "point": [
+            13,
+            -11,
+            0
+          ],
+          "normal": "X",
+          "xDir": "Y"
+        },
+        "plane_axes": null
+      }
+    ],
+    "world_size": 193.03110121507802,
+    "max_string_length": 12000,
+    "use_literals": true
+  },
+  "complexity": "decomposition"
+}

@@ -1,0 +1,1589 @@
+{
+  "schema_version": 3,
+  "stage": "geometry",
+  "status": "geometry_exported",
+  "geometry_success": true,
+  "assembly_success": false,
+  "assembly_status": "not_attempted",
+  "source": {
+    "generator": "CADFactory",
+    "config": null,
+    "world_size": 195.56283389352848,
+    "requested_operations": 5,
+    "actual_operations": 2,
+    "cad": {
+      "type": "CAD",
+      "planes": [
+        {
+          "axis": 1,
+          "origin": 98
+        }
+      ],
+      "face_planes": [],
+      "cs": [
+        {
+          "type": "TwoExtrudes",
+          "op": {
+            "type": "TwoExtrudes",
+            "first": {
+              "type": "Extrude",
+              "sketch": {
+                "type": "Sketch",
+                "wires": [
+                  {
+                    "type": "circle",
+                    "outer": true,
+                    "center": [
+                      -16,
+                      0
+                    ],
+                    "radius": 40
+                  }
+                ],
+                "array_pattern_sketch": null,
+                "array_pattern_n": null,
+                "array_pattern_radius": null,
+                "array_pattern_dx": null,
+                "array_pattern_dy": null,
+                "array_pattern_nx": null,
+                "array_pattern_ny": null,
+                "array_pattern_type": null,
+                "array_pattern_mode": null,
+                "array_pattern_start_angle": null,
+                "array_pattern_span": null,
+                "corner_fillet": null,
+                "corner_chamfer": null,
+                "point": [
+                  -16,
+                  0
+                ]
+              },
+              "extent": -196,
+              "point_on_surface": true
+            },
+            "second": {
+              "type": "Extrude",
+              "sketch": {
+                "type": "Sketch",
+                "wires": [
+                  {
+                    "type": "circle",
+                    "outer": true,
+                    "center": [
+                      0,
+                      0
+                    ],
+                    "radius": 44
+                  }
+                ],
+                "array_pattern_sketch": null,
+                "array_pattern_n": null,
+                "array_pattern_radius": null,
+                "array_pattern_dx": null,
+                "array_pattern_dy": null,
+                "array_pattern_nx": null,
+                "array_pattern_ny": null,
+                "array_pattern_type": null,
+                "array_pattern_mode": null,
+                "array_pattern_start_angle": null,
+                "array_pattern_span": null,
+                "corner_fillet": null,
+                "corner_chamfer": null,
+                "point": [
+                  0,
+                  0
+                ]
+              },
+              "extent": -23,
+              "point_on_surface": false
+            },
+            "second_center": [
+              -16,
+              0
+            ],
+            "second_normal_offset": -93
+          },
+          "plane": 0,
+          "plane_axes": null
+        },
+        {
+          "type": "Extrude",
+          "op": {
+            "type": "Extrude",
+            "sketch": {
+              "type": "Sketch",
+              "wires": [
+                {
+                  "type": "polygon",
+                  "outer": true,
+                  "vertices": [
+                    [
+                      -10,
+                      -26
+                    ],
+                    [
+                      -10,
+                      26
+                    ],
+                    [
+                      36,
+                      26
+                    ],
+                    [
+                      36,
+                      -26
+                    ]
+                  ],
+                  "edges": [
+                    {
+                      "type": "arc",
+                      "point": [
+                        0,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "line"
+                    },
+                    {
+                      "type": "line"
+                    },
+                    {
+                      "type": "line"
+                    }
+                  ]
+                }
+              ],
+              "array_pattern_sketch": null,
+              "array_pattern_n": null,
+              "array_pattern_radius": null,
+              "array_pattern_dx": null,
+              "array_pattern_dy": null,
+              "array_pattern_nx": null,
+              "array_pattern_ny": null,
+              "array_pattern_type": null,
+              "array_pattern_mode": null,
+              "array_pattern_start_angle": null,
+              "array_pattern_span": null,
+              "corner_fillet": null,
+              "corner_chamfer": null,
+              "point": [
+                0,
+                0
+              ]
+            },
+            "extent": 16,
+            "point_on_surface": true
+          },
+          "plane": {
+            "type": "AxisWorkplane",
+            "point": [
+              0,
+              -39,
+              24
+            ],
+            "normal": "Y",
+            "xDir": "Z"
+          },
+          "plane_axes": null
+        }
+      ],
+      "world_size": 195.56283389352848,
+      "max_string_length": 12000,
+      "use_literals": true
+    },
+    "complexity": "decomposition"
+  },
+  "decomposition_settings": {
+    "min_component_size": 0.1,
+    "min_component_volume": 0.001,
+    "min_score": 0.8,
+    "min_simplicity_gain": 0.08,
+    "neck_weight": 2.0,
+    "transition_weight": 2.0,
+    "simplicity_weight": 3.0,
+    "imbalance_weight": 0.35,
+    "max_candidates": 160,
+    "max_depth": 12,
+    "max_operations": 5000,
+    "max_connection_trials": 12,
+    "max_sequence_states": 256
+  },
+  "component_id_map": {
+    "pl": "part_1",
+    "pul": "part_2",
+    "puull": "part_3",
+    "puulu": "part_4",
+    "puuu": "part_5"
+  },
+  "main_component_count": 5,
+  "cut_count": 4,
+  "cuts": [
+    {
+      "node": "p",
+      "children": [
+        "pu",
+        "pl"
+      ],
+      "selected": {
+        "score": 2.499742960791941,
+        "metrics": {
+          "neck_contrast": 0.2876263239189413,
+          "area_transition": 0.28762632391894155,
+          "contour_transition": 0.28762632391894166,
+          "simplicity_gain": 0.5,
+          "face_count_gain_auxiliary": 0.08333333333333333,
+          "child_recognition": [
+            {
+              "simple": false,
+              "reason": "no_constant_section_direction_verified",
+              "ignored_bores": [],
+              "directions_tested": 5,
+              "errors": []
+            },
+            {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                0.0,
+                -2.2204460492503126e-16,
+                1.0
+              ],
+              "extrusion_length": 59.000000000000085,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 0.0029656634649887666,
+              "ignored_bores": [],
+              "errors": []
+            }
+          ],
+          "candidate_source": "brep_face_boundary",
+          "original_faces": 12,
+          "child_faces": [
+            11,
+            3
+          ],
+          "interface_area": 5026.54824574367,
+          "imbalance": 0.4307495282394995,
+          "minimum_local_dimensions": [
+            88.0,
+            59.00000000000008
+          ]
+        },
+        "plane": {
+          "origin": [
+            2.7185331311995204e-17,
+            -39.000000000000014,
+            -14.242798242766359
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "cut_to_world_rotation": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "checks": {
+            "reconstruction_error_volume": 0.0,
+            "intersection_volume": 0.0,
+            "geometric_only": true,
+            "solid_count": 2
+          }
+        }
+      },
+      "selection_reason": "highest geometric score; fasteners not considered"
+    },
+    {
+      "node": "pu",
+      "children": [
+        "puu",
+        "pul"
+      ],
+      "selected": {
+        "score": 2.4065277701296726,
+        "metrics": {
+          "neck_contrast": 0.28762632391894216,
+          "area_transition": 0.2876263239189425,
+          "contour_transition": 0.2876263239189424,
+          "simplicity_gain": 0.5,
+          "face_count_gain_auxiliary": 0.36363636363636365,
+          "child_recognition": [
+            {
+              "simple": false,
+              "reason": "no_constant_section_direction_verified",
+              "ignored_bores": [],
+              "directions_tested": 3,
+              "errors": []
+            },
+            {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                -2.220446049250312e-16,
+                -4.440892098500625e-16,
+                1.0
+              ],
+              "extrusion_length": 16.000000000000163,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 0.0011289688913595892,
+              "ignored_bores": [],
+              "errors": []
+            }
+          ],
+          "candidate_source": "brep_face_boundary",
+          "original_faces": 11,
+          "child_faces": [
+            7,
+            6
+          ],
+          "interface_area": 5026.54824574367,
+          "imbalance": 0.6970786444174184,
+          "minimum_local_dimensions": [
+            88.00000000000001,
+            16.000000000000146
+          ]
+        },
+        "plane": {
+          "origin": [
+            -1.1633511771294995e-14,
+            -23.000000000000018,
+            -13.543662643180015
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "cut_to_world_rotation": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "checks": {
+            "reconstruction_error_volume": 0.0,
+            "intersection_volume": 0.0,
+            "geometric_only": true,
+            "solid_count": 2
+          }
+        }
+      },
+      "selection_reason": "highest geometric score; fasteners not considered"
+    },
+    {
+      "node": "puu",
+      "children": [
+        "puuu",
+        "puul"
+      ],
+      "selected": {
+        "score": 2.0268501776304517,
+        "metrics": {
+          "neck_contrast": 0.17355371900826444,
+          "area_transition": 0.17355371900826477,
+          "contour_transition": 0.17355371900826477,
+          "simplicity_gain": 0.5,
+          "face_count_gain_auxiliary": 0.2857142857142857,
+          "child_recognition": [
+            {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                -4.4408920985006237e-16,
+                -6.661338147750938e-16,
+                1.0
+              ],
+              "extrusion_length": 93.00000000000026,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 0.004674689868541614,
+              "ignored_bores": [],
+              "errors": []
+            },
+            {
+              "simple": false,
+              "reason": "no_constant_section_direction_verified",
+              "ignored_bores": [],
+              "directions_tested": 3,
+              "errors": []
+            }
+          ],
+          "candidate_source": "brep_face_boundary",
+          "original_faces": 7,
+          "child_faces": [
+            3,
+            5
+          ],
+          "interface_area": 5026.548245743669,
+          "imbalance": 0.47818485257887616,
+          "minimum_local_dimensions": [
+            80.00000000000006,
+            28.000000000000092
+          ]
+        },
+        "plane": {
+          "origin": [
+            -1.866311175163654e-14,
+            5.000000000000028,
+            -16.00000000000004
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "cut_to_world_rotation": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "checks": {
+            "reconstruction_error_volume": 0.0,
+            "intersection_volume": 0.0,
+            "geometric_only": true,
+            "solid_count": 2
+          }
+        }
+      },
+      "selection_reason": "highest geometric score; fasteners not considered"
+    },
+    {
+      "node": "puul",
+      "children": [
+        "puulu",
+        "puull"
+      ],
+      "selected": {
+        "score": 3.4508246841354033,
+        "metrics": {
+          "neck_contrast": 0.17355371900826466,
+          "area_transition": 0.1735537190082643,
+          "contour_transition": 0.17355371900826416,
+          "simplicity_gain": 1.0,
+          "face_count_gain_auxiliary": 0.4,
+          "child_recognition": [
+            {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                -6.661338147750935e-16,
+                -8.881784197001249e-16,
+                1.0
+              ],
+              "extrusion_length": 23.000000000000227,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 0.0013988883767904639,
+              "ignored_bores": [],
+              "errors": []
+            },
+            {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                -6.661338147750935e-16,
+                -8.881784197001249e-16,
+                1.0
+              ],
+              "extrusion_length": 5.000000000000261,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 0.0002513274122871842,
+              "ignored_bores": [],
+              "errors": []
+            }
+          ],
+          "candidate_source": "brep_face_boundary",
+          "original_faces": 5,
+          "child_faces": [
+            3,
+            3
+          ],
+          "interface_area": 5026.548245743668,
+          "imbalance": 0.6954005482790128,
+          "minimum_local_dimensions": [
+            23.000000000000135,
+            5.000000000000247
+          ]
+        },
+        "plane": {
+          "origin": [
+            -7.792862783716475e-15,
+            -18.0,
+            -16.000000000000043
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "cut_to_world_rotation": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "checks": {
+            "reconstruction_error_volume": 0.0,
+            "intersection_volume": 0.0,
+            "geometric_only": true,
+            "solid_count": 2
+          }
+        }
+      },
+      "selection_reason": "highest geometric score; fasteners not considered"
+    }
+  ],
+  "stopping_conditions": {
+    "part_5": {
+      "reason": "no_meaningful_splits",
+      "analysis": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 93.00000000000026,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.004674689868541615,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      }
+    },
+    "part_4": {
+      "reason": "no_meaningful_splits",
+      "analysis": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 23.000000000000167,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.0013988883767904639,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      }
+    },
+    "part_3": {
+      "reason": "no_meaningful_splits",
+      "analysis": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 5.00000000000032,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.0002513274122871843,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      }
+    },
+    "part_2": {
+      "reason": "no_meaningful_splits",
+      "analysis": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 16.000000000000238,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.0011289688913595896,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      }
+    },
+    "part_1": {
+      "reason": "no_meaningful_splits",
+      "analysis": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 59.00000000000018,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.002965663464988767,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      }
+    }
+  },
+  "checks": {
+    "geometric_analyses": {
+      "p": {
+        "reason": "section_boundaries",
+        "recognition": {
+          "simple": false,
+          "reason": "no_constant_section_direction_verified",
+          "ignored_bores": [],
+          "directions_tested": 5,
+          "errors": []
+        },
+        "sampled_candidates": 4,
+        "meaningful_candidates": 3,
+        "truncated": false,
+        "errors": [],
+        "rejected_geometric_candidates": {
+          "insufficient_axial_size": 2,
+          "insufficient_section_improvement_score": 1
+        },
+        "proposed_planes": [
+          {
+            "origin": [
+              2.7185331311995204e-17,
+              -98.00000000000003,
+              -14.242798242766359
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              1.4210854715202004e-14,
+              196.00000000000006
+            ]
+          },
+          {
+            "origin": [
+              2.7185331311995204e-17,
+              -39.000000000000014,
+              -14.242798242766359
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.28762632391894166,
+            "status": "eligible",
+            "score": 2.499742960791941,
+            "child_count": 2
+          },
+          {
+            "origin": [
+              2.7185331311995204e-17,
+              -23.00000000000001,
+              -14.242798242766359
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.28762632391894166,
+            "status": "eligible",
+            "score": 1.0755887634457946,
+            "child_count": 2
+          },
+          {
+            "origin": [
+              2.7185331311995204e-17,
+              -18.0,
+              -14.242798242766359
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.17355371900826477,
+            "status": "rejected",
+            "reason": "insufficient_section_improvement_score",
+            "score": 0.636182891694289
+          },
+          {
+            "origin": [
+              2.7185331311995204e-17,
+              5.000000000000004,
+              -14.242798242766359
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.17355371900826477,
+            "status": "eligible",
+            "score": 2.158267466809403,
+            "child_count": 2
+          },
+          {
+            "origin": [
+              2.7185331311995204e-17,
+              98.00000000000003,
+              -14.242798242766359
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              196.00000000000006,
+              1.4210854715202004e-14
+            ]
+          }
+        ],
+        "plane_family": "verified construction-axis boundaries with B-rep fallback",
+        "construction_axis_priority_used": true
+      },
+      "pu": {
+        "reason": "section_boundaries",
+        "recognition": {
+          "simple": false,
+          "reason": "no_constant_section_direction_verified",
+          "ignored_bores": [],
+          "directions_tested": 5,
+          "errors": []
+        },
+        "sampled_candidates": 3,
+        "meaningful_candidates": 2,
+        "truncated": false,
+        "errors": [],
+        "rejected_geometric_candidates": {
+          "insufficient_axial_size": 3,
+          "insufficient_section_improvement_score": 1
+        },
+        "proposed_planes": [
+          {
+            "origin": [
+              -1.1633511771294995e-14,
+              -98.0,
+              -13.543662643180015
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "cadgen_history_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              -58.99999999999996,
+              196.0000000000001
+            ]
+          },
+          {
+            "origin": [
+              -1.1633511771294995e-14,
+              -39.000000000000014,
+              -13.543662643180015
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              2.842170943040401e-14,
+              137.0000000000001
+            ]
+          },
+          {
+            "origin": [
+              -1.1633511771294995e-14,
+              -23.000000000000018,
+              -13.543662643180015
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.2876263239189424,
+            "status": "eligible",
+            "score": 2.4065277701296726,
+            "child_count": 2
+          },
+          {
+            "origin": [
+              -1.1633511771294995e-14,
+              -17.999999999999996,
+              -13.543662643180015
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.17355371900826477,
+            "status": "rejected",
+            "reason": "insufficient_section_improvement_score",
+            "score": 0.4738397316975672
+          },
+          {
+            "origin": [
+              -1.1633511771294995e-14,
+              5.000000000000018,
+              -13.543662643180015
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.17355371900826477,
+            "status": "eligible",
+            "score": 2.105210585515798,
+            "child_count": 2
+          },
+          {
+            "origin": [
+              -1.1633511771294995e-14,
+              98.0000000000001,
+              -13.543662643180015
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              137.00000000000014,
+              1.4210854715202004e-14
+            ]
+          }
+        ],
+        "plane_family": "verified construction-axis boundaries with B-rep fallback",
+        "construction_axis_priority_used": true
+      },
+      "puu": {
+        "reason": "section_boundaries",
+        "recognition": {
+          "simple": false,
+          "reason": "no_constant_section_direction_verified",
+          "ignored_bores": [],
+          "directions_tested": 3,
+          "errors": []
+        },
+        "sampled_candidates": 2,
+        "meaningful_candidates": 2,
+        "truncated": false,
+        "errors": [],
+        "rejected_geometric_candidates": {
+          "insufficient_axial_size": 4
+        },
+        "proposed_planes": [
+          {
+            "origin": [
+              -1.866311175163654e-14,
+              -98.0,
+              -16.00000000000004
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "cadgen_history_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              -74.99999999999997,
+              196.00000000000017
+            ]
+          },
+          {
+            "origin": [
+              -1.866311175163654e-14,
+              -38.99999999999999,
+              -16.00000000000004
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "cadgen_history_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              -15.999999999999964,
+              137.00000000000017
+            ]
+          },
+          {
+            "origin": [
+              -1.866311175163654e-14,
+              -23.00000000000002,
+              -16.00000000000004
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              7.105427357601002e-15,
+              121.00000000000021
+            ]
+          },
+          {
+            "origin": [
+              -1.866311175163654e-14,
+              -17.999999999999993,
+              -16.00000000000004
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.17355371900826477,
+            "status": "eligible",
+            "score": 1.87203018239879,
+            "child_count": 2
+          },
+          {
+            "origin": [
+              -1.866311175163654e-14,
+              5.000000000000028,
+              -16.00000000000004
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.17355371900826477,
+            "status": "eligible",
+            "score": 2.0268501776304517,
+            "child_count": 2
+          },
+          {
+            "origin": [
+              -1.866311175163654e-14,
+              98.00000000000017,
+              -16.00000000000004
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              121.0000000000002,
+              2.842170943040401e-14
+            ]
+          }
+        ],
+        "plane_family": "verified construction-axis boundaries with B-rep fallback",
+        "construction_axis_priority_used": true
+      },
+      "part_5": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 93.00000000000026,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.004674689868541615,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      },
+      "puul": {
+        "reason": "section_boundaries",
+        "recognition": {
+          "simple": false,
+          "reason": "no_constant_section_direction_verified",
+          "ignored_bores": [],
+          "directions_tested": 3,
+          "errors": []
+        },
+        "sampled_candidates": 1,
+        "meaningful_candidates": 1,
+        "truncated": false,
+        "errors": [],
+        "rejected_geometric_candidates": {
+          "insufficient_axial_size": 5
+        },
+        "proposed_planes": [
+          {
+            "origin": [
+              -7.792862783716475e-15,
+              -98.0,
+              -16.000000000000043
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "cadgen_history_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              -74.99999999999994,
+              103.00000000000009
+            ]
+          },
+          {
+            "origin": [
+              -7.792862783716475e-15,
+              -39.0,
+              -16.000000000000043
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "cadgen_history_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              -15.99999999999995,
+              44.00000000000008
+            ]
+          },
+          {
+            "origin": [
+              -7.792862783716475e-15,
+              -23.00000000000003,
+              -16.000000000000043
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              1.9539925233402755e-14,
+              28.00000000000011
+            ]
+          },
+          {
+            "origin": [
+              -7.792862783716475e-15,
+              -18.0,
+              -16.000000000000043
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "contour_transition": 0.17355371900826416,
+            "status": "eligible",
+            "score": 3.4508246841354033,
+            "child_count": 2
+          },
+          {
+            "origin": [
+              -7.792862783716475e-15,
+              5.0000000000000355,
+              -16.000000000000043
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "brep_face_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              28.000000000000085,
+              4.618527782440651e-14
+            ]
+          },
+          {
+            "origin": [
+              -7.792862783716475e-15,
+              98.0,
+              -16.000000000000043
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "source": "cadgen_history_boundary",
+            "status": "rejected",
+            "reason": "geometric_minimum_size",
+            "axial_depths": [
+              121.00000000000006,
+              -92.99999999999991
+            ]
+          }
+        ],
+        "plane_family": "verified construction-axis boundaries with B-rep fallback",
+        "construction_axis_priority_used": true
+      },
+      "part_4": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 23.000000000000167,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.0013988883767904639,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      },
+      "part_3": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 5.00000000000032,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.0002513274122871843,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      },
+      "part_2": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 16.000000000000238,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.0011289688913595896,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      },
+      "part_1": {
+        "reason": "constant_outer_section",
+        "recognition": {
+          "simple": true,
+          "reason": "constant_outer_section",
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "extrusion_length": 59.00000000000018,
+          "reconstruction_error_volume": 0.0,
+          "tolerance_volume": 0.002965663464988767,
+          "ignored_bores": [],
+          "errors": []
+        },
+        "sampled_candidates": 0,
+        "truncated": false
+      }
+    },
+    "budget": {
+      "cad_operations": 249,
+      "maximum": 5000
+    },
+    "geometry_merges": [],
+    "merge_rejections": [
+      {
+        "components": [
+          "part_1",
+          "part_2"
+        ],
+        "reason": "union is not a verified constant extrusion"
+      },
+      {
+        "components": [
+          "part_2",
+          "part_3"
+        ],
+        "reason": "union is not a verified constant extrusion"
+      },
+      {
+        "components": [
+          "part_4",
+          "part_5"
+        ],
+        "reason": "union is not a verified constant extrusion"
+      },
+      {
+        "components": [
+          "part_3",
+          "part_4"
+        ],
+        "reason": "union is not a verified constant extrusion"
+      }
+    ],
+    "merge_budget": {
+      "operations": 42,
+      "maximum": 5000,
+      "truncated": false
+    },
+    "geometric_merge_independent_of_assembly": true,
+    "raw_reconstruction_error_volume": 0.0,
+    "raw_intersection_volumes": {
+      "pl/pul": 0.0,
+      "pl/puull": 0.0,
+      "pl/puulu": 0.0,
+      "pl/puuu": 0.0,
+      "pul/puull": 0.0,
+      "pul/puulu": 0.0,
+      "pul/puuu": 0.0,
+      "puull/puulu": 0.0,
+      "puull/puuu": 0.0,
+      "puulu/puuu": 0.0
+    },
+    "geometric_partition_valid": true,
+    "classification_budget": {
+      "operations": 0,
+      "maximum": 5000,
+      "scope": "classification only; geometric leaves unchanged"
+    },
+    "geometry_independent_of_fasteners": true,
+    "all_leaves_constant_section": true,
+    "unresolved_geometry_components": [],
+    "geometry_limits": [],
+    "decomposition_complete_within_search": true,
+    "exhaustive_geometric_search": false,
+    "history_analysis": {
+      "operations": 3,
+      "unsupported": [],
+      "trusted_without_brep_verification": false
+    },
+    "step_placements_verified": true,
+    "all_stl_readable": true
+  },
+  "raw_components": [
+    {
+      "name": "part_1",
+      "step": "part_1.step",
+      "stl": "part_1.stl",
+      "volume": 296566.3464988767,
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation": [
+        2.5361065551831454e-15,
+        -68.49999999999997,
+        -16.00000000000001
+      ],
+      "exploded_translation": [
+        50.152891111300725,
+        52.652891111300875,
+        3.197442310920451e-14
+      ]
+    },
+    {
+      "name": "part_2",
+      "step": "part_2.step",
+      "stl": "part_2.stl",
+      "volume": 112896.88913595895,
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation": [
+        -2.131281108999766e-14,
+        -30.999999999999954,
+        0.21765723381212135
+      ],
+      "exploded_translation": [
+        146.45867333390217,
+        52.65289111130086,
+        -1.782092766187913
+      ]
+    },
+    {
+      "name": "part_3",
+      "step": "part_3.step",
+      "stl": "part_3.stl",
+      "volume": 25132.741228718427,
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation": [
+        -3.566845949397518e-14,
+        -20.499999999999883,
+        -16.00000000000004
+      ],
+      "exploded_translation": [
+        146.45867333390217,
+        122.95867333390254,
+        -5.684341886080802e-14
+      ]
+    },
+    {
+      "name": "part_4",
+      "step": "part_4.step",
+      "stl": "part_4.stl",
+      "volume": 139888.83767904638,
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation": [
+        9.171988385737159e-15,
+        -6.499999999999971,
+        -16.000000000000025
+      ],
+      "exploded_translation": [
+        50.15289111130075,
+        122.95867333390254,
+        -3.907985046680551e-14
+      ]
+    },
+    {
+      "name": "part_5",
+      "step": "part_5.step",
+      "stl": "part_5.stl",
+      "volume": 467468.9868541614,
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation": [
+        -4.045735279022694e-14,
+        51.50000000000013,
+        -16.00000000000006
+      ],
+      "exploded_translation": [
+        238.76445555650375,
+        52.65289111130088,
+        -2.4868995751603507e-14
+      ]
+    }
+  ],
+  "stl_exports": {
+    "original.stl": {
+      "bytes": 82084,
+      "triangles": 1640
+    },
+    "part_1.stl": {
+      "bytes": 16684,
+      "triangles": 332
+    },
+    "part_2.stl": {
+      "bytes": 13484,
+      "triangles": 268
+    },
+    "part_3.stl": {
+      "bytes": 16684,
+      "triangles": 332
+    },
+    "part_4.stl": {
+      "bytes": 16684,
+      "triangles": 332
+    },
+    "part_5.stl": {
+      "bytes": 16684,
+      "triangles": 332
+    },
+    "geometric_partition.stl": {
+      "bytes": 79884,
+      "triangles": 1596
+    },
+    "split_exploded.stl": {
+      "bytes": 79884,
+      "triangles": 1596
+    }
+  }
+}

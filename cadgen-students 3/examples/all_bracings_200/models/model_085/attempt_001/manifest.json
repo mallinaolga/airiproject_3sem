@@ -1,0 +1,542 @@
+{
+  "schema_version": 2,
+  "decomposition": "auto",
+  "seed": 140085,
+  "requested_count": 1,
+  "successful_count": 0,
+  "connection": "all",
+  "profile": "auto",
+  "source": "cadgen",
+  "settings": {
+    "clearance": 0.2,
+    "min_wall": 2.0,
+    "volume_tolerance": 1e-05,
+    "min_part_fraction": 0.15,
+    "plane_attempts": 9,
+    "feature_attempts": 8,
+    "path_steps": 4
+  },
+  "decomposition_settings": {
+    "min_component_size": 0.1,
+    "min_component_volume": 0.001,
+    "min_score": 0.8,
+    "min_simplicity_gain": 0.08,
+    "neck_weight": 2.0,
+    "transition_weight": 2.0,
+    "simplicity_weight": 3.0,
+    "imbalance_weight": 0.35,
+    "max_candidates": 160,
+    "max_depth": 12,
+    "max_operations": 5000,
+    "max_connection_trials": 12,
+    "max_sequence_states": 256
+  },
+  "max_attempts_per_assembly": 1,
+  "assemblies": [],
+  "failures": [
+    {
+      "slot": 1,
+      "attempt": 1,
+      "seed": 140085,
+      "stage": "geometry_export",
+      "error_type": "GeometryRejected",
+      "reason": "Geometric STEP changed: part_2",
+      "source_geometry": {
+        "valid": true,
+        "solid_count": 1
+      },
+      "source_parameters": {
+        "generator": "CADFactory",
+        "config": null,
+        "world_size": 192.78875974897778,
+        "requested_operations": 6,
+        "actual_operations": 5,
+        "complexity": "decomposition"
+      },
+      "source_folder": "source_slot_0001_attempt_01",
+      "stops": {
+        "pluu1luu": {
+          "reason": "unresolved_geometry",
+          "analysis": {
+            "reason": "unresolved_geometry",
+            "recognition": {
+              "simple": false,
+              "reason": "no_constant_section_direction_verified",
+              "ignored_bores": [],
+              "directions_tested": 3,
+              "errors": []
+            },
+            "sampled_candidates": 2,
+            "meaningful_candidates": 0,
+            "truncated": false,
+            "errors": [],
+            "rejected_geometric_candidates": {
+              "insufficient_axial_size": 13,
+              "no_resolved_external_contour_jump": 1,
+              "insufficient_local_dimensions": 1
+            },
+            "proposed_planes": [
+              {
+                "origin": [
+                  55.49988101220376,
+                  -7.500056790991576,
+                  -36.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "source": "cadgen_history_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  -49.99999999999997,
+                  53.00000000000008
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  -7.500056790991576,
+                  14.000000000000009
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "source": "brep_face_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  4.04121180963557e-14,
+                  3.000000000000063
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  -7.500056790991576,
+                  14.000500000000022
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "source": "brep_face_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  0.0005000000000543459,
+                  2.999500000000049
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  -7.500056790991576,
+                  16.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "source": "cadgen_history_boundary",
+                "contour_transition": 0.0,
+                "status": "rejected",
+                "reason": "no_resolved_external_contour_jump"
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  -7.500056790991576,
+                  17.000000000000014
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "source": "brep_face_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  3.0000000000000453,
+                  5.81756864903582e-14
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  -7.500056790991576,
+                  23.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "source": "cadgen_history_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  9.000000000000032,
+                  -5.999999999999928
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  -7.500056790991576,
+                  26.0
+                ],
+                "normal": [
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "source": "cadgen_history_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  12.000000000000032,
+                  -8.999999999999929
+                ]
+              },
+              {
+                "origin": [
+                  -96.0,
+                  -7.500056790991576,
+                  15.499993510838276
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "source": "cadgen_history_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  -109.99999999999994,
+                  193.00000000000006
+                ]
+              },
+              {
+                "origin": [
+                  -12.0,
+                  -7.500056790991576,
+                  15.499993510838276
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "source": "cadgen_history_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  -25.999999999999943,
+                  109.00000000000004
+                ]
+              },
+              {
+                "origin": [
+                  14.000000000000021,
+                  -7.500056790991576,
+                  15.499993510838276
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "source": "brep_face_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  7.815970093361102e-14,
+                  83.00000000000003
+                ]
+              },
+              {
+                "origin": [
+                  97.00000000000004,
+                  -7.500056790991576,
+                  15.499993510838276
+                ],
+                "normal": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "source": "brep_face_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  83.0000000000001,
+                  0.0
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  -19.00000000000003,
+                  15.499993510838276
+                ],
+                "normal": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "source": "brep_face_boundary",
+                "contour_transition": 0.9999640823666491,
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "dimensions": [
+                  3.0000000000000915,
+                  0.0005000000000134897
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  3.9999999999999885,
+                  15.499993510838276
+                ],
+                "normal": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "source": "brep_face_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  27.000000000000007,
+                  6.572520305780927e-14
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  30.000000000000004,
+                  15.499993510838276
+                ],
+                "normal": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "source": "cadgen_history_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  53.00000000000002,
+                  -25.99999999999995
+                ]
+              },
+              {
+                "origin": [
+                  55.49988101220376,
+                  31.000000000000004,
+                  15.499993510838276
+                ],
+                "normal": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "source": "cadgen_history_boundary",
+                "status": "rejected",
+                "reason": "geometric_minimum_size",
+                "axial_depths": [
+                  54.00000000000002,
+                  -26.99999999999995
+                ]
+              }
+            ],
+            "plane_family": "verified construction-axis boundaries with B-rep fallback",
+            "construction_axis_priority_used": false
+          }
+        },
+        "pluu1ll": {
+          "reason": "no_meaningful_splits",
+          "analysis": {
+            "reason": "constant_outer_section",
+            "recognition": {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "extrusion_length": 37.000000000000085,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 2.5530000000000137e-05,
+              "ignored_bores": [],
+              "errors": []
+            },
+            "sampled_candidates": 0,
+            "truncated": false
+          }
+        },
+        "plulu": {
+          "reason": "no_meaningful_splits",
+          "analysis": {
+            "reason": "constant_outer_section",
+            "recognition": {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "extrusion_length": 12.000000000000025,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 5.9878139999999906e-05,
+              "ignored_bores": [],
+              "errors": []
+            },
+            "sampled_candidates": 0,
+            "truncated": false
+          }
+        },
+        "plull1l": {
+          "reason": "no_meaningful_splits",
+          "analysis": {
+            "reason": "constant_outer_section",
+            "recognition": {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "extrusion_length": 35.00000000000004,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 2.4150000000000038e-05,
+              "ignored_bores": [],
+              "errors": []
+            },
+            "sampled_candidates": 0,
+            "truncated": false
+          }
+        },
+        "pll1": {
+          "reason": "no_meaningful_splits",
+          "analysis": {
+            "reason": "constant_outer_section",
+            "recognition": {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "extrusion_length": 49.9995,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 0.00022619240911175468,
+              "ignored_bores": [],
+              "errors": []
+            },
+            "sampled_candidates": 0,
+            "truncated": false
+          }
+        },
+        "m1": {
+          "reason": "no_meaningful_splits",
+          "analysis": {
+            "reason": "constant_outer_section",
+            "recognition": {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "extrusion_length": 26.000000000000043,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 1.9500000000000196e-05,
+              "ignored_bores": [],
+              "errors": []
+            },
+            "sampled_candidates": 0
+          }
+        },
+        "m4": {
+          "reason": "no_meaningful_splits",
+          "analysis": {
+            "reason": "constant_outer_section",
+            "recognition": {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "extrusion_length": 1.0000000000000075,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 1e-05,
+              "ignored_bores": [
+                {
+                  "kind": "closed_wire_bore",
+                  "axis": [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  "depth": 1.0
+                }
+              ],
+              "errors": []
+            },
+            "sampled_candidates": 0
+          }
+        },
+        "m5": {
+          "reason": "no_meaningful_splits",
+          "analysis": {
+            "reason": "constant_outer_section",
+            "recognition": {
+              "simple": true,
+              "reason": "constant_outer_section",
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "extrusion_length": 2.0000000000000107,
+              "reconstruction_error_volume": 0.0,
+              "tolerance_volume": 1e-05,
+              "ignored_bores": [],
+              "errors": []
+            },
+            "sampled_candidates": 0
+          }
+        }
+      },
+      "assembly": {
+        "status": "not_attempted",
+        "success": false
+      }
+    }
+  ],
+  "status": "incomplete",
+  "check_sequence": false,
+  "preferred_types": [],
+  "elapsed_seconds": 101.844,
+  "failure_counts": {
+    "geometry_export:GeometryRejected": 1
+  }
+}

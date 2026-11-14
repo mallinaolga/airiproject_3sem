@@ -1,0 +1,270 @@
+{
+  "generator": "CADFactory",
+  "config": null,
+  "world_size": 197.30098811996618,
+  "requested_operations": 5,
+  "actual_operations": 3,
+  "cad": {
+    "type": "CAD",
+    "planes": [
+      {
+        "axis": 2,
+        "origin": -61
+      }
+    ],
+    "face_planes": [],
+    "cs": [
+      {
+        "type": "TwoExtrudes",
+        "op": {
+          "type": "TwoExtrudes",
+          "first": {
+            "type": "Extrude",
+            "sketch": {
+              "type": "Sketch",
+              "wires": [
+                {
+                  "type": "circle",
+                  "outer": true,
+                  "center": [
+                    36,
+                    0
+                  ],
+                  "radius": 26
+                }
+              ],
+              "array_pattern_sketch": null,
+              "array_pattern_n": null,
+              "array_pattern_radius": null,
+              "array_pattern_dx": null,
+              "array_pattern_dy": null,
+              "array_pattern_nx": null,
+              "array_pattern_ny": null,
+              "array_pattern_type": null,
+              "array_pattern_mode": null,
+              "array_pattern_start_angle": null,
+              "array_pattern_span": null,
+              "corner_fillet": null,
+              "corner_chamfer": null,
+              "point": [
+                7,
+                -19
+              ]
+            },
+            "extent": 109,
+            "point_on_surface": true
+          },
+          "second": {
+            "type": "Extrude",
+            "sketch": {
+              "type": "Sketch",
+              "wires": [
+                {
+                  "type": "circle",
+                  "outer": true,
+                  "center": [
+                    0,
+                    0
+                  ],
+                  "radius": 32
+                }
+              ],
+              "array_pattern_sketch": null,
+              "array_pattern_n": null,
+              "array_pattern_radius": null,
+              "array_pattern_dx": null,
+              "array_pattern_dy": null,
+              "array_pattern_nx": null,
+              "array_pattern_ny": null,
+              "array_pattern_type": null,
+              "array_pattern_mode": null,
+              "array_pattern_start_angle": null,
+              "array_pattern_span": null,
+              "corner_fillet": null,
+              "corner_chamfer": null,
+              "point": [
+                -36,
+                -24
+              ]
+            },
+            "extent": 15,
+            "point_on_surface": false
+          },
+          "second_center": [
+            36,
+            0
+          ],
+          "second_normal_offset": 47
+        },
+        "plane": 0,
+        "plane_axes": null
+      },
+      {
+        "type": "Extrude",
+        "op": {
+          "type": "Extrude",
+          "sketch": {
+            "type": "Sketch",
+            "wires": [
+              {
+                "type": "circle",
+                "outer": true,
+                "center": [
+                  0,
+                  0
+                ],
+                "radius": 55
+              }
+            ],
+            "array_pattern_sketch": null,
+            "array_pattern_n": null,
+            "array_pattern_radius": null,
+            "array_pattern_dx": null,
+            "array_pattern_dy": null,
+            "array_pattern_nx": null,
+            "array_pattern_ny": null,
+            "array_pattern_type": null,
+            "array_pattern_mode": null,
+            "array_pattern_start_angle": null,
+            "array_pattern_span": null,
+            "corner_fillet": null,
+            "corner_chamfer": null,
+            "point": [
+              0,
+              0
+            ]
+          },
+          "extent": -84,
+          "point_on_surface": true
+        },
+        "plane": {
+          "type": "AxisWorkplane",
+          "point": [
+            10,
+            0,
+            44
+          ],
+          "normal": "X",
+          "xDir": "Y"
+        },
+        "plane_axes": null
+      },
+      {
+        "type": "Extrude",
+        "op": {
+          "type": "Extrude",
+          "sketch": {
+            "type": "Sketch",
+            "wires": [
+              {
+                "type": "polygon",
+                "outer": true,
+                "vertices": [
+                  [
+                    -42,
+                    0
+                  ],
+                  [
+                    42,
+                    0
+                  ],
+                  [
+                    12,
+                    9
+                  ],
+                  [
+                    12,
+                    32
+                  ],
+                  [
+                    -12,
+                    32
+                  ],
+                  [
+                    -12,
+                    9
+                  ]
+                ],
+                "edges": [
+                  {
+                    "type": "line"
+                  },
+                  {
+                    "type": "line"
+                  },
+                  {
+                    "type": "arc",
+                    "point": [
+                      17,
+                      20
+                    ]
+                  },
+                  {
+                    "type": "arc",
+                    "point": [
+                      0,
+                      37
+                    ]
+                  },
+                  {
+                    "type": "arc",
+                    "point": [
+                      -17,
+                      20
+                    ]
+                  },
+                  {
+                    "type": "line"
+                  }
+                ]
+              },
+              {
+                "type": "circle",
+                "outer": false,
+                "center": [
+                  0,
+                  20
+                ],
+                "radius": 14
+              }
+            ],
+            "array_pattern_sketch": null,
+            "array_pattern_n": null,
+            "array_pattern_radius": null,
+            "array_pattern_dx": null,
+            "array_pattern_dy": null,
+            "array_pattern_nx": null,
+            "array_pattern_ny": null,
+            "array_pattern_type": null,
+            "array_pattern_mode": null,
+            "array_pattern_start_angle": null,
+            "array_pattern_span": null,
+            "corner_fillet": null,
+            "corner_chamfer": null,
+            "point": [
+              0,
+              20
+            ]
+          },
+          "extent": 21,
+          "point_on_surface": true
+        },
+        "plane": {
+          "type": "AxisWorkplane",
+          "point": [
+            32,
+            2,
+            -61
+          ],
+          "normal": "Y",
+          "xDir": "X"
+        },
+        "plane_axes": null
+      }
+    ],
+    "world_size": 197.30098811996618,
+    "max_string_length": 12000,
+    "use_literals": true
+  },
+  "complexity": "decomposition"
+}
